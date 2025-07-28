@@ -2,11 +2,11 @@
 export default {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-    './**/*.{ts,tsx}',
+    "./index.html",
+    "./src/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./App.tsx",
+    "./main.tsx",
   ],
   theme: {
     container: {
@@ -52,12 +52,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         // Custom brand colors
-        'teal-dark': '#007E7A',
-        'teal-light': '#00C4B3',
-        'orange': '#F7941E',
-        'navy-blue': '#1E2A3A',
-        'leaf-green': '#1BB66E',
-        'brand-white': '#FFFFFF',
+        "teal-dark": "#007E7A",
+        "teal-light": "#00C4B3",
+        orange: "#F7941E",
+        "navy-blue": "#1E2A3A",
+        "leaf-green": "#1BB66E",
+        "brand-white": "#FFFFFF",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,4 +81,4 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} 
+};
