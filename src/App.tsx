@@ -15,10 +15,13 @@ import { ChasAssistancePage } from './pages/ChasAssistancePage';
 import SiaContractorPage from './pages/SiaContractorPage';
 import { IsoCertificationsPage } from './pages/IsoCertificationsPage';
 import { StaffVettingPage } from './pages/StaffVettingPage';
-import { PatTestingPage } from './pages/PatTestingPage';
+import PatTestingPage from './pages/PatTestingPage';
 import { RiskAssessmentsPage } from './pages/RiskAssessmentsPage';
-import { BafeCertificationPage } from './pages/BafeCertificationPage';
-
+import BafeCertificationPage from './pages/BafeCertificationPage';
+import Iso9001Page from './pages/Iso9001Page';
+import OHSAS18001Page from './pages/OHSAS18001Page';
+import Iso14001Page from './pages/Iso14001Page';
+import FireSafetyCertificationPage from './pages/FireSafetyCertificationPage';
 // Placeholder components for remaining pages
 const InsurancePage = () => (
   <div className="min-h-screen bg-gray-50 py-20">
@@ -95,11 +98,11 @@ export default function App() {
           />
           <Route
             path="/services/iso-certifications/iso-9001"
-            element={<ServiceDetailPage />}
+            element={<Iso9001Page />}
           />
           <Route
             path="/services/iso-certifications/iso-14001"
-            element={<ServiceDetailPage />}
+            element={<Iso14001Page />}
           />
           <Route
             path="/services/iso-certifications/iso-14001/certification"
@@ -111,7 +114,7 @@ export default function App() {
           />
           <Route
             path="/services/iso-certifications/ohsas-18001"
-            element={<ServiceDetailPage />}
+            element={<OHSAS18001Page />}
           />
           <Route
             path="/services/iso-certifications/ohsas-18001/certification"
@@ -129,8 +132,8 @@ export default function App() {
             element={<ServiceDetailPage />}
           />
           <Route
-            path="/services/pat-testing/fire-safety"
-            element={<ServiceDetailPage />}
+            path="/services/fire-safety"
+            element={<FireSafetyCertificationPage />}
           />
           <Route
             path="/services/risk-assessments"

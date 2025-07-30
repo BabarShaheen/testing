@@ -125,23 +125,16 @@ const Navigation: React.FC = () => {
           id: 'pat-testing',
           label: 'PAT Testing',
           path: '/services/pat-testing',
-          children: [
-            {
-              id: 'pat-pricing',
-              label: 'Pricing',
-              path: '/services/pat-testing/pricing',
-            },
-            {
-              id: 'fire-safety',
-              label: 'Fire Safety',
-              path: '/services/pat-testing/fire-safety',
-            },
-          ],
         },
         {
           id: 'risk-assessments',
           label: 'Risk Assessments',
           path: '/services/risk-assessments',
+        },
+        {
+          id: 'fire-safety',
+          label: 'Fire Safety Certification',
+          path: '/services/fire-safety',
         },
         {
           id: 'bafe-certification',
