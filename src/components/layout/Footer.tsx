@@ -39,15 +39,15 @@ const Footer: React.FC = () => {
         style={{ animationDelay: '1s' }}
       ></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="animate-fade-in-up">
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-3 sm:mb-4">
               <img
                 src="/citrix_logo.png"
                 alt="Citrix Consulting Services"
-                className="w-8 h-8 mr-3 transition-transform duration-300 hover:rotate-12"
+                className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 transition-transform duration-300 hover:rotate-12"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -55,18 +55,18 @@ const Footer: React.FC = () => {
                   if (fallback) fallback.style.display = 'flex';
                 }}
               />
-              <div className="w-8 h-8 mr-3 bg-teal-dark rounded-full flex items-center justify-center hidden">
-                <span className="text-white font-bold text-sm">C</span>
+              <div className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 bg-teal-dark rounded-full flex items-center justify-center hidden">
+                <span className="text-white font-bold text-xs sm:text-sm">C</span>
               </div>
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-base sm:text-lg font-semibold text-white">
                 Citrix Consulting Services
               </h3>
             </div>
-            <p className="text-gray-300 mb-4 leading-relaxed">
+            <p className="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-xs sm:text-sm">
               Professional compliance and safety solutions for businesses across
               the UK. Helping you achieve regulatory excellence.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-2 sm:space-x-4">
               {[
                 { icon: Facebook, href: '#' },
                 { icon: Twitter, href: '#' },
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
                   key={index}
                   variant="ghost"
                   size="sm"
-                  className="text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 hover-scale"
+                  className="text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 hover-scale p-1 sm:p-2"
                   asChild
                 >
                   <a
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <social.icon className="h-4 w-4" />
+                    <social.icon className="h-3 w-3 sm:h-4 sm:w-4" />
                   </a>
                 </Button>
               ))}
@@ -97,8 +97,8 @@ const Footer: React.FC = () => {
             className="animate-fade-in-up"
             style={{ animationDelay: '0.1s' }}
           >
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Links</h3>
+            <ul className="space-y-1 sm:space-y-2">
               {[
                 { path: '/', label: 'Home' },
                 { path: '/about', label: 'About Us' },
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
                 >
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-white transition-all duration-300 text-left relative overflow-hidden group"
+                    className="text-gray-300 hover:text-white transition-all duration-300 text-left relative overflow-hidden group text-xs sm:text-sm"
                   >
                     <span className="relative z-10">{link.label}</span>
                     <div className="absolute inset-0 bg-orange/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -128,8 +128,8 @@ const Footer: React.FC = () => {
             className="animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
-            <h3 className="text-lg font-semibold mb-4">Our Services</h3>
-            <ul className="space-y-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Our Services</h3>
+            <ul className="space-y-1 sm:space-y-2">
               {[
                 { id: 'iso-9001', name: 'ISO 9001 Certification' },
                 { id: 'chas-accreditation', name: 'CHAS Accreditation' },
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
                 >
                   <Link
                     to={`/services/${service.id}`}
-                    className="text-gray-300 hover:text-white transition-all duration-300 text-left relative overflow-hidden group"
+                    className="text-gray-300 hover:text-white transition-all duration-300 text-left relative overflow-hidden group text-xs sm:text-sm"
                   >
                     <span className="relative z-10">{service.name}</span>
                     <div className="absolute inset-0 bg-teal-light/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -158,8 +158,8 @@ const Footer: React.FC = () => {
             className="animate-fade-in-up"
             style={{ animationDelay: '0.3s' }}
           >
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact Info</h3>
+            <div className="space-y-2 sm:space-y-3">
               {[
                 { icon: Mail, text: 'info@citrixconsulting.co.uk' },
                 { icon: Phone, text: '+44 (0) 123 456 7890' },
@@ -171,8 +171,8 @@ const Footer: React.FC = () => {
                   className="flex items-center animate-fade-in-up hover-lift"
                   style={{ animationDelay: `${0.4 + index * 0.05}s` }}
                 >
-                  <contact.icon className="h-4 w-4 text-orange mr-2 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="text-gray-300">{contact.text}</span>
+                  <contact.icon className="h-3 w-3 sm:h-4 sm:w-4 text-orange mr-2 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="text-gray-300 text-xs sm:text-sm break-all">{contact.text}</span>
                 </div>
               ))}
             </div>
@@ -180,17 +180,17 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="border-t border-gray-700 relative mt-6 sm:mt-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
             <div className="md:flex md:items-center md:justify-between">
-              <div className="text-sm text-gray-400 animate-fade-in-up">
+              <div className="text-xs sm:text-sm text-gray-400 animate-fade-in-up">
                 © 2024 Citrix Consulting Services Limited. All rights reserved.
               </div>
               <div
-                className="mt-4 md:mt-0 animate-fade-in-up"
+                className="mt-3 md:mt-0 animate-fade-in-up"
                 style={{ animationDelay: '0.1s' }}
               >
-                <div className="flex space-x-4">
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                   {[
                     { path: '/policies', label: 'Privacy Policy' },
                     { path: '/policies', label: 'Terms & Conditions' },
@@ -198,7 +198,7 @@ const Footer: React.FC = () => {
                     <Link
                       key={index}
                       to={link.path}
-                      className="text-sm text-gray-400 hover:text-white transition-all duration-300 relative overflow-hidden group"
+                      className="text-xs sm:text-sm text-gray-400 hover:text-white transition-all duration-300 relative overflow-hidden group"
                     >
                       <span className="relative z-10">{link.label}</span>
                       <div className="absolute inset-0 bg-orange/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -214,13 +214,13 @@ const Footer: React.FC = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 w-12 h-12 bg-orange hover:bg-orange/90 text-white rounded-full shadow-lg transition-all duration-300 hover-lift z-50 ${
+        className={`fixed bottom-4 sm:bottom-8 right-4 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 bg-orange hover:bg-orange/90 text-white rounded-full shadow-lg transition-all duration-300 hover-lift z-50 ${
           showScrollTop
             ? 'animate-fade-in-up opacity-100'
             : 'opacity-0 pointer-events-none'
         }`}
       >
-        <ArrowUp className="h-5 w-5 mx-auto" />
+        <ArrowUp className="h-4 w-4 sm:h-5 sm:w-5 mx-auto" />
       </button>
     </footer>
   );

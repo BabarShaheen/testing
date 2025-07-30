@@ -64,25 +64,30 @@ const Navigation: React.FC = () => {
             },
           ],
         },
-        {
-          id: 'sia-contractor',
-          label: 'SIA Contractor (ACS)',
-          path: '/services/sia-contractor',
-          icon: Award,
-          description: 'Security industry compliance',
-          children: [
-            {
-              id: 'acs-audits',
-              label: 'ACS Audit',
-              path: '/services/sia-contractor/acs-audits',
-            },
-            {
-              id: 'acs-eligibility',
-              label: 'ACS Eligibility',
-              path: '/services/sia-contractor/acs-eligibility',
-            },
-          ],
-        },
+                 {
+           id: 'sia-contractor',
+           label: 'SIA Contractor (ACS)',
+           path: '/services/sia-contractor',
+           icon: Award,
+           description: 'Security industry compliance',
+           children: [
+             {
+               id: 'sia-acs',
+               label: 'SIA ACS Approved Contractor Scheme',
+               path: '/services/sia-acs',
+             },
+                           {
+                id: 'acs-audits',
+                label: 'ACS Audit',
+                path: '/services/acs-compliance',
+              },
+              {
+                id: 'acs-eligibility',
+                label: 'ACS Eligibility',
+                path: '/services/sia-contractor/acs-eligibility',
+              },
+           ],
+         },
         {
           id: 'iso-certifications',
           label: 'ISO Certifications',
@@ -102,6 +107,11 @@ const Navigation: React.FC = () => {
               label: 'ISO 14001',
               path: '/services/iso-certifications/iso-14001',
               children: [
+                {
+                  id: 'iso-14001-page',
+                  label: 'ISO 14001 EMS',
+                  path: '/iso-14001',
+                },
                 {
                   id: 'iso-14001-certification',
                   label: 'Certification',
@@ -197,13 +207,13 @@ const Navigation: React.FC = () => {
           icon: Shield,
           description: 'Insurance coverage details',
         },
-        {
-          id: 'careers',
-          label: 'Careers',
-          path: '/about/careers',
-          icon: Users,
-          description: 'Join our team',
-        },
+                 {
+           id: 'careers',
+           label: 'Careers',
+           path: '/careers',
+           icon: Users,
+           description: 'Join our team',
+         },
       ],
     },
     {

@@ -39,7 +39,7 @@ export function HomePage() {
     {
       id: 'iso-9001',
       icon: (
-        <Shield className="h-8 w-8 text-orange transition-transform group-hover:scale-110" />
+        <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-orange transition-transform group-hover:scale-110" />
       ),
       title: 'ISO 9001 Certification',
       description:
@@ -50,7 +50,7 @@ export function HomePage() {
     {
       id: 'chas-accreditation',
       icon: (
-        <Award className="h-8 w-8 text-orange transition-transform group-hover:scale-110" />
+        <Award className="h-6 w-6 sm:h-8 sm:w-8 text-orange transition-transform group-hover:scale-110" />
       ),
       title: 'CHAS Accreditation',
       description:
@@ -61,7 +61,7 @@ export function HomePage() {
     {
       id: 'fire-risk-assessment',
       icon: (
-        <CheckCircle className="h-8 w-8 text-orange transition-transform group-hover:scale-110" />
+        <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-orange transition-transform group-hover:scale-110" />
       ),
       title: 'Fire Risk Assessment',
       description:
@@ -105,7 +105,7 @@ export function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-20 relative overflow-hidden animate-fade-in">
+      <section className="bg-teal-gradient text-white py-12 sm:py-16 md:py-20 relative overflow-hidden animate-fade-in">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-navy-blue/20"></div>
         <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
@@ -116,24 +116,24 @@ export function HomePage() {
         <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-teal-light/30 rounded-full animate-pulse"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="animate-fade-in-left">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
                 Professional
                 <span className="text-orange block gradient-text">
                   Compliance
                 </span>
                 Solutions
               </h1>
-              <p className="text-xl text-gray-100 mb-8 max-w-lg leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 sm:mb-8 max-w-lg leading-relaxed">
                 Expert safety, accreditation, and compliance services to help
                 your business meet regulatory requirements and achieve
                 operational excellence.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <Button
                   size="lg"
-                  className="bg-orange hover:bg-orange/90 text-white px-8 py-3 btn-premium transition-all-smooth"
+                  className="bg-orange hover:bg-orange/90 text-white px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base btn-premium transition-all-smooth"
                   onClick={() => handleNavClick('contact')}
                 >
                   Get Started Today
@@ -142,49 +142,49 @@ export function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-teal-dark px-8 py-3 transition-all-smooth hover-lift"
+                  className="border-white text-white hover:bg-white hover:text-teal-dark px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base transition-all-smooth hover-lift"
                   onClick={() => handleNavClick('services')}
                 >
                   View Services
                 </Button>
               </div>
-              <div className="flex items-center gap-6 text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-xs sm:text-sm">
                 <div
                   className="flex items-center animate-fade-in-up"
                   style={{ animationDelay: '0.6s' }}
                 >
-                  <CheckCircle className="h-5 w-5 text-leaf-green mr-2 animate-bounce-in" />
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-leaf-green mr-2 animate-bounce-in" />
                   <span>UK Based</span>
                 </div>
                 <div
                   className="flex items-center animate-fade-in-up"
                   style={{ animationDelay: '0.8s' }}
                 >
-                  <CheckCircle className="h-5 w-5 text-leaf-green mr-2 animate-bounce-in" />
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-leaf-green mr-2 animate-bounce-in" />
                   <span>Expert Team</span>
                 </div>
                 <div
                   className="flex items-center animate-fade-in-up"
                   style={{ animationDelay: '1s' }}
                 >
-                  <CheckCircle className="h-5 w-5 text-leaf-green mr-2 animate-bounce-in" />
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-leaf-green mr-2 animate-bounce-in" />
                   <span>Proven Results</span>
                 </div>
               </div>
             </div>
             <div className="animate-fade-in-right">
-              <div className="glass rounded-xl p-8 border border-white/20 hover-lift">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="glass rounded-xl p-4 sm:p-6 md:p-8 border border-white/20 hover-lift">
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
                   {stats.map((stat, index) => (
                     <div
                       key={index}
                       className="text-center animate-fade-in-up"
                       style={{ animationDelay: `${0.8 + index * 0.2}s` }}
                     >
-                      <div className="text-3xl font-bold text-orange mb-2 animate-bounce-in">
+                      <div className="text-2xl sm:text-3xl font-bold text-orange mb-1 sm:mb-2 animate-bounce-in">
                         {stat.number}
                       </div>
-                      <div className="text-sm text-gray-200">{stat.label}</div>
+                      <div className="text-xs sm:text-sm text-gray-200">{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -195,242 +195,117 @@ export function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16 bg-white animate-fade-in-up">
+      <section className="py-12 sm:py-16 bg-white animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Our Core Services
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-blue mb-4">
+              Our Services
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive compliance solutions designed to help your business
-              meet regulatory requirements and achieve operational excellence.
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive compliance and safety solutions tailored to your business needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
               <Card
                 key={service.id}
-                className={`card-premium hover:shadow-xl transition-all duration-300 border-none bg-gray-50/50 group cursor-pointer animate-fade-in-up`}
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="group cursor-pointer border-0 shadow-lg hover:shadow-xl transition-all duration-300 card-premium animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => handleServiceClick(service.id)}
               >
-                <CardHeader className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-white rounded-lg group-hover:bg-teal-light/10 transition-all duration-300 hover-scale">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-2 bg-orange/10 rounded-lg group-hover:bg-orange/20 transition-colors duration-300">
                       {service.icon}
                     </div>
-                  </div>
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <CardTitle className="text-teal-dark group-hover:text-teal-light transition-colors">
-                      {service.title}
-                    </CardTitle>
-                    <Badge
-                      variant="secondary"
-                      className="bg-leaf-green text-white animate-bounce-in"
-                    >
+                    <Badge className="text-xs bg-orange/10 text-orange border-orange/20">
                       {service.badge}
                     </Badge>
                   </div>
+                  <CardTitle className="text-lg sm:text-xl text-navy-blue group-hover:text-teal-dark transition-colors duration-300">
+                    {service.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 mb-4">
+                <CardContent className="pt-0">
+                  <CardDescription className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
                     {service.description}
                   </CardDescription>
-                  <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
-                    <p className="text-sm text-gray-600 mb-1">Starting from:</p>
-                    <p className="font-semibold text-teal-dark">
-                      {service.price}
-                    </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg font-semibold text-orange">{service.price}</span>
+                    <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-orange group-hover:translate-x-1 transition-all duration-300" />
                   </div>
-                  <Button
-                    className="w-full bg-teal-dark hover:bg-teal-dark/90 text-white transition-all-smooth hover-lift"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleServiceClick(service.id);
-                    }}
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-
-          <div
-            className="text-center mt-12 animate-fade-in-up"
-            style={{ animationDelay: '0.8s' }}
-          >
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-teal-dark text-teal-dark hover:bg-teal-dark hover:text-white px-8 py-3 transition-all-smooth hover-lift"
-              onClick={() => handleNavClick('services')}
-            >
-              View All Services
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* Why Choose CCS */}
-      <section className="py-16 bg-gray-50 animate-fade-in-up">
+      {/* Testimonials */}
+      <section className="py-12 sm:py-16 bg-gray-50 animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Why Choose CCS?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We're committed to helping your business achieve compliance and
-              operational excellence
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Users className="h-8 w-8 text-white" />,
-                title: 'Expert Team',
-                description:
-                  'Our qualified consultants have years of experience in compliance and safety across various industries.',
-                bgColor: 'bg-orange',
-              },
-              {
-                icon: <TrendingUp className="h-8 w-8 text-white" />,
-                title: 'Proven Results',
-                description:
-                  'With a 98% success rate, we deliver results that help businesses achieve their compliance goals.',
-                bgColor: 'bg-leaf-green',
-              },
-              {
-                icon: <Clock className="h-8 w-8 text-white" />,
-                title: 'Fast Response',
-                description:
-                  'We respond to all enquiries within 24 hours and work efficiently to meet your deadlines.',
-                bgColor: 'bg-teal-dark',
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="text-center animate-fade-in-up hover-lift"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div
-                  className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-4 hover-scale transition-all-smooth`}
-                >
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-navy-blue mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Preview */}
-      <section className="py-16 bg-white animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-blue mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it - hear from businesses we've
-              helped achieve compliance
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+              Trusted by businesses across the UK for their compliance and safety needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}
-                className={`border-none shadow-lg card-premium animate-fade-in-up`}
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 text-orange fill-current animate-bounce-in"
-                        style={{ animationDelay: `${i * 0.1}s` }}
-                      />
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-orange fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-4 italic">
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
                     "{testimonial.content}"
                   </p>
                   <div>
-                    <p className="font-semibold text-teal-dark">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {testimonial.company}
-                    </p>
+                    <p className="font-semibold text-navy-blue text-sm sm:text-base">{testimonial.name}</p>
+                    <p className="text-sm text-gray-500">{testimonial.company}</p>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          <div
-            className="text-center mt-12 animate-fade-in-up"
-            style={{ animationDelay: '0.8s' }}
-          >
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-teal-dark text-teal-dark hover:bg-teal-dark hover:text-white px-8 py-3 transition-all-smooth hover-lift"
-              onClick={() => handleNavClick('testimonials')}
-            >
-              Read More Testimonials
-            </Button>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-teal-gradient text-white relative overflow-hidden animate-fade-in">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="absolute top-10 right-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
-        <div
-          className="absolute bottom-10 left-10 w-16 h-16 bg-orange/20 rounded-full animate-float"
-          style={{ animationDelay: '1.5s' }}
-        ></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">
+      <section className="py-12 sm:py-16 bg-teal-gradient text-white animate-fade-in-up">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Ready to Get Started?
           </h2>
-          <p
-            className="text-xl text-gray-100 max-w-2xl mx-auto mb-8 animate-fade-in-up"
-            style={{ animationDelay: '0.2s' }}
-          >
-            Contact us today for a free consultation and discover how we can
-            help your business achieve compliance excellence.
+          <p className="text-base sm:text-lg text-gray-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
+            Contact our expert team today for a free consultation and discover how we can help your business achieve compliance excellence.
           </p>
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
-            style={{ animationDelay: '0.4s' }}
-          >
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-orange hover:bg-orange/90 text-white px-8 py-3 btn-premium transition-all-smooth"
+              className="bg-orange hover:bg-orange/90 text-white px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base transition-all-smooth"
               onClick={() => handleNavClick('contact')}
             >
               Get Free Consultation
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-teal-dark px-8 py-3 transition-all-smooth hover-lift"
+              className="border-white text-white hover:bg-white hover:text-teal-dark px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base transition-all-smooth"
               onClick={() => handleNavClick('services')}
             >
-              Explore Services
+              View All Services
             </Button>
           </div>
         </div>

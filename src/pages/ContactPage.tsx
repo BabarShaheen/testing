@@ -45,48 +45,48 @@ export function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-12 sm:py-16 md:py-20">
       {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
+      <section className="bg-teal-gradient text-white py-12 sm:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Contact Us</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mx-auto">
             Get in touch with our expert team for a free consultation
           </p>
         </div>
       </section>
 
       {/* Contact Form and Info */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-navy-blue mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-navy-blue mb-4 sm:mb-6">
                 Send us a Message
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
                 Complete the form below and we'll respond within 24 hours.
               </p>
 
               <Card className="border-none shadow-lg">
-                <CardContent className="p-6">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <CardContent className="p-4 sm:p-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="name">Full Name *</Label>
+                        <Label htmlFor="name" className="text-sm sm:text-base">Full Name *</Label>
                         <Input
                           id="name"
                           name="name"
                           required
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="mt-1"
+                          className="mt-1 min-h-[44px] text-sm sm:text-base"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="email" className="text-sm sm:text-base">Email *</Label>
                         <Input
                           id="email"
                           name="email"
@@ -94,83 +94,71 @@ export function ContactPage() {
                           required
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="mt-1"
+                          className="mt-1 min-h-[44px] text-sm sm:text-base"
                         />
                       </div>
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="company">Company Name</Label>
+                        <Label htmlFor="company" className="text-sm sm:text-base">Company</Label>
                         <Input
                           id="company"
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
-                          className="mt-1"
+                          className="mt-1 min-h-[44px] text-sm sm:text-base"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="phone">Phone Number</Label>
+                        <Label htmlFor="phone" className="text-sm sm:text-base">Phone</Label>
                         <Input
                           id="phone"
                           name="phone"
                           type="tel"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="mt-1"
+                          className="mt-1 min-h-[44px] text-sm sm:text-base"
                         />
                       </div>
                     </div>
-
                     <div>
-                      <Label htmlFor="service">Service of Interest</Label>
+                      <Label htmlFor="service" className="text-sm sm:text-base">Service of Interest</Label>
                       <Input
                         id="service"
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="mt-1"
-                        placeholder="e.g., ISO 9001, CHAS Accreditation, Fire Risk Assessment"
+                        className="mt-1 min-h-[44px] text-sm sm:text-base"
                       />
                     </div>
-
                     <div>
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="message" className="text-sm sm:text-base">Message *</Label>
                       <Textarea
                         id="message"
                         name="message"
                         required
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="mt-1 h-32"
-                        placeholder="Tell us about your requirements..."
+                        rows={4}
+                        className="mt-1 text-sm sm:text-base"
                       />
                     </div>
-
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-start space-x-2">
                       <Checkbox
                         id="consent"
                         checked={formData.consent}
                         onCheckedChange={(checked) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            consent: checked as boolean,
-                          }))
+                          setFormData((prev) => ({ ...prev, consent: checked as boolean }))
                         }
+                        className="mt-1"
                       />
-                      <Label
-                        htmlFor="consent"
-                        className="text-sm text-gray-600"
-                      >
-                        I agree to be contacted regarding my enquiry
+                      <Label htmlFor="consent" className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        I agree to the processing of my personal data in accordance with the privacy policy.
                       </Label>
                     </div>
-
                     <Button
                       type="submit"
-                      className="w-full bg-orange hover:bg-orange/90 text-white"
-                      disabled={!formData.consent}
+                      className="w-full bg-orange hover:bg-orange/90 text-white min-h-[44px] text-sm sm:text-base"
                     >
                       Send Message
                     </Button>
@@ -181,76 +169,73 @@ export function ContactPage() {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-navy-blue mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-navy-blue mb-4 sm:mb-6">
                 Get in Touch
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                We're here to help you achieve compliance excellence. Contact us
-                using any of the methods below.
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
+                We're here to help with all your compliance and safety needs.
               </p>
 
-              <div className="space-y-6 mb-8">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mr-4">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-navy-blue">Phone</h3>
-                    <p className="text-gray-600">+44 (0) 123 456 7890</p>
-                  </div>
-                </div>
+              <div className="space-y-4 sm:space-y-6">
+                <Card className="border-none shadow-lg">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <Mail className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <div>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Email</h3>
+                          <p className="text-gray-600 text-sm sm:text-base">info@citrixconsulting.co.uk</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Phone className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <div>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Phone</h3>
+                          <p className="text-gray-600 text-sm sm:text-base">+44 (0) 123 456 7890</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <MapPin className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <div>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Address</h3>
+                          <p className="text-gray-600 text-sm sm:text-base">London, United Kingdom</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Clock className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <div>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Business Hours</h3>
+                          <p className="text-gray-600 text-sm sm:text-base">Mon-Fri: 9AM-6PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-leaf-green rounded-full flex items-center justify-center mr-4">
-                    <Mail className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-navy-blue">Email</h3>
-                    <p className="text-gray-600">info@citrixconsulting.co.uk</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-teal-dark rounded-full flex items-center justify-center mr-4">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-navy-blue">Address</h3>
-                    <p className="text-gray-600">London, United Kingdom</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-navy-blue rounded-full flex items-center justify-center mr-4">
-                    <Clock className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-navy-blue">
-                      Business Hours
-                    </h3>
-                    <p className="text-gray-600">
-                      Monday - Friday: 9:00 AM - 6:00 PM
-                    </p>
-                  </div>
-                </div>
+                <Card className="border-none shadow-lg bg-teal-light/5">
+                  <CardContent className="p-4 sm:p-6">
+                    <h3 className="font-semibold text-navy-blue mb-3 text-sm sm:text-base">Why Choose Us?</h3>
+                    <ul className="space-y-2 text-sm sm:text-base text-gray-600">
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange">•</span>
+                        <span>Expert compliance consultants</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange">•</span>
+                        <span>Fast response times</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange">•</span>
+                        <span>Proven track record</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange">•</span>
+                        <span>Competitive pricing</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
-
-              <Card className="border-none shadow-lg bg-gray-50">
-                <CardHeader>
-                  <CardTitle className="text-teal-dark">
-                    Free Consultation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Not sure which service you need? Book a free 30-minute
-                    consultation with one of our experts.
-                  </p>
-                  <Button className="bg-teal-dark hover:bg-teal-dark/90 text-white">
-                    Schedule Consultation
-                  </Button>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>

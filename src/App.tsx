@@ -18,29 +18,14 @@ import { StaffVettingPage } from './pages/StaffVettingPage';
 import { PatTestingPage } from './pages/PatTestingPage';
 import { RiskAssessmentsPage } from './pages/RiskAssessmentsPage';
 import { BafeCertificationPage } from './pages/BafeCertificationPage';
+import Iso14001Page from './pages/Iso14001Page';
+import SiaAcsPage from './pages/SiaAcsPage';
+import AcsEligibilityPage from './pages/AcsEligibilityPage';
+import AcsCompliancePage from './pages/AcsCompliancePage';
+import InsurancePage from './pages/InsurancePage';
+import CareersPage from './pages/CareersPage';
 
 // Placeholder components for remaining pages
-const InsurancePage = () => (
-  <div className="min-h-screen bg-gray-50 py-20">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl font-bold text-navy-blue mb-8">Insurance</h1>
-      <p className="text-lg text-gray-600">
-        Comprehensive insurance information and support.
-      </p>
-    </div>
-  </div>
-);
-
-const CareersPage = () => (
-  <div className="min-h-screen bg-gray-50 py-20">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl font-bold text-navy-blue mb-8">Careers</h1>
-      <p className="text-lg text-gray-600">
-        Join our team and build your career with us.
-      </p>
-    </div>
-  </div>
-);
 
 export default function App() {
   return (
@@ -79,13 +64,18 @@ export default function App() {
             path="/services/sia-contractor"
             element={<SiaContractorPage />}
           />
+          <Route path="/services/sia-acs" element={<SiaAcsPage />} />
           <Route
             path="/services/sia-contractor/acs-audits"
             element={<ServiceDetailPage />}
           />
           <Route
             path="/services/sia-contractor/acs-eligibility"
-            element={<ServiceDetailPage />}
+            element={<AcsEligibilityPage />}
+          />
+          <Route
+            path="/services/acs-compliance"
+            element={<AcsCompliancePage />}
           />
 
           {/* ISO Certifications Routes */}
@@ -101,6 +91,7 @@ export default function App() {
             path="/services/iso-certifications/iso-14001"
             element={<ServiceDetailPage />}
           />
+          <Route path="/iso-14001" element={<Iso14001Page />} />
           <Route
             path="/services/iso-certifications/iso-14001/certification"
             element={<ServiceDetailPage />}
@@ -159,12 +150,12 @@ export default function App() {
             element={<ServiceDetailPage />}
           />
 
-          {/* About Us Routes */}
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/policies" element={<PoliciesPage />} />
-          <Route path="/about/insurance" element={<InsurancePage />} />
-          <Route path="/about/careers" element={<CareersPage />} />
+                     {/* About Us Routes */}
+           <Route path="/about" element={<AboutPage />} />
+           <Route path="/testimonials" element={<TestimonialsPage />} />
+           <Route path="/policies" element={<PoliciesPage />} />
+           <Route path="/about/insurance" element={<InsurancePage />} />
+           <Route path="/careers" element={<CareersPage />} />
 
           {/* Jobs Route */}
           <Route path="/jobs" element={<JobsPage />} />
