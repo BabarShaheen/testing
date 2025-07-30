@@ -1,13 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '../ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-} from '../ui/dropdown-menu';
 import {
   Menu,
   X,
@@ -19,7 +11,11 @@ import {
   Building,
   Phone,
   Award,
+  Flame,
   Settings,
+  Zap,
+  AlertTriangle,
+  Home,
 } from 'lucide-react';
 
 interface NavigationItem {
@@ -36,13 +32,20 @@ const Navigation: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [mobileExpandedItems, setMobileExpandedItems] = useState<string[]>([]);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+
+  // Add timeout refs to prevent premature closing
+  const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const dropdownTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const navigationStructure: NavigationItem[] = [
     {
       id: 'home',
       label: 'Home',
       path: '/',
+      icon: Home,
     },
     {
       id: 'services',
@@ -51,102 +54,84 @@ const Navigation: React.FC = () => {
       description: 'Comprehensive consulting solutions',
       children: [
         {
-          id: 'safety-adviser',
+          id: 'safety-advisor',
           label: 'Safety Advisor',
-          path: '/services/safety-adviser',
           icon: Shield,
           description: 'Health & safety compliance',
           children: [
             {
               id: 'health-safety',
               label: 'Health and Safety',
-              path: '/services/safety-adviser/health-safety',
-              children: [
-                {
-                  id: 'accreditation-support',
-                  label: 'Accreditation Support',
-                  path: '/services/safety-adviser/health-safety/accreditation-support',
-                },
-              ],
+              path: '/services/safety-advisor/health-safety',
+              icon: Shield,
+              description: 'Comprehensive safety management',
             },
             {
               id: 'chas-assistance',
               label: 'CHAS Assistance',
-              path: '/services/safety-adviser/chas-assistance',
+              path: '/services/safety-advisor/chas-assistance',
+              icon: Award,
+              description: 'CHAS accreditation support',
             },
           ],
         },
         {
           id: 'sia-contractor',
           label: 'SIA Contractor (ACS)',
-          path: '/services/sia-contractor',
           icon: Award,
           description: 'Security industry compliance',
           children: [
             {
-              id: 'sia-acs',
-              label: 'SIA ACS Approved Contractor Scheme',
-              path: '/services/sia-acs',
-            },
-            {
-              id: 'acs-audits',
+              id: 'acs-audit',
               label: 'ACS Audit',
-              path: '/services/acs-compliance',
+              path: '/services/sia-contractor/acs-audit',
+              icon: FileText,
+              description: 'Approved Contractor Scheme audits',
             },
             {
               id: 'acs-eligibility',
               label: 'ACS Eligibility',
               path: '/services/sia-contractor/acs-eligibility',
+              icon: Users,
+              description: 'Eligibility assessment and support',
             },
           ],
         },
         {
           id: 'iso-certifications',
           label: 'ISO Certifications',
-          path: '/services/iso-certifications',
           icon: Award,
           description: 'International standards compliance',
-          badge: 'Most Popular',
+          badge: 'Popular',
           children: [
             {
               id: 'iso-9001',
               label: 'ISO 9001',
               path: '/services/iso-certifications/iso-9001',
+              icon: Award,
+              description: 'Quality management systems',
               badge: 'Most Popular',
             },
             {
               id: 'iso-14001',
               label: 'ISO 14001',
               path: '/services/iso-certifications/iso-14001',
-              children: [
-                {
-                  id: 'iso-14001-page',
-                  label: 'ISO 14001 EMS',
-                  path: '/iso-14001',
-                },
-                {
-                  id: 'iso-14001-certification',
-                  label: 'Certification',
-                  path: '/services/iso-certifications/iso-14001/certification',
-                },
-                {
-                  id: 'sia-acs-integration',
-                  label: 'SIA ACS Integration',
-                  path: '/services/iso-certifications/iso-14001/sia-acs-integration',
-                },
-              ],
+              icon: Award,
+              description: 'Environmental management systems',
+            },
+            {
+              id: 'sia-acs-integration',
+              label: 'SIA ACS Integration',
+              path: '/services/iso-certifications/sia-acs-integration',
+              icon: Settings,
+              description: 'Integrated compliance solutions',
             },
             {
               id: 'ohsas-18001',
               label: 'OHSAS 18001',
               path: '/services/iso-certifications/ohsas-18001',
-              children: [
-                {
-                  id: 'ohsas-18001-certification',
-                  label: 'Certification',
-                  path: '/services/iso-certifications/ohsas-18001/certification',
-                },
-              ],
+              icon: Shield,
+              description: 'Occupational health & safety',
             },
           ],
         },
@@ -160,19 +145,15 @@ const Navigation: React.FC = () => {
         {
           id: 'pat-testing',
           label: 'PAT Testing',
-          path: '/services/pat-testing',
-          icon: Shield,
-          description: 'Electrical safety testing',
+          icon: Zap,
+          description: 'Portable appliance testing',
           children: [
             {
               id: 'pat-pricing',
               label: 'Pricing',
               path: '/services/pat-testing/pricing',
-            },
-            {
-              id: 'fire-safety',
-              label: 'Fire Safety',
-              path: '/services/pat-testing/fire-safety',
+              icon: FileText,
+              description: 'Competitive testing rates',
             },
           ],
         },
@@ -180,15 +161,22 @@ const Navigation: React.FC = () => {
           id: 'risk-assessments',
           label: 'Risk Assessments',
           path: '/services/risk-assessments',
-          icon: FileText,
+          icon: AlertTriangle,
           description: 'Comprehensive risk analysis',
+        },
+        {
+          id: 'fire-safety',
+          label: 'Fire Safety Certification',
+          path: '/services/fire-safety',
+          icon: Flame,
+          description: 'Fire safety compliance',
         },
         {
           id: 'bafe-certification',
           label: 'BAFE Certification',
           path: '/services/bafe-certification',
           icon: Award,
-          description: 'Fire safety certification',
+          description: 'Fire safety certification body',
         },
       ],
     },
@@ -201,14 +189,14 @@ const Navigation: React.FC = () => {
         {
           id: 'testimonials',
           label: 'Testimonials',
-          path: '/testimonials',
+          path: '/about/testimonials',
           icon: Users,
           description: 'Client success stories',
         },
         {
           id: 'policies',
           label: 'Policies',
-          path: '/policies',
+          path: '/about/policies',
           icon: FileText,
           description: 'Company policies and procedures',
         },
@@ -222,7 +210,7 @@ const Navigation: React.FC = () => {
         {
           id: 'careers',
           label: 'Careers',
-          path: '/careers',
+          path: '/about/careers',
           icon: Users,
           description: 'Join our team',
         },
@@ -244,84 +232,170 @@ const Navigation: React.FC = () => {
     );
   };
 
-  // Recursive component for nested dropdowns
-  const NestedDropdownItem: React.FC<{
+  const closeMobileMenu = () => {
+    setIsMobileOpen(false);
+    setMobileExpandedItems([]);
+  };
+
+  const isActiveRoute = (path: string) => {
+    return location.pathname === path;
+  };
+
+  // Enhanced hover handlers with delays
+  const handleMainItemHover = (itemId: string | null) => {
+    // Clear any existing timeout
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+
+    if (itemId) {
+      setHoveredItem(itemId);
+    } else {
+      // Add a small delay before closing to prevent accidental closes
+      hoverTimeoutRef.current = setTimeout(() => {
+        setHoveredItem(null);
+        setActiveDropdown(null);
+      }, 150);
+    }
+  };
+
+  const handleDropdownHover = (itemId: string | null) => {
+    // Clear any existing timeout
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+
+    if (itemId) {
+      setActiveDropdown(itemId);
+    } else {
+      // Add delay for submenu closing
+      dropdownTimeoutRef.current = setTimeout(() => {
+        setActiveDropdown(null);
+      }, 100);
+    }
+  };
+
+  // Desktop dropdown item component
+  const DropdownItem: React.FC<{
     item: NavigationItem;
     level?: number;
-  }> = ({ item, level = 0 }) => {
+    onItemHover?: (itemId: string | null) => void;
+    hoveredSubItem?: string | null;
+  }> = ({ item, level = 0, onItemHover, hoveredSubItem }) => {
     const hasChildren = item.children && item.children.length > 0;
 
     if (!hasChildren) {
       return (
-        <DropdownMenuItem asChild>
-          <Link
-            to={item.path || '#'}
-            className="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-teal-light/10 hover:text-teal-dark transition-all duration-200 cursor-pointer"
-          >
-            {item.icon && <item.icon className="h-4 w-4 text-orange" />}
-            <div className="flex-1">
-              <div className="font-medium">{item.label}</div>
-              {item.description && (
-                <div className="text-xs text-gray-500">{item.description}</div>
-              )}
+        <Link
+          to={item.path || '#'}
+          className={`flex items-center gap-3 px-4 py-3 text-sm transition-all duration-300 cursor-pointer rounded-lg mx-1 group text-left ${
+            isActiveRoute(item.path || '')
+              ? 'bg-gradient-to-r from-teal-100 to-orange-100 text-teal-700'
+              : 'text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-orange-50 hover:text-teal-700'
+          }`}
+          onClick={closeMobileMenu}
+        >
+          {item.icon && (
+            <item.icon className="h-4 w-4 text-orange-500 group-hover:scale-110 transition-transform duration-300" />
+          )}
+          <div className="flex-1">
+            <div className="font-medium group-hover:text-teal-700 transition-colors duration-300">
+              {item.label}
             </div>
-            {item.badge && (
-              <span className="px-2 py-1 text-xs bg-orange/10 text-orange rounded-full">
-                {item.badge}
-              </span>
+            {item.description && (
+              <div className="text-xs text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
+                {item.description}
+              </div>
             )}
-          </Link>
-        </DropdownMenuItem>
+          </div>
+          {item.badge && (
+            <span className="px-2 py-1 text-xs bg-orange-100 text-orange-600 rounded-full font-medium shadow-sm">
+              {item.badge}
+            </span>
+          )}
+        </Link>
       );
     }
 
     return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <DropdownMenuItem className="flex items-center justify-between px-3 py-2 text-sm text-gray-700 hover:bg-teal-light/10 hover:text-teal-dark transition-all duration-200 cursor-pointer focus:bg-teal-light/10 focus:text-teal-dark">
-            <div className="flex items-center gap-3">
-              {item.icon && <item.icon className="h-4 w-4 text-orange" />}
-              <div className="flex-1">
-                <div className="font-medium">{item.label}</div>
-                {item.description && (
-                  <div className="text-xs text-gray-500">
-                    {item.description}
-                  </div>
-                )}
+      <div
+        className="relative group"
+        onMouseEnter={() => onItemHover?.(item.id)}
+        onMouseLeave={() => onItemHover?.(null)}
+      >
+        <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-orange-50 hover:text-teal-700 transition-all duration-300 cursor-pointer rounded-lg mx-1 group">
+          <div className="flex items-center gap-3">
+            {item.icon && (
+              <item.icon className="h-4 w-4 text-orange-500 group-hover:scale-110 transition-transform duration-300" />
+            )}
+            <div className="flex-1 text-left">
+              <div className="font-medium group-hover:text-teal-700 transition-colors duration-300">
+                {item.label}
               </div>
+              {item.description && (
+                <div className="text-xs text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
+                  {item.description}
+                </div>
+              )}
             </div>
-            <ChevronRight className="h-4 w-4 text-gray-400" />
-          </DropdownMenuItem>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          side="right"
-          align="start"
-          className="w-64 bg-white rounded-md shadow-xl border border-gray-200"
-          sideOffset={level === 0 ? 0 : -4}
-        >
-          {item.children?.map((child) => (
-            <NestedDropdownItem key={child.id} item={child} level={level + 1} />
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
+            {item.badge && (
+              <span className="px-2 py-1 text-xs bg-orange-100 text-orange-600 rounded-full font-medium mr-2 shadow-sm">
+                {item.badge}
+              </span>
+            )}
+          </div>
+          <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-orange-500 transition-all duration-300 group-hover:translate-x-1" />
+        </div>
+
+        {hoveredSubItem === item.id && (
+          <div
+            className="absolute left-full top-0 ml-1 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50"
+            style={{
+              boxShadow:
+                '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+              animation: 'slideInRight 0.2s ease-out',
+            }}
+            onMouseEnter={() => onItemHover?.(item.id)}
+            onMouseLeave={() => onItemHover?.(null)}
+          >
+            <div className="p-2">
+              {item.children?.map((child) => (
+                <DropdownItem key={child.id} item={child} level={level + 1} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     );
   };
 
   const renderMobileItem = (item: NavigationItem, level: number = 0) => {
     const isExpanded = mobileExpandedItems.includes(item.id);
     const hasChildren = item.children && item.children.length > 0;
+    const isActive = isActiveRoute(item.path || '');
 
     return (
-      <div key={item.id} className={`${level > 0 ? 'ml-4' : ''}`}>
+      <div
+        key={item.id}
+        className={`${level > 0 ? 'ml-4 border-l-2 border-teal-100 pl-4' : ''}`}
+      >
         <div className="flex items-center justify-between">
           {item.path ? (
             <Link
               to={item.path}
-              className="flex-1 flex items-center gap-3 px-4 py-3 text-teal-dark hover:text-orange hover:bg-orange/5 rounded-lg transition-all duration-200"
-              onClick={() => setIsMobileOpen(false)}
+              className={`flex-1 flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 group text-left ${
+                isActive
+                  ? 'text-orange-600 bg-gradient-to-r from-orange-50 to-teal-50 font-medium'
+                  : 'text-teal-700 hover:text-orange-500 hover:bg-gradient-to-r hover:from-orange-50 hover:to-teal-50'
+              }`}
+              onClick={closeMobileMenu}
             >
-              {item.icon && <item.icon className="h-4 w-4" />}
-              <div>
+              {item.icon && (
+                <item.icon className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              )}
+              <div className="text-left">
                 <div className="font-medium">{item.label}</div>
                 {item.description && (
                   <div className="text-sm text-gray-600">
@@ -329,14 +403,21 @@ const Navigation: React.FC = () => {
                   </div>
                 )}
               </div>
+              {item.badge && (
+                <span className="ml-auto px-2 py-1 text-xs bg-orange-100 text-orange-600 rounded-full font-medium">
+                  {item.badge}
+                </span>
+              )}
             </Link>
           ) : (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="flex-1 flex items-center gap-3 text-left px-4 py-3 text-teal-dark hover:text-orange hover:bg-orange/5 rounded-lg transition-all duration-200"
+              className="flex-1 flex items-center gap-3 text-left px-4 py-3 text-teal-700 hover:text-orange-500 hover:bg-gradient-to-r hover:from-orange-50 hover:to-teal-50 rounded-lg transition-all duration-300 group"
             >
-              {item.icon && <item.icon className="h-4 w-4" />}
-              <div>
+              {item.icon && (
+                <item.icon className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              )}
+              <div className="text-left">
                 <div className="font-medium">{item.label}</div>
                 {item.description && (
                   <div className="text-sm text-gray-600">
@@ -344,15 +425,20 @@ const Navigation: React.FC = () => {
                   </div>
                 )}
               </div>
+              {item.badge && (
+                <span className="ml-auto px-2 py-1 text-xs bg-orange-100 text-orange-600 rounded-full font-medium mr-2">
+                  {item.badge}
+                </span>
+              )}
             </button>
           )}
           {hasChildren && (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="p-2 text-teal-dark hover:text-orange transition-colors duration-200"
+              className="p-2 text-teal-700 hover:text-orange-500 transition-colors duration-300"
             >
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
+                className={`h-4 w-4 transition-transform duration-300 ${
                   isExpanded ? 'rotate-180' : ''
                 }`}
               />
@@ -360,7 +446,10 @@ const Navigation: React.FC = () => {
           )}
         </div>
         {hasChildren && isExpanded && (
-          <div className="mt-2 space-y-1">
+          <div
+            className="mt-2 space-y-1"
+            style={{ animation: 'slideDown 0.3s ease-out' }}
+          >
             {item.children?.map((child) => renderMobileItem(child, level + 1))}
           </div>
         )}
@@ -377,126 +466,227 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50'
-          : 'bg-white shadow-sm'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link
-              to="/"
-              className="flex items-center cursor-pointer transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-10 h-10 bg-gradient-to-br from-teal-dark to-teal-light rounded-lg flex items-center justify-center mr-3 shadow-lg">
-                <span className="text-white font-bold text-lg">C</span>
-              </div>
-              <div>
-                <div className="text-teal-dark font-bold text-lg transition-colors duration-300 hover:text-teal-light">
-                  Citrix Consulting
-                </div>
-                <div className="text-navy-blue text-sm transition-colors duration-300 hover:text-gray-600">
-                  Services Limited
-                </div>
-              </div>
-            </Link>
-          </div>
+  // Close mobile menu when route changes
+  useEffect(() => {
+    closeMobileMenu();
+  }, [location.pathname]);
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navigationStructure.map((item) => (
-                <div key={item.id} className="relative">
-                  {item.children ? (
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <button className="nav-link text-teal-dark hover:text-orange px-3 py-2 rounded-md transition-all duration-300 flex items-center font-medium relative overflow-hidden group">
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <>
+      <style>{`
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Custom scrollbar for mobile menu */
+        .nav-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        
+        .nav-scrollbar::-webkit-scrollbar-track {
+          background: #f1f5f9;
+        }
+        
+        .nav-scrollbar::-webkit-scrollbar-thumb {
+          background: #94a3b8;
+          border-radius: 2px;
+        }
+        
+        .nav-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #64748b;
+        }
+      `}</style>
+
+      <nav
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50'
+            : 'bg-white shadow-sm'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex items-center">
+              <Link
+                to="/"
+                className="flex items-center cursor-pointer transition-all duration-300 hover:scale-105"
+              >
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-teal-400 rounded-lg flex items-center justify-center mr-3 shadow-lg">
+                  <span className="text-white font-bold text-lg">C</span>
+                </div>
+                <div>
+                  <div className="text-teal-700 font-bold text-lg transition-colors duration-300 hover:text-teal-600">
+                    Citrix Consulting
+                  </div>
+                  <div className="text-gray-600 text-sm transition-colors duration-300 hover:text-gray-700">
+                    Services Limited
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                {navigationStructure.map((item) => (
+                  <div
+                    key={item.id}
+                    className="relative"
+                    onMouseEnter={() => handleMainItemHover(item.id)}
+                    onMouseLeave={() => handleMainItemHover(null)}
+                  >
+                    {item.children ? (
+                      <div>
+                        <button
+                          className={`px-3 py-2 rounded-md transition-all duration-300 flex items-center font-medium relative overflow-hidden group ${
+                            location.pathname.startsWith(`/${item.id}`)
+                              ? 'text-orange-600'
+                              : 'text-teal-700 hover:text-orange-500'
+                          }`}
+                        >
                           <span className="relative z-10 flex items-center gap-2">
                             {item.icon && <item.icon className="h-4 w-4" />}
                             {item.label}
                           </span>
-                          <ChevronDown className="ml-1 h-4 w-4 transition-all duration-300" />
-                          <div className="absolute inset-0 bg-orange/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                          <ChevronDown className="ml-1 h-4 w-4 transition-all duration-300 group-hover:rotate-180" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-orange-50 to-teal-50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-md"></div>
                         </button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent
-                        align="start"
-                        className="w-80 bg-white rounded-md shadow-xl border border-gray-200"
-                        sideOffset={8}
+
+                        {hoveredItem === item.id && (
+                          <div
+                            className="absolute top-full left-0 mt-1 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50"
+                            style={{
+                              boxShadow:
+                                '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                              animation: 'fadeIn 0.2s ease-out',
+                            }}
+                            onMouseEnter={() => handleMainItemHover(item.id)}
+                            onMouseLeave={() => handleMainItemHover(null)}
+                          >
+                            <div className="p-2">
+                              {item.children?.map((child) => (
+                                <DropdownItem
+                                  key={child.id}
+                                  item={child}
+                                  onItemHover={handleDropdownHover}
+                                  hoveredSubItem={activeDropdown}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.path || '/'}
+                        className={`px-3 py-2 rounded-md transition-all duration-300 font-medium relative overflow-hidden group flex items-center gap-2 ${
+                          isActiveRoute(item.path || '')
+                            ? 'text-orange-600 bg-gradient-to-r from-orange-50 to-teal-50'
+                            : 'text-teal-700 hover:text-orange-500'
+                        }`}
                       >
-                        <div className="p-2">
-                          {item.children?.map((child) => (
-                            <NestedDropdownItem key={child.id} item={child} />
-                          ))}
-                        </div>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  ) : (
-                    <Link
-                      to={item.path || '/'}
-                      className="nav-link text-teal-dark hover:text-orange px-3 py-2 rounded-md transition-all duration-300 font-medium relative overflow-hidden group flex items-center gap-2"
-                    >
-                      <span className="relative z-10 flex items-center gap-2">
-                        {item.icon && <item.icon className="h-4 w-4" />}
-                        {item.label}
-                      </span>
-                      <div className="absolute inset-0 bg-orange/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                    </Link>
-                  )}
-                </div>
-              ))}
+                        <span className="relative z-10 flex items-center gap-2">
+                          {item.icon && <item.icon className="h-4 w-4" />}
+                          {item.label}
+                        </span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-orange-50 to-teal-50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-md"></div>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Link to="/contact">
-              <Button className="bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white px-6 py-2 font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                Get a Quote
-              </Button>
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="text-teal-dark hover:text-orange transition-colors duration-300 p-2"
-            >
-              {isMobileOpen ? (
-                <X className="h-6 w-6 animate-fade-in" />
-              ) : (
-                <Menu className="h-6 w-6 animate-fade-in" />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMobileOpen && (
-        <div className="lg:hidden animate-slide-in-down">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto">
-            {navigationStructure.map((item) => renderMobileItem(item))}
-            <div className="pt-4 border-t border-gray-200">
+            {/* CTA Button */}
+            <div className="hidden lg:block">
               <Link to="/contact">
-                <Button
-                  className="w-full bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-                  onClick={() => setIsMobileOpen(false)}
-                >
+                <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 rounded-lg">
                   Get a Quote
-                </Button>
+                </button>
               </Link>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
+                className="text-teal-700 hover:text-orange-500 transition-colors duration-300 p-2"
+                aria-label="Toggle mobile menu"
+              >
+                {isMobileOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile Navigation */}
+        {isMobileOpen && (
+          <div
+            className="lg:hidden"
+            style={{ animation: 'slideDown 0.3s ease-out' }}
+          >
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto nav-scrollbar">
+              {navigationStructure.map((item) => renderMobileItem(item))}
+              <div className="pt-4 border-t border-gray-200 px-2">
+                <Link to="/contact">
+                  <button
+                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 py-3 rounded-lg"
+                    onClick={closeMobileMenu}
+                  >
+                    Get a Quote
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+    </>
   );
 };
 
