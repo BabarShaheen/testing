@@ -1,7 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../ui/button';
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from '../ui/dropdown-menu';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  Shield,
+  Users,
+  FileText,
+  Building,
+  Phone,
+  Award,
+  Settings,
+} from 'lucide-react';
 
 interface NavigationItem {
   id: string;
@@ -9,18 +28,14 @@ interface NavigationItem {
   path?: string;
   children?: NavigationItem[];
   badge?: string;
+  icon?: React.ComponentType<{ className?: string }>;
+  description?: string;
 }
 
 const Navigation: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(
-    null
-  );
-  const [mobileExpandedItems, setMobileExpandedItems] = useState<string[]>([]);
   const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const hoverTimeoutRef = useRef<number | null>(null);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [mobileExpandedItems, setMobileExpandedItems] = useState<string[]>([]);
   const location = useLocation();
 
   const navigationStructure: NavigationItem[] = [
@@ -32,15 +47,19 @@ const Navigation: React.FC = () => {
     {
       id: 'services',
       label: 'Services',
+      icon: Settings,
+      description: 'Comprehensive consulting solutions',
       children: [
         {
           id: 'safety-adviser',
-          label: 'Safety Adviser',
+          label: 'Safety Advisor',
           path: '/services/safety-adviser',
+          icon: Shield,
+          description: 'Health & safety compliance',
           children: [
             {
               id: 'health-safety',
-              label: 'Health & Safety',
+              label: 'Health and Safety',
               path: '/services/safety-adviser/health-safety',
               children: [
                 {
@@ -61,11 +80,18 @@ const Navigation: React.FC = () => {
           id: 'sia-contractor',
           label: 'SIA Contractor (ACS)',
           path: '/services/sia-contractor',
+          icon: Award,
+          description: 'Security industry compliance',
           children: [
             {
+              id: 'sia-acs',
+              label: 'SIA ACS Approved Contractor Scheme',
+              path: '/services/sia-acs',
+            },
+            {
               id: 'acs-audits',
-              label: 'ACS Audits',
-              path: '/services/sia-contractor/acs-audits',
+              label: 'ACS Audit',
+              path: '/services/acs-compliance',
             },
             {
               id: 'acs-eligibility',
@@ -78,6 +104,9 @@ const Navigation: React.FC = () => {
           id: 'iso-certifications',
           label: 'ISO Certifications',
           path: '/services/iso-certifications',
+          icon: Award,
+          description: 'International standards compliance',
+          badge: 'Most Popular',
           children: [
             {
               id: 'iso-9001',
@@ -90,6 +119,11 @@ const Navigation: React.FC = () => {
               label: 'ISO 14001',
               path: '/services/iso-certifications/iso-14001',
               children: [
+                {
+                  id: 'iso-14001-page',
+                  label: 'ISO 14001 EMS',
+                  path: '/iso-14001',
+                },
                 {
                   id: 'iso-14001-certification',
                   label: 'Certification',
@@ -120,52 +154,77 @@ const Navigation: React.FC = () => {
           id: 'staff-vetting',
           label: 'Staff Vetting (BS7858)',
           path: '/services/staff-vetting',
+          icon: Users,
+          description: 'Background screening services',
         },
         {
           id: 'pat-testing',
           label: 'PAT Testing',
           path: '/services/pat-testing',
+          icon: Shield,
+          description: 'Electrical safety testing',
+          children: [
+            {
+              id: 'pat-pricing',
+              label: 'Pricing',
+              path: '/services/pat-testing/pricing',
+            },
+            {
+              id: 'fire-safety',
+              label: 'Fire Safety',
+              path: '/services/pat-testing/fire-safety',
+            },
+          ],
         },
         {
           id: 'risk-assessments',
           label: 'Risk Assessments',
           path: '/services/risk-assessments',
-        },
-        {
-          id: 'fire-safety',
-          label: 'Fire Safety Certification',
-          path: '/services/fire-safety',
+          icon: FileText,
+          description: 'Comprehensive risk analysis',
         },
         {
           id: 'bafe-certification',
           label: 'BAFE Certification',
           path: '/services/bafe-certification',
+          icon: Award,
+          description: 'Fire safety certification',
         },
       ],
     },
     {
       id: 'about',
       label: 'About Us',
+      icon: Building,
+      description: 'Learn about our company',
       children: [
         {
           id: 'testimonials',
           label: 'Testimonials',
           path: '/testimonials',
+          icon: Users,
+          description: 'Client success stories',
         },
         {
           id: 'policies',
           label: 'Policies',
           path: '/policies',
+          icon: FileText,
+          description: 'Company policies and procedures',
         },
         {
           id: 'insurance',
           label: 'Insurance',
           path: '/about/insurance',
+          icon: Shield,
+          description: 'Insurance coverage details',
         },
         {
           id: 'careers',
           label: 'Careers',
-          path: '/about/careers',
+          path: '/careers',
+          icon: Users,
+          description: 'Join our team',
         },
       ],
     },
@@ -173,48 +232,9 @@ const Navigation: React.FC = () => {
       id: 'contact',
       label: 'Contact',
       path: '/contact',
+      icon: Phone,
     },
   ];
-
-  const clearHoverTimeout = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
-    }
-  };
-
-  const handleDropdownHover = (dropdown: string) => {
-    clearHoverTimeout();
-    setActiveDropdown(dropdown);
-  };
-
-  const handleDropdownLeave = () => {
-    hoverTimeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null);
-      setActiveSubDropdown(null);
-    }, 200);
-  };
-
-  const handleSubDropdownHover = (subDropdown: string) => {
-    clearHoverTimeout();
-    setActiveSubDropdown(subDropdown);
-  };
-
-  const handleSubDropdownLeave = () => {
-    hoverTimeoutRef.current = setTimeout(() => {
-      setActiveSubDropdown(null);
-    }, 200);
-  };
-
-  const handleDropdownToggle = (dropdown: string) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
-  };
-
-  const handleSubDropdownToggle = (subDropdown: string) => {
-    setActiveSubDropdown(
-      activeSubDropdown === subDropdown ? null : subDropdown
-    );
-  };
 
   const handleMobileItemToggle = (itemId: string) => {
     setMobileExpandedItems((prev) =>
@@ -224,119 +244,66 @@ const Navigation: React.FC = () => {
     );
   };
 
-  const renderDesktopDropdown = (
-    items: NavigationItem[],
-    level: number = 0
-  ) => {
+  // Recursive component for nested dropdowns
+  const NestedDropdownItem: React.FC<{
+    item: NavigationItem;
+    level?: number;
+  }> = ({ item, level = 0 }) => {
+    const hasChildren = item.children && item.children.length > 0;
+
+    if (!hasChildren) {
+      return (
+        <DropdownMenuItem asChild>
+          <Link
+            to={item.path || '#'}
+            className="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-teal-light/10 hover:text-teal-dark transition-all duration-200 cursor-pointer"
+          >
+            {item.icon && <item.icon className="h-4 w-4 text-orange" />}
+            <div className="flex-1">
+              <div className="font-medium">{item.label}</div>
+              {item.description && (
+                <div className="text-xs text-gray-500">{item.description}</div>
+              )}
+            </div>
+            {item.badge && (
+              <span className="px-2 py-1 text-xs bg-orange/10 text-orange rounded-full">
+                {item.badge}
+              </span>
+            )}
+          </Link>
+        </DropdownMenuItem>
+      );
+    }
+
     return (
-      <div className={`py-2 ${level > 0 ? 'pl-4' : ''}`}>
-        {items.map((item, index) => (
-          <div key={item.id} className="relative">
-            {item.children ? (
-              <div className="group">
-                {item.path ? (
-                  // Item has both path and children - make it navigable with sub-dropdown toggle
-                  <div className="flex items-center justify-between group/sub">
-                    <Link
-                      to={item.path}
-                      className="dropdown-item flex-1 block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-teal-light/10 hover:text-teal-dark transition-all duration-300 border-b border-gray-50 last:border-b-0 relative overflow-hidden group/item"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        clearHoverTimeout();
-                        setActiveDropdown(null);
-                        setActiveSubDropdown(null);
-                      }}
-                    >
-                      <div className="flex items-center">
-                        <span className="text-orange mr-2 transition-transform duration-300 group-hover/item:scale-110">
-                          •
-                        </span>
-                        <div>
-                          <div className="font-medium">{item.label}</div>
-                          {item.badge && (
-                            <div className="text-xs text-gray-500">
-                              {item.badge}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </Link>
-                    <div
-                      onMouseEnter={() => handleSubDropdownHover(item.id)}
-                      onMouseLeave={handleSubDropdownLeave}
-                      className="relative"
-                    >
-                      <button className="dropdown-item p-2 text-gray-400 hover:text-teal-dark transition-colors duration-300">
-                        <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover/sub:rotate-90" />
-                      </button>
-                      {activeSubDropdown === item.id && (
-                        <div className="absolute left-full top-0 ml-1 w-64 bg-white rounded-md shadow-xl border border-gray-200 z-50 animate-dropdown">
-                          {renderDesktopDropdown(item.children, level + 1)}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  // Item has only children - make it a toggle button
-                  <div
-                    onMouseEnter={() => handleSubDropdownHover(item.id)}
-                    onMouseLeave={handleSubDropdownLeave}
-                    className="relative"
-                  >
-                    <button className="dropdown-item block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-teal-light/10 hover:text-teal-dark transition-all duration-300 border-b border-gray-50 last:border-b-0 relative overflow-hidden group/item">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <span className="text-orange mr-2 transition-transform duration-300 group-hover/item:scale-110">
-                            •
-                          </span>
-                          <div>
-                            <div className="font-medium">{item.label}</div>
-                            {item.badge && (
-                              <div className="text-xs text-gray-500">
-                                {item.badge}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                        <ChevronRight className="h-4 w-4 text-gray-400 transition-transform duration-300 group-hover/item:rotate-90" />
-                      </div>
-                    </button>
-                    {activeSubDropdown === item.id && (
-                      <div className="absolute left-full top-0 ml-1 w-64 bg-white rounded-md shadow-xl border border-gray-200 z-50 animate-dropdown">
-                        {renderDesktopDropdown(item.children, level + 1)}
-                      </div>
-                    )}
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <DropdownMenuItem className="flex items-center justify-between px-3 py-2 text-sm text-gray-700 hover:bg-teal-light/10 hover:text-teal-dark transition-all duration-200 cursor-pointer focus:bg-teal-light/10 focus:text-teal-dark">
+            <div className="flex items-center gap-3">
+              {item.icon && <item.icon className="h-4 w-4 text-orange" />}
+              <div className="flex-1">
+                <div className="font-medium">{item.label}</div>
+                {item.description && (
+                  <div className="text-xs text-gray-500">
+                    {item.description}
                   </div>
                 )}
               </div>
-            ) : (
-              // Item has no children - simple link
-              <Link
-                to={item.path || '#'}
-                className="dropdown-item block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-teal-light/10 hover:text-teal-dark transition-all duration-300 border-b border-gray-50 last:border-b-0 relative overflow-hidden group"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  clearHoverTimeout();
-                  setActiveDropdown(null);
-                  setActiveSubDropdown(null);
-                }}
-              >
-                <div className="flex items-center">
-                  <span className="text-orange mr-2 transition-transform duration-300 group-hover:scale-110">
-                    •
-                  </span>
-                  <div>
-                    <div className="font-medium">{item.label}</div>
-                    {item.badge && (
-                      <div className="text-xs text-gray-500">{item.badge}</div>
-                    )}
-                  </div>
-                </div>
-              </Link>
-            )}
-          </div>
-        ))}
-      </div>
+            </div>
+            <ChevronRight className="h-4 w-4 text-gray-400" />
+          </DropdownMenuItem>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          side="right"
+          align="start"
+          className="w-64 bg-white rounded-md shadow-xl border border-gray-200"
+          sideOffset={level === 0 ? 0 : -4}
+        >
+          {item.children?.map((child) => (
+            <NestedDropdownItem key={child.id} item={child} level={level + 1} />
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
     );
   };
 
@@ -350,26 +317,42 @@ const Navigation: React.FC = () => {
           {item.path ? (
             <Link
               to={item.path}
-              className="flex-1 px-3 py-2 text-teal-dark hover:text-orange hover:bg-orange/10 rounded-md transition-all duration-300"
-              onClick={() => setIsMenuOpen(false)}
+              className="flex-1 flex items-center gap-3 px-4 py-3 text-teal-dark hover:text-orange hover:bg-orange/5 rounded-lg transition-all duration-200"
+              onClick={() => setIsMobileOpen(false)}
             >
-              {item.label}
+              {item.icon && <item.icon className="h-4 w-4" />}
+              <div>
+                <div className="font-medium">{item.label}</div>
+                {item.description && (
+                  <div className="text-sm text-gray-600">
+                    {item.description}
+                  </div>
+                )}
+              </div>
             </Link>
           ) : (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="flex-1 text-left px-3 py-2 text-teal-dark hover:text-orange hover:bg-orange/10 rounded-md transition-all duration-300"
+              className="flex-1 flex items-center gap-3 text-left px-4 py-3 text-teal-dark hover:text-orange hover:bg-orange/5 rounded-lg transition-all duration-200"
             >
-              {item.label}
+              {item.icon && <item.icon className="h-4 w-4" />}
+              <div>
+                <div className="font-medium">{item.label}</div>
+                {item.description && (
+                  <div className="text-sm text-gray-600">
+                    {item.description}
+                  </div>
+                )}
+              </div>
             </button>
           )}
           {hasChildren && (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="p-2 text-teal-dark hover:text-orange transition-colors duration-300"
+              className="p-2 text-teal-dark hover:text-orange transition-colors duration-200"
             >
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${
+                className={`h-4 w-4 transition-transform duration-200 ${
                   isExpanded ? 'rotate-180' : ''
                 }`}
               />
@@ -377,7 +360,7 @@ const Navigation: React.FC = () => {
           )}
         </div>
         {hasChildren && isExpanded && (
-          <div className="mt-1 space-y-1">
+          <div className="mt-2 space-y-1">
             {item.children?.map((child) => renderMobileItem(child, level + 1))}
           </div>
         )}
@@ -390,37 +373,8 @@ const Navigation: React.FC = () => {
       setScrolled(window.scrollY > 10);
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node;
-      const dropdownElement = dropdownRef.current;
-
-      // Only close dropdown if click is completely outside the dropdown area
-      if (dropdownElement && !dropdownElement.contains(target)) {
-        clearHoverTimeout();
-        setActiveDropdown(null);
-        setActiveSubDropdown(null);
-      }
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        clearHoverTimeout();
-        setActiveDropdown(null);
-        setActiveSubDropdown(null);
-        setIsMenuOpen(false);
-      }
-    };
-
     window.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleKeyDown);
-      clearHoverTimeout();
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -428,42 +382,29 @@ const Navigation: React.FC = () => {
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50'
-          : 'bg-white shadow-md'
+          : 'bg-white shadow-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <Link
-                to="/"
-                className="flex items-center cursor-pointer transition-all duration-300 hover:scale-105"
-              >
-                <img
-                  src="/citrix_logo.png"
-                  alt="Citrix Consulting Services"
-                  className="w-10 h-10 mr-3 transition-transform duration-300 hover:rotate-12"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const fallback = target.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = 'flex';
-                  }}
-                />
-                <div className="w-10 h-10 mr-3 bg-teal-dark rounded-full flex items-center justify-center hidden">
-                  <span className="text-white font-bold text-lg">C</span>
+            <Link
+              to="/"
+              className="flex items-center cursor-pointer transition-all duration-300 hover:scale-105"
+            >
+              <div className="w-10 h-10 bg-gradient-to-br from-teal-dark to-teal-light rounded-lg flex items-center justify-center mr-3 shadow-lg">
+                <span className="text-white font-bold text-lg">C</span>
+              </div>
+              <div>
+                <div className="text-teal-dark font-bold text-lg transition-colors duration-300 hover:text-teal-light">
+                  Citrix Consulting
                 </div>
-                <div>
-                  <div className="text-teal-dark font-bold text-lg transition-colors duration-300 hover:text-teal-light">
-                    Citrix Consulting
-                  </div>
-                  <div className="text-navy-blue text-sm transition-colors duration-300 hover:text-gray-600">
-                    Services Limited
-                  </div>
+                <div className="text-navy-blue text-sm transition-colors duration-300 hover:text-gray-600">
+                  Services Limited
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -472,55 +413,38 @@ const Navigation: React.FC = () => {
               {navigationStructure.map((item) => (
                 <div key={item.id} className="relative">
                   {item.children ? (
-                    <div className="relative">
-                      <button
-                        onMouseEnter={() => handleDropdownHover(item.id)}
-                        onMouseLeave={handleDropdownLeave}
-                        className={`nav-link text-teal-dark hover:text-orange px-3 py-2 rounded-md transition-all duration-300 flex items-center font-medium relative overflow-hidden group ${
-                          activeDropdown === item.id ? 'text-orange' : ''
-                        }`}
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button className="nav-link text-teal-dark hover:text-orange px-3 py-2 rounded-md transition-all duration-300 flex items-center font-medium relative overflow-hidden group">
+                          <span className="relative z-10 flex items-center gap-2">
+                            {item.icon && <item.icon className="h-4 w-4" />}
+                            {item.label}
+                          </span>
+                          <ChevronDown className="ml-1 h-4 w-4 transition-all duration-300" />
+                          <div className="absolute inset-0 bg-orange/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        align="start"
+                        className="w-80 bg-white rounded-md shadow-xl border border-gray-200"
+                        sideOffset={8}
                       >
-                        <span className="relative z-10">{item.label}</span>
-                        <ChevronDown
-                          className={`ml-1 h-4 w-4 transition-all duration-300 ${
-                            activeDropdown === item.id ? 'rotate-180' : ''
-                          }`}
-                        />
-                        <div className="absolute inset-0 bg-orange/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                      </button>
-                      {activeDropdown === item.id && (
-                        <div
-                          ref={dropdownRef}
-                          onMouseEnter={() => handleDropdownHover(item.id)}
-                          onMouseLeave={handleDropdownLeave}
-                          className="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-xl border border-gray-200 z-50 animate-dropdown"
-                        >
-                          <div className="py-2">
-                            <Link
-                              to={item.path || `/services/${item.id}`}
-                              className="dropdown-item block w-full text-left px-4 py-3 text-sm font-medium text-teal-dark hover:bg-teal-light/10 hover:text-orange transition-all duration-300 border-b border-gray-100 relative overflow-hidden group"
-                              onClick={() => {
-                                clearHoverTimeout();
-                                setActiveDropdown(null);
-                                setActiveSubDropdown(null);
-                              }}
-                            >
-                              <span className="relative z-10">
-                                📋 View All {item.label}
-                              </span>
-                              <div className="absolute inset-0 bg-orange/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                            </Link>
-                            {renderDesktopDropdown(item.children || [])}
-                          </div>
+                        <div className="p-2">
+                          {item.children?.map((child) => (
+                            <NestedDropdownItem key={child.id} item={child} />
+                          ))}
                         </div>
-                      )}
-                    </div>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   ) : (
                     <Link
                       to={item.path || '/'}
-                      className="nav-link text-teal-dark hover:text-orange px-3 py-2 rounded-md transition-all duration-300 font-medium relative overflow-hidden group"
+                      className="nav-link text-teal-dark hover:text-orange px-3 py-2 rounded-md transition-all duration-300 font-medium relative overflow-hidden group flex items-center gap-2"
                     >
-                      <span className="relative z-10">{item.label}</span>
+                      <span className="relative z-10 flex items-center gap-2">
+                        {item.icon && <item.icon className="h-4 w-4" />}
+                        {item.label}
+                      </span>
                       <div className="absolute inset-0 bg-orange/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                     </Link>
                   )}
@@ -532,7 +456,7 @@ const Navigation: React.FC = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Link to="/contact">
-              <Button className="bg-orange hover:bg-orange/90 text-white px-6 py-2 btn-premium transition-all-smooth">
+              <Button className="bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white px-6 py-2 font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                 Get a Quote
               </Button>
             </Link>
@@ -541,10 +465,10 @@ const Navigation: React.FC = () => {
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
               className="text-teal-dark hover:text-orange transition-colors duration-300 p-2"
             >
-              {isMenuOpen ? (
+              {isMobileOpen ? (
                 <X className="h-6 w-6 animate-fade-in" />
               ) : (
                 <Menu className="h-6 w-6 animate-fade-in" />
@@ -555,15 +479,15 @@ const Navigation: React.FC = () => {
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
+      {isMobileOpen && (
         <div className="lg:hidden animate-slide-in-down">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto">
             {navigationStructure.map((item) => renderMobileItem(item))}
             <div className="pt-4 border-t border-gray-200">
               <Link to="/contact">
                 <Button
-                  className="w-full bg-orange hover:bg-orange/90 text-white btn-premium"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => setIsMobileOpen(false)}
                 >
                   Get a Quote
                 </Button>
