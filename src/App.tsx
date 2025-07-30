@@ -41,7 +41,7 @@ export default function App() {
 
           {/* Services Routes */}
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
+          <Route path="/services/:serviceId" element={<SafetyAdviserPage />} />
 
           {/* Safety Adviser Routes */}
           <Route
@@ -49,7 +49,7 @@ export default function App() {
             element={<SafetyAdviserPage />}
           />
           <Route
-            path="/services/safety-adviser/health-safety"
+            path="/services/safety-advisor/health-safety"
             element={<HealthSafetyPage />}
           />
           <Route
@@ -57,7 +57,7 @@ export default function App() {
             element={<ServiceDetailPage />}
           />
           <Route
-            path="/services/safety-adviser/chas-assistance"
+            path="/services/safety-advisor/chas-assistance"
             element={<ChasAssistancePage />}
           />
 
@@ -68,16 +68,12 @@ export default function App() {
           />
           <Route path="/services/sia-acs" element={<SiaAcsPage />} />
           <Route
-            path="/services/sia-contractor/acs-audits"
-            element={<ServiceDetailPage />}
+            path="/services/sia-contractor/acs-audit"
+            element={<AcsCompliancePage />}
           />
           <Route
             path="/services/sia-contractor/acs-eligibility"
             element={<AcsEligibilityPage />}
-          />
-          <Route
-            path="/services/acs-compliance"
-            element={<AcsCompliancePage />}
           />
 
           {/* ISO Certifications Routes */}
@@ -99,8 +95,8 @@ export default function App() {
             element={<ServiceDetailPage />}
           />
           <Route
-            path="/services/iso-certifications/iso-14001/sia-acs-integration"
-            element={<ServiceDetailPage />}
+            path="/services/iso-certifications/sia-acs-integration"
+            element={<SiaAcsPage />}
           />
           <Route
             path="/services/iso-certifications/ohsas-18001"
@@ -117,10 +113,6 @@ export default function App() {
             element={<StaffVettingPage />}
           />
           <Route path="/services/pat-testing" element={<PatTestingPage />} />
-          <Route
-            path="/services/pat-testing/pricing"
-            element={<ServiceDetailPage />}
-          />
           <Route
             path="/services/fire-safety"
             element={<FireSafetyCertificationPage />}
@@ -154,10 +146,10 @@ export default function App() {
 
           {/* About Us Routes */}
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/policies" element={<PoliciesPage />} />
+          <Route path="/about/testimonials" element={<TestimonialsPage />} />
+          <Route path="/about/policies" element={<PoliciesPage />} />
           <Route path="/about/insurance" element={<InsurancePage />} />
-          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/about/careers" element={<CareersPage />} />
 
           {/* Jobs Route */}
           <Route path="/jobs" element={<JobsPage />} />

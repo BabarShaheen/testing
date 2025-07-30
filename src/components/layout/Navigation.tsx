@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Button } from '../ui/button';
 import {
   Menu,
   X,
@@ -37,8 +38,12 @@ const Navigation: React.FC = () => {
   const location = useLocation();
 
   // Add timeout refs to prevent premature closing
-  const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-  const dropdownTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const hoverTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
+  const dropdownTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
 
   const navigationStructure: NavigationItem[] = [
     {
@@ -56,6 +61,7 @@ const Navigation: React.FC = () => {
         {
           id: 'safety-advisor',
           label: 'Safety Advisor',
+          path: '/services/safety-advisor',
           icon: Shield,
           description: 'Health & safety compliance',
           children: [
@@ -79,6 +85,7 @@ const Navigation: React.FC = () => {
           id: 'sia-contractor',
           label: 'SIA Contractor (ACS)',
           icon: Award,
+          path: '/services/sia-contractor',
           description: 'Security industry compliance',
           children: [
             {
@@ -100,6 +107,7 @@ const Navigation: React.FC = () => {
         {
           id: 'iso-certifications',
           label: 'ISO Certifications',
+          path: '/services/iso-certifications',
           icon: Award,
           description: 'International standards compliance',
           badge: 'Popular',
@@ -145,17 +153,9 @@ const Navigation: React.FC = () => {
         {
           id: 'pat-testing',
           label: 'PAT Testing',
+          path: '/services/pat-testing',
           icon: Zap,
           description: 'Portable appliance testing',
-          children: [
-            {
-              id: 'pat-pricing',
-              label: 'Pricing',
-              path: '/services/pat-testing/pricing',
-              icon: FileText,
-              description: 'Competitive testing rates',
-            },
-          ],
         },
         {
           id: 'risk-assessments',
@@ -319,13 +319,18 @@ const Navigation: React.FC = () => {
       );
     }
 
+    // ✅ Parent with children: clickable + dropdown
     return (
       <div
         className="relative group"
         onMouseEnter={() => onItemHover?.(item.id)}
         onMouseLeave={() => onItemHover?.(null)}
       >
-        <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-orange-50 hover:text-teal-700 transition-all duration-300 cursor-pointer rounded-lg mx-1 group">
+        <Link
+          to={item.path || '#'}
+          className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-orange-50 hover:text-teal-700 transition-all duration-300 cursor-pointer rounded-lg mx-1 group"
+          onClick={closeMobileMenu}
+        >
           <div className="flex items-center gap-3">
             {item.icon && (
               <item.icon className="h-4 w-4 text-orange-500 group-hover:scale-110 transition-transform duration-300" />
@@ -347,8 +352,9 @@ const Navigation: React.FC = () => {
             )}
           </div>
           <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-orange-500 transition-all duration-300 group-hover:translate-x-1" />
-        </div>
+        </Link>
 
+        {/* Submenu */}
         {hoveredSubItem === item.id && (
           <div
             className="absolute left-full top-0 ml-1 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50"
@@ -552,8 +558,12 @@ const Navigation: React.FC = () => {
                 to="/"
                 className="flex items-center cursor-pointer transition-all duration-300 hover:scale-105"
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-teal-400 rounded-lg flex items-center justify-center mr-3 shadow-lg">
-                  <span className="text-white font-bold text-lg">C</span>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-3 shadow-lg overflow-hidden">
+                  <img
+                    src="/citrix_logo.png" // <-- Change this to your actual logo path
+                    alt="Citrix Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <div className="text-teal-700 font-bold text-lg transition-colors duration-300 hover:text-teal-600">
@@ -641,9 +651,9 @@ const Navigation: React.FC = () => {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Link to="/contact">
-                <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 rounded-lg">
+                <Button className="bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white px-6 py-2 font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                   Get a Quote
-                </button>
+                </Button>
               </Link>
             </div>
 
