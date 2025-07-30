@@ -49,7 +49,7 @@ export default function App() {
             element={<SafetyAdviserPage />}
           />
           <Route
-            path="/services/safety-adviser/health-safety"
+            path="/services/safety-advisor/health-safety"
             element={<HealthSafetyPage />}
           />
           <Route
