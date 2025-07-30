@@ -797,6 +797,81 @@ const Iso14001Page = () => {
           </div>
         </div>
       </section>
+
+      {/* ISO 14001 Environmental Management Section */}
+      <section className="py-20 bg-[#F9F9F9] px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#1BB66E] to-[#007E7A] rounded-full mb-6">
+              <Globe className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#007E7A] mb-6">
+            Certification to ISO 14001 Environmental Management
+            </h2>
+            <p className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-[#1E2A3A]/80">
+              ISO 14001 certification brands your business as environmentally responsible, winning you recognition and new business opportunities. It helps you demonstrate how committed you are to reducing your environmental impacts and to meet stakeholder expectations of sustainability.
+            </p>
+          </div>
+
+          {/* Certification Process Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Step 1: Gap Analysis */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#007E7A]/10 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#007E7A] to-[#00C4B3] rounded-full mb-6 mx-auto">
+                <Search className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#007E7A] mb-4 text-center">
+                Gap Analysis (Optional)
+              </h3>
+              <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
+                A pre-assessment where we review your current system vs ISO 14001 requirements to identify any gaps.
+              </p>
+            </div>
+
+            {/* Step 2: Formal Assessment */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#007E7A]/10 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#1BB66E] to-[#007E7A] rounded-full mb-6 mx-auto">
+                <Clipboard className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#007E7A] mb-4 text-center">
+                Formal Assessment (Two Stages)
+              </h3>
+              <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
+                Stage 1 checks your readiness; Stage 2 includes full on-site assessment for certification.
+              </p>
+            </div>
+
+            {/* Step 3: Certification & Beyond */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#007E7A]/10 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#F7941E] to-[#1BB66E] rounded-full mb-6 mx-auto">
+                <Award className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#007E7A] mb-4 text-center">
+                Certification & Beyond
+              </h3>
+              <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
+                Once certified, you receive a 3-year certificate. A client manager provides ongoing support and improvement check-ins.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto border border-[#007E7A]/10">
+              <h3 className="text-2xl font-bold text-[#007E7A] mb-4">
+                Ready to Start Your ISO 14001 Journey?
+              </h3>
+              <p className="text-[#1E2A3A]/80 leading-relaxed mb-6">
+                Join thousands of organizations that have achieved ISO 14001 certification and transformed their environmental management practices.
+              </p>
+              <Button className="bg-gradient-to-r from-[#007E7A] to-[#00C4B3] hover:from-[#00C4B3] hover:to-[#1BB66E] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl mx-auto">
+                <Phone className="h-5 w-5 mr-2" />
+                Get Your Free Consultation
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
