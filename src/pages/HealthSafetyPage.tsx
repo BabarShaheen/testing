@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   CheckCircle,
@@ -7,9 +6,6 @@ import {
   FileSearch,
   ClipboardCheck,
   Eye,
-  Phone,
-  Mail,
-  Clock,
   Users,
   Target,
   Award,
@@ -137,7 +133,7 @@ export function HealthSafetyPage() {
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>
@@ -271,180 +267,209 @@ export function HealthSafetyPage() {
         </div>
       </section>
 
-             {/* SSIP Accreditation Support Section */}
-       <section id="ssip-accreditation" className="py-16 bg-gray-50">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-12">
-             <h2 className="text-3xl font-bold text-slate-800 mb-4">
-               SSIP Accreditation Support
-             </h2>
-             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-               CHAS, SafeContractor, Acclaim, Achilles, ConstructionLine, SMAS, EXOR & Altius
-               <br />
-               <strong className="text-teal-700">
-                 Discounts available for multiple accreditations — Call us: 02071400015
-               </strong>
-             </p>
-           </div>
+      {/* SSIP Accreditation Support Section */}
+      <section id="ssip-accreditation" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">
+              SSIP Accreditation Support
+            </h2>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              CHAS, SafeContractor, Acclaim, Achilles, ConstructionLine, SMAS,
+              EXOR & Altius
+              <br />
+              <strong className="text-teal-700">
+                Discounts available for multiple accreditations — Call us:
+                02071400015
+              </strong>
+            </p>
+          </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
-             {/* CHAS Card */}
-             <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
-               <div className="flex justify-center mb-4">
-                 <div className="p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
-                   <Award className="h-8 w-8 text-blue-600" />
-                 </div>
-               </div>
-               <h3 className="text-lg font-bold text-slate-800 mb-2">CHAS Accreditation</h3>
-               <p className="text-sm text-gray-600 mb-4">Full application and registration help</p>
-               <div className="space-y-2">
-                 <div className="p-2 bg-blue-50 rounded">
-                   <p className="text-sm text-gray-700">
-                     Under 5 Employees – <strong className="text-blue-600">£99.99</strong>
-                   </p>
-                 </div>
-                 <div className="p-2 bg-blue-50 rounded">
-                   <p className="text-sm text-gray-700">
-                     5+ Employees – <strong className="text-blue-600">£250</strong>
-                   </p>
-                 </div>
-               </div>
-             </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
+            {/* CHAS Card */}
+            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
+                  <Award className="h-8 w-8 text-blue-600" />
+                </div>
+              </div>
+              <h3 className="text-lg font-bold text-slate-800 mb-2">
+                CHAS Accreditation
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Full application and registration help
+              </p>
+              <div className="space-y-2">
+                <div className="p-2 bg-blue-50 rounded">
+                  <p className="text-sm text-gray-700">
+                    Under 5 Employees –{' '}
+                    <strong className="text-blue-600">£99.99</strong>
+                  </p>
+                </div>
+                <div className="p-2 bg-blue-50 rounded">
+                  <p className="text-sm text-gray-700">
+                    5+ Employees –{' '}
+                    <strong className="text-blue-600">£250</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
 
-             {/* SafeContractor Card */}
-             <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
-               <div className="flex justify-center mb-4">
-                 <div className="p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg">
-                   <Shield className="h-8 w-8 text-green-600" />
-                 </div>
-               </div>
-               <h3 className="text-lg font-bold text-slate-800 mb-2">SafeContractor</h3>
-               <p className="text-sm text-gray-600 mb-4">SSIP Application & Registration Support</p>
-               <div className="p-3 bg-green-50 rounded">
-                 <p className="text-2xl font-bold text-green-600">£299.99</p>
-               </div>
-             </div>
+            {/* SafeContractor Card */}
+            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg">
+                  <Shield className="h-8 w-8 text-green-600" />
+                </div>
+              </div>
+              <h3 className="text-lg font-bold text-slate-800 mb-2">
+                SafeContractor
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                SSIP Application & Registration Support
+              </p>
+              <div className="p-3 bg-green-50 rounded">
+                <p className="text-2xl font-bold text-green-600">£299.99</p>
+              </div>
+            </div>
 
-             {/* SMAS Card */}
-             <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
-               <div className="flex justify-center mb-4">
-                 <div className="p-3 bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg">
-                   <CheckCircle className="h-8 w-8 text-purple-600" />
-                 </div>
-               </div>
-               <h3 className="text-lg font-bold text-slate-800 mb-2">SMAS WorkSafe</h3>
-               <p className="text-sm text-gray-600 mb-4">Application assistance with qualified consultant</p>
-               <div className="p-3 bg-purple-50 rounded">
-                 <p className="text-2xl font-bold text-purple-600">£299.99</p>
-               </div>
-             </div>
+            {/* SMAS Card */}
+            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg">
+                  <CheckCircle className="h-8 w-8 text-purple-600" />
+                </div>
+              </div>
+              <h3 className="text-lg font-bold text-slate-800 mb-2">
+                SMAS WorkSafe
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Application assistance with qualified consultant
+              </p>
+              <div className="p-3 bg-purple-50 rounded">
+                <p className="text-2xl font-bold text-purple-600">£299.99</p>
+              </div>
+            </div>
 
-             {/* ConstructionLine Card */}
-             <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
-               <div className="flex justify-center mb-4">
-                 <div className="p-3 bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg">
-                   <ClipboardCheck className="h-8 w-8 text-orange-600" />
-                 </div>
-               </div>
-               <h3 className="text-lg font-bold text-slate-800 mb-2">ConstructionLine</h3>
-               <p className="text-sm text-gray-600 mb-4">Full registration help & email/phone support</p>
-               <div className="p-3 bg-orange-50 rounded">
-                 <p className="text-2xl font-bold text-orange-600">£349.99</p>
-               </div>
-             </div>
+            {/* ConstructionLine Card */}
+            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg">
+                  <ClipboardCheck className="h-8 w-8 text-orange-600" />
+                </div>
+              </div>
+              <h3 className="text-lg font-bold text-slate-800 mb-2">
+                ConstructionLine
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Full registration help & email/phone support
+              </p>
+              <div className="p-3 bg-orange-50 rounded">
+                <p className="text-2xl font-bold text-orange-600">£349.99</p>
+              </div>
+            </div>
 
-             {/* Altius Card */}
-             <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
-               <div className="flex justify-center mb-4">
-                 <div className="p-3 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg">
-                   <Target className="h-8 w-8 text-teal-600" />
-                 </div>
-               </div>
-               <h3 className="text-lg font-bold text-slate-800 mb-2">Altius Accreditation</h3>
-               <p className="text-sm text-gray-600 mb-4">SSIP help with ongoing support</p>
-               <div className="p-3 bg-teal-50 rounded">
-                 <p className="text-2xl font-bold text-teal-600">£ POA</p>
-               </div>
-             </div>
-           </div>
+            {/* Altius Card */}
+            <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6 text-center">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg">
+                  <Target className="h-8 w-8 text-teal-600" />
+                </div>
+              </div>
+              <h3 className="text-lg font-bold text-slate-800 mb-2">
+                Altius Accreditation
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                SSIP help with ongoing support
+              </p>
+              <div className="p-3 bg-teal-50 rounded">
+                <p className="text-2xl font-bold text-teal-600">£ POA</p>
+              </div>
+            </div>
+          </div>
 
-           <div className="text-center">
-             <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-               <p className="text-lg text-gray-700 mb-4">
-                 <strong className="text-slate-800">All packages include honest pricing with no hidden fees.</strong>
-                 <br />
-                 Our consultants are Chartered or Grad IOSH with NEBOSH & Masters in Occupational Health & Safety.
-               </p>
-               <p className="text-lg text-gray-700 mb-6">
-                 <strong className="text-slate-800">Also includes:</strong> Safety Advisory Service — Your own competent H&S advisor for under £1/day.
-               </p>
-               <Button
-                 onClick={handleContactClick}
-                 className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg"
-               >
-                 Get Accredited
-               </Button>
-             </div>
-           </div>
-         </div>
-       </section>
+          <div className="text-center">
+            <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+              <p className="text-lg text-gray-700 mb-4">
+                <strong className="text-slate-800">
+                  All packages include honest pricing with no hidden fees.
+                </strong>
+                <br />
+                Our consultants are Chartered or Grad IOSH with NEBOSH & Masters
+                in Occupational Health & Safety.
+              </p>
+              <p className="text-lg text-gray-700 mb-6">
+                <strong className="text-slate-800">Also includes:</strong>{' '}
+                Safety Advisory Service — Your own competent H&S advisor for
+                under £1/day.
+              </p>
+              <Button
+                onClick={handleContactClick}
+                className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg"
+              >
+                Get Accredited
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-       {/* Additional Benefits */}
-       <section className="py-16 bg-white">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-12">
-             <h2 className="text-3xl font-bold text-slate-800 mb-4">
-               Why Choose Our Health & Safety Services?
-             </h2>
-             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-               Professional expertise backed by experience and legal compliance
-             </p>
-           </div>
+      {/* Additional Benefits */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">
+              Why Choose Our Health & Safety Services?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Professional expertise backed by experience and legal compliance
+            </p>
+          </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-             {[
-               {
-                 icon: Award,
-                 name: 'Qualified Professionals',
-                 desc: 'Experienced, certified safety professionals with proven track records',
-               },
-               {
-                 icon: Shield,
-                 name: 'Legal Compliance',
-                 desc: 'Ensure full compliance with current health and safety legislation',
-               },
-               {
-                 icon: Target,
-                 name: 'Tailored Solutions',
-                 desc: 'Bespoke reporting and solutions designed for your specific needs',
-               },
-               {
-                 icon: Users,
-                 name: 'Expert Support',
-                 desc: '24/7 support for emergency situations and ongoing consultation',
-               },
-             ].map((benefit, index) => {
-               const IconComponent = benefit.icon;
-               return (
-                 <div
-                   key={index}
-                   className="bg-gradient-to-br from-teal-50 to-blue-50 p-6 rounded-lg border border-teal-100 text-center"
-                 >
-                   <div className="flex justify-center mb-4">
-                     <div className="p-3 bg-teal-600 rounded-full">
-                       <IconComponent className="h-6 w-6 text-white" />
-                     </div>
-                   </div>
-                   <h3 className="font-semibold text-teal-700 mb-2">
-                     {benefit.name}
-                   </h3>
-                   <p className="text-gray-600 text-sm">{benefit.desc}</p>
-                 </div>
-               );
-             })}
-           </div>
-         </div>
-       </section>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Award,
+                name: 'Qualified Professionals',
+                desc: 'Experienced, certified safety professionals with proven track records',
+              },
+              {
+                icon: Shield,
+                name: 'Legal Compliance',
+                desc: 'Ensure full compliance with current health and safety legislation',
+              },
+              {
+                icon: Target,
+                name: 'Tailored Solutions',
+                desc: 'Bespoke reporting and solutions designed for your specific needs',
+              },
+              {
+                icon: Users,
+                name: 'Expert Support',
+                desc: '24/7 support for emergency situations and ongoing consultation',
+              },
+            ].map((benefit, index) => {
+              const IconComponent = benefit.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-teal-50 to-blue-50 p-6 rounded-lg border border-teal-100 text-center"
+                >
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-teal-600 rounded-full">
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="font-semibold text-teal-700 mb-2">
+                    {benefit.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm">{benefit.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

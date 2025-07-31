@@ -4,9 +4,7 @@ import {
   CheckCircle,
   ArrowRight,
   Award,
-  FileText,
   Users,
-  Search,
   Settings,
   Eye,
   Globe,
@@ -79,12 +77,6 @@ const Button: React.FC<ButtonProps> = ({
     destructive: 'bg-red-600 text-white hover:bg-red-700',
   };
 
-  const PrimaryvariantClasses = {
-    default: 'bg-blue-600 hover:bg-blue-700 text-white',
-    outline:
-      'border border-current bg-transparent hover:bg-current hover:text-white',
-  };
-
   return (
     <button
       className={`font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
@@ -96,10 +88,6 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 export default function BafeSP205Page() {
-  const handleServiceClick = (serviceId: any) => {
-    console.log(`Navigate to service: ${serviceId}`);
-  };
-
   const handleContactClick = () => {
     console.log('Navigate to contact page');
   };
@@ -141,7 +129,7 @@ export default function BafeSP205Page() {
       description:
         'BAFE will then send out a welcome pack including your BAFE certificate. At this point you will be allowed to display the correct BAFE logo that relates to your scheme.',
       icon: <Award className="h-8 w-8" />,
-      bgColor: 'bg-purple',
+      bgColor: 'bg-navy-blue',
     },
     {
       step: 'Step 5',
@@ -149,12 +137,12 @@ export default function BafeSP205Page() {
       description:
         "Your company will then be added to the BAFE website, which will enable all users searching for Third Party Certified BAFE registered fire protection companies to access your companies' information.",
       icon: <Globe className="h-8 w-8" />,
-      bgColor: 'bg-blue',
+      bgColor: 'bg-teal-light',
     },
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-teal-gradient text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>
@@ -414,21 +402,21 @@ export default function BafeSP205Page() {
                   title: 'BAFE Website Listing',
                   description:
                     'Featured on the official BAFE directory for increased visibility.',
-                  bgColor: 'bg-purple',
+                  bgColor: 'bg-orange',
                 },
                 {
                   icon: <BadgeCheck className="h-8 w-8 text-white" />,
                   title: 'Quality Assurance',
                   description:
                     'Demonstrate technical and quality management capabilities.',
-                  bgColor: 'bg-blue',
+                  bgColor: 'bg-leaf-green',
                 },
                 {
                   icon: <Users className="h-8 w-8 text-white" />,
                   title: 'Market Access',
                   description:
                     'Access clients who specifically require BAFE-registered providers.',
-                  bgColor: 'bg-indigo',
+                  bgColor: 'bg-teal-dark',
                 },
               ].map((item, index) => (
                 <div key={index} className="text-center">
@@ -535,7 +523,7 @@ export default function BafeSP205Page() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-teal-dark px-8 py-3"
+                className="bg-teal-dark text-white hover:bg-white hover:text-teal-dark px-8 py-3"
                 onClick={handleContactClick}
               >
                 Contact Us Today

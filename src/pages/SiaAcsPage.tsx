@@ -1,22 +1,23 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
-import { 
-  Shield, 
-  TrendingUp, 
-  CheckCircle, 
-  Award, 
-  Users, 
-  Phone, 
-  Mail, 
-  ExternalLink,
+import {
+  Shield,
+  TrendingUp,
+  CheckCircle,
+  Award,
+  Phone,
+  Mail,
   Target,
-  FileText,
   Star,
   Building,
-  Clock,
-  Zap
+  Zap,
 } from 'lucide-react';
 
 const SiaAcsPage: React.FC = () => {
@@ -35,8 +36,9 @@ const SiaAcsPage: React.FC = () => {
               SIA ACS Approved Contractor Scheme
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Raise performance standards and gain recognition as a trusted private security provider 
-              through the SIA's voluntary Approved Contractor Scheme.
+              Raise performance standards and gain recognition as a trusted
+              private security provider through the SIA's voluntary Approved
+              Contractor Scheme.
             </p>
           </div>
         </div>
@@ -57,10 +59,16 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  The Security Industry Authority (SIA), established by the Private Security Industry Act 2001, 
-                  regulates the private security industry across the UK. One of its key programs is the 
-                  <strong className="text-teal-dark"> Approved Contractor Scheme (ACS)</strong> — a voluntary program designed to raise 
-                  performance standards and help buyers identify trusted private security providers.
+                  The Security Industry Authority (SIA), established by the
+                  Private Security Industry Act 2001, regulates the private
+                  security industry across the UK. One of its key programs is
+                  the
+                  <strong className="text-teal-dark">
+                    {' '}
+                    Approved Contractor Scheme (ACS)
+                  </strong>{' '}
+                  — a voluntary program designed to raise performance standards
+                  and help buyers identify trusted private security providers.
                 </p>
               </CardContent>
             </Card>
@@ -77,15 +85,24 @@ const SiaAcsPage: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200">
                     <CheckCircle className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">A voluntary accreditation awarded to security companies that meet defined standards.</span>
+                    <span className="text-gray-700">
+                      A voluntary accreditation awarded to security companies
+                      that meet defined standards.
+                    </span>
                   </div>
                   <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200">
                     <CheckCircle className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">ACS-approved companies are assessed annually on performance, compliance, and customer service.</span>
+                    <span className="text-gray-700">
+                      ACS-approved companies are assessed annually on
+                      performance, compliance, and customer service.
+                    </span>
                   </div>
                   <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200">
                     <CheckCircle className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">Only those maintaining these standards can advertise themselves as Approved Contractors.</span>
+                    <span className="text-gray-700">
+                      Only those maintaining these standards can advertise
+                      themselves as Approved Contractors.
+                    </span>
                   </div>
                 </div>
               </CardContent>
@@ -106,9 +123,12 @@ const SiaAcsPage: React.FC = () => {
                     'Stand out in tenders requiring ACS accreditation',
                     'Improve operational standards through independent assessment',
                     'Legally deploy up to 15% of staff with pending SIA licenses',
-                    'Demonstrates commitment to lawful, ethical, and high-quality service'
+                    'Demonstrates commitment to lawful, ethical, and high-quality service',
                   ].map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200">
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200"
+                    >
                       <CheckCircle className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{benefit}</span>
                     </div>
@@ -127,7 +147,8 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                  Companies offering services in the following areas are eligible to apply:
+                  Companies offering services in the following areas are
+                  eligible to apply:
                 </p>
                 <div className="grid md:grid-cols-2 gap-3">
                   {[
@@ -138,13 +159,18 @@ const SiaAcsPage: React.FC = () => {
                     'Keyholding & Alarm Response (BS 7984)',
                     'Cash & Valuables in Transit (BS 7872)',
                     'Private Investigations',
-                    'Vehicle Immobilisation (Northern Ireland)'
+                    'Vehicle Immobilisation (Northern Ireland)',
                   ].map((service, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark">
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-3 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark"
+                    >
                       <div className="w-6 h-6 bg-teal-dark text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
                         {index + 1}
                       </div>
-                      <span className="text-gray-700 font-medium">{service}</span>
+                      <span className="text-gray-700 font-medium">
+                        {service}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -161,38 +187,51 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                  We provide complete, hands-on support for your ACS approval. Our process includes:
+                  We provide complete, hands-on support for your ACS approval.
+                  Our process includes:
                 </p>
                 <div className="space-y-4">
                   {[
                     {
                       step: 'Site Visit & System Drafting',
-                      description: 'We review your business procedures and design a tailored ACS system with your branding.'
+                      description:
+                        'We review your business procedures and design a tailored ACS system with your branding.',
                     },
                     {
                       step: 'Documentation Walkthrough',
-                      description: 'We train your team on each procedure, finalizing forms like supplier lists and action plans.'
+                      description:
+                        'We train your team on each procedure, finalizing forms like supplier lists and action plans.',
                     },
                     {
                       step: 'Pre-Assessment Check',
-                      description: 'We ensure everything is aligned before official evaluation.'
+                      description:
+                        'We ensure everything is aligned before official evaluation.',
                     },
                     {
                       step: 'Assessment Day Attendance',
-                      description: 'Our assessor will be present on the first day of your assessment.'
+                      description:
+                        'Our assessor will be present on the first day of your assessment.',
                     },
                     {
                       step: '12-Month Support',
-                      description: 'Continued guidance post-certification to keep your system compliant and up-to-date.'
-                    }
+                      description:
+                        'Continued guidance post-certification to keep your system compliant and up-to-date.',
+                    },
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-orange">
+                    <div
+                      key={index}
+                      className="flex items-start gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-orange"
+                    >
                       <div className="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                         {index + 1}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-teal-dark mb-1">{item.step}</h4>
-                        <p className="text-gray-700 leading-relaxed">{item.description}</p>
+                        <h4 className="font-semibold text-teal-dark mb-1">
+                          {item.step}
+                        </h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -216,9 +255,12 @@ const SiaAcsPage: React.FC = () => {
                     'Experienced assessors who provide clear, actionable feedback',
                     'Many clients exceed the 136+ point threshold and qualify as ACS Pacesetters',
                     'Simple onboarding and transfer process from other bodies',
-                    'ISO 9001 Passport Route available for streamlined approval'
+                    'ISO 9001 Passport Route available for streamlined approval',
                   ].map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200">
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200"
+                    >
                       <CheckCircle className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{benefit}</span>
                     </div>
@@ -240,22 +282,27 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                  Whether you're new to ACS or ready to transfer, we'll make the process simple. 
-                  Get in touch for a consultation or quote tailored to your company.
+                  Whether you're new to ACS or ready to transfer, we'll make the
+                  process simple. Get in touch for a consultation or quote
+                  tailored to your company.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                     <Phone className="w-4 h-4 text-orange" />
                     <div>
                       <p className="text-sm text-gray-600">Call us at</p>
-                      <p className="font-semibold text-teal-dark">0447446131794</p>
+                      <p className="font-semibold text-teal-dark">
+                        0447446131794
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                     <Mail className="w-4 h-4 text-orange" />
                     <div>
                       <p className="text-sm text-gray-600">Email us at</p>
-                      <p className="font-semibold text-teal-dark">admin@citrix-consulting-limited.co.uk</p>
+                      <p className="font-semibold text-teal-dark">
+                        admin@citrix-consulting-limited.co.uk
+                      </p>
                     </div>
                   </div>
                   <Button className="w-full bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white">
@@ -280,7 +327,7 @@ const SiaAcsPage: React.FC = () => {
                     'Competitive advantage in tenders',
                     'Legal deployment flexibility (15% pending licenses)',
                     'Annual performance assessment',
-                    'Enhanced operational standards'
+                    'Enhanced operational standards',
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-4 h-4 text-orange mt-0.5 flex-shrink-0" />
@@ -301,7 +348,9 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange mb-2">100%</div>
+                  <div className="text-3xl font-bold text-orange mb-2">
+                    100%
+                  </div>
                   <p className="text-gray-700 text-sm">
                     Success rate in achieving ACS approval for our clients
                   </p>
@@ -315,4 +364,4 @@ const SiaAcsPage: React.FC = () => {
   );
 };
 
-export default SiaAcsPage; 
+export default SiaAcsPage;

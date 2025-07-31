@@ -61,7 +61,7 @@ export function TestimonialsPage() {
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>

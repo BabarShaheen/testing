@@ -42,14 +42,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
+
   /* Brand Colors */
-  --teal-dark: #007E7A;
-  --teal-light: #00C4B3;
-  --orange: #F7941E;
-  --navy-blue: #1E2A3A;
-  --leaf-green: #1BB66E;
-  --brand-white: #FFFFFF;
+  --teal-dark: #007e7a;
+  --teal-light: #00c4b3;
+  --orange: #f7941e;
+  --navy-blue: #1e2a3a;
+  --leaf-green: #1bb66e;
+  --brand-white: #ffffff;
 }
 
 .dark {
@@ -131,11 +131,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
     scroll-behavior: smooth;
   }
 
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
     h1 {
       @apply text-4xl font-bold tracking-tight;
     }
@@ -241,11 +241,19 @@ html {
 }
 
 .bg-teal-gradient {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--teal-dark) 0%,
+    var(--teal-light) 100%
+  );
 }
 
 .text-gradient-teal {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--teal-dark) 0%,
+    var(--teal-light) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -348,7 +356,8 @@ html {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -357,7 +366,8 @@ html {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -448,7 +458,12 @@ html {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   background-size: 200px 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -476,17 +491,20 @@ html {
 }
 
 .transition-colors-smooth {
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Hover Effects */
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .hover-scale {
@@ -519,7 +537,12 @@ html {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -634,7 +657,7 @@ html {
     animation: none;
     transform: none;
   }
-  
+
   .transition-all-smooth,
   .transition-transform-smooth,
   .transition-colors-smooth {

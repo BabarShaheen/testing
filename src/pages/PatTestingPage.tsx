@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   CheckCircle,
   ArrowRight,
@@ -10,17 +9,9 @@ import {
   Clock,
   Star,
   AlertTriangle,
-  Building,
   BookOpen,
   Phone,
   Mail,
-  Eye,
-  Download,
-  Globe,
-  Settings,
-  Target,
-  BadgeCheck,
-  Search,
   Clipboard,
   TrendingUp,
 } from 'lucide-react';
@@ -420,7 +411,7 @@ const PatTestingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[#007E7A] via-[#00C4B3] to-[#1BB66E] text-white px-4">
+      <section className="py-20 bg-gradient-to-br from-[#007E7E]  to-[#1BB66E] text-white px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-6">
             <Phone className="h-8 w-8 text-white" />
@@ -428,7 +419,7 @@ const PatTestingPage = () => {
           <h2 className="text-4xl font-bold mb-6">
             Don't stress about workplace safety
           </h2>
-          <p className="text-xl text-[#00C4B3] max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
             If you don't want to stress off worrying about the safety of your
             work place, and also wish to cover yourself for any injuries that
             may occur in the workplace, CiTRiX-CO has the answer to all your

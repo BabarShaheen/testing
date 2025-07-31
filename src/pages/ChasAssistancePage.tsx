@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   CheckCircle,
@@ -6,16 +5,8 @@ import {
   Award,
   FileText,
   Users,
-  Phone,
-  Mail,
-  Clock,
   Target,
-  ArrowRight,
   Building,
-  AlertTriangle,
-  HardHat,
-  Zap,
-  Star,
   TrendingUp,
 } from 'lucide-react';
 
@@ -24,10 +15,6 @@ export function ChasAssistancePage() {
 
   const handleContactClick = () => {
     navigate('/contact');
-  };
-
-  const handleServiceClick = (serviceId: string) => {
-    navigate(`/services/${serviceId}`);
   };
 
   const benefits = [
@@ -69,28 +56,20 @@ export function ChasAssistancePage() {
   ];
 
   const largeCompanyRequirements = [
-    'Health & Safety Arrangements',
-    'Safety Policy Statement',
-    'Work Equipment Procedures',
-    'Health & Safety Training',
-    'Employee Consultation Arrangements',
-    'First Aid Provision',
-    'Fire Emergency Procedures & Fire Risk Assessments',
-    'Display Screen Equipment Assessments',
-    'Manual Handling Assessments',
+    'Health & Safety Policy and Arrangements',
+    'Risk Assessments & Method Statements (including COSHH)',
+    'Health & Safety Training (including Asbestos Awareness)',
+    'Employee Consultation & Health Surveillance',
+    'First Aid & Fire Emergency Procedures',
+    'Display Screen Equipment & Manual Handling Assessments',
+    'Work Equipment Safety (including Inspections & Maintenance)',
     'Electrical Safety & PAT Testing',
-    'Risk Assessments & COSHH Assessments',
-    'Method Statements',
-    'Asbestos Awareness Training and Management',
-    'Health Surveillance Arrangements',
-    'Accident Reporting Procedures',
-    'Work Equipment Inspections & Maintenance',
-    'Personal Protective Equipment PPE',
-    'Access to a Competent Health and Safety Advisor',
-    'Contractor Management & Competence Assessment',
-    'Workplace Safety Inspections',
-    'Fire Risk Assessments',
-    'Monitoring Audit & Review Procedures',
+    'Personal Protective Equipment (PPE)',
+    'Accident Reporting & Investigation Procedures',
+    'Competent Health and Safety Advisor Access',
+    'Contractor Management & Competency Checks',
+    'Workplace Safety Inspections & Audits',
+    'Monitoring, Review & Continuous Improvement',
   ];
 
   const processSteps = [
@@ -121,7 +100,7 @@ export function ChasAssistancePage() {
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center text-white py-16 overflow-hidden"
@@ -353,9 +332,9 @@ export function ChasAssistancePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-100">
+            <div className="bg-gradient-to-br from-teal-dark-50 to-navy-blue-50 p-6 rounded-xl border border-orange-100">
               <div className="flex items-center mb-4">
-                <div className="p-3 bg-orange-600 rounded-lg mr-4">
+                <div className="p-3 bg-teal-600 rounded-lg mr-4">
                   <FileText className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-slate-800">
@@ -396,56 +375,6 @@ export function ChasAssistancePage() {
                 We've successfully completed CHAS registration for hundreds of
                 contractors with a 100% success rate.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Information */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">
-              Ready to Start Your CHAS Registration?
-            </h2>
-            <p className="text-gray-600">
-              Contact us today for a no-obligation quote and expert guidance
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <Phone className="h-8 w-8 text-teal-600 mx-auto mb-3" />
-              <h3 className="font-semibold text-slate-700 mb-2">
-                Phone Support
-              </h3>
-              <p className="text-gray-600 text-sm mb-2">General Enquiries:</p>
-              <p className="font-medium text-teal-600">020 7140 0015</p>
-              <p className="text-gray-600 text-sm mt-2 mb-2">
-                Emergency Response:
-              </p>
-              <p className="font-medium text-teal-600">07446 131 794</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <Mail className="h-8 w-8 text-teal-600 mx-auto mb-3" />
-              <h3 className="font-semibold text-slate-700 mb-2">
-                Email Support
-              </h3>
-              <p className="text-gray-600 text-sm mb-2">All Enquiries:</p>
-              <p className="font-medium text-teal-600 break-all text-sm">
-                info@citrix-consulting-limited.co.uk
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <Clock className="h-8 w-8 text-teal-600 mx-auto mb-3" />
-              <h3 className="font-semibold text-slate-700 mb-2">
-                Service Details
-              </h3>
-              <p className="text-gray-600 text-sm mb-1">No obligation quotes</p>
-              <p className="text-gray-600 text-sm mb-1">Expert consultation</p>
-              <p className="text-gray-600 text-sm">Full application support</p>
             </div>
           </div>
         </div>

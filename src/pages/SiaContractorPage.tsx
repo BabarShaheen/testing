@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Shield,
   CheckCircle,
@@ -120,7 +119,7 @@ export default function SiaContractorPage() {
       title: 'Competitive Edge',
       description:
         'Provides competitive advantage and confidence in the service you provide to potential clients.',
-      bgColor: 'bg-orange-600',
+      bgColor: 'bg-pink-600',
     },
     {
       icon: Award,
@@ -174,7 +173,7 @@ export default function SiaContractorPage() {
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-slate-900/20"></div>
@@ -241,7 +240,7 @@ export default function SiaContractorPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {processSteps.map((step, index) => {
+            {processSteps.map((step) => {
               const IconComponent = step.icon;
               return (
                 <div

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '../components/ui/button';
 import {
   Leaf,
@@ -9,29 +8,22 @@ import {
   FileText,
   TrendingUp,
   Star,
-  Clock,
-  ArrowRight,
   Briefcase,
   Settings,
   BookOpen,
   Phone,
   BadgeCheck,
-  AlertTriangle,
   Eye,
   Download,
-  Mail,
-  PhoneCall,
   Award,
   Search,
   Clipboard,
-  ShieldCheck,
   Globe,
   Recycle,
   Factory,
   TreePine,
   Zap,
   BarChart3,
-  ExternalLink,
 } from 'lucide-react';
 
 const implementationSteps = [
@@ -109,33 +101,6 @@ const assessmentProcess = [
       'Regular surveillance visits to ensure ongoing environmental compliance and improvement',
     duration: 'Annually',
     icon: Globe,
-  },
-];
-
-const benefits = [
-  {
-    icon: <Leaf className="h-8 w-8 text-white" />,
-    title: 'Environmental Performance',
-    desc: 'Systematic approach to environmental management leading to measurable improvements and reduced impact.',
-    color: 'from-[#1BB66E] to-[#007E7A]',
-  },
-  {
-    icon: <TrendingUp className="h-8 w-8 text-white" />,
-    title: 'Cost Savings',
-    desc: 'Improved efficiency and productivity through resource optimization, reducing operational costs significantly.',
-    color: 'from-[#007E7A] to-[#00C4B3]',
-  },
-  {
-    icon: <Award className="h-8 w-8 text-white" />,
-    title: 'Enhanced Credibility',
-    desc: 'Demonstrates commitment to environmental responsibility to customers, stakeholders, and regulatory bodies.',
-    color: 'from-[#1E2A3A] to-[#007E7A]',
-  },
-  {
-    icon: <ShieldCheck className="h-8 w-8 text-white" />,
-    title: 'Regulatory Compliance',
-    desc: 'Ensures compliance with environmental legislation and reduces risk of regulatory penalties.',
-    color: 'from-[#F7941E] to-[#1BB66E]',
   },
 ];
 
@@ -806,10 +771,14 @@ const Iso14001Page = () => {
               <Globe className="h-8 w-8 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#007E7A] mb-6">
-            Certification to ISO 14001 Environmental Management
+              Certification to ISO 14001 Environmental Management
             </h2>
             <p className="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-[#1E2A3A]/80">
-              ISO 14001 certification brands your business as environmentally responsible, winning you recognition and new business opportunities. It helps you demonstrate how committed you are to reducing your environmental impacts and to meet stakeholder expectations of sustainability.
+              ISO 14001 certification brands your business as environmentally
+              responsible, winning you recognition and new business
+              opportunities. It helps you demonstrate how committed you are to
+              reducing your environmental impacts and to meet stakeholder
+              expectations of sustainability.
             </p>
           </div>
 
@@ -824,7 +793,8 @@ const Iso14001Page = () => {
                 Gap Analysis (Optional)
               </h3>
               <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
-                A pre-assessment where we review your current system vs ISO 14001 requirements to identify any gaps.
+                A pre-assessment where we review your current system vs ISO
+                14001 requirements to identify any gaps.
               </p>
             </div>
 
@@ -837,7 +807,8 @@ const Iso14001Page = () => {
                 Formal Assessment (Two Stages)
               </h3>
               <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
-                Stage 1 checks your readiness; Stage 2 includes full on-site assessment for certification.
+                Stage 1 checks your readiness; Stage 2 includes full on-site
+                assessment for certification.
               </p>
             </div>
 
@@ -850,7 +821,8 @@ const Iso14001Page = () => {
                 Certification & Beyond
               </h3>
               <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
-                Once certified, you receive a 3-year certificate. A client manager provides ongoing support and improvement check-ins.
+                Once certified, you receive a 3-year certificate. A client
+                manager provides ongoing support and improvement check-ins.
               </p>
             </div>
           </div>
@@ -862,7 +834,9 @@ const Iso14001Page = () => {
                 Ready to Start Your ISO 14001 Journey?
               </h3>
               <p className="text-[#1E2A3A]/80 leading-relaxed mb-6">
-                Join thousands of organizations that have achieved ISO 14001 certification and transformed their environmental management practices.
+                Join thousands of organizations that have achieved ISO 14001
+                certification and transformed their environmental management
+                practices.
               </p>
               <Button className="bg-gradient-to-r from-[#007E7A] to-[#00C4B3] hover:from-[#00C4B3] hover:to-[#1BB66E] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl mx-auto">
                 <Phone className="h-5 w-5 mr-2" />

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Award,
   CheckCircle,
@@ -13,7 +12,6 @@ import {
   ArrowRight,
   Briefcase,
   Settings,
-  BookOpen,
   Phone,
   BadgeCheck,
 } from 'lucide-react';

@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '../components/ui/card';
+import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
@@ -45,12 +40,14 @@ export function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen py-12 sm:py-16 md:py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-teal-gradient text-white py-12 sm:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Contact Us</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+            Contact Us
+          </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mx-auto">
             Get in touch with our expert team for a free consultation
           </p>
@@ -72,10 +69,15 @@ export function ContactPage() {
 
               <Card className="border-none shadow-lg">
                 <CardContent className="p-4 sm:p-6">
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 sm:space-y-6"
+                  >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="name" className="text-sm sm:text-base">Full Name *</Label>
+                        <Label htmlFor="name" className="text-sm sm:text-base">
+                          Full Name *
+                        </Label>
                         <Input
                           id="name"
                           name="name"
@@ -86,7 +88,9 @@ export function ContactPage() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="email" className="text-sm sm:text-base">Email *</Label>
+                        <Label htmlFor="email" className="text-sm sm:text-base">
+                          Email *
+                        </Label>
                         <Input
                           id="email"
                           name="email"
@@ -100,7 +104,12 @@ export function ContactPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="company" className="text-sm sm:text-base">Company</Label>
+                        <Label
+                          htmlFor="company"
+                          className="text-sm sm:text-base"
+                        >
+                          Company
+                        </Label>
                         <Input
                           id="company"
                           name="company"
@@ -110,7 +119,9 @@ export function ContactPage() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="phone" className="text-sm sm:text-base">Phone</Label>
+                        <Label htmlFor="phone" className="text-sm sm:text-base">
+                          Phone
+                        </Label>
                         <Input
                           id="phone"
                           name="phone"
@@ -122,7 +133,9 @@ export function ContactPage() {
                       </div>
                     </div>
                     <div>
-                      <Label htmlFor="service" className="text-sm sm:text-base">Service of Interest</Label>
+                      <Label htmlFor="service" className="text-sm sm:text-base">
+                        Service of Interest
+                      </Label>
                       <Input
                         id="service"
                         name="service"
@@ -132,7 +145,9 @@ export function ContactPage() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="message" className="text-sm sm:text-base">Message *</Label>
+                      <Label htmlFor="message" className="text-sm sm:text-base">
+                        Message *
+                      </Label>
                       <Textarea
                         id="message"
                         name="message"
@@ -148,12 +163,19 @@ export function ContactPage() {
                         id="consent"
                         checked={formData.consent}
                         onCheckedChange={(checked) =>
-                          setFormData((prev) => ({ ...prev, consent: checked as boolean }))
+                          setFormData((prev) => ({
+                            ...prev,
+                            consent: checked as boolean,
+                          }))
                         }
                         className="mt-1"
                       />
-                      <Label htmlFor="consent" className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                        I agree to the processing of my personal data in accordance with the privacy policy.
+                      <Label
+                        htmlFor="consent"
+                        className="text-xs sm:text-sm text-gray-600 leading-relaxed"
+                      >
+                        I agree to the processing of my personal data in
+                        accordance with the privacy policy.
                       </Label>
                     </div>
                     <Button
@@ -183,29 +205,45 @@ export function ContactPage() {
                       <div className="flex items-start gap-3">
                         <Mail className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Email</h3>
-                          <p className="text-gray-600 text-sm sm:text-base">info@citrixconsulting.co.uk</p>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                            Email
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base">
+                            info@citrixconsulting.co.uk
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <Phone className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Phone</h3>
-                          <p className="text-gray-600 text-sm sm:text-base">+44 (0) 123 456 7890</p>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                            Phone
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base">
+                            +44 (0) 123 456 7890
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <MapPin className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Address</h3>
-                          <p className="text-gray-600 text-sm sm:text-base">London, United Kingdom</p>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                            Address
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base">
+                            London, United Kingdom
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <Clock className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">Business Hours</h3>
-                          <p className="text-gray-600 text-sm sm:text-base">Mon-Fri: 9AM-6PM</p>
+                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                            Business Hours
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base">
+                            Mon-Fri: 9AM-6PM
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -214,7 +252,9 @@ export function ContactPage() {
 
                 <Card className="border-none shadow-lg bg-teal-light/5">
                   <CardContent className="p-4 sm:p-6">
-                    <h3 className="font-semibold text-navy-blue mb-3 text-sm sm:text-base">Why Choose Us?</h3>
+                    <h3 className="font-semibold text-navy-blue mb-3 text-sm sm:text-base">
+                      Why Choose Us?
+                    </h3>
                     <ul className="space-y-2 text-sm sm:text-base text-gray-600">
                       <li className="flex items-start gap-2">
                         <span className="text-orange">•</span>

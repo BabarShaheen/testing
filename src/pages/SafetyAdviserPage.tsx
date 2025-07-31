@@ -27,6 +27,50 @@ export function SafetyAdviserPage() {
   const handleContactClick = () => {
     navigate('/contact');
   };
+  const benefits = [
+    {
+      icon: <Shield className="h-8 w-8 text-white" />,
+      title: 'Expert Knowledge',
+      description:
+        'Our qualified safety advisers have extensive experience across various industries.',
+      image: '/Images/services/expert1.jpg',
+    },
+    {
+      icon: <CheckCircle className="h-8 w-8 text-white" />,
+      title: 'Compliance Assurance',
+      description:
+        'Ensure your business meets all health and safety regulatory requirements.',
+      image: '/Images/services/handshake.jpg',
+    },
+    {
+      icon: <Users className="h-8 w-8 text-white" />,
+      title: 'Workforce Protection',
+      description:
+        'Protect your employees and create a safe working environment.',
+      image: '/Images/services/workforce.jpg',
+    },
+    {
+      icon: <FileText className="h-8 w-8 text-white" />,
+      title: 'Documentation Support',
+      description:
+        'Comprehensive documentation and policy development services.',
+      image: '/Images/services/documentation.jpg',
+    },
+    {
+      icon: <Award className="h-8 w-8 text-white" />,
+      title: 'Professional Recognition',
+      description:
+        'Achieve industry recognition and enhance your business reputation.',
+      image: '/Images/services/recognition.jpg',
+    },
+    {
+      icon: <ArrowRight className="h-8 w-8 text-white" />,
+      title: 'Ongoing Support',
+      description:
+        'Continuous support and monitoring to maintain safety standards.',
+      image: '/Images/services/monitoring.jpg',
+    },
+  ];
 
   const services = [
     {
@@ -58,15 +102,21 @@ export function SafetyAdviserPage() {
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      <section
+        className="relative bg-cover bg-center bg-no-repeat text-white py-28 "
+        style={{
+          backgroundImage: "url('/Images/services/safety-advisor.jpg')", // Make sure this image is in your public/images folder
+          backgroundAttachment: 'fixed',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-800/80 to-black/70 z-0"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             Safety Adviser Services
           </h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
             Professional health and safety advisory services to ensure your
             business meets all regulatory requirements and maintains the highest
             safety standards.
@@ -75,62 +125,63 @@ export function SafetyAdviserPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
+      <section className="py-20  bg-cover bg-center bg-fixed relative">
+        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-navy-blue mb-4 tracking-tight">
               Our Safety Services
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Comprehensive safety solutions designed to protect your workforce
               and ensure compliance with health and safety regulations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service) => (
               <Card
                 key={service.id}
-                className="hover:shadow-xl transition-all duration-300 border-none bg-gray-50/50 group cursor-pointer"
+                className="bg-white/80 border border-gray-200 shadow-lg rounded-xl hover:shadow-2xl transition-all duration-300 group backdrop-blur"
                 onClick={() => handleServiceClick(service.id)}
               >
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-white rounded-lg group-hover:bg-teal-light/10 transition-all duration-300">
+                    <div className="p-4 bg-teal-50 rounded-full group-hover:bg-teal-100 transition-all duration-300">
                       {service.icon}
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <CardTitle className="text-teal-dark group-hover:text-teal-light transition-colors">
+                    <CardTitle className="text-teal-700 text-xl font-semibold group-hover:text-teal-800 transition-colors">
                       {service.title}
                     </CardTitle>
                     <Badge
                       variant="secondary"
-                      className="bg-leaf-green text-white"
+                      className="bg-leaf-green text-white text-xs px-2 py-1 rounded"
                     >
                       {service.badge}
                     </Badge>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 mb-4">
+                <CardContent className="px-6 pb-6">
+                  <CardDescription className="text-gray-600 mb-4 text-sm leading-relaxed">
                     {service.description}
                   </CardDescription>
-                  <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
-                    <p className="text-sm text-gray-600 mb-1">Starting from:</p>
-                    <p className="font-semibold text-teal-dark">
+                  <div className="mb-4 p-3 bg-white/70 rounded-lg border border-gray-200 text-center">
+                    <p className="text-xs text-gray-500 mb-1">Starting from:</p>
+                    <p className="text-lg font-bold text-teal-800">
                       {service.price}
                     </p>
                   </div>
                   <Button
-                    className="w-full bg-teal-dark hover:bg-teal-dark/90 text-white transition-all-smooth"
+                    className="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium flex items-center justify-center gap-2 transition-all duration-300"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleServiceClick(service.id);
                     }}
                   >
                     Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
               </Card>
@@ -140,79 +191,45 @@ export function SafetyAdviserPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
+      <section className="py-20 bg-gray-100 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Centered elegant heading */}
+          <div className="text-center mb-6">
+            <h2 className="text-4xl font-extrabold text-navy-blue">
               Why Choose Our Safety Services?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base text-gray-600 mt-2 max-w-2xl mx-auto">
               Professional safety advisory services that deliver results and
               protect your business.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Shield className="h-8 w-8 text-white" />,
-                title: 'Expert Knowledge',
-                description:
-                  'Our qualified safety advisers have extensive experience across various industries.',
-                bgColor: 'bg-orange',
-              },
-              {
-                icon: <CheckCircle className="h-8 w-8 text-white" />,
-                title: 'Compliance Assurance',
-                description:
-                  'Ensure your business meets all health and safety regulatory requirements.',
-                bgColor: 'bg-leaf-green',
-              },
-              {
-                icon: <Users className="h-8 w-8 text-white" />,
-                title: 'Workforce Protection',
-                description:
-                  'Protect your employees and create a safe working environment.',
-                bgColor: 'bg-teal-dark',
-              },
-              {
-                icon: <FileText className="h-8 w-8 text-white" />,
-                title: 'Documentation Support',
-                description:
-                  'Comprehensive documentation and policy development services.',
-                bgColor: 'bg-purple',
-              },
-              {
-                icon: <Award className="h-8 w-8 text-white" />,
-                title: 'Professional Recognition',
-                description:
-                  'Achieve industry recognition and enhance your business reputation.',
-                bgColor: 'bg-blue',
-              },
-              {
-                icon: <ArrowRight className="h-8 w-8 text-white" />,
-                title: 'Ongoing Support',
-                description:
-                  'Continuous support and monitoring to maintain safety standards.',
-                bgColor: 'bg-indigo',
-              },
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div
-                  className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}
-                >
-                  {item.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {benefits.map((item, index) => (
+              <div
+                key={index}
+                className="relative rounded-xl shadow-lg overflow-hidden h-[320px] group"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                {/* White box over image */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white/90 p-6">
+                  <div className="w-12 h-12 bg-navy-blue rounded-full flex items-center justify-center mb-3">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-navy-blue mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-700">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-navy-blue mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-16 bg-teal-gradient text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>

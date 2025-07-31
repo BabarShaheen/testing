@@ -1,23 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
-import {
-  CheckCircle,
-  Star,
-  ArrowRight,
-  Users,
-  TrendingUp,
-  Clock,
-  Shield,
-  Award,
-} from 'lucide-react';
+import { whyChooseUsData } from '../data/whyChooseUsData';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
 
 export function HomePage() {
@@ -27,167 +11,63 @@ export function HomePage() {
     // Component mounted successfully
   }, []);
 
-  const handleServiceClick = (serviceId: string) => {
-    navigate(`/services/${serviceId}`);
-  };
-
   const handleNavClick = (page: string) => {
     navigate(`/${page}`);
   };
 
-  const services = [
-    {
-      id: 'iso-9001',
-      icon: (
-        <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-orange transition-transform group-hover:scale-110" />
-      ),
-      title: 'ISO 9001 Certification',
-      description:
-        'Quality management system certification to improve your processes and customer satisfaction.',
-      price: 'From £2,500',
-      badge: 'Most Popular',
-    },
-    {
-      id: 'chas-accreditation',
-      icon: (
-        <Award className="h-6 w-6 sm:h-8 sm:w-8 text-orange transition-transform group-hover:scale-110" />
-      ),
-      title: 'CHAS Accreditation',
-      description:
-        'Health and safety assessment for construction industry compliance.',
-      price: 'From £1,800',
-      badge: 'Essential',
-    },
-    {
-      id: 'fire-risk-assessment',
-      icon: (
-        <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-orange transition-transform group-hover:scale-110" />
-      ),
-      title: 'Fire Risk Assessment',
-      description:
-        'Comprehensive fire safety assessments to ensure compliance.',
-      price: 'From £450',
-      badge: 'Required',
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      company: 'BuildTech Solutions',
-      content:
-        'CCS helped us achieve ISO 9001 certification smoothly. Their expertise and support were invaluable.',
-      rating: 5,
-    },
-    {
-      name: 'Mike Thompson',
-      company: 'SecureGuard Ltd',
-      content:
-        'Outstanding service for our CHAS accreditation. Professional, efficient, and results-driven.',
-      rating: 5,
-    },
-    {
-      name: 'Emma Wilson',
-      company: 'TechFlow Industries',
-      content:
-        'The fire risk assessment was thorough and helped us implement crucial safety measures.',
-      rating: 5,
-    },
-  ];
-
-  const stats = [
-    { number: '500+', label: 'Clients Served' },
-    { number: '98%', label: 'Success Rate' },
-    { number: '15+', label: 'Years Experience' },
-    { number: '24hr', label: 'Response Time' },
-  ];
-
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-12 sm:py-16 md:py-20 relative overflow-hidden animate-fade-in">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
+      <section
+        className="relative h-[90vh] w-full bg-cover bg-center bg-no-repeat text-white overflow-hidden"
+        style={{ backgroundImage: "url('/hero.jpeg')" }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-10"></div>
+
+        {/* Floating Elements (optional decorative blobs or shapes) */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float z-10"></div>
         <div
-          className="absolute bottom-20 right-20 w-16 h-16 bg-orange/20 rounded-full animate-float"
+          className="absolute bottom-16 right-16 w-16 h-16 bg-orange/30 rounded-full animate-float z-10"
           style={{ animationDelay: '1s' }}
         ></div>
-        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-teal-light/30 rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 left-1/4 w-12 h-12 bg-teal-light/40 rounded-full animate-pulse z-10"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div className="animate-fade-in-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                Professional
-                <span className="text-orange block gradient-text">
-                  Compliance
-                </span>
-                Solutions
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 sm:mb-8 max-w-lg leading-relaxed">
-                Expert safety, accreditation, and compliance services to help
-                your business meet regulatory requirements and achieve
-                operational excellence.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <Button
-                  size="lg"
-                  className="bg-orange hover:bg-orange/90 text-white px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base btn-premium transition-all-smooth"
-                  onClick={() => handleNavClick('contact')}
-                >
-                  Get Started Today
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-teal-dark px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base transition-all-smooth hover-lift"
-                  onClick={() => handleNavClick('services')}
-                >
-                  View Services
-                </Button>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-xs sm:text-sm">
-                <div
-                  className="flex items-center animate-fade-in-up"
-                  style={{ animationDelay: '0.6s' }}
-                >
-                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-leaf-green mr-2 animate-bounce-in" />
-                  <span>UK Based</span>
-                </div>
-                <div
-                  className="flex items-center animate-fade-in-up"
-                  style={{ animationDelay: '0.8s' }}
-                >
-                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-leaf-green mr-2 animate-bounce-in" />
-                  <span>Expert Team</span>
-                </div>
-                <div
-                  className="flex items-center animate-fade-in-up"
-                  style={{ animationDelay: '1s' }}
-                >
-                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-leaf-green mr-2 animate-bounce-in" />
-                  <span>Proven Results</span>
-                </div>
-              </div>
+        {/* Content */}
+        <div className="relative z-20 h-full flex items-center justify-center px-6 sm:px-12 lg:px-24">
+          <div className="max-w-3xl text-center">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+              Professional <span className="text-orange">Compliance</span>{' '}
+              Solutions
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
+              Helping businesses meet legal standards with expert accreditation,
+              risk assessment, and compliance services across the UK.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Button
+                size="lg"
+                className="bg-orange hover:bg-orange/90 text-white px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base btn-premium transition-all-smooth"
+                onClick={() => handleNavClick('contact')}
+              >
+                Get Started Today
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
             </div>
-            <div className="animate-fade-in-right">
-              <div className="glass rounded-xl p-4 sm:p-6 md:p-8 border border-white/20 hover-lift">
-                <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                  {stats.map((stat, index) => (
-                    <div
-                      key={index}
-                      className="text-center animate-fade-in-up"
-                      style={{ animationDelay: `${0.8 + index * 0.2}s` }}
-                    >
-                      <div className="text-2xl sm:text-3xl font-bold text-orange mb-1 sm:mb-2 animate-bounce-in">
-                        {stat.number}
-                      </div>
-                      <div className="text-xs sm:text-sm text-gray-200">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
+
+            {/* Mini Stats */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-400" />
+                UK Based
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-400" />
+                20+ Years Experience
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-400" />
+                98% Client Satisfaction
               </div>
             </div>
           </div>
@@ -195,118 +75,265 @@ export function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-12 sm:py-16 bg-white animate-fade-in-up">
+      <section className="py-16 bg-gray-50 animate-fade-in-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-blue mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-navy-blue mb-4">
               Our Services
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-              Comprehensive compliance and safety solutions tailored to your business needs
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Professional compliance, certification, and safety services to
+              protect and empower your business.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={service.id}
-                className="group cursor-pointer border-0 shadow-lg hover:shadow-xl transition-all duration-300 card-premium animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => handleServiceClick(service.id)}
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="p-2 bg-orange/10 rounded-lg group-hover:bg-orange/20 transition-colors duration-300">
-                      {service.icon}
-                    </div>
-                    <Badge className="text-xs bg-orange/10 text-orange border-orange/20">
-                      {service.badge}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-lg sm:text-xl text-navy-blue group-hover:text-teal-dark transition-colors duration-300">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-semibold text-orange">{service.price}</span>
-                    <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-orange group-hover:translate-x-1 transition-all duration-300" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Health & Safety */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
+              <img
+                src="/Images/landingpage/health-safety.jpeg"
+                alt="Health & Safety"
+                className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
+              />
+              <h3 className="text-xl font-semibold text-navy-blue group-hover:text-teal-dark mb-2">
+                Health & Safety Consulting
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Expert guidance to maintain safe, compliant workplaces tailored
+                to UK regulations.
+              </p>
+              <span className="text-orange font-medium">Learn More →</span>
+            </div>
 
-      {/* Testimonials */}
-      <section className="py-12 sm:py-16 bg-gray-50 animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-blue mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-              Trusted by businesses across the UK for their compliance and safety needs
-            </p>
-          </div>
+            {/* ISO 9001 */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
+              <img
+                src="/Images/landingpage/ISO-9001-Certification.jpg"
+                alt="ISO 9001"
+                className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
+              />
+              <h3 className="text-xl font-semibold text-navy-blue group-hover:text-teal-dark mb-2">
+                ISO 9001 Certification
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Achieve internationally recognized quality standards to enhance
+                credibility and efficiency.
+              </p>
+              <span className="text-orange font-medium">Get Certified →</span>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-orange fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <p className="font-semibold text-navy-blue text-sm sm:text-base">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.company}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+            {/* SIA ACS Audit */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
+              <img
+                src="/Images/landingpage/sia.png"
+                alt="SIA ACS"
+                className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
+              />
+              <h3 className="text-xl font-semibold text-navy-blue group-hover:text-teal-dark mb-2">
+                SIA ACS Audit Support
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Full support for achieving Approved Contractor Scheme compliance
+                in the security industry.
+              </p>
+              <span className="text-orange font-medium">Start Process →</span>
+            </div>
 
-      {/* CTA Section */}
-      <section className="py-12 sm:py-16 bg-teal-gradient text-white animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-base sm:text-lg text-gray-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
-            Contact our expert team today for a free consultation and discover how we can help your business achieve compliance excellence.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            {/* CHAS Assistance */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
+              <img
+                src="/Images/landingpage/chas.jpg"
+                alt="CHAS Assistance"
+                className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
+              />
+              <h3 className="text-xl font-semibold text-navy-blue group-hover:text-teal-dark mb-2">
+                CHAS Assistance
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                We help you attain CHAS accreditation with complete application
+                and compliance support.
+              </p>
+              <span className="text-orange font-medium">Apply Now →</span>
+            </div>
+
+            {/* PAT Testing */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
+              <img
+                src="/Images/landingpage/pat.png"
+                alt="PAT Testing"
+                className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
+              />
+              <h3 className="text-xl font-semibold text-navy-blue group-hover:text-teal-dark mb-2">
+                PAT Testing
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Ensure workplace electrical safety with reliable, affordable PAT
+                testing services.
+              </p>
+              <span className="text-orange font-medium">View Pricing →</span>
+            </div>
+
+            {/* Risk Assessments */}
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
+              <img
+                src="/Images/landingpage/risk.jpg"
+                alt="Risk Assessments"
+                className="w-full h-40 object-cover rounded-md mb-4 group-hover:scale-105 transition"
+              />
+              <h3 className="text-xl font-semibold text-navy-blue group-hover:text-teal-dark mb-2">
+                Risk Assessments
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Identify and manage workplace hazards with professional risk
+                assessment reports.
+              </p>
+              <span className="text-orange font-medium">Get a Quote →</span>
+            </div>
+          </div>
+          <div className="mt-12 flex justify-center">
             <Button
               size="lg"
-              className="bg-orange hover:bg-orange/90 text-white px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base transition-all-smooth"
-              onClick={() => handleNavClick('contact')}
-            >
-              Get Free Consultation
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-teal-dark px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base transition-all-smooth"
+              className="bg-teal-600 hover:bg-teal-700 text-white px-6 sm:px-8 py-3 min-h-[44px] text-sm sm:text-base font-semibold transition-all duration-300 shadow-md"
               onClick={() => handleNavClick('services')}
             >
               View All Services
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="relative bg-fixed bg-cover bg-center bg-no-repeat py-24"
+        style={{
+          backgroundImage: "url('/Images/landingpage/why-choose-us.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
+
+        {/* Animated particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-orange-400/40 rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 2}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-white z-10">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-6 shadow-xl mx-auto">
+              <i className="fas fa-shield-alt text-2xl text-white"></i>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+              Why Choose{' '}
+              <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
+                Citrix
+              </span>
+            </h2>
+
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed text-center">
+              We specialize in supporting small to medium businesses with expert
+              health & safety consultancy, ensuring compliance without the
+              complexity or cost of full-time managers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyChooseUsData.map((card, idx) => (
+              <div
+                key={idx}
+                className="group relative bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:bg-white/15"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10">
+                  <div className="text-orange-400 text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    <i className={card.icon}></i>
+                  </div>
+                  <div className="inline-block bg-orange-500/20 text-orange-300 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-orange-500/30">
+                    {card.badge}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-orange-300 transition-colors duration-300">
+                    {card.title}
+                  </h3>
+                  <p className="text-gray-200 leading-relaxed group-hover:text-white transition-colors duration-300">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-12 sm:py-16 bg-white animate-fade-in-up">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-gradient-to-r from-teal-600 to-blue-300 rounded-2xl p-8 text-white">
+            {[
+              { number: '500+', label: 'Projects Completed' },
+              { number: '98%', label: 'Client Satisfaction' },
+              { number: '20+', label: 'Years Experience' },
+              { number: '50+', label: 'Industry Awards' },
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-white/90 text-sm sm:text-base">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20 sm:py-24 bg-gray-900 text-white overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{
+            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-teal-800/60 via-teal-900/70 to-gray-900/90"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-xl p-8 sm:p-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+              Contact our expert team today for a free consultation and discover
+              how we can help your business achieve compliance excellence.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 font-semibold shadow-md hover:shadow-xl transition-all duration-300"
+                onClick={() => handleNavClick('contact')}
+              >
+                Get Free Consultation
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-teal-900 px-6 py-3 font-semibold transition-all duration-300"
+                onClick={() => handleNavClick('services')}
+              >
+                View All Services
+              </Button>
+            </div>
           </div>
         </div>
       </section>

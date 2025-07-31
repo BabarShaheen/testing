@@ -6,86 +6,153 @@ import {
 } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import {
-  FileText,
-  Download,
   Shield,
   Lock,
-  Eye,
-  AlertCircle,
+  Leaf,
+  Award,
+  Users,
+  Heart,
+  Scale,
+  Target,
 } from 'lucide-react';
 
-export function PoliciesPage() {
+export default function PoliciesPage() {
   const policies = [
+    {
+      title: 'Environmental Management',
+      description:
+        'Our commitment to continuous environmental improvement and minimizing our impact on current and future generations.',
+      icon: <Leaf className="h-6 w-6 text-green-600" />,
+      lastUpdated: 'January 2024',
+      details:
+        'Working according to ISO 14001 certification guidelines, we identify environmental impacts, set reduction targets, and prevent pollution while managing energy consumption and waste.',
+      certification: 'ISO 14001',
+    },
+    {
+      title: 'Quality Management',
+      description:
+        'Our commitment to delivering quality products and services that exceed client expectations.',
+      icon: <Award className="h-6 w-6 text-blue-600" />,
+      lastUpdated: 'January 2024',
+      details:
+        'Following ISO 9001 standards, we maintain clear procedures, conduct regular audits, and continuously improve our service quality through KPI monitoring.',
+      certification: 'ISO 9001',
+    },
+    {
+      title: 'Health & Safety',
+      description:
+        'Securing and protecting the health, safety and welfare of employees, subcontractors, and visitors.',
+      icon: <Shield className="h-6 w-6 text-red-600" />,
+      lastUpdated: 'January 2024',
+      details:
+        'Operating under OHSAS 18001 guidelines, we maintain safe working conditions and encourage active involvement in safety practices.',
+      certification: 'OHSAS 18001',
+    },
+    {
+      title: 'Equal Opportunities & Employment',
+      description:
+        'Committed to equal opportunities in employment and supporting diversity across our workforce.',
+      icon: <Users className="h-6 w-6 text-purple-600" />,
+      lastUpdated: 'January 2024',
+      details:
+        'Fair treatment regardless of race, religion, gender, age, or disability. We invest in training and development to help our people excel.',
+      certification: null,
+    },
+    {
+      title: 'Ethics & Integrity',
+      description:
+        'Building long-term relationships through honest business operations and impartial advice.',
+      icon: <Scale className="h-6 w-6 text-indigo-600" />,
+      lastUpdated: 'January 2024',
+      details:
+        'Commitment to independence, impartiality, and acting ethically with complete integrity in all business operations.',
+      certification: null,
+    },
     {
       title: 'Privacy Policy',
       description:
         'Learn how we collect, use, and protect your personal information.',
-      icon: <Shield className="h-6 w-6 text-orange" />,
+      icon: <Lock className="h-6 w-6 text-orange-600" />,
       lastUpdated: 'January 2024',
-    },
-    {
-      title: 'Terms & Conditions',
-      description:
-        'Our terms of service and conditions of use for our website and services.',
-      icon: <FileText className="h-6 w-6 text-orange" />,
-      lastUpdated: 'January 2024',
-    },
-    {
-      title: 'Cookie Policy',
-      description:
-        'Information about how we use cookies and similar technologies.',
-      icon: <Eye className="h-6 w-6 text-orange" />,
-      lastUpdated: 'January 2024',
-    },
-    {
-      title: 'Data Protection Policy',
-      description: 'Our commitment to GDPR compliance and data protection.',
-      icon: <Lock className="h-6 w-6 text-orange" />,
-      lastUpdated: 'January 2024',
-    },
-    {
-      title: 'Complaints Procedure',
-      description: 'How to raise concerns or complaints about our services.',
-      icon: <AlertCircle className="h-6 w-6 text-orange" />,
-      lastUpdated: 'January 2024',
+      details:
+        'GDPR compliant data protection policies ensuring your personal information is handled with the highest standards of security.',
+      certification: 'GDPR Compliant',
     },
   ];
 
-  const documents = [
+  const commitments = [
     {
-      title: 'Company Registration Certificate',
-      type: 'PDF',
-      size: '2.3 MB',
+      icon: <Target className="h-8 w-8 text-green-600" />,
+      title: 'Environmental Excellence',
+      description:
+        'Continuous improvement in environmental performance with measurable targets and pollution prevention.',
     },
     {
-      title: 'Professional Indemnity Insurance',
-      type: 'PDF',
-      size: '1.8 MB',
+      icon: <Award className="h-8 w-8 text-blue-600" />,
+      title: 'Quality Assurance',
+      description:
+        'Exceeding client expectations through systematic quality management and regular performance monitoring.',
     },
     {
-      title: 'ISO 9001 Certificate',
-      type: 'PDF',
-      size: '1.2 MB',
-    },
-    {
-      title: 'CHAS Membership Certificate',
-      type: 'PDF',
-      size: '0.9 MB',
+      icon: <Heart className="h-8 w-8 text-red-600" />,
+      title: 'Safety First',
+      description:
+        'Maintaining the highest standards of health and safety for all employees, contractors, and visitors.',
     },
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
+      <section className="bg-gradient-to-br from-teal-600 via-teal-700 to-blue-800 text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Policies & Documents
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Policies & Commitments
           </h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
-            Access our policies, terms, and important company documents
+          <p className="text-xl text-gray-100 max-w-4xl mx-auto leading-relaxed">
+            The Citrix Consultancy is committed to being a socially responsible
+            business. We understand and manage our social, environmental and
+            economic responsibilities through comprehensive policies and ISO
+            certifications.
           </p>
+        </div>
+      </section>
+
+      {/* Core Commitments */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Our Core Commitments
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We work according to ISO 9001, ISO 14001 and OHSAS 18001
+              certification guidelines to ensure excellence in all aspects of
+              our operations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {commitments.map((commitment, index) => (
+              <Card
+                key={index}
+                className="border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white"
+              >
+                <CardContent className="p-8 text-center">
+                  <div className="flex justify-center mb-4">
+                    {commitment.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {commitment.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {commitment.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -93,12 +160,12 @@ export function PoliciesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Our Policies
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Our Comprehensive Policies
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We're committed to transparency and compliance in all our
-              operations
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Detailed policies covering all aspects of our operations, from
+              environmental management to ethical business practices.
             </p>
           </div>
 
@@ -106,26 +173,35 @@ export function PoliciesPage() {
             {policies.map((policy, index) => (
               <Card
                 key={index}
-                className="border-none shadow-lg hover:shadow-xl transition-all duration-300"
+                className="border-none shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                <CardHeader>
-                  <div className="flex items-center mb-2">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center mb-3">
                     {policy.icon}
-                    <CardTitle className="ml-3 text-teal-dark">
+                    <CardTitle className="ml-3 text-gray-900 group-hover:text-teal-700 transition-colors">
                       {policy.title}
                     </CardTitle>
                   </div>
+                  {policy.certification && (
+                    <div className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                      {policy.certification}
+                    </div>
+                  )}
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">{policy.description}</p>
+                <CardContent className="pt-0">
+                  <p className="text-gray-600 mb-3 font-medium">
+                    {policy.description}
+                  </p>
+                  <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                    {policy.details}
+                  </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">
+                    <span className="text-xs text-gray-400">
                       Updated: {policy.lastUpdated}
                     </span>
                     <Button
                       size="sm"
-                      variant="outline"
-                      className="border-orange text-orange hover:bg-orange hover:text-white"
+                      className="bg-teal-600 hover:bg-teal-700 text-white border-0"
                     >
                       View Policy
                     </Button>
@@ -137,80 +213,55 @@ export function PoliciesPage() {
         </div>
       </section>
 
-      {/* Documents Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Company Documents
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Download our official certificates and documentation
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {documents.map((doc, index) => (
-              <Card
-                key={index}
-                className="border-none shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-orange/10 rounded-lg flex items-center justify-center mr-4">
-                        <FileText className="h-6 w-6 text-orange" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-navy-blue">
-                          {doc.title}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          {doc.type} • {doc.size}
-                        </p>
-                      </div>
-                    </div>
-                    <Button
-                      size="sm"
-                      className="bg-teal-dark hover:bg-teal-dark/90 text-white"
-                    >
-                      <Download className="h-4 w-4 mr-2" />
-                      Download
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Privacy Notice */}
+      {/* Responsibility Statement */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-none shadow-lg bg-blue-50/50">
-            <CardContent className="p-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="border-none shadow-xl bg-gradient-to-br from-blue-50 via-teal-50 to-green-50">
+            <CardContent className="p-10">
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-6 flex-shrink-0">
-                  <Shield className="h-6 w-6 text-blue-600" />
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mr-8 flex-shrink-0">
+                  <Heart className="h-8 w-8 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-navy-blue mb-4">
-                    Your Privacy Matters
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    Our Commitment to Social Responsibility
                   </h3>
-                  <p className="text-gray-600 mb-4">
-                    We are committed to protecting your privacy and personal
-                    data. Our policies are designed to comply with GDPR and
-                    other relevant data protection regulations.
+                  <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+                    The Citrix Consultancy recognizes that what we do today
+                    affects the environment of both current and future
+                    generations. We are committed to continuous improvement
+                    across all areas of our business operations.
                   </p>
-                  <p className="text-gray-600 mb-6">
-                    We only collect information necessary to provide our
-                    services and never share your data without explicit consent.
-                    For detailed information, please review our Privacy Policy.
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Our Directors, Managers and Employees join together in this
+                    commitment to operate our environmental, quality, and safety
+                    management programmes while achieving our objectives and
+                    targets through measurable actions and transparent
+                    reporting.
                   </p>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    Read Full Privacy Policy
-                  </Button>
+                  <p className="text-gray-700 mb-8 leading-relaxed">
+                    We encourage and influence our clients, contractors and
+                    suppliers to work with us in securing beneficial change in
+                    our shared environmental and social impacts.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    {/* Download Button */}
+                    <a href="/docx/CCS_HSE_Manual.doc" download>
+                      <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                        Download Full HSE Manual
+                      </Button>
+                    </a>
+
+                    {/* Contact Button */}
+                    <a href="/contact">
+                      <Button
+                        variant="outline"
+                        className="border-teal-600 text-teal-700 hover:bg-teal-50"
+                      >
+                        Contact Our Team
+                      </Button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </CardContent>

@@ -1,12 +1,17 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
-import { 
-  Users, 
-  Mail, 
-  MapPin, 
-  Clock, 
+import {
+  Users,
+  Mail,
+  MapPin,
+  Clock,
   PoundSterling,
   Calendar,
   Star,
@@ -17,7 +22,7 @@ import {
   Zap,
   Gift,
   Phone,
-  Building
+  Building,
 } from 'lucide-react';
 
 const CareersPage: React.FC = () => {
@@ -36,7 +41,9 @@ const CareersPage: React.FC = () => {
               Careers at CCS
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
-              Are you passionate about marketing and diversity? Do you want to grow your career with a small but thriving health and safety consultancy in London?
+              Are you passionate about marketing and diversity? Do you want to
+              grow your career with a small but thriving health and safety
+              consultancy in London?
             </p>
           </div>
         </div>
@@ -52,12 +59,19 @@ const CareersPage: React.FC = () => {
               <CardHeader className="bg-gradient-to-r from-teal-light/10 to-orange/10 border-b border-gray-100 p-4 sm:p-6">
                 <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl text-teal-dark">
                   <Building className="w-5 h-5 sm:w-6 sm:h-6 text-orange flex-shrink-0" />
-                  <span className="break-words">Marketing Assistant – Full-Time</span>
+                  <span className="break-words">
+                    Marketing Assistant – Full-Time
+                  </span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
-                  <strong>Citrix Consultancy Services (CCS)</strong> is a forward-thinking consultancy that puts inclusion, people, and purpose at the heart of everything we do. We're now expanding our team and looking for a <strong>Marketing Assistant</strong> who's ready to make an impact.
+                  <strong>Citrix Consultancy Services (CCS)</strong> is a
+                  forward-thinking consultancy that puts inclusion, people, and
+                  purpose at the heart of everything we do. We're now expanding
+                  our team and looking for a{' '}
+                  <strong>Marketing Assistant</strong> who's ready to make an
+                  impact.
                 </p>
               </CardContent>
             </Card>
@@ -78,13 +92,18 @@ const CareersPage: React.FC = () => {
                     'Maintain and update the company website',
                     'Create compelling content: blogs, brochures, email copy, and marketing designs',
                     'Prepare sales materials: presentations, proposals, and collateral',
-                    'Manage data, track campaigns, and generate performance reports'
+                    'Manage data, track campaigns, and generate performance reports',
                   ].map((task, index) => (
-                    <div key={index} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200">
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200"
+                    >
                       <div className="w-6 h-6 sm:w-8 sm:h-8 bg-teal-dark text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                       </div>
-                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{task}</p>
+                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                        {task}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -109,13 +128,18 @@ const CareersPage: React.FC = () => {
                     'Attention to detail and ability to meet deadlines',
                     'Strong writing and verbal communication skills',
                     'Eagerness to learn and grow',
-                    'A genuine belief in the importance of diversity and inclusion'
+                    'A genuine belief in the importance of diversity and inclusion',
                   ].map((requirement, index) => (
-                    <div key={index} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-orange hover:bg-orange/5 transition-colors duration-200">
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-orange hover:bg-orange/5 transition-colors duration-200"
+                    >
                       <div className="w-6 h-6 sm:w-8 sm:h-8 bg-orange text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Star className="w-3 h-3 sm:w-4 sm:h-4" />
                       </div>
-                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{requirement}</p>
+                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                        {requirement}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -138,13 +162,18 @@ const CareersPage: React.FC = () => {
                     'Flexible working arrangements',
                     'Pension contributions',
                     'Fun team-building days and events',
-                    'A supportive and inclusive work culture'
+                    'A supportive and inclusive work culture',
                   ].map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200">
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200"
+                    >
                       <div className="w-6 h-6 sm:w-8 sm:h-8 bg-teal-dark text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
                       </div>
-                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{benefit}</p>
+                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                        {benefit}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -158,7 +187,8 @@ const CareersPage: React.FC = () => {
                   Ready to Shape the Future of CCS?
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                  If this sounds like the opportunity you've been looking for, apply now and help shape the future of CCS!
+                  If this sounds like the opportunity you've been looking for,
+                  apply now and help shape the future of CCS!
                 </p>
                 <Button className="bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white px-6 sm:px-8 py-3 text-base sm:text-lg min-h-[44px] w-full sm:w-auto">
                   Apply Now
@@ -182,29 +212,43 @@ const CareersPage: React.FC = () => {
                   <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                     <Clock className="w-4 h-4 text-orange flex-shrink-0" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">Job Type</p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">Full-time</p>
+                      <p className="text-xs sm:text-sm text-gray-600">
+                        Job Type
+                      </p>
+                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
+                        Full-time
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                     <PoundSterling className="w-4 h-4 text-orange flex-shrink-0" />
                     <div className="min-w-0 flex-1">
                       <p className="text-xs sm:text-sm text-gray-600">Salary</p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">£7.80 – £8.50 /hour</p>
+                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
+                        £7.80 – £8.50 /hour
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                     <MapPin className="w-4 h-4 text-orange flex-shrink-0" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">Location</p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">London</p>
+                      <p className="text-xs sm:text-sm text-gray-600">
+                        Location
+                      </p>
+                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
+                        London
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                     <Calendar className="w-4 h-4 text-orange flex-shrink-0" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">Holiday</p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">23 days annual</p>
+                      <p className="text-xs sm:text-sm text-gray-600">
+                        Holiday
+                      </p>
+                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
+                        23 days annual
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -226,11 +270,16 @@ const CareersPage: React.FC = () => {
                     'People-first approach',
                     'Purpose-driven work',
                     'Supportive culture',
-                    'Growth opportunities'
+                    'Growth opportunities',
                   ].map((value, index) => (
-                    <div key={index} className="flex items-start gap-2 sm:gap-3">
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 sm:gap-3"
+                    >
                       <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-orange mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 text-xs sm:text-sm">{value}</span>
+                      <span className="text-gray-700 text-xs sm:text-sm">
+                        {value}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -253,15 +302,23 @@ const CareersPage: React.FC = () => {
                   <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                     <Mail className="w-4 h-4 text-orange flex-shrink-0" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">Email us at</p>
-                      <p className="font-semibold text-teal-dark text-xs sm:text-sm break-all">admin@citrix-consulting-limited.co.uk</p>
+                      <p className="text-xs sm:text-sm text-gray-600">
+                        Email us at
+                      </p>
+                      <p className="font-semibold text-teal-dark text-xs sm:text-sm break-all">
+                        admin@citrix-consulting-limited.co.uk
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
                     <Phone className="w-4 h-4 text-orange flex-shrink-0" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">Call us at</p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">02085755544</p>
+                      <p className="text-xs sm:text-sm text-gray-600">
+                        Call us at
+                      </p>
+                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
+                        02085755544
+                      </p>
                     </div>
                   </div>
                   <Button className="w-full bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white min-h-[44px] text-sm sm:text-base">
@@ -281,7 +338,9 @@ const CareersPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-orange mb-2">Growing</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-orange mb-2">
+                    Growing
+                  </div>
                   <p className="text-gray-700 text-xs sm:text-sm">
                     Small but thriving consultancy with expansion opportunities
                   </p>
@@ -295,4 +354,4 @@ const CareersPage: React.FC = () => {
   );
 };
 
-export default CareersPage; 
+export default CareersPage;

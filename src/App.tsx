@@ -6,7 +6,7 @@ import { ServicesPage } from './pages/ServicesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { TestimonialsPage } from './pages/TestimonialsPage';
-import { PoliciesPage } from './pages/PoliciesPage';
+import PoliciesPage from './pages/PoliciesPage';
 import { JobsPage } from './pages/JobsPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
 import { SafetyAdviserPage } from './pages/SafetyAdviserPage';

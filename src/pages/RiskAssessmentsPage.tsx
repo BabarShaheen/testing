@@ -1,11 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '../components/ui/card';
+import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import {
@@ -19,9 +13,7 @@ import {
   AlertTriangle,
   Building,
   Eye,
-  Zap,
   Wrench,
-  HardHat,
   Volume2,
   Heart,
   FlameKindling,
@@ -35,10 +27,6 @@ import {
 
 export function RiskAssessmentsPage() {
   const navigate = useNavigate();
-
-  const handleServiceClick = (serviceId: string) => {
-    navigate(`/services/${serviceId}`);
-  };
 
   const handleContactClick = () => {
     navigate('/contact');
@@ -70,7 +58,7 @@ export function RiskAssessmentsPage() {
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-teal-gradient text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>
@@ -515,21 +503,21 @@ export function RiskAssessmentsPage() {
                   title: 'Comprehensive Reports',
                   description:
                     'Detailed reports with prioritized action plans and recommendations.',
-                  bgColor: 'bg-purple',
+                  bgColor: 'bg-purple-500',
                 },
                 {
                   icon: <CheckCircle className="h-8 w-8 text-white" />,
                   title: 'Nationwide Coverage',
                   description:
                     'Professional services available across the entire United Kingdom.',
-                  bgColor: 'bg-blue',
+                  bgColor: 'bg-blue-500',
                 },
                 {
                   icon: <Search className="h-8 w-8 text-white" />,
                   title: 'Expert Investigation',
                   description:
                     'Skilled consultants with extensive industry experience.',
-                  bgColor: 'bg-indigo',
+                  bgColor: 'bg-indigo-500',
                 },
               ].map((item, index) => (
                 <div key={index} className="text-center">

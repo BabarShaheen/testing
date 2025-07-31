@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '../components/ui/button';
 import {
   Shield,
@@ -14,14 +13,9 @@ import {
   Briefcase,
   Settings,
   BookOpen,
-  Phone,
   BadgeCheck,
-  AlertTriangle,
   Eye,
   Download,
-  Mail,
-  PhoneCall,
-  Award,
   Search,
   Clipboard,
   ShieldCheck,
@@ -105,39 +99,12 @@ const assessmentProcess = [
   },
 ];
 
-const benefits = [
-  {
-    icon: <Shield className="h-8 w-8 text-white" />,
-    title: 'Legislative Compliance',
-    desc: 'Increased confidence in meeting Health and Safety legislation requirements with systematic approach.',
-    color: 'from-orange-500 to-orange-600',
-  },
-  {
-    icon: <TrendingUp className="h-8 w-8 text-white" />,
-    title: 'Continuous Improvement',
-    desc: 'Target setting through policy with ongoing measurement ensures process of continual enhancement.',
-    color: 'from-teal-600 to-teal-700',
-  },
-  {
-    icon: <Users className="h-8 w-8 text-white" />,
-    title: 'Staff Protection',
-    desc: 'Comprehensive framework protecting staff and visitors through systematic risk management.',
-    color: 'from-blue-500 to-blue-600',
-  },
-  {
-    icon: <Award className="h-8 w-8 text-white" />,
-    title: 'Professional Recognition',
-    desc: 'Third-party certification demonstrates commitment to maintaining highest safety standards.',
-    color: 'from-green-500 to-green-600',
-  },
-];
-
 const jointSystemBenefits = [
   {
     system: 'OHSAS 18001',
     focus: 'Health & Safety Management',
     integration: 'Document control, corrective action',
-    color: 'from-orange-500 to-orange-600',
+    color: 'from-teal-500 to-teal-600',
   },
   {
     system: 'ISO 9001',
@@ -633,9 +600,9 @@ const OHSAS18001Page = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl border border-orange-200 shadow-lg">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 shadow-lg">
               <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mb-4">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">
@@ -665,7 +632,6 @@ const OHSAS18001Page = () => {
                 audits carried out in an atmosphere of mutual understanding.
               </p>
             </div>
-
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 shadow-lg">
               <div className="text-center mb-6">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mb-4">
@@ -782,7 +748,7 @@ const OHSAS18001Page = () => {
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-bold">
+                      <span className="text-baclk font-bold">
                         {system.system.split(' ')[1]}
                       </span>
                     </div>
