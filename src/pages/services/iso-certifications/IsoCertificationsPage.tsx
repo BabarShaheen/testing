@@ -5,17 +5,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
+} from '../../../components/ui/card';
+import { Badge } from '../../../components/ui/badge';
+import { Button } from '../../../components/ui/button';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import {
-  Shield,
-  CheckCircle,
-  ArrowRight,
-  Award,
-  Leaf,
-  Users,
-} from 'lucide-react';
+  isoCertifications,
+  isoCertificationBenefits,
+  certificationProcessSteps,
+} from '../../../data/isoCertificationData';
 
 export function IsoCertificationsPage() {
   const navigate = useNavigate();
@@ -27,45 +25,6 @@ export function IsoCertificationsPage() {
   const handleContactClick = () => {
     navigate('/contact');
   };
-
-  const services = [
-    {
-      id: 'iso-certifications',
-      icon: <Award className="h-8 w-8 text-orange" />,
-      title: 'ISO Certifications',
-      description:
-        'Comprehensive ISO certification services for quality, environment, and safety management.',
-      price: 'From £2,500',
-      badge: 'International',
-    },
-    {
-      id: 'iso-9001',
-      icon: <Shield className="h-8 w-8 text-orange" />,
-      title: 'ISO 9001',
-      description:
-        'Quality Management System certification for operational excellence.',
-      price: 'From £2,500',
-      badge: 'Most Popular',
-    },
-    {
-      id: 'iso-14001',
-      icon: <Leaf className="h-8 w-8 text-orange" />,
-      title: 'ISO 14001',
-      description:
-        'Environmental Management System certification for sustainability.',
-      price: 'From £2,800',
-      badge: 'Sustainable',
-    },
-    {
-      id: 'ohsas-18001',
-      icon: <Shield className="h-8 w-8 text-orange" />,
-      title: 'OHSAS 18001',
-      description:
-        'Occupational Health and Safety Management System certification.',
-      price: 'From £2,600',
-      badge: 'Safety',
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -97,7 +56,7 @@ export function IsoCertificationsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service) => (
+            {isoCertifications.map((service) => (
               <Card
                 key={service.id}
                 className="hover:shadow-xl transition-all duration-300 border-none bg-gray-50/50 group cursor-pointer"
@@ -106,7 +65,8 @@ export function IsoCertificationsPage() {
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
                     <div className="p-3 bg-white rounded-lg group-hover:bg-teal-light/10 transition-all duration-300">
-                      {service.icon}
+                      {/* Render icon as component */}
+                      <service.icon className="h-8 w-8 text-orange" />
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-2">
@@ -162,52 +122,12 @@ export function IsoCertificationsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Award className="h-8 w-8 text-white" />,
-                title: 'International Recognition',
-                description:
-                  'Gain international recognition and credibility in your industry.',
-                bgColor: 'bg-orange',
-              },
-              {
-                icon: <CheckCircle className="h-8 w-8 text-white" />,
-                title: 'Improved Processes',
-                description:
-                  'Streamline and improve your business processes and efficiency.',
-                bgColor: 'bg-leaf-green',
-              },
-              {
-                icon: <Shield className="h-8 w-8 text-white" />,
-                title: 'Enhanced Credibility',
-                description:
-                  'Build trust and credibility with customers and stakeholders.',
-                bgColor: 'bg-teal-dark',
-              },
-              {
-                icon: <ArrowRight className="h-8 w-8 text-white" />,
-                title: 'Competitive Advantage',
-                description: 'Gain a competitive advantage in your market.',
-                bgColor: 'bg-purple-500',
-              },
-              {
-                icon: <Users className="h-8 w-8 text-white" />,
-                title: 'Customer Confidence',
-                description: 'Increase customer confidence and satisfaction.',
-                bgColor: 'bg-blue-500',
-              },
-              {
-                icon: <Leaf className="h-8 w-8 text-white" />,
-                title: 'Operational Efficiency',
-                description: 'Improve operational efficiency and reduce costs.',
-                bgColor: 'bg-indigo-500',
-              },
-            ].map((item, index) => (
+            {isoCertificationBenefits.map((item, index) => (
               <div key={index} className="text-center">
                 <div
                   className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}
                 >
-                  {item.icon}
+                  <item.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-navy-blue mb-2">
                   {item.title}
@@ -268,23 +188,7 @@ export function IsoCertificationsPage() {
               Our Certification Process
             </h3>
             <div className="space-y-6">
-              {[
-                {
-                  step: 'Step 1 – Gap Analysis (Optional)',
-                  description:
-                    'We review your current occupational health and safety system and highlight areas needing improvement.',
-                },
-                {
-                  step: 'Step 2 – Formal Assessment',
-                  description:
-                    'Stage 1: Review documentation & preparedness. Stage 2: Assess the implementation of procedures.',
-                },
-                {
-                  step: 'Step 3 – Certification & Beyond',
-                  description:
-                    'Receive your 3-year BS OHSAS 18001 certificate and ongoing improvement support from our client manager.',
-                },
-              ].map((item, index) => (
+              {certificationProcessSteps.map((item, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="w-8 h-8 bg-teal-dark text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
                     {index + 1}

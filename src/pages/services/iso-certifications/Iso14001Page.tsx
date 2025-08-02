@@ -1,123 +1,33 @@
-import { Button } from '../components/ui/button';
+import { Button } from '../../../components/ui/button';
 import {
   Leaf,
   CheckCircle,
-  Users,
-  Target,
   Building,
-  FileText,
   TrendingUp,
   Star,
-  Briefcase,
   Settings,
   BookOpen,
   Phone,
-  BadgeCheck,
-  Eye,
-  Download,
-  Award,
-  Search,
-  Clipboard,
   Globe,
-  Recycle,
-  Factory,
-  TreePine,
-  Zap,
-  BarChart3,
+  Download,
 } from 'lucide-react';
 
-const implementationSteps = [
-  {
-    title: 'Environmental Impact Assessment',
-    description:
-      "Comprehensive evaluation of your organization's environmental footprint and impact across all operations.",
-    icon: Search,
-    highlights: [
-      'Environmental impact analysis',
-      'Resource usage assessment',
-      'Waste stream identification',
-    ],
-  },
-  {
-    title: 'System Boundaries & Documentation',
-    description:
-      'Define clear environmental management system boundaries and create comprehensive procedure documentation.',
-    icon: FileText,
-    highlights: [
-      'System scope definition',
-      'Environmental procedures',
-      'Legal requirement mapping',
-    ],
-  },
-  {
-    title: 'Implementation & Training',
-    description:
-      'Full EMS implementation with staff training and environmental awareness programs for sustainable operations.',
-    icon: Users,
-    highlights: [
-      'EMS implementation',
-      'Environmental training',
-      'Awareness programs',
-    ],
-  },
-  {
-    title: 'Audit & Continuous Improvement',
-    description:
-      'Regular environmental audits and system reviews to maintain effectiveness and drive continuous improvement.',
-    icon: Clipboard,
-    highlights: [
-      'Environmental auditing',
-      'Performance monitoring',
-      'Continuous improvement',
-    ],
-  },
-];
-
-const assessmentProcess = [
-  {
-    phase: 'Stage 1 Documentation Review',
-    description:
-      'Comprehensive review of environmental documentation and procedures against ISO 14001 requirements',
-    duration: '2-3 days',
-    icon: FileText,
-  },
-  {
-    phase: 'Stage 2 Operational Audit',
-    description:
-      'On-site verification of environmental practices and operational implementation',
-    duration: '2-4 days',
-    icon: Eye,
-  },
-  {
-    phase: 'Certification Issued',
-    description:
-      'ISO 14001 certificate issued upon successful completion of assessment process',
-    duration: '1-2 weeks',
-    icon: BadgeCheck,
-  },
-  {
-    phase: 'Surveillance Audits',
-    description:
-      'Regular surveillance visits to ensure ongoing environmental compliance and improvement',
-    duration: 'Annually',
-    icon: Globe,
-  },
-];
-
-const integratedSystems = [
-  {
-    system: 'ISO 14001',
-    focus: 'Environmental Management',
-    integration: 'Document control, management review',
-    color: 'from-[#1BB66E] to-[#007E7A]',
-  },
-  {
-    system: 'ISO 9001',
-    focus: 'Quality Management',
-    integration: 'Trained personnel, corrective action',
-    color: 'from-[#007E7A] to-[#00C4B3]',
-  },
-];
+// Import all data from the separate data file
+import {
+  implementationSteps,
+  assessmentProcess,
+  integratedSystems,
+  environmentalFocusAreas,
+  impactReductionMetrics,
+  resourceLinks,
+  heroFeatures,
+  benefitsData,
+  whyChooseUsData,
+  certificationSteps,
+  certificationProcessDetails,
+  downloadInfo,
+} from '../../../data/iso14001Data';
+const Icon = assessmentProcess[1]?.icon;
 
 const Iso14001Page = () => {
   return (
@@ -143,21 +53,17 @@ const Iso14001Page = () => {
             deficiencies.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <div className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
-              <span className="text-sm font-medium">✓ ISO 14001 Certified</span>
-            </div>
-            <div className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
-              <span className="text-sm font-medium">
-                ✓ Environmental Excellence
-              </span>
-            </div>
-            <div className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
-              <span className="text-sm font-medium">✓ Cost Reduction</span>
-            </div>
+            {heroFeatures.map((feature, index) => (
+              <div
+                key={index}
+                className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full"
+              >
+                <span className="text-sm font-medium">✓ {feature}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
       {/* What is ISO 14001 Section */}
       <section className="py-20 bg-white px-4">
         <div className="max-w-7xl mx-auto">
@@ -215,28 +121,7 @@ const Iso14001Page = () => {
                 Environmental Focus Areas
               </h3>
               <div className="space-y-4">
-                {[
-                  {
-                    icon: Factory,
-                    title: 'Resource Management',
-                    desc: 'Efficient use of natural resources',
-                  },
-                  {
-                    icon: Recycle,
-                    title: 'Waste Treatment',
-                    desc: 'Proper handling and treatment of waste',
-                  },
-                  {
-                    icon: Zap,
-                    title: 'Energy Consumption',
-                    desc: 'Optimization of energy usage',
-                  },
-                  {
-                    icon: TreePine,
-                    title: 'Environmental Impact',
-                    desc: 'Minimizing ecological footprint',
-                  },
-                ].map((area, idx) => (
+                {environmentalFocusAreas.map((area, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#1BB66E]/10 to-[#00C4B3]/10 rounded-xl border-l-4 border-[#1BB66E]"
@@ -257,7 +142,6 @@ const Iso14001Page = () => {
           </div>
         </div>
       </section>
-
       {/* Benefits Section */}
       <section className="py-20 bg-gradient-to-br from-[#00C4B3]/5 to-[#1BB66E]/5 px-4">
         <div className="max-w-6xl mx-auto">
@@ -276,53 +160,23 @@ const Iso14001Page = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#1BB66E] to-[#007E7A] rounded-full flex items-center justify-center">
-                  <BarChart3 className="h-6 w-6 text-white" />
+              {benefitsData.map((benefit, index) => (
+                <div key={index} className="flex gap-4">
+                  <div
+                    className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center`}
+                  >
+                    <benefit.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#1E2A3A] mb-3">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-[#1E2A3A]/80 leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#1E2A3A] mb-3">
-                    Systematic Discovery
-                  </h3>
-                  <p className="text-[#1E2A3A]/80 leading-relaxed">
-                    Implementing an Environmental Management System provides a
-                    systematic way to discover and control the effects your
-                    company has on the environment.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#007E7A] to-[#00C4B3] rounded-full flex items-center justify-center">
-                  <TrendingUp className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#1E2A3A] mb-3">
-                    Cost Efficiency
-                  </h3>
-                  <p className="text-[#1E2A3A]/80 leading-relaxed">
-                    Cost savings can be made through improved efficiency and
-                    productivity, helping to reduce bills and minimize
-                    environmental impact simultaneously.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#1E2A3A] to-[#007E7A] rounded-full flex items-center justify-center">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#1E2A3A] mb-3">
-                    Enhanced Credibility
-                  </h3>
-                  <p className="text-[#1E2A3A]/80 leading-relaxed">
-                    Certification proves commitment to improving environmental
-                    performance and enhances credibility with customers,
-                    stakeholders, and regulatory bodies.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-xl border border-[#007E7A]/20">
@@ -330,12 +184,7 @@ const Iso14001Page = () => {
                 Environmental Impact Reduction
               </h3>
               <div className="space-y-4">
-                {[
-                  { metric: 'Energy Efficiency', improvement: '25%' },
-                  { metric: 'Waste Reduction', improvement: '40%' },
-                  { metric: 'Resource Optimization', improvement: '30%' },
-                  { metric: 'Cost Savings', improvement: '20%' },
-                ].map((item, idx) => (
+                {impactReductionMetrics.map((item, idx) => (
                   <div
                     key={idx}
                     className="flex justify-between items-center p-4 bg-gradient-to-r from-[#00C4B3]/10 to-[#1BB66E]/10 rounded-xl"
@@ -355,7 +204,6 @@ const Iso14001Page = () => {
           </div>
         </div>
       </section>
-
       {/* Implementation Process Section */}
       <section className="py-20 bg-white px-4">
         <div className="max-w-7xl mx-auto">
@@ -438,13 +286,13 @@ const Iso14001Page = () => {
           </div>
         </div>
       </section>
-
       {/* Assessment Process Section */}
+
       <section className="py-20 bg-gradient-to-br from-[#1E2A3A] to-[#007E7A] text-white px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-              <Eye className="h-8 w-8 text-white" />
+              {Icon && <Icon className="h-8 w-8 text-white" />}
             </div>
             <h2 className="text-4xl font-bold mb-6">
               ISO 14001 Assessment Process
@@ -501,26 +349,12 @@ const Iso14001Page = () => {
                   Certification Steps:
                 </h4>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-[#00C4B3] text-sm">
-                      Stage 1 audit of environmental documentation and
-                      procedures
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-[#00C4B3] text-sm">
-                      Stage 2 verification of operational environmental
-                      practices
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-[#00C4B3] text-sm">
-                      Certificate issuance upon successful completion
-                    </span>
-                  </li>
+                  {certificationProcessDetails.steps.map((step, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-[#00C4B3] text-sm">{step}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
@@ -528,31 +362,20 @@ const Iso14001Page = () => {
                   Post-Certification:
                 </h4>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-[#00C4B3] text-sm">
-                      Surveillance audits continue post-certification
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-[#00C4B3] text-sm">
-                      Ongoing compliance monitoring and verification
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-[#00C4B3] text-sm">
-                      Continuous environmental performance improvement
-                    </span>
-                  </li>
+                  {certificationProcessDetails.postCertification.map(
+                    (item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-[#00C4B3] text-sm">{item}</span>
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white px-4">
         <div className="max-w-6xl mx-auto">
@@ -570,57 +393,29 @@ const Iso14001Page = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-[#F7941E]/10 to-[#F7941E]/20 p-8 rounded-2xl border border-[#F7941E]/30 shadow-lg">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#F7941E] to-[#1BB66E] rounded-full mb-4">
-                  <Users className="h-6 w-6 text-white" />
+            {whyChooseUsData.map((item, index) => (
+              <div
+                key={index}
+                className={`bg-gradient-to-br ${item.bgGradient} p-8 rounded-2xl border ${item.borderColor} shadow-lg`}
+              >
+                <div className="text-center mb-6">
+                  <div
+                    className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-full mb-4`}
+                  >
+                    <item.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#1E2A3A] mb-2">
+                    {item.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-[#1E2A3A] mb-2">
-                  Friendly & Relevant Audits
-                </h3>
+                <p className="text-[#1E2A3A]/80 text-center leading-relaxed text-sm">
+                  {item.description}
+                </p>
               </div>
-              <p className="text-[#1E2A3A]/80 text-center leading-relaxed text-sm">
-                We offer friendly, industry-relevant audits with transparent
-                pricing. Our approach focuses on environmental improvement
-                rather than bureaucratic processes.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-[#007E7A]/10 to-[#00C4B3]/20 p-8 rounded-2xl border border-[#007E7A]/30 shadow-lg">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#007E7A] to-[#00C4B3] rounded-full mb-4">
-                  <Briefcase className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#1E2A3A] mb-2">
-                  Tailored Pricing
-                </h3>
-              </div>
-              <p className="text-[#1E2A3A]/80 text-center leading-relaxed text-sm">
-                Prices vary depending on organisation size and industry. We
-                provide tailored quotes after gathering information through
-                questionnaire or consultation.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-[#1BB66E]/10 to-[#1BB66E]/20 p-8 rounded-2xl border border-[#1BB66E]/30 shadow-lg">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#1BB66E] to-[#007E7A] rounded-full mb-4">
-                  <Target className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#1E2A3A] mb-2">
-                  Ongoing Support
-                </h3>
-              </div>
-              <p className="text-[#1E2A3A]/80 text-center leading-relaxed text-sm">
-                Comprehensive support is provided between audit stages, ensuring
-                successful implementation and continuous environmental
-                improvement.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
-
       {/* Integrated Systems Section */}
       <section className="py-20 bg-gradient-to-br from-[#00C4B3]/5 to-[#1BB66E]/5 px-4">
         <div className="max-w-7xl mx-auto">
@@ -681,71 +476,30 @@ const Iso14001Page = () => {
                     Further Resources
                   </h2>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>
-                      <a
-                        href="https://www.iso.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#007E7A] underline hover:text-[#00C4B3] transition-colors"
-                      >
-                        www.iso.org
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.letsrecycle.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#007E7A] underline hover:text-[#00C4B3] transition-colors"
-                      >
-                        letsrecycle.com
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.environment-agency.gov.uk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#007E7A] underline hover:text-[#00C4B3] transition-colors"
-                      >
-                        environment-agency.gov.uk
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.defra.gov.uk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#007E7A] underline hover:text-[#00C4B3] transition-colors"
-                      >
-                        defra.gov.uk
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.netregs.gov.uk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#007E7A] underline hover:text-[#00C4B3] transition-colors"
-                      >
-                        netregs.gov.uk
-                      </a>
-                    </li>
+                    {resourceLinks.map((link, index) => (
+                      <li key={index}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#007E7A] underline hover:text-[#00C4B3] transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
                 <div className="bg-[#00C4B3]/10 p-6 rounded-xl shadow-inner border border-[#00C4B3]/20">
                   <h2 className="text-xl font-semibold text-[#007E7A] mb-4">
-                    Download Self-Assessment Questionnaire
+                    {downloadInfo.title}
                   </h2>
                   <p className="mb-4 text-[#1E2A3A]/80">
-                    This document has been designed by BSI to illustrate your
-                    company's readiness for an ISO 14001 Environmental
-                    Management System. Complete it to assess where you are in
-                    the process.
+                    {downloadInfo.description}
                   </p>
                   <a
-                    href="/pdfs/BSI-ISO14001-Assessment-Checklist-UK-EN.pdf"
+                    href={downloadInfo.filePath}
                     target="_blank"
                     rel="noopener noreferrer"
                     download
@@ -762,7 +516,6 @@ const Iso14001Page = () => {
           </div>
         </div>
       </section>
-
       {/* ISO 14001 Environmental Management Section */}
       <section className="py-20 bg-[#F9F9F9] px-4">
         <div className="max-w-7xl mx-auto">
@@ -784,47 +537,24 @@ const Iso14001Page = () => {
 
           {/* Certification Process Steps */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {/* Step 1: Gap Analysis */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#007E7A]/10 hover:shadow-2xl transition-all duration-300">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#007E7A] to-[#00C4B3] rounded-full mb-6 mx-auto">
-                <Search className="h-8 w-8 text-white" />
+            {certificationSteps.map((step, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl shadow-xl p-8 border border-[#007E7A]/10 hover:shadow-2xl transition-all duration-300"
+              >
+                <div
+                  className={`flex items-center justify-center w-16 h-16 bg-gradient-to-br ${step.gradient} rounded-full mb-6 mx-auto`}
+                >
+                  <step.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#007E7A] mb-4 text-center">
+                  {step.title}
+                </h3>
+                <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-[#007E7A] mb-4 text-center">
-                Gap Analysis (Optional)
-              </h3>
-              <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
-                A pre-assessment where we review your current system vs ISO
-                14001 requirements to identify any gaps.
-              </p>
-            </div>
-
-            {/* Step 2: Formal Assessment */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#007E7A]/10 hover:shadow-2xl transition-all duration-300">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#1BB66E] to-[#007E7A] rounded-full mb-6 mx-auto">
-                <Clipboard className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#007E7A] mb-4 text-center">
-                Formal Assessment (Two Stages)
-              </h3>
-              <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
-                Stage 1 checks your readiness; Stage 2 includes full on-site
-                assessment for certification.
-              </p>
-            </div>
-
-            {/* Step 3: Certification & Beyond */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#007E7A]/10 hover:shadow-2xl transition-all duration-300">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#F7941E] to-[#1BB66E] rounded-full mb-6 mx-auto">
-                <Award className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#007E7A] mb-4 text-center">
-                Certification & Beyond
-              </h3>
-              <p className="text-[#1E2A3A]/80 leading-relaxed text-center">
-                Once certified, you receive a 3-year certificate. A client
-                manager provides ongoing support and improvement check-ins.
-              </p>
-            </div>
+            ))}
           </div>
 
           {/* CTA Section */}

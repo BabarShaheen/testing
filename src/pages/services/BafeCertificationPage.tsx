@@ -3,18 +3,12 @@ import {
   Shield,
   CheckCircle,
   ArrowRight,
-  Award,
-  Users,
   Settings,
-  Eye,
-  Globe,
   Star,
   Building,
-  ClipboardCheck,
   UserCheck,
-  BadgeCheck,
-  Target,
 } from 'lucide-react';
+import { consultancySteps, Benefits } from '../../data/bafeData';
 
 interface CardProps {
   children: ReactNode;
@@ -98,49 +92,6 @@ export default function BafeSP205Page() {
       ?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const consultancySteps = [
-    {
-      step: 'Step 1',
-      title: 'Check Requirements',
-      description:
-        'Do you have competent systems in place? For this scheme you do not need ISO9001 certification. However, you are required to have robust Quality Management Systems in place. We will help to implement quality management system to support BAFE SP205.',
-      icon: <ClipboardCheck className="h-8 w-8" />,
-      bgColor: 'bg-orange',
-    },
-    {
-      step: 'Step 2',
-      title: 'Audit Compliance',
-      description:
-        'Audit compliance from certification bodies Listed with BAFE.',
-      icon: <Eye className="h-8 w-8" />,
-      bgColor: 'bg-leaf-green',
-    },
-    {
-      step: 'Step 3',
-      title: 'Achieve Certification',
-      description:
-        'When you have achieved certification, your Certification Body will contact BAFE with your information.',
-      icon: <BadgeCheck className="h-8 w-8" />,
-      bgColor: 'bg-teal-dark',
-    },
-    {
-      step: 'Step 4',
-      title: 'Receive Welcome Pack',
-      description:
-        'BAFE will then send out a welcome pack including your BAFE certificate. At this point you will be allowed to display the correct BAFE logo that relates to your scheme.',
-      icon: <Award className="h-8 w-8" />,
-      bgColor: 'bg-navy-blue',
-    },
-    {
-      step: 'Step 5',
-      title: 'Website Listing',
-      description:
-        "Your company will then be added to the BAFE website, which will enable all users searching for Third Party Certified BAFE registered fire protection companies to access your companies' information.",
-      icon: <Globe className="h-8 w-8" />,
-      bgColor: 'bg-teal-light',
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -218,7 +169,7 @@ export default function BafeSP205Page() {
                         <div
                           className={`w-16 h-16 ${stepItem.bgColor} rounded-full flex items-center justify-center text-white mr-6`}
                         >
-                          {stepItem.icon}
+                          <stepItem.icon className="w-6 h-6" />
                         </div>
                         <div>
                           <div className="text-sm font-medium text-gray-500 mb-1">
@@ -375,55 +326,12 @@ export default function BafeSP205Page() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: <Shield className="h-8 w-8 text-white" />,
-                  title: 'Legal Compliance',
-                  description:
-                    'Meet the legal requirements for competent fire risk assessment provision.',
-                  bgColor: 'bg-orange',
-                },
-                {
-                  icon: <Award className="h-8 w-8 text-white" />,
-                  title: 'Industry Recognition',
-                  description:
-                    'Gain official recognition from the leading fire safety certification body.',
-                  bgColor: 'bg-leaf-green',
-                },
-                {
-                  icon: <Target className="h-8 w-8 text-white" />,
-                  title: 'Responsible Person Confidence',
-                  description:
-                    'Provide assurance to Responsible Persons and Duty Holders.',
-                  bgColor: 'bg-teal-dark',
-                },
-                {
-                  icon: <Globe className="h-8 w-8 text-white" />,
-                  title: 'BAFE Website Listing',
-                  description:
-                    'Featured on the official BAFE directory for increased visibility.',
-                  bgColor: 'bg-orange',
-                },
-                {
-                  icon: <BadgeCheck className="h-8 w-8 text-white" />,
-                  title: 'Quality Assurance',
-                  description:
-                    'Demonstrate technical and quality management capabilities.',
-                  bgColor: 'bg-leaf-green',
-                },
-                {
-                  icon: <Users className="h-8 w-8 text-white" />,
-                  title: 'Market Access',
-                  description:
-                    'Access clients who specifically require BAFE-registered providers.',
-                  bgColor: 'bg-teal-dark',
-                },
-              ].map((item, index) => (
+              {Benefits.map((item, index) => (
                 <div key={index} className="text-center">
                   <div
                     className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}
                   >
-                    {item.icon}
+                    <item.icon className="text-white w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-semibold text-navy-blue mb-2">
                     {item.title}

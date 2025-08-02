@@ -1,118 +1,18 @@
 import {
   Award,
   CheckCircle,
-  Shield,
   Users,
-  Target,
-  Building,
-  FileText,
-  TrendingUp,
-  Star,
-  Clock,
   ArrowRight,
   Briefcase,
   Settings,
   Phone,
   BadgeCheck,
 } from 'lucide-react';
-
-const services = [
-  {
-    title: 'Site Assessment & Analysis',
-    description:
-      'Comprehensive on-site evaluation of your current business and support procedures to identify improvement opportunities.',
-    icon: Building,
-    highlights: [
-      'Current process review',
-      'Gap analysis',
-      'Improvement identification',
-    ],
-  },
-  {
-    title: 'Custom System Development',
-    description:
-      'Creation of tailored ISO 9001 system documentation, fully branded with your company logos and specific business information.',
-    icon: FileText,
-    highlights: [
-      'Tailored documentation',
-      'Brand integration',
-      'Business-specific procedures',
-    ],
-  },
-  {
-    title: 'Training & Implementation',
-    description:
-      'Comprehensive staff training on procedures and documentation, with agreed timescales for system implementation and form completion.',
-    icon: Users,
-    highlights: [
-      'Staff training programs',
-      'Implementation planning',
-      'Documentation guidance',
-    ],
-  },
-  {
-    title: 'Audit & Certification Support',
-    description:
-      'Internal audits, pre-assessment evaluations, and attendance during official assessments with 12 months ongoing telephone support.',
-    icon: BadgeCheck,
-    highlights: ['Internal auditing', 'Pre-assessment', 'Ongoing support'],
-  },
-];
-
-const benefits = [
-  {
-    icon: <Award className="h-8 w-8 text-white" />,
-    title: 'Competitive Advantage',
-    desc: 'Stand out from competitors with internationally recognized certification that opens doors to new business opportunities.',
-    color: 'from-orange to-orange/90',
-  },
-  {
-    icon: <Shield className="h-8 w-8 text-white" />,
-    title: 'Customer Confidence',
-    desc: 'Build trust with clients through demonstrated commitment to quality management and professional business operations.',
-    color: 'from-teal-600 to-teal-700',
-  },
-  {
-    icon: <TrendingUp className="h-8 w-8 text-white" />,
-    title: 'Business Growth',
-    desc: 'Access larger contracts with councils, government, and corporate clients who require ISO 9001 certification.',
-    color: 'from-blue-500 to-blue-600',
-  },
-  {
-    icon: <Target className="h-8 w-8 text-white" />,
-    title: 'Process Improvement',
-    desc: 'Continuously enhance business processes while monitoring and controlling service standards for optimal performance.',
-    color: 'from-leaf-green to-green-600',
-  },
-];
-
-const whyChooseReasons = [
-  {
-    title: 'Mandatory Requirement',
-    description:
-      'Essential for public sector contracts and supplier selection processes',
-    icon: FileText,
-  },
-  {
-    title: 'Competitive Edge',
-    description:
-      'Puts you ahead of non-certified competitors in the marketplace',
-    icon: TrendingUp,
-  },
-  {
-    title: 'Professional Recognition',
-    description:
-      'Demonstrates professional business operations to customers and suppliers',
-    icon: Star,
-  },
-  {
-    title: 'Long-term Contracts',
-    description:
-      'Enables securing of longer-term contracts and business planning',
-    icon: Clock,
-  },
-];
-
+import {
+  whyChooseReasons,
+  services,
+  benefits,
+} from '../../../data/iso9001Data';
 const Iso9001Page = () => {
   return (
     <div className="min-h-screen text-gray-700">
@@ -445,26 +345,29 @@ const Iso9001Page = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
-              >
-                <div className="text-center">
-                  <div
-                    className={`w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-br ${benefit.color} shadow-lg`}
-                  >
-                    {benefit.icon}
+            {benefits.map((benefit, idx) => {
+              const Icon = benefit.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                >
+                  <div className="text-center">
+                    <div
+                      className={`w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-br ${benefit.color} shadow-lg text-white`}
+                    >
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-bold text-navy-blue mb-4">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {benefit.desc}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-navy-blue mb-4">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {benefit.desc}
-                  </p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

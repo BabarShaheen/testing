@@ -3,80 +3,16 @@ import {
   ArrowRight,
   Shield,
   FileText,
-  Award,
-  Users,
   Zap,
-  Clock,
   Star,
   AlertTriangle,
   BookOpen,
   Phone,
   Mail,
   Clipboard,
-  TrendingUp,
 } from 'lucide-react';
 
-const benefits = [
-  {
-    icon: <Shield className="h-8 w-8 text-white" />,
-    title: 'Legal Compliance',
-    description:
-      'Meet the Electricity at Work Regulations 1989 requirements and protect your business from legal liability.',
-    bgColor: 'from-[#007E7A] to-[#00C4B3]',
-  },
-  {
-    icon: <CheckCircle className="h-8 w-8 text-white" />,
-    title: 'Employee Safety',
-    description:
-      'Ensure the safety of your employees and prevent electrical accidents in the workplace.',
-    bgColor: 'from-[#1BB66E] to-[#007E7A]',
-  },
-  {
-    icon: <Award className="h-8 w-8 text-white" />,
-    title: 'Professional Certification',
-    description:
-      'Receive comprehensive certification and computerized records for all tested appliances.',
-    bgColor: 'from-[#F7941E] to-[#1BB66E]',
-  },
-  {
-    icon: <Clock className="h-8 w-8 text-white" />,
-    title: '1 Year Validity',
-    description:
-      'Each appliance receives a pass/fail sticker valid for up to 12 months for ongoing peace of mind.',
-    bgColor: 'from-[#1E2A3A] to-[#007E7A]',
-  },
-  {
-    icon: <TrendingUp className="h-8 w-8 text-white" />,
-    title: 'Cost-Effective',
-    description:
-      'Affordable bundle testing options to ensure all appliances are checked efficiently at once.',
-    bgColor: 'from-[#00C4B3] to-[#1BB66E]',
-  },
-  {
-    icon: <Users className="h-8 w-8 text-white" />,
-    title: 'Peace of Mind',
-    description:
-      'Professional management and high-tech computerized testing equipment for complete confidence.',
-    bgColor: 'from-[#007E7A] to-[#F7941E]',
-  },
-];
-
-const legislation = [
-  'The Health & Safety at Work Act 1974',
-  'The Management of Health & Safety at Work Regulations 1999',
-  'The Electricity at Work Regulations 1989',
-  'The Workplace (Health, Safety and Welfare) Regulations 1992',
-  'The Provision and Use of Work Equipment Regulations 1998',
-];
-
-const appliances = [
-  { name: 'Kettles & Kitchen Equipment', icon: '🫖' },
-  { name: 'White Goods', icon: '🔌' },
-  { name: 'Vacuum Cleaners', icon: '🧹' },
-  { name: 'Power Tools', icon: '🔧' },
-  { name: 'Business Equipment', icon: '💻' },
-  { name: 'Machinery (110v & 240v)', icon: '⚙️' },
-];
+import { benefits, legislation, appliances, tier } from '../../data/patData';
 
 const PatTestingPage = () => {
   return (
@@ -175,8 +111,8 @@ const PatTestingPage = () => {
                     key={idx}
                     className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#00C4B3]/10 to-[#1BB66E]/10 rounded-xl border-l-4 border-[#007E7A]"
                   >
-                    <div className="flex-shrink-0 w-10 h-10 bg-[#007E7A] rounded-full flex items-center justify-center text-lg">
-                      {appliance.icon}
+                    <div className="flex-shrink-0 w-10 h-10 bg-[#007E7A] rounded-full flex items-center justify-center text-lg text-white">
+                      <appliance.icon className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#1E2A3A]">
@@ -186,6 +122,7 @@ const PatTestingPage = () => {
                   </div>
                 ))}
               </div>
+
               <div className="mt-6 p-4 bg-gradient-to-r from-[#F7941E]/10 to-[#1BB66E]/10 rounded-xl">
                 <p className="text-[#1E2A3A]/80 text-sm">
                   <strong>Coverage:</strong> Any item which plugs into a socket,
@@ -223,7 +160,7 @@ const PatTestingPage = () => {
                 <div
                   className={`w-16 h-16 bg-gradient-to-br ${benefit.bgColor} rounded-full flex items-center justify-center mx-auto mb-6`}
                 >
-                  {benefit.icon}
+                  <benefit.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1E2A3A] mb-4 text-center">
                   {benefit.title}
@@ -290,13 +227,7 @@ const PatTestingPage = () => {
             </div>
 
             {/* Per appliance tiers */}
-            {[
-              { range: '15-50', price: '£1.50' },
-              { range: '51-100', price: '£1.35' },
-              { range: '101-500', price: '£0.95' },
-              { range: '501-1000', price: '£0.80' },
-              { range: '1000+', price: '£0.75' },
-            ].map((tier, idx) => (
+            {tier.map((tier, idx) => (
               <div
                 key={idx}
                 className="bg-white p-6 rounded-2xl shadow-lg border border-[#1BB66E]/20 hover:shadow-2xl transition duration-300"

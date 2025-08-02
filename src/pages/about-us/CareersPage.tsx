@@ -4,9 +4,9 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
+} from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
+import { Badge } from '../../components/ui/badge';
 import {
   Users,
   Mail,
@@ -24,6 +24,12 @@ import {
   Phone,
   Building,
 } from 'lucide-react';
+import {
+  tasks,
+  requirements,
+  benefits,
+  values,
+} from '../../data/about-us/careersData'; // Adjust path as needed
 
 const CareersPage: React.FC = () => {
   return (
@@ -86,14 +92,7 @@ const CareersPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                  {[
-                    'Assist the Managing Director and sales team on campaigns and strategic projects',
-                    'Plan and run email marketing and social media initiatives',
-                    'Maintain and update the company website',
-                    'Create compelling content: blogs, brochures, email copy, and marketing designs',
-                    'Prepare sales materials: presentations, proposals, and collateral',
-                    'Manage data, track campaigns, and generate performance reports',
-                  ].map((task, index) => (
+                  {tasks.map((task, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200"
@@ -120,16 +119,7 @@ const CareersPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                  {[
-                    'Degree or experience in marketing',
-                    'Experience with social media (LinkedIn, Facebook, X/Twitter)',
-                    'Proficiency in Microsoft Office (Word, Excel, PowerPoint)',
-                    'Basic design knowledge (Photoshop a bonus)',
-                    'Attention to detail and ability to meet deadlines',
-                    'Strong writing and verbal communication skills',
-                    'Eagerness to learn and grow',
-                    'A genuine belief in the importance of diversity and inclusion',
-                  ].map((requirement, index) => (
+                  {requirements.map((requirement, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-orange hover:bg-orange/5 transition-colors duration-200"
@@ -156,14 +146,7 @@ const CareersPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                  {[
-                    'Competitive salary: £7.80 – £8.50 / hour',
-                    '23 days of annual holiday',
-                    'Flexible working arrangements',
-                    'Pension contributions',
-                    'Fun team-building days and events',
-                    'A supportive and inclusive work culture',
-                  ].map((benefit, index) => (
+                  {benefits.map((benefit, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200"
@@ -265,13 +248,7 @@ const CareersPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
                 <div className="space-y-2 sm:space-y-3">
-                  {[
-                    'Inclusion and diversity',
-                    'People-first approach',
-                    'Purpose-driven work',
-                    'Supportive culture',
-                    'Growth opportunities',
-                  ].map((value, index) => (
+                  {values.map((value, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-2 sm:gap-3"

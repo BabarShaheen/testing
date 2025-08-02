@@ -7,97 +7,19 @@ import {
   Users,
   Target,
   Building,
-  TrendingUp,
 } from 'lucide-react';
-
+import {
+  chasBenefits,
+  smallCompanyRequirements,
+  largeCompanyRequirements,
+  chasProcessSteps,
+} from '../../../data/chasData';
 export function ChasAssistancePage() {
   const navigate = useNavigate();
 
   const handleContactClick = () => {
     navigate('/contact');
   };
-
-  const benefits = [
-    {
-      icon: <Award className="h-6 w-6 text-teal-dark" />,
-      title: 'Third Party Accreditation',
-      description:
-        'CHAS is one of the founders of third party accreditation, providing recognized standards.',
-    },
-    {
-      icon: <TrendingUp className="h-6 w-6 text-teal-dark" />,
-      title: 'More Business Opportunities',
-      description:
-        'CHAS accreditation opens doors and leads to more contracts and profit generation.',
-    },
-    {
-      icon: <Shield className="h-6 w-6 text-teal-dark" />,
-      title: 'Workforce Protection',
-      description:
-        'Ensure your workforce is protected by robust health and safety practices.',
-    },
-    {
-      icon: <Building className="h-6 w-6 text-teal-dark" />,
-      title: 'Local Authority Compliance',
-      description:
-        'Most local authorities and organizations require CHAS registration for contractors.',
-    },
-  ];
-
-  const smallCompanyRequirements = [
-    'Health & Safety Arrangements',
-    'Health & Safety Training',
-    'Risk assessments and COSHH Assessments',
-    'Method Statements',
-    'Asbestos Awareness Training & Management',
-    'Contractor Management & Competence Assessment',
-    'Manual Handling Assessments',
-    'Access to Competent H&S Advice',
-  ];
-
-  const largeCompanyRequirements = [
-    'Health & Safety Policy and Arrangements',
-    'Risk Assessments & Method Statements (including COSHH)',
-    'Health & Safety Training (including Asbestos Awareness)',
-    'Employee Consultation & Health Surveillance',
-    'First Aid & Fire Emergency Procedures',
-    'Display Screen Equipment & Manual Handling Assessments',
-    'Work Equipment Safety (including Inspections & Maintenance)',
-    'Electrical Safety & PAT Testing',
-    'Personal Protective Equipment (PPE)',
-    'Accident Reporting & Investigation Procedures',
-    'Competent Health and Safety Advisor Access',
-    'Contractor Management & Competency Checks',
-    'Workplace Safety Inspections & Audits',
-    'Monitoring, Review & Continuous Improvement',
-  ];
-
-  const processSteps = [
-    {
-      number: '1',
-      title: 'Initial Consultation',
-      description:
-        'We assess your current health and safety arrangements and discuss your specific needs.',
-    },
-    {
-      number: '2',
-      title: 'Documentation Review',
-      description:
-        'We review existing policies, procedures, and documentation to identify gaps.',
-    },
-    {
-      number: '3',
-      title: 'Application Preparation',
-      description:
-        'We complete the CHAS registration forms and prepare all supporting documents.',
-    },
-    {
-      number: '4',
-      title: 'Submission & Support',
-      description:
-        'We submit your application and provide ongoing support throughout the process.',
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -208,10 +130,10 @@ export function ChasAssistancePage() {
                 Why Choose Our CHAS Service?
               </h3>
               <div className="space-y-4">
-                {benefits.map((benefit, index) => (
+                {chasBenefits.map((benefit, index) => (
                   <div key={index} className="flex items-start space-x-4">
                     <div className="flex-shrink-0 p-2 bg-teal-100 rounded-lg">
-                      {benefit.icon}
+                      <benefit.icon className="h-6 w-6 text-teal-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-slate-800 mb-1">
@@ -301,17 +223,19 @@ export function ChasAssistancePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
+            {chasProcessSteps.map((step, index) => (
               <div key={index} className="text-center">
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                  <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg">
                     {step.number}
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">
                   {step.title}
                 </h3>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>

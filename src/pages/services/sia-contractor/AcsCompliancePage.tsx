@@ -1,24 +1,24 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
-import { 
-  Shield, 
-  TrendingUp, 
-  CheckCircle, 
-  Award, 
-  Phone, 
-  Mail, 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../../../components/ui/card';
+import { Button } from '../../../components/ui/button';
+import { Badge } from '../../../components/ui/badge';
+import { complianceServices } from '../../../data/acsComplianceData';
+import {
+  Shield,
+  TrendingUp,
+  CheckCircle,
+  Award,
+  Phone,
+  Mail,
   Target,
   Star,
   Building,
-  Zap,
   ClipboardCheck,
-  FileText,
-  Users,
-  Settings,
-  Bell,
-  Headphones
 } from 'lucide-react';
 
 const AcsCompliancePage: React.FC = () => {
@@ -37,7 +37,8 @@ const AcsCompliancePage: React.FC = () => {
               SIA ACS Compliance
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Providing a Quality System and Ongoing Consultancy. We don't just get you certified — we help you stay certified.
+              Providing a Quality System and Ongoing Consultancy. We don't just
+              get you certified — we help you stay certified.
             </p>
           </div>
         </div>
@@ -58,13 +59,17 @@ const AcsCompliancePage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                  We don't just get you certified — we help you <strong className="text-teal-dark">stay certified</strong>. 
-                  CitrixCo believes in long-term support after your ACS accreditation. We help you maintain up-to-date 
-                  systems and prepare you for any upcoming audits.
+                  We don't just get you certified — we help you{' '}
+                  <strong className="text-teal-dark">stay certified</strong>.
+                  CitrixCo believes in long-term support after your ACS
+                  accreditation. We help you maintain up-to-date systems and
+                  prepare you for any upcoming audits.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  Our support can be <strong className="text-teal-dark">remote or onsite</strong>, tailored to your needs, 
-                  and covers everything from audits to regulatory updates.
+                  Our support can be{' '}
+                  <strong className="text-teal-dark">remote or onsite</strong>,
+                  tailored to your needs, and covers everything from audits to
+                  regulatory updates.
                 </p>
               </CardContent>
             </Card>
@@ -79,60 +84,21 @@ const AcsCompliancePage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    {
-                      icon: ClipboardCheck,
-                      title: 'Initial Assessment',
-                      description: 'Assessment of your compliance system'
-                    },
-                    {
-                      icon: FileText,
-                      title: 'British Standards Integration',
-                      description: 'Integration of additional British Standards into your system'
-                    },
-                    {
-                      icon: Users,
-                      title: 'Quality Manager Support',
-                      description: 'Acting as your Quality Manager, attending AGM meetings'
-                    },
-                    {
-                      icon: Settings,
-                      title: 'Internal Audits',
-                      description: 'Internal audits and on-site system reviews'
-                    },
-                    {
-                      icon: Zap,
-                      title: 'System Updates',
-                      description: 'Updating systems to match operational and business changes'
-                    },
-                    {
-                      icon: Bell,
-                      title: 'Monthly Updates',
-                      description: 'Monthly newsletters and compliance updates'
-                    },
-                    {
-                      icon: FileText,
-                      title: 'Document Support',
-                      description: 'Formatting and adding new documents on request'
-                    },
-                    {
-                      icon: Users,
-                      title: 'Staff Survey Support',
-                      description: 'Quarterly staff survey and appraisal reporting support'
-                    },
-                    {
-                      icon: Headphones,
-                      title: 'Ongoing Support',
-                      description: 'Ongoing telephone and email support for compliance queries'
-                    }
-                  ].map((service, index) => (
-                    <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200">
+                  {complianceServices.map((service, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200"
+                    >
                       <div className="w-10 h-10 bg-teal-dark text-white rounded-lg flex items-center justify-center flex-shrink-0">
                         <service.icon className="w-5 h-5" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-teal-dark mb-1">{service.title}</h4>
-                        <p className="text-gray-700 text-sm leading-relaxed">{service.description}</p>
+                        <h4 className="font-semibold text-teal-dark mb-1">
+                          {service.title}
+                        </h4>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          {service.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -150,8 +116,9 @@ const AcsCompliancePage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  Keeping your system current not only ensures compliance but builds confidence with customers 
-                  and makes annual assessments smoother.
+                  Keeping your system current not only ensures compliance but
+                  builds confidence with customers and makes annual assessments
+                  smoother.
                 </p>
               </CardContent>
             </Card>
@@ -169,21 +136,26 @@ const AcsCompliancePage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                  Let us handle the ongoing compliance work, so you can focus on your business.
+                  Let us handle the ongoing compliance work, so you can focus on
+                  your business.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                     <Phone className="w-4 h-4 text-orange" />
                     <div>
                       <p className="text-sm text-gray-600">Call us at</p>
-                      <p className="font-semibold text-teal-dark">0447446131794</p>
+                      <p className="font-semibold text-teal-dark">
+                        0447446131794
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                     <Mail className="w-4 h-4 text-orange" />
                     <div>
                       <p className="text-sm text-gray-600">Email us at</p>
-                      <p className="font-semibold text-teal-dark">admin@citrix-consulting-limited.co.uk</p>
+                      <p className="font-semibold text-teal-dark">
+                        admin@citrix-consulting-limited.co.uk
+                      </p>
                     </div>
                   </div>
                   <Button className="w-full bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white">
@@ -208,7 +180,7 @@ const AcsCompliancePage: React.FC = () => {
                     'Build customer confidence',
                     'Smoother annual assessments',
                     'Up-to-date compliance systems',
-                    'Ongoing expert support'
+                    'Ongoing expert support',
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-4 h-4 text-orange mt-0.5 flex-shrink-0" />
@@ -229,7 +201,9 @@ const AcsCompliancePage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange mb-2">Flexible</div>
+                  <div className="text-3xl font-bold text-orange mb-2">
+                    Flexible
+                  </div>
                   <p className="text-gray-700 text-sm">
                     Remote or onsite support tailored to your needs
                   </p>
@@ -243,4 +217,4 @@ const AcsCompliancePage: React.FC = () => {
   );
 };
 
-export default AcsCompliancePage; 
+export default AcsCompliancePage;

@@ -1,15 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '../components/ui/button';
+import { Button } from '../../components/ui/button';
 import {
   Users,
   CheckCircle,
   ArrowRight,
   Shield,
   FileText,
-  Award,
   ShieldCheck,
-  Briefcase,
   AlertTriangle,
   UserCheck,
   UserX,
@@ -17,84 +15,19 @@ import {
   ClipboardList,
   Search,
   Lock,
-  Star,
-  Clock,
-  Building,
 } from 'lucide-react';
 
-const vettingFeatures = [
-  {
-    title: 'Education & Identity Verification',
-    description: `Complete education background checks and thorough confirmation of personal details including name, address, date of birth, and right to work status. Includes SIA licence verification and comprehensive 5-10 year career history validation.`,
-    icon: ShieldCheck,
-    highlights: [
-      'Education verification',
-      'Identity confirmation',
-      'SIA licence check',
-      'Career history',
-    ],
-  },
-  {
-    title: 'Financial & Gap Analysis',
-    description: `Detailed career gap verification for periods over 31 days, written character references, and comprehensive public record checks covering CCJs, insolvency, bankruptcy, IVAs, directorships and address links.`,
-    icon: Briefcase,
-    highlights: [
-      'Gap verification',
-      'Character references',
-      'Financial records',
-      'Public record check',
-    ],
-  },
-  {
-    title: 'Criminal Record Screening',
-    description: `For non-licensed personnel: Basic criminal record disclosure or ACPO checks, financial sanction list verification, and complete certificate of screening with full audit file upon completion.`,
-    icon: AlertTriangle,
-    highlights: [
-      'Criminal record check',
-      'ACPO verification',
-      'Sanctions screening',
-      'Audit certification',
-    ],
-  },
-];
-
-const screeningRequirements = [
-  { item: 'Government-issued photo ID and proof of address', icon: FileText },
-  { item: 'Professional and personal character references', icon: Users },
-  {
-    item: 'Police record clearance and financial status verification',
-    icon: Shield,
-  },
-  {
-    item: 'Complete work history documentation (5 years minimum)',
-    icon: Clock,
-  },
-  { item: 'Educational certificates and qualifications', icon: Award },
-  { item: 'Visa and work permits (for foreign nationals)', icon: Building },
-];
-
-const screeningAchievements = [
-  {
-    title: 'Identity Verification',
-    desc: 'Confirms true identity and current address details',
-    icon: UserCheck,
-  },
-  {
-    title: 'Reference Validation',
-    desc: 'Verifies solid references and financial stability',
-    icon: Star,
-  },
-  {
-    title: 'Clean Record Confirmation',
-    desc: 'Ensures no criminal background or red flags',
-    icon: Shield,
-  },
-  {
-    title: 'Career History Check',
-    desc: 'Validates complete 5-year employment history',
-    icon: Clock,
-  },
-];
+import {
+  vettingFeatures,
+  screeningRequirements,
+  screeningAchievements,
+  vettingpackage,
+  screened,
+  exempt,
+  screeningprocess,
+  processingtime,
+  advantages,
+} from '../../data/staffVettingData';
 
 export function StaffVettingPage() {
   const navigate = useNavigate();
@@ -222,15 +155,7 @@ export function StaffVettingPage() {
                   Our Complete Vetting Package:
                 </h4>
                 <div className="grid grid-cols-1 gap-3">
-                  {[
-                    'Education & employment history verification (5-10 years)',
-                    'Right to work & identity confirmation',
-                    'Criminal record disclosure & ACPO checks',
-                    'Character reference validation',
-                    'Financial stability & sanctions screening',
-                    'SIA licence verification (where applicable)',
-                    'Complete audit file & screening certificate',
-                  ].map((item, idx) => (
+                  {vettingpackage.map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
                       <span className="text-gray-700 text-sm">{item}</span>
@@ -278,23 +203,7 @@ export function StaffVettingPage() {
               </div>
 
               <div className="space-y-4">
-                {[
-                  {
-                    title: 'Leadership & Ownership',
-                    desc: 'Directors, owners, shareholders with >10% stake',
-                    color: 'from-blue-500 to-blue-600',
-                  },
-                  {
-                    title: 'Operations Team',
-                    desc: 'Managers, security installers, service technicians',
-                    color: 'from-teal-500 to-teal-600',
-                  },
-                  {
-                    title: 'Administrative Staff',
-                    desc: 'Office supervisors and staff accessing sensitive records',
-                    color: 'from-green-500 to-green-600',
-                  },
-                ].map((item, idx) => (
+                {screened.map((item, idx) => (
                   <div
                     key={idx}
                     className="p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border-l-4 border-teal-500"
@@ -324,14 +233,7 @@ export function StaffVettingPage() {
               </div>
 
               <div className="space-y-4">
-                {[
-                  'Cable layers and installation electricians',
-                  'General contractors and joiners',
-                  'Delivery and logistics personnel',
-                  'Accounts/wages staff (without system access)',
-                  'External maintenance contractors',
-                  'Temporary construction workers',
-                ].map((item, idx) => (
+                {exempt.map((item, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg border-l-4 border-orange"
@@ -519,28 +421,7 @@ export function StaffVettingPage() {
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              {[
-                {
-                  title: 'Pre-Employment Screening',
-                  desc: 'All screening completed before employment begins to ensure full regulatory compliance',
-                  step: '1',
-                },
-                {
-                  title: 'Temporary Authorization',
-                  desc: 'Basic checks enable temporary employment while comprehensive screening is completed',
-                  step: '2',
-                },
-                {
-                  title: 'Document Verification',
-                  desc: 'Advanced UV and technical verification prevents fraudulent documentation acceptance',
-                  step: '3',
-                },
-                {
-                  title: 'Secure Data Handling',
-                  desc: 'All screening data maintained confidentially in full compliance with data protection regulations',
-                  step: '4',
-                },
-              ].map((item, idx) => (
+              {screeningprocess.map((item, idx) => (
                 <div key={idx} className="flex gap-6">
                   <div className="flex-shrink-0 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
                     <span className="text-white font-bold">{item.step}</span>
@@ -558,28 +439,7 @@ export function StaffVettingPage() {
                 Typical Processing Times
               </h3>
               <div className="space-y-6">
-                {[
-                  {
-                    service: 'Basic Identity Checks',
-                    time: '1-2 days',
-                    color: 'from-green-400 to-green-500',
-                  },
-                  {
-                    service: 'Criminal Record Screening',
-                    time: '3-5 days',
-                    color: 'from-yellow-400 to-orange-400',
-                  },
-                  {
-                    service: 'Employment History Verification',
-                    time: '5-7 days',
-                    color: 'from-blue-400 to-blue-500',
-                  },
-                  {
-                    service: 'Complete BS7858 Package',
-                    time: '7-10 days',
-                    color: 'from-purple-400 to-purple-500',
-                  },
-                ].map((item, idx) => (
+                {processingtime.map((item, idx) => (
                   <div
                     key={idx}
                     className="flex justify-between items-center p-4 bg-white/5 rounded-xl"
@@ -669,26 +529,7 @@ export function StaffVettingPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Shield className="h-8 w-8 text-white" />,
-                title: 'Enhanced Security',
-                desc: 'Significantly reduce operational risks while strengthening stakeholder trust through verified personnel.',
-                color: 'from-orange to-orange/90',
-              },
-              {
-                icon: <FileText className="h-8 w-8 text-white" />,
-                title: 'Legal Compliance',
-                desc: 'Meet all regulatory requirements and SIA standards with comprehensive documentation and audit trails.',
-                color: 'from-blue-500 to-blue-600',
-              },
-              {
-                icon: <Award className="h-8 w-8 text-white" />,
-                title: 'Professional Integrity',
-                desc: 'Demonstrate unwavering commitment to quality, ethics, and professional excellence in security services.',
-                color: 'from-purple-500 to-purple-600',
-              },
-            ].map((item, idx) => (
+            {advantages.map((item, idx) => (
               <div
                 key={idx}
                 className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
@@ -697,7 +538,7 @@ export function StaffVettingPage() {
                   <div
                     className={`w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-br ${item.color} shadow-lg`}
                   >
-                    {item.icon}
+                    <item.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-navy-blue mb-4">
                     {item.title}

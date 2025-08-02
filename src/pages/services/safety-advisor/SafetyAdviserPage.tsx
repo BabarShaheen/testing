@@ -5,17 +5,11 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
-import {
-  Shield,
-  CheckCircle,
-  ArrowRight,
-  Users,
-  FileText,
-  Award,
-} from 'lucide-react';
+} from '../../../components/ui/card';
+import { Badge } from '../../../components/ui/badge';
+import { Button } from '../../../components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import { services, benefits } from '../../../data/safetyAdvisorData';
 
 export function SafetyAdviserPage() {
   const navigate = useNavigate();
@@ -27,79 +21,6 @@ export function SafetyAdviserPage() {
   const handleContactClick = () => {
     navigate('/contact');
   };
-  const benefits = [
-    {
-      icon: <Shield className="h-8 w-8 text-white" />,
-      title: 'Expert Knowledge',
-      description:
-        'Our qualified safety advisers have extensive experience across various industries.',
-      image: '/Images/services/expert1.jpg',
-    },
-    {
-      icon: <CheckCircle className="h-8 w-8 text-white" />,
-      title: 'Compliance Assurance',
-      description:
-        'Ensure your business meets all health and safety regulatory requirements.',
-      image: '/Images/services/handshake.jpg',
-    },
-    {
-      icon: <Users className="h-8 w-8 text-white" />,
-      title: 'Workforce Protection',
-      description:
-        'Protect your employees and create a safe working environment.',
-      image: '/Images/services/workforce.jpg',
-    },
-    {
-      icon: <FileText className="h-8 w-8 text-white" />,
-      title: 'Documentation Support',
-      description:
-        'Comprehensive documentation and policy development services.',
-      image: '/Images/services/documentation.jpg',
-    },
-    {
-      icon: <Award className="h-8 w-8 text-white" />,
-      title: 'Professional Recognition',
-      description:
-        'Achieve industry recognition and enhance your business reputation.',
-      image: '/Images/services/recognition.jpg',
-    },
-    {
-      icon: <ArrowRight className="h-8 w-8 text-white" />,
-      title: 'Ongoing Support',
-      description:
-        'Continuous support and monitoring to maintain safety standards.',
-      image: '/Images/services/monitoring.jpg',
-    },
-  ];
-
-  const services = [
-    {
-      id: 'safety-adviser',
-      icon: <Shield className="h-8 w-8 text-orange" />,
-      title: 'Safety Adviser',
-      description:
-        'Comprehensive health and safety advisory services for your business.',
-      price: 'From £150/hour',
-      badge: 'Core Service',
-    },
-    {
-      id: 'chas-assistance',
-      icon: <Award className="h-8 w-8 text-orange" />,
-      title: 'CHAS Assistance',
-      description: 'Professional assistance to obtain CHAS accreditation.',
-      price: 'From £1,800',
-      badge: 'Essential',
-    },
-    {
-      id: 'accreditation-support',
-      icon: <CheckCircle className="h-8 w-8 text-orange" />,
-      title: 'Accreditation Support',
-      description:
-        'Support for various industry accreditations and certifications.',
-      price: 'From £2,200',
-      badge: 'Professional',
-    },
-  ];
 
   return (
     <div className="min-h-screen ">
@@ -148,7 +69,7 @@ export function SafetyAdviserPage() {
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
                     <div className="p-4 bg-teal-50 rounded-full group-hover:bg-teal-100 transition-all duration-300">
-                      {service.icon}
+                      <service.icon className="h-6 w-6 text-teal-700 group-hover:text-teal-800" />
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-2">
@@ -205,28 +126,31 @@ export function SafetyAdviserPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {benefits.map((item, index) => (
-              <div
-                key={index}
-                className="relative rounded-xl shadow-lg overflow-hidden h-[320px] group"
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              >
-                {/* White box over image */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/90 p-6">
-                  <div className="w-12 h-12 bg-navy-blue rounded-full flex items-center justify-center mb-3">
-                    {item.icon}
+            {benefits.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="relative rounded-xl shadow-lg overflow-hidden h-[320px] group"
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  {/* White box over image */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-white/90 p-6">
+                    <div className="w-12 h-12 bg-navy-blue rounded-full flex items-center justify-center mb-3 text-white">
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-navy-blue mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-700">{item.description}</p>
                   </div>
-                  <h3 className="text-lg font-semibold text-navy-blue mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-700">{item.description}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

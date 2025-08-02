@@ -1,8 +1,8 @@
 // pages/FireSafetyCertificationPage.tsx
 import React, { useState } from 'react';
-import { courses, Course } from '../data/courseData';
+import { courses, Course } from '../../data/courseData';
 import { BadgeCheck, X } from 'lucide-react';
-import { Button } from '../components/ui/button';
+import { Button } from '../../components/ui/button';
 
 const FireSafetyCertificationPage: React.FC = () => {
   // null until user clicks “EXPLORE”

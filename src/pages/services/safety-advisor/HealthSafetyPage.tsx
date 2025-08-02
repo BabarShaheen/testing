@@ -10,102 +10,12 @@ import {
   Target,
   Award,
 } from 'lucide-react';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
+import { Badge } from '../../../components/ui/badge';
+import { Button } from '../../../components/ui/button';
+import { healthSafetyServices } from '../../../data/healthSafetyServicesData';
 
 export function HealthSafetyPage() {
   const navigate = useNavigate();
-
-  const healthSafetyServices = [
-    {
-      id: 'site-inspections',
-      title: 'Site Inspections',
-      badge: 'From £125',
-      color: 'bg-gradient-to-br from-teal-50 to-blue-50',
-      iconName: 'Eye',
-      description:
-        'Independent safety inspections of your sites with comprehensive reporting and on-site guidance for management teams and operatives.',
-      features: [
-        'Working environment assessment',
-        'Welfare facilities inspection',
-        'Plant and equipment evaluation',
-        'Documentation review',
-        'Bespoke reporting options',
-        'Scoring systems available',
-        'Toolbox talks included',
-        'Site meeting assistance',
-      ],
-      pricing: 'Starting from £125 plus VAT',
-      details:
-        'Proactive monitoring proven to reduce accidents on site. Essential part of safety management with tailored reports to your specific requirements.',
-    },
-    {
-      id: 'fire-risk-assessment',
-      title: 'Fire Risk Assessment',
-      badge: 'Legal Requirement',
-      color: 'bg-gradient-to-br from-red-50 to-orange-50',
-      iconName: 'AlertTriangle',
-      description:
-        'Comprehensive fire risk assessments to reduce risk and ensure appropriate prevention and protection arrangements are in place.',
-      features: [
-        'Legal compliance with RRO 2005',
-        'Comprehensive site evaluation',
-        'Staff consultation included',
-        'Prevention strategy development',
-        'Protection arrangements review',
-        'Business continuity focus',
-        'Experienced qualified professionals',
-        'Actionable recommendations',
-      ],
-      pricing: 'Contact for quote',
-      details:
-        'Legal requirement under the Regulatory Reform (Fire Safety) Order 2005. Reduces devastating effects of accidental fires on lives, property, and business continuity.',
-    },
-    {
-      id: 'accident-investigations',
-      title: 'Accident Investigations',
-      badge: 'Independent',
-      color: 'bg-gradient-to-br from-yellow-50 to-amber-50',
-      iconName: 'FileSearch',
-      description:
-        'Independent accident and near miss investigations to prevent recurrences and establish causes and contributory factors.',
-      features: [
-        'Scene preservation guidance',
-        'Witness interviews',
-        'Injured party consultations',
-        'Independent reporting',
-        'Recommendations provided',
-        'HSE reporting assistance',
-        'Multi-party investigations',
-        'Immediate response available',
-      ],
-      pricing: 'Emergency response available',
-      details:
-        'Essential for preventing similar events. Independent view crucial when multiple parties involved. HSE reporting guidance included.',
-    },
-    {
-      id: 'workplace-audits',
-      title: 'Workplace Audits',
-      badge: '2-3 Days',
-      color: 'bg-gradient-to-br from-green-50 to-emerald-50',
-      iconName: 'ClipboardCheck',
-      description:
-        'Thorough workplace audits providing the best starting point for managing health and safety within your organization.',
-      features: [
-        'Complete compliance evaluation',
-        'Detailed practical advice',
-        'Legal compliance assessment',
-        'Insurance documentation',
-        'Accreditation body evidence',
-        'Annual or biennial options',
-        'Improvement tracking',
-        'Standards enhancement',
-      ],
-      pricing: '2-3 day comprehensive assessment',
-      details:
-        'Best starting point for health and safety management. Provides evidence for insurance companies and accreditation bodies of monitoring and review.',
-    },
-  ];
 
   const getIconComponent = (iconName: string) => {
     switch (iconName) {
@@ -194,6 +104,7 @@ export function HealthSafetyPage() {
                         <IconComponent className="h-12 w-12 text-orange-600" />
                       </div>
                     </div>
+
                     <div className="flex items-center justify-center gap-2 mb-2">
                       <h3 className="text-xl font-bold text-teal-700 group-hover:text-teal-600 transition-colors">
                         {service.title}
@@ -204,61 +115,59 @@ export function HealthSafetyPage() {
                     </div>
                   </div>
 
-                  <div>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
 
-                    <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                      <p className="text-sm text-blue-800 font-medium">
-                        {service.details}
-                      </p>
-                    </div>
+                  <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                    <p className="text-sm text-blue-800 font-medium">
+                      {service.details}
+                    </p>
+                  </div>
 
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-slate-700 mb-2">
-                        Key Features:
-                      </h4>
-                      <ul className="space-y-1">
-                        {service.features.map((feature, featureIndex) => (
-                          <li
-                            key={featureIndex}
-                            className="flex items-center text-sm text-gray-600"
-                          >
-                            <CheckCircle className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-slate-700 mb-2">
+                      Key Features:
+                    </h4>
+                    <ul className="space-y-1">
+                      {service.features.map((feature, featureIndex) => (
+                        <li
+                          key={featureIndex}
+                          className="flex items-center text-sm text-gray-600"
+                        >
+                          <CheckCircle className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                    <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
-                      <p className="text-sm text-gray-600 mb-1">
-                        Service Details:
-                      </p>
-                      <p className="font-semibold text-teal-700">
-                        {service.pricing}
-                      </p>
-                    </div>
+                  <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
+                    <p className="text-sm text-gray-600 mb-1">
+                      Service Details:
+                    </p>
+                    <p className="font-semibold text-teal-700">
+                      {service.pricing}
+                    </p>
+                  </div>
 
-                    <div className="flex gap-2">
-                      <button
-                        className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded text-sm flex-1 transition-colors"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleServiceClick(service.id);
-                        }}
-                      >
-                        Learn More
-                      </button>
-                      <button
-                        className="border border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-4 py-2 rounded text-sm flex-1 transition-colors"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleContactClick();
-                        }}
-                      >
-                        Get Quote
-                      </button>
-                    </div>
+                  <div className="flex gap-2">
+                    <button
+                      className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded text-sm flex-1 transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleServiceClick(service.id);
+                      }}
+                    >
+                      Learn More
+                    </button>
+                    <button
+                      className="border border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-4 py-2 rounded text-sm flex-1 transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleContactClick();
+                      }}
+                    >
+                      Get Quote
+                    </button>
                   </div>
                 </div>
               );

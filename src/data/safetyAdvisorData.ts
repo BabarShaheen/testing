@@ -1,0 +1,98 @@
+import {
+  LucideIcon,
+  Shield,
+  CheckCircle,
+  Users,
+  FileText,
+  Award,
+  ArrowRight,
+} from 'lucide-react';
+
+export interface Service {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  price: string;
+  badge: string;
+}
+
+export interface Benefit {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  image: string;
+}
+
+export const benefits: Benefit[] = [
+  {
+    icon: Shield,
+    title: 'Expert Knowledge',
+    description:
+      'Our qualified safety advisers have extensive experience across various industries.',
+    image: '/Images/services/expert1.jpg',
+  },
+  {
+    icon: CheckCircle,
+    title: 'Compliance Assurance',
+    description:
+      'Ensure your business meets all health and safety regulatory requirements.',
+    image: '/Images/services/handshake.jpg',
+  },
+  {
+    icon: Users,
+    title: 'Workforce Protection',
+    description:
+      'Protect your employees and create a safe working environment.',
+    image: '/Images/services/workforce.jpg',
+  },
+  {
+    icon: FileText,
+    title: 'Documentation Support',
+    description: 'Comprehensive documentation and policy development services.',
+    image: '/Images/services/documentation.jpg',
+  },
+  {
+    icon: Award,
+    title: 'Professional Recognition',
+    description:
+      'Achieve industry recognition and enhance your business reputation.',
+    image: '/Images/services/recognition.jpg',
+  },
+  {
+    icon: ArrowRight,
+    title: 'Ongoing Support',
+    description:
+      'Continuous support and monitoring to maintain safety standards.',
+    image: '/Images/services/monitoring.jpg',
+  },
+];
+
+export const services: Service[] = [
+  {
+    id: 'safety-adviser',
+    icon: Shield,
+    title: 'Safety Adviser',
+    description:
+      'Comprehensive health and safety advisory services for your business.',
+    price: 'From £150/hour',
+    badge: 'Core Service',
+  },
+  {
+    id: 'chas-assistance',
+    icon: Award,
+    title: 'CHAS Assistance',
+    description: 'Professional assistance to obtain CHAS accreditation.',
+    price: 'From £1,800',
+    badge: 'Essential',
+  },
+  {
+    id: 'accreditation-support',
+    icon: CheckCircle,
+    title: 'Accreditation Support',
+    description:
+      'Support for various industry accreditations and certifications.',
+    price: 'From £2,200',
+    badge: 'Professional',
+  },
+];

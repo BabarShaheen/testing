@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { Card, CardContent } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
+import { Card, CardContent } from '../../components/ui/card';
+import { Badge } from '../../components/ui/badge';
+import { Button } from '../../components/ui/button';
 import {
-  FileText,
   CheckCircle,
   ArrowRight,
   Shield,
@@ -13,17 +12,13 @@ import {
   AlertTriangle,
   Building,
   Eye,
-  Wrench,
-  Volume2,
-  Heart,
   FlameKindling,
-  Laptop,
-  UserCheck,
-  Settings,
-  Hammer,
-  Beaker,
-  Construction,
 } from 'lucide-react';
+
+import {
+  specificAssessments,
+  assessmentServices,
+} from '../../data/riskAssessmentData';
 
 export function RiskAssessmentsPage() {
   const navigate = useNavigate();
@@ -33,29 +28,10 @@ export function RiskAssessmentsPage() {
   };
 
   const handleReadMore = () => {
-    // Scroll to the main content section
     document
       .getElementById('main-content')
       ?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const specificAssessments = [
-    { name: 'Display Screen Equipment', icon: <Laptop className="h-5 w-5" /> },
-    {
-      name: 'Hazardous Substances',
-      icon: <AlertTriangle className="h-5 w-5" />,
-    },
-    { name: 'Lone Working', icon: <UserCheck className="h-5 w-5" /> },
-    { name: 'Fire Safety', icon: <FlameKindling className="h-5 w-5" /> },
-    { name: 'Work Equipment', icon: <Settings className="h-5 w-5" /> },
-    { name: 'Management of Contractors', icon: <Users className="h-5 w-5" /> },
-    { name: 'Maintenance Activities', icon: <Wrench className="h-5 w-5" /> },
-    { name: 'Manual Handling', icon: <Hammer className="h-5 w-5" /> },
-    { name: 'Laboratory Safety', icon: <Beaker className="h-5 w-5" /> },
-    { name: 'Construction Safety', icon: <Construction className="h-5 w-5" /> },
-    { name: 'Noise', icon: <Volume2 className="h-5 w-5" /> },
-    { name: 'First Aid', icon: <Heart className="h-5 w-5" /> },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -439,7 +415,7 @@ export function RiskAssessmentsPage() {
                 >
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange/90 transition-colors">
-                      <div className="text-white">{assessment.icon}</div>
+                      <assessment.icon className="w-5 h-5 text-white" />
                     </div>
                     <h3 className="font-semibold text-navy-blue group-hover:text-orange transition-colors">
                       {assessment.name}
@@ -476,55 +452,12 @@ export function RiskAssessmentsPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: <Shield className="h-8 w-8 text-white" />,
-                  title: 'Legal Compliance',
-                  description:
-                    'Ensure compliance with health and safety regulations and statutory requirements.',
-                  bgColor: 'bg-orange',
-                },
-                {
-                  icon: <Award className="h-8 w-8 text-white" />,
-                  title: 'Fixed Price Guarantee',
-                  description:
-                    'No hidden extras - transparent pricing you can trust.',
-                  bgColor: 'bg-leaf-green',
-                },
-                {
-                  icon: <Users className="h-8 w-8 text-white" />,
-                  title: 'Free Staff Training',
-                  description:
-                    'Complimentary online staff training included with assessments.',
-                  bgColor: 'bg-teal-dark',
-                },
-                {
-                  icon: <FileText className="h-8 w-8 text-white" />,
-                  title: 'Comprehensive Reports',
-                  description:
-                    'Detailed reports with prioritized action plans and recommendations.',
-                  bgColor: 'bg-purple-500',
-                },
-                {
-                  icon: <CheckCircle className="h-8 w-8 text-white" />,
-                  title: 'Nationwide Coverage',
-                  description:
-                    'Professional services available across the entire United Kingdom.',
-                  bgColor: 'bg-blue-500',
-                },
-                {
-                  icon: <Search className="h-8 w-8 text-white" />,
-                  title: 'Expert Investigation',
-                  description:
-                    'Skilled consultants with extensive industry experience.',
-                  bgColor: 'bg-indigo-500',
-                },
-              ].map((item, index) => (
+              {assessmentServices.map((item, index) => (
                 <div key={index} className="text-center">
                   <div
                     className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}
                   >
-                    {item.icon}
+                    <item.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-navy-blue mb-2">
                     {item.title}

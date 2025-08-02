@@ -4,9 +4,9 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
+} from '../../../components/ui/card';
+import { Button } from '../../../components/ui/button';
+import { Badge } from '../../../components/ui/badge';
 import {
   Shield,
   TrendingUp,
@@ -19,6 +19,8 @@ import {
   Building,
   Zap,
 } from 'lucide-react';
+
+import { acsData } from '../../../data/siaAcsData';
 
 const SiaAcsPage: React.FC = () => {
   return (
@@ -118,13 +120,7 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    'Gain recognition as a trusted, professional security provider',
-                    'Stand out in tenders requiring ACS accreditation',
-                    'Improve operational standards through independent assessment',
-                    'Legally deploy up to 15% of staff with pending SIA licenses',
-                    'Demonstrates commitment to lawful, ethical, and high-quality service',
-                  ].map((benefit, index) => (
+                  {acsData.whyBecomeApproved.map((benefit, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200"
@@ -151,16 +147,7 @@ const SiaAcsPage: React.FC = () => {
                   eligible to apply:
                 </p>
                 <div className="grid md:grid-cols-2 gap-3">
-                  {[
-                    'Security Guarding (BS 7499)',
-                    'Door Supervision (BS 7960)',
-                    'CCTV Operation (BS 7958)',
-                    'Close Protection',
-                    'Keyholding & Alarm Response (BS 7984)',
-                    'Cash & Valuables in Transit (BS 7872)',
-                    'Private Investigations',
-                    'Vehicle Immobilisation (Northern Ireland)',
-                  ].map((service, index) => (
+                  {acsData.eligibleServices.map((service, index) => (
                     <div
                       key={index}
                       className="flex items-center gap-3 p-3 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark"
@@ -191,33 +178,7 @@ const SiaAcsPage: React.FC = () => {
                   Our process includes:
                 </p>
                 <div className="space-y-4">
-                  {[
-                    {
-                      step: 'Site Visit & System Drafting',
-                      description:
-                        'We review your business procedures and design a tailored ACS system with your branding.',
-                    },
-                    {
-                      step: 'Documentation Walkthrough',
-                      description:
-                        'We train your team on each procedure, finalizing forms like supplier lists and action plans.',
-                    },
-                    {
-                      step: 'Pre-Assessment Check',
-                      description:
-                        'We ensure everything is aligned before official evaluation.',
-                    },
-                    {
-                      step: 'Assessment Day Attendance',
-                      description:
-                        'Our assessor will be present on the first day of your assessment.',
-                    },
-                    {
-                      step: '12-Month Support',
-                      description:
-                        'Continued guidance post-certification to keep your system compliant and up-to-date.',
-                    },
-                  ].map((item, index) => (
+                  {acsData.ourApproach.map((item, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-orange"
@@ -249,14 +210,7 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    '100% success rate in achieving ACS approval for our clients',
-                    'Fixed pricing — transparent, competitive, no hidden costs',
-                    'Experienced assessors who provide clear, actionable feedback',
-                    'Many clients exceed the 136+ point threshold and qualify as ACS Pacesetters',
-                    'Simple onboarding and transfer process from other bodies',
-                    'ISO 9001 Passport Route available for streamlined approval',
-                  ].map((benefit, index) => (
+                  {acsData.whyChooseUs.map((benefit, index) => (
                     <div
                       key={index}
                       className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-teal-light/5 transition-colors duration-200"
@@ -322,13 +276,7 @@ const SiaAcsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-3">
-                  {[
-                    'Professional recognition and credibility',
-                    'Competitive advantage in tenders',
-                    'Legal deployment flexibility (15% pending licenses)',
-                    'Annual performance assessment',
-                    'Enhanced operational standards',
-                  ].map((benefit, index) => (
+                  {acsData.acsKeyBenefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-4 h-4 text-orange mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{benefit}</span>
