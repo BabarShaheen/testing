@@ -121,7 +121,7 @@ export function ServiceDetailPage() {
           </p>
           <Button
             onClick={handleBackClick}
-            className="bg-orange hover:bg-orange/90 text-white"
+            className="bg-warm-amber hover:bg-warm-amber/90 text-white"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Services
@@ -140,7 +140,7 @@ export function ServiceDetailPage() {
         <Button
           onClick={handleBackClick}
           variant="outline"
-          className="border-teal-dark text-teal-dark hover:bg-teal-dark hover:text-white"
+          className="border-crimson-pink text-crimson-pink hover:bg-crimson-pink hover:text-white"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Services
@@ -148,14 +148,14 @@ export function ServiceDetailPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
+      <section className="bg-crimson-gradient text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy-blue/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center mb-4">
                 <div className="p-3 bg-white/10 rounded-lg backdrop-blur-sm">
-                  <IconComponent className="h-12 w-12 text-orange" />
+                  <IconComponent className="h-12 w-12 text-warm-amber" />
                 </div>
                 <Badge
                   variant="secondary"
@@ -174,7 +174,7 @@ export function ServiceDetailPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-orange hover:bg-orange/90 text-white px-8 py-3"
+                  className="bg-warm-amber hover:bg-warm-amber/90 text-white px-8 py-3"
                   onClick={() => {
                     const element = document.getElementById('quote-form');
                     if (element) {
@@ -187,7 +187,7 @@ export function ServiceDetailPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-teal-dark px-8 py-3"
+                  className="border-white text-white hover:bg-white hover:text-crimson-pink px-8 py-3"
                 >
                   Download Brochure
                 </Button>
@@ -197,24 +197,24 @@ export function ServiceDetailPage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
                 <div className="grid grid-cols-2 gap-6 text-center">
                   <div>
-                    <Clock className="h-8 w-8 text-orange mx-auto mb-2" />
+                    <Clock className="h-8 w-8 text-warm-amber mx-auto mb-2" />
                     <div className="text-lg font-semibold">Timeline</div>
                     <div className="text-gray-100">{service.timeline}</div>
                   </div>
                   <div>
-                    <Award className="h-8 w-8 text-orange mx-auto mb-2" />
+                    <Award className="h-8 w-8 text-warm-amber mx-auto mb-2" />
                     <div className="text-lg font-semibold">Pricing</div>
                     <div className="text-gray-100">{service.pricing}</div>
                   </div>
                   <div>
-                    <Users className="h-8 w-8 text-orange mx-auto mb-2" />
+                    <Users className="h-8 w-8 text-warm-amber mx-auto mb-2" />
                     <div className="text-lg font-semibold">Success Rate</div>
                     <div className="text-gray-100">
                       {service.stats.successRate}
                     </div>
                   </div>
                   <div>
-                    <Star className="h-8 w-8 text-orange mx-auto mb-2" />
+                    <Star className="h-8 w-8 text-warm-amber mx-auto mb-2" />
                     <div className="text-lg font-semibold">Client Rating</div>
                     <div className="text-gray-100">
                       {service.stats.clientRating}
@@ -270,10 +270,10 @@ export function ServiceDetailPage() {
               <Card key={index} className="border-none shadow-lg">
                 <CardHeader>
                   <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-orange rounded-full flex items-center justify-center text-white font-bold mr-4">
+                    <div className="w-10 h-10 bg-warm-amber rounded-full flex items-center justify-center text-white font-bold mr-4">
                       {step.step}
                     </div>
-                    <CardTitle className="text-teal-dark">
+                    <CardTitle className="text-crimson-pink">
                       {step.title}
                     </CardTitle>
                   </div>
@@ -388,7 +388,7 @@ export function ServiceDetailPage() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-orange hover:bg-orange/90 text-white"
+                      className="w-full bg-warm-amber hover:bg-warm-amber/90 text-white"
                       disabled={!formData.consent}
                     >
                       Request Quote
@@ -411,7 +411,7 @@ export function ServiceDetailPage() {
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h4 className="font-semibold text-teal-dark">
+                          <h4 className="font-semibold text-crimson-pink">
                             {relatedService.name}
                           </h4>
                           <p className="text-sm text-gray-600">
@@ -421,7 +421,7 @@ export function ServiceDetailPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-teal-dark text-teal-dark hover:bg-teal-dark hover:text-white"
+                          className="border-crimson-pink text-crimson-pink hover:bg-crimson-pink hover:text-white"
                           onClick={() =>
                             handleRelatedServiceClick(relatedService.id)
                           }

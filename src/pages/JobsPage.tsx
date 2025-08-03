@@ -2,6 +2,12 @@ import { Card, CardContent, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { MapPin, Clock, Briefcase, Users } from 'lucide-react';
+import {
+  HeroSection,
+  SectionHeader,
+  JobCard,
+  ContactCTA,
+} from '../components/common';
 
 export function JobsPage() {
   const jobs = [
@@ -66,29 +72,18 @@ export function JobsPage() {
 
   return (
     <div className="min-h-screen py-20">
-      {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team</h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
-            Build your career with the UK's leading compliance consultancy
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Join Our Team"
+        description="Build your career with the UK's leading compliance consultancy"
+      />
 
       {/* Why Work With Us */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Why Work With Us?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Join a team of professionals dedicated to helping businesses
-              achieve compliance excellence
-            </p>
-          </div>
+          <SectionHeader
+            title="Why Work With Us?"
+            description="Join a team of professionals dedicated to helping businesses achieve compliance excellence"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center border-none shadow-lg">
@@ -214,14 +209,10 @@ export function JobsPage() {
       {/* Benefits */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Employee Benefits
-            </h2>
-            <p className="text-lg text-gray-600">
-              We offer a comprehensive benefits package to support our team
-            </p>
-          </div>
+          <SectionHeader
+            title="Employee Benefits"
+            description="We offer a comprehensive benefits package to support our team"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {benefits.map((benefit, index) => (
@@ -237,23 +228,12 @@ export function JobsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-teal-gradient text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="text-3xl font-bold mb-4">Don't See the Right Role?</h2>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto mb-8">
-            We're always looking for talented professionals. Send us your CV and
-            we'll keep you in mind for future opportunities.
-          </p>
-          <Button
-            size="lg"
-            className="bg-orange hover:bg-orange/90 text-white px-8 py-3"
-          >
-            Send Your CV
-          </Button>
-        </div>
-      </section>
+      <ContactCTA
+        title="Don't See the Right Role?"
+        description="We're always looking for talented professionals. Send us your CV and we'll keep you in mind for future opportunities."
+        buttonText="Send Your CV"
+        className="bg-crimson-gradient text-white relative overflow-hidden"
+      />
     </div>
   );
 }

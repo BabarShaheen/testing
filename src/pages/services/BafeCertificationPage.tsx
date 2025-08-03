@@ -1,4 +1,4 @@
-import React, { ReactNode, MouseEventHandler } from 'react';
+import React from 'react';
 import {
   Shield,
   CheckCircle,
@@ -6,80 +6,10 @@ import {
   Settings,
   Star,
   Building,
+  ShieldCheck,
   UserCheck,
 } from 'lucide-react';
 import { consultancySteps, Benefits } from '../../data/bafeData';
-
-interface CardProps {
-  children: ReactNode;
-  className?: string;
-  onClick?: MouseEventHandler<HTMLDivElement>;
-}
-interface ChildrenProps {
-  children: ReactNode;
-  className?: string;
-}
-// Custom UI Components
-const Card: React.FC<CardProps> = ({ children, className = '', onClick }) => (
-  <div
-    className={`bg-white p-6 rounded-2xl shadow-lg border transition duration-300 ${className}`}
-    onClick={onClick}
-  >
-    {children}
-  </div>
-);
-interface ButtonProps {
-  children: ReactNode;
-  size?: 'default' | 'lg';
-  variant?: 'default' | 'outline' | 'ghost' | 'destructive';
-  className?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-}
-
-export const CardContent: React.FC<ChildrenProps> = ({
-  children,
-  className = '',
-}) => <div className={`p-4 ${className}`}>{children}</div>;
-
-export const Badge: React.FC<ChildrenProps> = ({
-  children,
-  className = '',
-}) => (
-  <span
-    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${className}`}
-  >
-    {children}
-  </span>
-);
-
-const Button: React.FC<ButtonProps> = ({
-  children,
-  size = 'default',
-  variant = 'default',
-  className = '',
-  onClick,
-}) => {
-  const sizeClasses: Record<string, string> = {
-    default: 'px-4 py-2 text-sm',
-    lg: 'px-6 py-3 text-base',
-  };
-
-  const variantClasses: Record<string, string> = {
-    default: 'bg-blue-600 text-white hover:bg-blue-700',
-    outline: 'border border-gray-300 text-gray-700 bg-white hover:bg-gray-100',
-    ghost: 'bg-transparent text-gray-700 hover:bg-gray-100',
-    destructive: 'bg-red-600 text-white hover:bg-red-700',
-  };
-
-  return (
-    <button
-      className={`font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-};
 
 export default function BafeSP205Page() {
   const handleContactClick = () => {
@@ -95,16 +25,43 @@ export default function BafeSP205Page() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <Badge className="bg-orange text-white px-6 py-2 text-lg mb-6">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundImage: "url('/Images/services/life-safety.jpg')",
+            filter: 'brightness(0.7)',
+          }}
+        />
+
+        {/* Wave Overlay */}
+        <svg
+          className="absolute bottom-0 left-0 w-full h-40 z-0"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#ED2568"
+            fillOpacity="0.25"
+            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+          />
+        </svg>
+
+        {/* Content Layer */}
+        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+          {/* Badge */}
+          <div className="inline-block bg-pink-600/10 text-pink-300 font-semibold tracking-wide px-5 py-2 rounded-full text-sm shadow-md">
             BAFE SP205 Certification
-          </Badge>
-          <h1 className="text-5xl md:text-6xl font-bold mb-8">
+          </div>
+
+          {/* Title */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
             Life Safety Fire Risk Assessment Consultancy
           </h1>
-          <p className="text-xl text-gray-100 max-w-4xl mx-auto mb-12">
+
+          {/* Description */}
+          <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             If you are the Responsible Person (or Duty Holder in Scotland) you
             hold the responsibility for the adequacy of your company's Fire Risk
             Assessment by law, rather than the assessor themselves. To ensure
@@ -112,12 +69,13 @@ export default function BafeSP205Page() {
             registered company.
           </p>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 max-w-4xl mx-auto border border-white/20 mb-8">
-            <div className="flex items-center justify-center mb-4">
-              <Shield className="h-12 w-12 text-orange mr-4" />
+          {/* Info Box */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/20 shadow-lg">
+            <div className="flex items-center justify-center mb-6">
+              <Shield className="h-12 w-12 text-pink-300 mr-4" />
               <h2 className="text-2xl font-bold">BAFE SP 205</h2>
             </div>
-            <p className="text-gray-100 leading-relaxed">
+            <p className="text-gray-100 leading-relaxed text-lg">
               <strong>Life Safety Fire Risk Assessment SP205</strong> specifies
               that organisations (including in-house departments and sole
               traders) have the required technical and quality management
@@ -128,34 +86,45 @@ export default function BafeSP205Page() {
             </p>
           </div>
 
-          <Button
-            size="lg"
-            className="bg-orange hover:bg-orange/90 text-white px-8 py-4 text-lg"
-            onClick={handleReadMore}
-          >
-            Learn About Our Process
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+            <button
+              onClick={handleReadMore}
+              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all flex items-center"
+            >
+              Learn About Our Process
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+
+            <button
+              onClick={handleContactClick}
+              className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all"
+            >
+              Get Free Consultation
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Main Content */}
       <div id="main-content">
         {/* 5-Step Process Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-navy-blue mb-4">
+        <section className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100 relative">
+          <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 pointer-events-none" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1C1F2A] mb-6">
                 BAFE SP205 Certification Process
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Our proven 5-step process to help you achieve BAFE SP205
                 certification and gain recognition as a competent fire risk
                 assessment provider.
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-12">
               {consultancySteps.map((stepItem, index) => (
                 <div
                   key={index}
@@ -164,18 +133,16 @@ export default function BafeSP205Page() {
                   } flex flex-col lg:flex gap-12 items-center`}
                 >
                   <div className="flex-1">
-                    <div className="bg-white rounded-lg p-8 shadow-lg">
+                    <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
                       <div className="flex items-center mb-6">
-                        <div
-                          className={`w-16 h-16 ${stepItem.bgColor} rounded-full flex items-center justify-center text-white mr-6`}
-                        >
-                          <stepItem.icon className="w-6 h-6" />
+                        <div className="w-16 h-16 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center text-white mr-6 shadow-lg">
+                          <stepItem.icon className="w-8 h-8" />
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-gray-500 mb-1">
+                          <div className="text-sm font-medium text-[#ED2568] mb-1 uppercase tracking-wide">
                             {stepItem.step}
                           </div>
-                          <h3 className="text-2xl font-bold text-navy-blue">
+                          <h3 className="text-2xl font-bold text-[#1C1F2A]">
                             {stepItem.title}
                           </h3>
                         </div>
@@ -186,9 +153,7 @@ export default function BafeSP205Page() {
                     </div>
                   </div>
                   <div className="flex-shrink-0">
-                    <div
-                      className={`w-24 h-24 ${stepItem.bgColor} rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg`}
-                    >
+                    <div className="w-24 h-24 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl">
                       {index + 1}
                     </div>
                   </div>
@@ -199,101 +164,94 @@ export default function BafeSP205Page() {
         </section>
 
         {/* Service Details Section */}
-        <section className="py-16 bg-white">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-navy-blue mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#1C1F2A] mb-6">
                   BAFE SP205 Consultancy Services
                 </h2>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Our comprehensive consultancy service guides you through every
                   step of the BAFE SP205 certification process, ensuring your
                   organization meets all technical and quality management
                   requirements.
                 </p>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-leaf-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-navy-blue">
-                        Quality Management Systems
-                      </h3>
-                      <p className="text-gray-600">
-                        Implementation of robust QMS to support BAFE SP205
-                        requirements (ISO9001 not required).
-                      </p>
+                <div className="space-y-6">
+                  {[
+                    {
+                      title: 'Quality Management Systems',
+                      description:
+                        'Implementation of robust QMS to support BAFE SP205 requirements (ISO9001 not required).',
+                    },
+                    {
+                      title: 'Technical Capability Assessment',
+                      description:
+                        'Ensure your organization has the required technical capabilities for life safety fire risk assessment.',
+                    },
+                    {
+                      title: 'Staff Competency Verification',
+                      description:
+                        'Verify that risk assessment staff meet appropriate criteria and competency levels.',
+                    },
+                    {
+                      title: 'Certification Body Liaison',
+                      description:
+                        'Full support through the audit and certification process with BAFE-listed certification bodies.',
+                    },
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start">
+                      <CheckCircle className="h-6 w-6 text-[#ED2568] mr-4 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="font-semibold text-[#1C1F2A] mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600">{item.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-leaf-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-navy-blue">
-                        Technical Capability Assessment
-                      </h3>
-                      <p className="text-gray-600">
-                        Ensure your organization has the required technical
-                        capabilities for life safety fire risk assessment.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-leaf-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-navy-blue">
-                        Staff Competency Verification
-                      </h3>
-                      <p className="text-gray-600">
-                        Verify that risk assessment staff meet appropriate
-                        criteria and competency levels.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-leaf-green mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-navy-blue">
-                        Certification Body Liaison
-                      </h3>
-                      <p className="text-gray-600">
-                        Full support through the audit and certification process
-                        with BAFE-listed certification bodies.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <div className="text-center mb-6">
-                  <Shield className="h-16 w-16 text-orange mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-navy-blue">
+
+              <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <Shield className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#1C1F2A]">
                     Consultancy Details
                   </h3>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Starting Price:</span>
-                    <span className="font-semibold text-teal-dark">£2,800</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Timeline:</span>
-                    <span className="font-semibold text-teal-dark">
-                      6-8 weeks
+                <div className="space-y-6">
+                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                    <span className="text-gray-600 font-medium">
+                      Starting Price:
+                    </span>
+                    <span className="font-bold text-[#ED2568] text-lg">
+                      £2,800
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Success Rate:</span>
-                    <span className="font-semibold text-teal-dark">92%</span>
+                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                    <span className="text-gray-600 font-medium">Timeline:</span>
+                    <span className="font-bold text-[#1C1F2A]">6-8 weeks</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Clients Served:</span>
-                    <span className="font-semibold text-teal-dark">60+</span>
+                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                    <span className="text-gray-600 font-medium">
+                      Success Rate:
+                    </span>
+                    <span className="font-bold text-[#ED2568]">92%</span>
                   </div>
-                  <div className="border-t pt-4 mt-6">
+                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                    <span className="text-gray-600 font-medium">
+                      Clients Served:
+                    </span>
+                    <span className="font-bold text-[#1C1F2A]">60+</span>
+                  </div>
+                  <div className="pt-6">
                     <div className="text-center">
-                      <Badge className="bg-leaf-green text-white px-4 py-2 mb-4">
+                      <div className="inline-block bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-4 py-2 rounded-full font-semibold text-sm mb-4">
                         Suitable for all sizes
-                      </Badge>
+                      </div>
                       <p className="text-sm text-gray-600">
                         Designed for large organizations, in-house departments,
                         and sole traders
@@ -301,25 +259,25 @@ export default function BafeSP205Page() {
                     </div>
                   </div>
                 </div>
-                <Button
-                  className="w-full mt-6 bg-orange hover:bg-orange/90 text-white"
+                <button
+                  className="w-full mt-8 bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-6 py-3 rounded-xl font-semibold hover:brightness-110 transition-all shadow-lg"
                   onClick={handleContactClick}
                 >
                   Start Your Certification Journey
-                </Button>
+                </button>
               </div>
             </div>
           </div>
         </section>
 
         {/* Benefits Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-navy-blue mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1C1F2A] mb-6">
                 Benefits of BAFE SP205 Certification
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Achieve industry recognition as a competent fire risk assessment
                 provider and enhance your professional credibility.
               </p>
@@ -327,16 +285,19 @@ export default function BafeSP205Page() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Benefits.map((item, index) => (
-                <div key={index} className="text-center">
-                  <div
-                    className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}
-                  >
-                    <item.icon className="text-white w-6 h-6" />
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center"
+                >
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <item.icon className="text-white w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-semibold text-navy-blue mb-2">
+                  <h3 className="text-xl font-semibold text-[#1C1F2A] mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -344,98 +305,132 @@ export default function BafeSP205Page() {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-white">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-navy-blue mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1C1F2A] mb-6">
                 Why Choose Our BAFE SP205 Consultancy?
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We work closely with your organisation to ensure successful
                 certification, regardless of your size or current setup.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <UserCheck className="h-12 w-12 text-orange mx-auto mb-4" />
-                  <h3 className="font-semibold text-navy-blue mb-2">
-                    Expert Guidance
+              {[
+                {
+                  icon: UserCheck,
+                  title: 'Expert Guidance',
+                  description:
+                    'Close collaboration throughout the entire certification process',
+                  color: 'text-[#ED2568]',
+                },
+                {
+                  icon: Settings,
+                  title: 'No ISO9001 Required',
+                  description:
+                    'Implement robust QMS without ISO9001 certification',
+                  color: 'text-[#ED2568]',
+                },
+                {
+                  icon: Building,
+                  title: 'All Organization Sizes',
+                  description:
+                    'Support for large companies, departments, and sole traders',
+                  color: 'text-[#ED2568]',
+                },
+                {
+                  icon: Star,
+                  title: 'Proven Track Record',
+                  description: '92% success rate with 60+ satisfied clients',
+                  color: 'text-[#ED2568]',
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:border-[#ED2568] transition-all duration-300 text-center group"
+                >
+                  <div className="w-14 h-14 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                    <item.icon className="h-7 w-7 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-[#1C1F2A] mb-3 text-lg">
+                    {item.title}
                   </h3>
-                  <p className="text-gray-600 text-sm">
-                    Close collaboration throughout the entire certification
-                    process
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {item.description}
                   </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <Settings className="h-12 w-12 text-leaf-green mx-auto mb-4" />
-                  <h3 className="font-semibold text-navy-blue mb-2">
-                    No ISO9001 Required
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    Implement robust QMS without ISO9001 certification
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <Building className="h-12 w-12 text-teal-dark mx-auto mb-4" />
-                  <h3 className="font-semibold text-navy-blue mb-2">
-                    All Organization Sizes
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    Support for large companies, departments, and sole traders
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <Star className="h-12 w-12 text-purple mx-auto mb-4" />
-                  <h3 className="font-semibold text-navy-blue mb-2">
-                    Proven Track Record
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    92% success rate with 60+ satisfied clients
-                  </p>
-                </CardContent>
-              </Card>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-teal-gradient text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-navy-blue/20"></div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            <h2 className="text-3xl font-bold mb-4">
+        <section
+          className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
+          style={{
+            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/70"></div>
+
+          {/* Content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="flex justify-center mb-6">
+              <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
+                <ShieldCheck className="h-16 w-16 text-white" />
+              </div>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
               Ready to Achieve BAFE SP205 Certification?
             </h2>
-            <p className="text-xl text-gray-100 max-w-2xl mx-auto mb-8">
+
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-10 leading-relaxed">
               Contact us today for a free consultation and discover how we can
               help you become a BAFE-registered fire risk assessment provider.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-orange hover:bg-orange/90 text-white px-8 py-3"
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <button
+                className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
                 onClick={handleContactClick}
               >
                 Get Free Consultation
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-teal-dark text-white hover:bg-white hover:text-teal-dark px-8 py-3"
+                <ArrowRight className="ml-2 h-5 w-5 inline" />
+              </button>
+              <button
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
                 onClick={handleContactClick}
               >
                 Contact Us Today
-              </Button>
+              </button>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold text-pink-400 mb-2">
+                    100%
+                  </div>
+                  <p className="text-gray-200">BAFE SP205 Compliant</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-rose-400 mb-2">
+                    5-7
+                  </div>
+                  <p className="text-gray-200">Days to Certification</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-fuchsia-400 mb-2">
+                    24/7
+                  </div>
+                  <p className="text-gray-200">Expert Guidance</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

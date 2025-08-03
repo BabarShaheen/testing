@@ -1,23 +1,20 @@
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { CheckCircle, Users, Award, Target, Shield } from 'lucide-react';
+import {
+  HeroSection,
+  SectionHeader,
+  BenefitCard,
+  ContactCTA,
+} from '../components/common';
 
 export function AboutPage() {
   return (
     <div className="min-h-screen py-20">
-      {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About Citrix Consulting Services
-          </h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
-            Your trusted partner for compliance, safety, and accreditation
-            services across the UK
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="About Citrix Consulting Services"
+        description="Your trusted partner for compliance, safety, and accreditation services across the UK"
+      />
 
       {/* About Content */}
       <section className="py-16 bg-white">
@@ -84,14 +81,10 @@ export function AboutPage() {
       {/* Values */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Our Values
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The principles that guide everything we do
-            </p>
-          </div>
+          <SectionHeader
+            title="Our Values"
+            description="The principles that guide everything we do"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="text-center border-none shadow-lg">
@@ -160,15 +153,10 @@ export function AboutPage() {
       {/* Accreditations */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Our Accreditations
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We maintain the highest standards through recognized
-              accreditations and certifications
-            </p>
-          </div>
+          <SectionHeader
+            title="Our Accreditations"
+            description="We maintain the highest standards through recognized accreditations and certifications"
+          />
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
             <div className="text-center p-6 bg-gray-50 rounded-lg">
@@ -193,23 +181,12 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-teal-gradient text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto mb-8">
-            Let's discuss how we can help your business achieve compliance
-            excellence.
-          </p>
-          <Button
-            size="lg"
-            className="bg-orange hover:bg-orange/90 text-white px-8 py-3"
-          >
-            Get in Touch
-          </Button>
-        </div>
-      </section>
+      <ContactCTA
+        title="Ready to Work Together?"
+        description="Let's discuss how we can help your business achieve compliance excellence."
+        buttonText="Get in Touch"
+        className="bg-crimson-gradient text-white relative overflow-hidden"
+      />
     </div>
   );
 }

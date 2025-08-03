@@ -8,12 +8,33 @@ import {
 } from '../../../components/ui/card';
 import { Badge } from '../../../components/ui/badge';
 import { Button } from '../../../components/ui/button';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, Building } from 'lucide-react';
 import {
   isoCertifications,
   isoCertificationBenefits,
   certificationProcessSteps,
 } from '../../../data/isoCertificationData';
+
+const jointSystemBenefits = [
+  {
+    system: 'ISO 9001',
+    focus: 'Quality Management',
+    integration: 'Document control, management review, corrective actions',
+    color: 'from-blue-500 to-blue-600',
+  },
+  {
+    system: 'ISO 14001',
+    focus: 'Environmental Management',
+    integration: 'Risk assessment, legal compliance, operational control',
+    color: 'from-green-500 to-green-600',
+  },
+  {
+    system: 'OHSAS 18001',
+    focus: 'Health & Safety Management',
+    integration: 'Hazard identification, incident investigation, training',
+    color: 'from-orange-500 to-orange-600',
+  },
+];
 
 export function IsoCertificationsPage() {
   const navigate = useNavigate();
@@ -28,17 +49,66 @@ export function IsoCertificationsPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            ISO Certifications
-          </h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
-            Professional ISO certification services for quality, environment,
-            and safety management systems.
-          </p>
+      <section className="min-h-screen">
+        <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
+          {/* Background Image Layer */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            style={{
+              backgroundImage: "url('/iso_cover.jpg')", // change path if needed
+              filter: 'brightness(0.6)',
+            }}
+          />
+
+          {/* Wave Overlay */}
+          <svg
+            className="absolute bottom-0 left-0 w-full h-40 z-0"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="#ED2568"
+              fillOpacity="0.25"
+              d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+            />
+          </svg>
+
+          {/* Content Layer */}
+          <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+            {/* Badge */}
+            <div className="inline-block bg-pink-600/10 text-pink-300 font-semibold tracking-wide px-5 py-1.5 rounded-full text-sm shadow-md">
+              Certified Expertise
+            </div>
+
+            {/* Title */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+              ISO Certifications
+            </h1>
+
+            {/* Description */}
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Professional ISO certification services for quality, environment,
+              and safety management systems — empowering your organization with
+              globally recognized standards.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+              <button
+                onClick={handleContactClick}
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
+              >
+                Get Certified Now
+              </button>
+
+              <button
+                onClick={() => navigate('/services')}
+                className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all"
+              >
+                View Other Services
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -64,13 +134,13 @@ export function IsoCertificationsPage() {
               >
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-white rounded-lg group-hover:bg-teal-light/10 transition-all duration-300">
+                    <div className="p-3 bg-white rounded-lg group-hover:bg-soft-lavender-grey/10 transition-all duration-300">
                       {/* Render icon as component */}
-                      <service.icon className="h-8 w-8 text-orange" />
+                      <service.icon className="h-8 w-8 text-warm-amber" />
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <CardTitle className="text-teal-dark group-hover:text-teal-light transition-colors">
+                    <CardTitle className="text-crimson-pink group-hover:text-vivid-red transition-colors">
                       {service.title}
                     </CardTitle>
                     <Badge
@@ -87,12 +157,12 @@ export function IsoCertificationsPage() {
                   </CardDescription>
                   <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
                     <p className="text-sm text-gray-600 mb-1">Starting from:</p>
-                    <p className="font-semibold text-teal-dark">
+                    <p className="font-semibold text-crimson-pink">
                       {service.price}
                     </p>
                   </div>
                   <Button
-                    className="w-full bg-teal-dark hover:bg-teal-dark/90 text-white transition-all-smooth"
+                    className="w-full bg-crimson-pink hover:bg-vivid-red text-white transition-all-smooth"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleServiceClick(service.id);
@@ -140,10 +210,15 @@ export function IsoCertificationsPage() {
       </section>
 
       {/* BS OHSAS 18001 Certification Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
+          {/* Header */}
+          <div
+            className="text-center mb-16 animate-fade-up"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h2 className="text-4xl font-extrabold text-navy-blue mb-4">
               Certification to BS OHSAS 18001
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -151,22 +226,36 @@ export function IsoCertificationsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div className="space-y-4">
-              <p className="text-gray-700 leading-relaxed">
+          {/* Description & Benefits */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            {/* Left Text Block */}
+            <div
+              className="space-y-6 text-gray-700 leading-relaxed animate-fade-right"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
+              <p>
                 Raise standards for your staff and customers with a certificate
                 in health and safety best practice. BS OHSAS 18001 is the best
-                benchmark for occupational health and safety management. Achieve
-                certification and you can prioritize staff welfare, improve
-                customer satisfaction, and give your company preferred supplier
-                status.
+                benchmark for occupational health and safety management.
+              </p>
+              <p>
+                Achieve certification and you can prioritize staff welfare,
+                improve customer satisfaction, and give your company preferred
+                supplier status.
               </p>
             </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-navy-blue mb-4">
+
+            {/* Right Benefits Card */}
+            <div
+              className="bg-gray-50 p-8 rounded-2xl shadow-md animate-fade-left"
+              data-aos="fade-left"
+              data-aos-delay="200"
+            >
+              <h3 className="text-xl font-semibold text-navy-blue mb-6">
                 Key Benefits
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   'Improve employee welfare',
                   'Boost customer trust',
@@ -183,56 +272,233 @@ export function IsoCertificationsPage() {
             </div>
           </div>
 
-          <div className="bg-gray-50 p-8 rounded-lg mb-12">
-            <h3 className="text-2xl font-bold text-navy-blue mb-6 text-center">
+          {/* Certification Process */}
+          <div
+            className="bg-gray-50 p-10 rounded-2xl shadow-sm"
+            data-aos="fade-up"
+          >
+            <h3 className="text-2xl font-bold text-navy-blue mb-12 text-center">
               Our Certification Process
             </h3>
-            <div className="space-y-6">
-              {certificationProcessSteps.map((item, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="w-8 h-8 bg-teal-dark text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
-                    {index + 1}
+
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-6 top-0 h-full w-0.5 bg-crimson-pink z-0"></div>
+
+              <div className="space-y-10 relative">
+                {certificationProcessSteps.map((step, index) => (
+                  <div key={index} className="flex items-start relative z-10">
+                    {/* Number Badge */}
+                    <div className="flex flex-col items-center mr-6">
+                      <div className="w-12 h-12 bg-crimson-pink text-white rounded-full flex items-center justify-center font-bold shadow">
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    {/* Card */}
+                    <div className="bg-white rounded-xl p-5 shadow hover:shadow-md transition-shadow duration-300 w-full">
+                      <h4 className="font-semibold text-navy-blue mb-1">
+                        {step.step}
+                      </h4>
+                      <p className="text-gray-700 text-sm leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-navy-blue mb-2">
-                      {item.step}
-                    </h4>
-                    <p className="text-gray-700">{item.description}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Joint Systems Section */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex justify-center mb-4">
+              <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg">
+                <Building className="h-8 w-8 text-white" />
+              </div>
+            </div>
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+              Joint OHSAS 18001, ISO 9001 and ISO 14001 Systems
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Integrated management systems for maximum efficiency and cost
+              benefits
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">
+                  Common Elements Integration
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  There are several common elements between these three systems,
+                  such as management review, document control, corrective action
+                  and the requirement for trained personnel. These can be
+                  integrated into a single, joint system.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    'Management Review',
+                    'Document Control',
+                    'Corrective Action',
+                    'Trained Personnel',
+                    'Audit Procedures',
+                    'Policy Framework',
+                  ].map((element, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg"
+                    >
+                      <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm font-medium">
+                        {element}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-2xl border border-green-200">
+                <h4 className="font-semibold text-slate-800 text-lg mb-4">
+                  Integration Benefits
+                </h4>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 text-sm">
+                      Reduced duplication of processes and documentation
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 text-sm">
+                      Centralized document control system
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 text-sm">
+                      Cost benefits for third-party audits
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 text-sm">
+                      Streamlined management processes
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">
+                System Integration Overview
+              </h3>
+
+              {jointSystemBenefits.map((system, index) => (
+                <div
+                  key={index}
+                  className={`bg-gradient-to-r ${system.color} p-6 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold">
+                        {system.system.split(' ')[1]}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold mb-2">
+                        {system.system}
+                      </h4>
+                      <p className="text-white/90 mb-3 font-medium">
+                        {system.focus}
+                      </p>
+                      <div className="bg-white/20 rounded-lg p-3">
+                        <p className="text-sm font-medium">
+                          Integration Points:
+                        </p>
+                        <p className="text-white/90 text-sm">
+                          {system.integration}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
+
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h4 className="font-semibold text-slate-800 text-lg mb-4">
+                  Audit Availability
+                </h4>
+                <p className="text-gray-700 leading-relaxed text-sm mb-4">
+                  Integrated systems not only help an organisation internally,
+                  by reducing duplication and providing a centralised document
+                  control system, but may also offer cost benefits for your
+                  third-party audit.
+                </p>
+                <p className="text-gray-700 leading-relaxed text-sm">
+                  Audit of joint systems is available and may be the best method
+                  for some companies seeking comprehensive management system
+                  certification.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-teal-gradient text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="text-3xl font-bold mb-4">
+      <section
+        className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
+        style={{
+          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
             Ready to Achieve ISO Certification?
           </h2>
-          <p className="text-xl text-gray-100 max-w-2xl mx-auto mb-8">
+
+          <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-10">
             Contact us today for a free consultation and discover how we can
             help you achieve ISO certification.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-orange hover:bg-orange/90 text-white px-8 py-3"
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <button
+              className="bg-gradient-to-r from-warm-amber to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300"
               onClick={handleContactClick}
             >
               Get Free Consultation
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-teal-dark px-8 py-3"
+            </button>
+            <button
+              className="border-2 border-white text-white hover:bg-white hover:text-crimson-pink px-8 py-3 rounded-xl text-lg font-semibold transition-all duration-300"
               onClick={handleContactClick}
             >
               Contact Us Today
-            </Button>
+            </button>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto shadow-md">
+            <p className="text-xl font-semibold mb-2">
+              Your ISO Journey Starts Here
+            </p>
+            <p className="text-gray-100 text-base leading-relaxed">
+              With years of experience and a 100% success rate, we’re here to
+              guide you through every step of the ISO certification process —
+              hassle-free and efficient.
+            </p>
           </div>
         </div>
       </section>

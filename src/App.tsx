@@ -14,7 +14,7 @@ import { HealthSafetyPage } from './pages/services/safety-advisor/HealthSafetyPa
 import { ChasAssistancePage } from './pages/services/safety-advisor/ChasAssistancePage';
 import SiaContractorPage from './pages/services/sia-contractor/SiaContractorPage';
 import { IsoCertificationsPage } from './pages/services/iso-certifications/IsoCertificationsPage';
-import { StaffVettingPage } from './pages/services/StaffVettingPage';
+import StaffVettingPage from './pages/services/StaffVettingPage';
 import PatTestingPage from './pages/services/PatTestingPage';
 import { RiskAssessmentsPage } from './pages/services/RiskAssessmentsPage';
 import BafeCertificationPage from './pages/services/BafeCertificationPage';

@@ -294,17 +294,17 @@ const Navigation: React.FC = () => {
           to={item.path || '#'}
           className={`group flex items-center gap-3 px-4 py-3.5 text-sm transition-all duration-300 cursor-pointer rounded-xl mx-1 text-left relative overflow-hidden ${
             isActiveRoute(item.path || '')
-              ? 'bg-gradient-to-r from-teal-50/80 to-orange-50/80 text-teal-700 shadow-sm'
-              : 'text-slate-700 hover:text-teal-700'
+              ? 'bg-gradient-to-r from-pink-50/80 to-amber-50/80 text-pink-700 shadow-sm'
+              : 'text-slate-700 hover:text-pink-700'
           }`}
           onClick={closeMobileMenu}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-50/60 to-orange-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           {item.icon && (
-            <item.icon className="relative z-10 h-4 w-4 text-teal-600 group-hover:text-orange-500 group-hover:scale-110 transition-all duration-300" />
+            <item.icon className="relative z-10 h-4 w-4 text-pink-600 group-hover:text-amber-500 group-hover:scale-110 transition-all duration-300" />
           )}
           <div className="relative z-10 flex-1">
-            <div className="font-medium text-slate-800 group-hover:text-teal-700 transition-colors duration-300">
+            <div className="font-medium text-slate-800 group-hover:text-pink-700 transition-colors duration-300">
               {item.label}
             </div>
             {item.description && (
@@ -314,7 +314,7 @@ const Navigation: React.FC = () => {
             )}
           </div>
           {item.badge && (
-            <span className="relative z-10 px-2.5 py-1 text-xs bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 rounded-full font-medium shadow-sm border border-orange-200/50">
+            <span className="relative z-10 px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium shadow-sm border border-amber-200/50">
               {item.badge}
             </span>
           )}
@@ -330,16 +330,16 @@ const Navigation: React.FC = () => {
       >
         <Link
           to={item.path || '#'}
-          className="group flex items-center justify-between px-4 py-3.5 text-sm text-slate-700 hover:text-teal-700 transition-all duration-300 cursor-pointer rounded-xl mx-1 relative overflow-hidden"
+          className="group flex items-center justify-between px-4 py-3.5 text-sm text-slate-700 hover:text-pink-700 transition-all duration-300 cursor-pointer rounded-xl mx-1 relative overflow-hidden"
           onClick={closeMobileMenu}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-50/60 to-orange-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           <div className="relative z-10 flex items-center gap-3">
             {item.icon && (
-              <item.icon className="h-4 w-4 text-teal-600 group-hover:text-orange-500 group-hover:scale-110 transition-all duration-300" />
+              <item.icon className="h-4 w-4 text-pink-600 group-hover:text-amber-500 group-hover:scale-110 transition-all duration-300" />
             )}
             <div className="flex-1 text-left">
-              <div className="font-medium text-slate-800 group-hover:text-teal-700 transition-colors duration-300">
+              <div className="font-medium text-slate-800 group-hover:text-pink-700 transition-colors duration-300">
                 {item.label}
               </div>
               {item.description && (
@@ -349,12 +349,12 @@ const Navigation: React.FC = () => {
               )}
             </div>
             {item.badge && (
-              <span className="px-2.5 py-1 text-xs bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 rounded-full font-medium mr-2 shadow-sm border border-orange-200/50">
+              <span className="px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium mr-2 shadow-sm border border-amber-200/50">
                 {item.badge}
               </span>
             )}
           </div>
-          <ChevronRight className="relative z-10 h-4 w-4 text-slate-400 group-hover:text-orange-500 transition-all duration-300 group-hover:translate-x-1" />
+          <ChevronRight className="relative z-10 h-4 w-4 text-slate-400 group-hover:text-amber-500 transition-all duration-300 group-hover:translate-x-1" />
         </Link>
 
         {hoveredSubItem === item.id && (
@@ -387,7 +387,7 @@ const Navigation: React.FC = () => {
     return (
       <div
         key={item.id}
-        className={`${level > 0 ? 'ml-6 border-l border-teal-100 pl-4' : ''}`}
+        className={`${level > 0 ? 'ml-6 border-l border-pink-100 pl-4' : ''}`}
       >
         <div className="flex items-center justify-between">
           {item.path ? (
@@ -395,13 +395,13 @@ const Navigation: React.FC = () => {
               to={item.path}
               className={`flex-1 flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 group text-left relative overflow-hidden ${
                 isActive
-                  ? 'text-orange-600 bg-gradient-to-r from-orange-50/80 to-teal-50/80 font-medium shadow-sm'
-                  : 'text-teal-700 hover:text-orange-500'
+                  ? 'text-red-600 bg-gradient-to-r from-red-50/80 to-pink-50/80 font-medium shadow-sm'
+                  : 'text-pink-700 hover:text-red-500'
               }`}
               onClick={closeMobileMenu}
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-r from-orange-50/60 to-teal-50/60 rounded-xl transition-opacity duration-300 ${
+                className={`absolute inset-0 bg-gradient-to-r from-red-50/60 to-pink-50/60 rounded-xl transition-opacity duration-300 ${
                   isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                 }`}
               ></div>
@@ -417,7 +417,7 @@ const Navigation: React.FC = () => {
                 )}
               </div>
               {item.badge && (
-                <span className="relative z-10 ml-auto px-2.5 py-1 text-xs bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 rounded-full font-medium shadow-sm border border-orange-200/50">
+                <span className="relative z-10 ml-auto px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium shadow-sm border border-amber-200/50">
                   {item.badge}
                 </span>
               )}
@@ -425,9 +425,9 @@ const Navigation: React.FC = () => {
           ) : (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="flex-1 flex items-center gap-3 text-left px-4 py-3.5 text-teal-700 hover:text-orange-500 hover:bg-gradient-to-r hover:from-orange-50/60 hover:to-teal-50/60 rounded-xl transition-all duration-300 group relative overflow-hidden"
+              className="flex-1 flex items-center gap-3 text-left px-4 py-3.5 text-pink-700 hover:text-red-500 hover:bg-gradient-to-r hover:from-red-50/60 hover:to-pink-50/60 rounded-xl transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-50/60 to-teal-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-50/60 to-pink-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               {item.icon && (
                 <item.icon className="relative z-10 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
               )}
@@ -440,7 +440,7 @@ const Navigation: React.FC = () => {
                 )}
               </div>
               {item.badge && (
-                <span className="relative z-10 ml-auto px-2.5 py-1 text-xs bg-gradient-to-r from-orange-100 to-orange-50 text-orange-700 rounded-full font-medium mr-2 shadow-sm border border-orange-200/50">
+                <span className="relative z-10 ml-auto px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium mr-2 shadow-sm border border-amber-200/50">
                   {item.badge}
                 </span>
               )}
@@ -449,7 +449,7 @@ const Navigation: React.FC = () => {
           {hasChildren && (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="p-3 text-teal-700 hover:text-orange-500 hover:bg-gradient-to-r hover:from-orange-50/60 hover:to-teal-50/60 rounded-lg transition-all duration-300"
+              className="p-3 text-pink-700 hover:text-red-500 hover:bg-gradient-to-r hover:from-red-50/60 hover:to-pink-50/60 rounded-lg transition-all duration-300"
             >
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-300 ${
@@ -498,6 +498,16 @@ const Navigation: React.FC = () => {
   return (
     <>
       <style>{`
+        :root {
+          --crimson-pink: #ED2568;
+          --vivid-red: #EE343B;
+          --charcoal-navy: #1C1F2A;
+          --off-white: #F9F9F9;
+          --pure-white: #FFFFFF;
+          --soft-lavender-grey: #E5E6F0;
+          --warm-amber: #FFC857;
+        }
+
         @keyframes slideInRight {
           from {
             opacity: 0;
@@ -536,14 +546,14 @@ const Navigation: React.FC = () => {
         }
         
         .nav-scrollbar::-webkit-scrollbar-track {
-          background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+          background: linear-gradient(to bottom, var(--off-white), var(--soft-lavender-grey));
           border-radius: 10px;
         }
         
         .nav-scrollbar::-webkit-scrollbar-thumb {
           background: linear-gradient(to bottom, #cbd5e1, #94a3b8);
           border-radius: 10px;
-          border: 1px solid #e2e8f0;
+          border: 1px solid var(--soft-lavender-grey);
         }
         
         .nav-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -565,12 +575,12 @@ const Navigation: React.FC = () => {
             : 'bg-white shadow-md shadow-slate-200/30'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className=" mx-auto px-8">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center cursor-pointer">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center mr-3 overflow-hidden">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4 overflow-hidden">
                   <img
                     src="/citrix_logo.png"
                     alt="Citrix Logo"
@@ -578,7 +588,7 @@ const Navigation: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <div className="text-slate-800 font-bold text-lg tracking-tight">
+                  <div className="text-slate-800 font-bold text-xl tracking-tight">
                     Citrix Consulting
                   </div>
                   <div className="text-slate-500 text-sm font-medium">
@@ -589,7 +599,7 @@ const Navigation: React.FC = () => {
             </div>
 
             {/* Desktop Navigation - Right Aligned */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center space-x-2">
               {navigationStructure.map((item) => (
                 <div
                   key={item.id}
@@ -600,20 +610,20 @@ const Navigation: React.FC = () => {
                   {item.children ? (
                     <div>
                       <button
-                        className={`px-4 py-3 rounded-xl transition-all duration-300 flex items-center font-semibold relative overflow-hidden group text-sm ${
+                        className={`px-6 py-4 rounded-xl transition-all duration-300 flex items-center font-semibold relative overflow-hidden group text-sm ${
                           location.pathname.startsWith(`/${item.id}`)
-                            ? 'text-orange-600 bg-gradient-to-r from-orange-50/60 to-teal-50/60 shadow-sm'
-                            : 'text-slate-700 hover:text-teal-700'
+                            ? 'text-red-600 bg-gradient-to-r from-red-50/60 to-pink-50/60 shadow-sm'
+                            : 'text-slate-700 hover:text-pink-700'
                         }`}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-teal-50/60 to-orange-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                         <span className="relative z-10 flex items-center gap-2">
                           {item.icon && (
-                            <item.icon className="h-4 w-4 group-hover:text-orange-500 transition-colors duration-300" />
+                            <item.icon className="h-4 w-4 group-hover:text-amber-500 transition-colors duration-300" />
                           )}
                           {item.label}
                         </span>
-                        <ChevronDown className="relative z-10 ml-2 h-4 w-4 transition-all duration-300 group-hover:rotate-180 group-hover:text-orange-500" />
+                        <ChevronDown className="relative z-10 ml-2 h-4 w-4 transition-all duration-300 group-hover:rotate-180 group-hover:text-amber-500" />
                       </button>
 
                       {hoveredItem === item.id && (
@@ -644,16 +654,16 @@ const Navigation: React.FC = () => {
                   ) : (
                     <Link
                       to={item.path || '/'}
-                      className={`px-4 py-3 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden group flex items-center gap-2 text-sm ${
+                      className={`px-6 py-4 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden group flex items-center gap-2 text-sm ${
                         isActiveRoute(item.path || '')
-                          ? 'text-orange-600 bg-gradient-to-r from-orange-50/60 to-teal-50/60 shadow-sm'
-                          : 'text-slate-700 hover:text-teal-700'
+                          ? 'text-red-600 bg-gradient-to-r from-red-50/60 to-pink-50/60 shadow-sm'
+                          : 'text-slate-700 hover:text-pink-700'
                       }`}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-teal-50/60 to-orange-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                       <span className="relative z-10 flex items-center gap-2">
                         {item.icon && (
-                          <item.icon className="h-4 w-4 group-hover:text-orange-500 transition-colors duration-300" />
+                          <item.icon className="h-4 w-4 group-hover:text-amber-500 transition-colors duration-300" />
                         )}
                         {item.label}
                       </span>
@@ -666,9 +676,29 @@ const Navigation: React.FC = () => {
                 href="https://portal.sisqs.co.uk/admin/users/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-4"
+                className="ml-6"
               >
-                <Button className="bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-700 hover:from-teal-700 hover:to-emerald-700 text-white px-6 py-2.5 font-semibold rounded-xl shadow-lg shadow-teal-200/40 hover:shadow-xl hover:shadow-teal-300/50 transition-all duration-300 transform hover:-translate-y-0.5">
+                <Button
+                  className="px-8 py-3 font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-white"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)',
+                    boxShadow:
+                      '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background =
+                      'linear-gradient(135deg, var(--vivid-red) 0%, var(--crimson-pink) 100%)';
+                    e.currentTarget.style.boxShadow =
+                      '0 20px 40px -10px rgba(237, 37, 104, 0.4), 0 15px 20px -8px rgba(238, 52, 59, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background =
+                      'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)';
+                    e.currentTarget.style.boxShadow =
+                      '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)';
+                  }}
+                >
                   Login
                 </Button>
               </a>
@@ -678,7 +708,7 @@ const Navigation: React.FC = () => {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="text-slate-700 hover:text-teal-700 transition-colors duration-300 p-2 rounded-xl hover:bg-gradient-to-r hover:from-teal-50/60 hover:to-orange-50/60"
+                className="text-slate-700 hover:text-pink-700 transition-colors duration-300 p-2 rounded-xl hover:bg-gradient-to-r hover:from-pink-50/60 hover:to-amber-50/60"
                 aria-label="Toggle mobile menu"
               >
                 {isMobileOpen ? (
@@ -697,7 +727,7 @@ const Navigation: React.FC = () => {
             className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-slate-200/50"
             style={{ animation: 'slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1)' }}
           >
-            <div className="px-4 pt-4 pb-6 space-y-2 max-h-[80vh] overflow-y-auto nav-scrollbar">
+            <div className="px-6 pt-4 pb-6 space-y-2 max-h-[80vh] overflow-y-auto nav-scrollbar">
               {navigationStructure.map((item) => renderMobileItem(item))}
               <div className="pt-6 border-t border-slate-200/50">
                 <a
@@ -706,8 +736,26 @@ const Navigation: React.FC = () => {
                   rel="noopener noreferrer"
                 >
                   <button
-                    className="w-full bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-700 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold shadow-lg shadow-teal-200/40 hover:shadow-xl hover:shadow-teal-300/50 transition-all duration-300 py-3.5 rounded-xl"
+                    className="w-full font-semibold shadow-lg transition-all duration-300 py-4 rounded-xl text-white"
+                    style={{
+                      background:
+                        'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)',
+                      boxShadow:
+                        '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)',
+                    }}
                     onClick={closeMobileMenu}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background =
+                        'linear-gradient(135deg, var(--vivid-red) 0%, var(--crimson-pink) 100%)';
+                      e.currentTarget.style.boxShadow =
+                        '0 20px 40px -10px rgba(237, 37, 104, 0.4), 0 15px 20px -8px rgba(238, 52, 59, 0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background =
+                        'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)';
+                      e.currentTarget.style.boxShadow =
+                        '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)';
+                    }}
                   >
                     Login
                   </button>

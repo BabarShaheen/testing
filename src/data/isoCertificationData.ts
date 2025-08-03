@@ -107,17 +107,17 @@ export const isoCertificationBenefits: BenefitItem[] = [
 
 export const certificationProcessSteps = [
   {
-    step: 'Step 1 – Gap Analysis (Optional)',
+    step: 'Gap Analysis (Optional)',
     description:
       'We review your current occupational health and safety system and highlight areas needing improvement.',
   },
   {
-    step: 'Step 2 – Formal Assessment',
+    step: 'Formal Assessment',
     description:
       'Stage 1: Review documentation & preparedness. Stage 2: Assess the implementation of procedures.',
   },
   {
-    step: 'Step 3 – Certification & Beyond',
+    step: 'Certification & Beyond',
     description:
       'Receive your 3-year BS OHSAS 18001 certificate and ongoing improvement support from our client manager.',
   },

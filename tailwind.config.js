@@ -23,25 +23,26 @@ export default {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: 'hsl(var(--primary))', // Crimson Pink
           foreground: 'hsl(var(--primary-foreground))',
         },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))', // Soft Lavender Grey
+          foreground: 'hsl(var(--accent-foreground))',
+        },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
+          DEFAULT: 'hsl(var(--secondary))', // Also Soft Lavender Grey
           foreground: 'hsl(var(--secondary-foreground))',
         },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
+          DEFAULT: 'hsl(var(--muted))', // Off White
           foreground: 'hsl(var(--muted-foreground))',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))', // Vivid Red
+          foreground: 'hsl(var(--destructive-foreground))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
@@ -51,19 +52,23 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // Custom brand colors
-        'teal-dark': '#007E7A',
-        'teal-light': '#00C4B3',
-        orange: '#F7941E',
-        'navy-blue': '#1E2A3A',
-        'leaf-green': '#1BB66E',
-        'brand-white': '#FFFFFF',
+
+        // ✅ Brand-specific tokens (raw hex if needed independently)
+        'crimson-pink': '#ED2568',
+        'vivid-red': '#EE343B',
+        'charcoal-navy': '#1C1F2A',
+        'off-white': '#F9F9F9',
+        'pure-white': '#FFFFFF',
+        'soft-lavender-grey': '#E5E6F0',
+        'warm-amber': '#FFC857',
       },
+
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+
       keyframes: {
         'accordion-down': {
           from: { height: '0' },

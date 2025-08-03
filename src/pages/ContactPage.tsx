@@ -6,6 +6,10 @@ import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
 import { Checkbox } from '../components/ui/checkbox';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import {
+  HeroSection,
+  SectionHeader,
+} from '../components/common';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -41,18 +45,10 @@ export function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-teal-gradient text-white py-12 sm:py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy-blue/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-            Contact Us
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mx-auto">
-            Get in touch with our expert team for a free consultation
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Contact Us"
+        description="Get in touch with our expert team for a free consultation"
+      />
 
       {/* Contact Form and Info */}
       <section className="py-12 sm:py-16 bg-white">
@@ -180,7 +176,7 @@ export function ContactPage() {
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-orange hover:bg-orange/90 text-white min-h-[44px] text-sm sm:text-base"
+                      className="w-full bg-warm-amber hover:bg-warm-amber/90 text-white min-h-[44px] text-sm sm:text-base"
                     >
                       Send Message
                     </Button>
@@ -203,7 +199,7 @@ export function ContactPage() {
                   <CardContent className="p-4 sm:p-6">
                     <div className="space-y-4">
                       <div className="flex items-start gap-3">
-                        <Mail className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <Mail className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
                             Email
@@ -214,7 +210,7 @@ export function ContactPage() {
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <Phone className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <Phone className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
                             Phone
@@ -225,7 +221,7 @@ export function ContactPage() {
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <MapPin className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
                             Address
@@ -236,7 +232,7 @@ export function ContactPage() {
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <Clock className="h-5 w-5 text-orange mt-1 flex-shrink-0" />
+                        <Clock className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
                             Business Hours
@@ -250,26 +246,26 @@ export function ContactPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-none shadow-lg bg-teal-light/5">
+                <Card className="border-none shadow-lg bg-soft-lavender-grey/5">
                   <CardContent className="p-4 sm:p-6">
                     <h3 className="font-semibold text-navy-blue mb-3 text-sm sm:text-base">
                       Why Choose Us?
                     </h3>
                     <ul className="space-y-2 text-sm sm:text-base text-gray-600">
                       <li className="flex items-start gap-2">
-                        <span className="text-orange">•</span>
+                        <span className="text-warm-amber">•</span>
                         <span>Expert compliance consultants</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-orange">•</span>
+                        <span className="text-warm-amber">•</span>
                         <span>Fast response times</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-orange">•</span>
+                        <span className="text-warm-amber">•</span>
                         <span>Proven track record</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-orange">•</span>
+                        <span className="text-warm-amber">•</span>
                         <span>Competitive pricing</span>
                       </li>
                     </ul>

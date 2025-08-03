@@ -226,7 +226,7 @@ export const advantages: Advantage[] = [
     icon: Shield,
     title: 'Enhanced Security',
     desc: 'Significantly reduce operational risks while strengthening stakeholder trust through verified personnel.',
-    color: 'from-orange to-orange/90',
+    color: 'bg-gradient-to-br from-pink-500 to-red-500',
   },
   {
     icon: FileText,
