@@ -6,10 +6,7 @@ import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
 import { Checkbox } from '../components/ui/checkbox';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
-import {
-  HeroSection,
-  SectionHeader,
-} from '../components/common';
+import { HeroSection } from '../components/common';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({

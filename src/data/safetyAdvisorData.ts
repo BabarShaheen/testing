@@ -1,6 +1,7 @@
 import {
   LucideIcon,
   Shield,
+  ShieldCheck,
   CheckCircle,
   Users,
   FileText,
@@ -79,20 +80,21 @@ export const services: Service[] = [
     badge: 'Core Service',
   },
   {
-    id: 'chas-assistance',
+    id: 'safety-advisor/health-safety',
+    icon: ShieldCheck, // Heroicons or Lucide's safety/security icon
+    title: 'Health and Safety',
+    description:
+      'Comprehensive workplace safety assessments, risk management, and compliance solutions.',
+    price: 'From £2,200',
+    badge: 'Professional',
+  },
+
+  {
+    id: 'safety-advisor/chas-assistance',
     icon: Award,
     title: 'CHAS Assistance',
     description: 'Professional assistance to obtain CHAS accreditation.',
     price: 'From £1,800',
     badge: 'Essential',
-  },
-  {
-    id: 'accreditation-support',
-    icon: CheckCircle,
-    title: 'Accreditation Support',
-    description:
-      'Support for various industry accreditations and certifications.',
-    price: 'From £2,200',
-    badge: 'Professional',
   },
 ];

@@ -21,7 +21,7 @@ export function ServiceCard({
   title,
   badge,
   color,
-  iconName,
+
   description,
   features,
   pricing,

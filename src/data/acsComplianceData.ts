@@ -6,7 +6,9 @@ import {
   Settings,
   Zap,
   Bell,
-  Headphones,
+  RefreshCw,
+  CheckCircle,
+  TrendingUp,
 } from 'lucide-react';
 
 export type ServiceItem = {
@@ -56,9 +58,23 @@ export const complianceServices: ServiceItem[] = [
     title: 'Staff Survey Support',
     description: 'Quarterly staff survey and appraisal reporting support',
   },
+];
+
+export const complianceBenefits = [
   {
-    icon: Headphones,
-    title: 'Ongoing Support',
-    description: 'Ongoing telephone and email support for compliance queries',
+    title: 'Build customer confidence',
+    icon: TrendingUp,
+    bgColor: 'bg-orange-500',
   },
+  {
+    title: 'Smoother annual assessments',
+    icon: CheckCircle,
+    bgColor: 'bg-teal-500',
+  },
+  {
+    title: 'Up-to-date compliance systems',
+    icon: RefreshCw,
+    bgColor: 'bg-crimson-pink',
+  },
+  { title: 'Ongoing expert support', icon: Users, bgColor: 'bg-orange-500' },
 ];

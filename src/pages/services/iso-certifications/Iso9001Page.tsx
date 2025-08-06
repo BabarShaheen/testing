@@ -1,152 +1,20 @@
-import React from 'react';
 import {
   Award,
   CheckCircle,
   Users,
   ArrowRight,
   Briefcase,
-  Settings,
-  Phone,
   BadgeCheck,
-  Mail,
-  Target,
   Star,
   Building,
-  Clock,
-  FileText,
   TrendingUp,
-  Globe,
-  Zap,
-  Shield,
 } from 'lucide-react';
 
-// Mock data - replace with your actual data imports
-const whyChooseReasons = [
-  {
-    title: 'Enhanced Credibility',
-    description:
-      'Build trust with customers through internationally recognized quality standards',
-    icon: Globe,
-  },
-  {
-    title: 'Market Access',
-    description:
-      'Unlock opportunities with government and corporate clients requiring certification',
-    icon: Globe,
-  },
-  {
-    title: 'Operational Excellence',
-    description:
-      'Improve efficiency and reduce waste through structured quality management',
-    icon: Settings,
-  },
-  {
-    title: 'Competitive Advantage',
-    description: 'Stand out from competitors and win more contracts',
-    icon: TrendingUp,
-  },
-];
-
-const services = [
-  {
-    title: 'Gap Analysis & Assessment',
-    description:
-      'Comprehensive evaluation of your current quality management systems',
-    icon: Target,
-    highlights: [
-      'Current system review',
-      'Gap identification',
-      'Improvement roadmap',
-      'Compliance assessment',
-    ],
-  },
-  {
-    title: 'Documentation Development',
-    description:
-      'Creation of all required policies, procedures, and management systems',
-    icon: FileText,
-    highlights: [
-      'Policy creation',
-      'Procedure documentation',
-      'Work instructions',
-      'Quality manual',
-    ],
-  },
-  {
-    title: 'Training & Implementation',
-    description:
-      'Comprehensive staff training and system implementation support',
-    icon: Users,
-    highlights: [
-      'Staff training programs',
-      'System implementation',
-      'Change management',
-      'Best practice guidance',
-    ],
-  },
-  {
-    title: 'Certification Support',
-    description: 'Full support through the certification process and beyond',
-    icon: Award,
-    highlights: [
-      'Audit preparation',
-      'Certification guidance',
-      '12 months support',
-      'Continuous improvement',
-    ],
-  },
-];
-
-const benefits = [
-  {
-    title: 'Access to Premium Contracts',
-    desc: 'Qualify for government and corporate contracts requiring ISO 9001 certification',
-    icon: Building,
-    color: 'from-pink-500 to-red-500',
-  },
-  {
-    title: 'Enhanced Customer Trust',
-    desc: 'Build confidence with clients through recognized quality standards',
-    icon: Users,
-    color: 'from-orange-500 to-yellow-500',
-  },
-  {
-    title: 'Operational Efficiency',
-    desc: 'Streamline processes and reduce waste through systematic quality management',
-    icon: Settings,
-    color: 'from-teal-500 to-blue-500',
-  },
-  {
-    title: 'Competitive Advantage',
-    desc: 'Stand out in the marketplace with internationally recognized certification',
-    icon: TrendingUp,
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
-    title: 'Risk Management',
-    desc: 'Identify and mitigate risks through structured quality processes',
-    icon: Shield,
-    color: 'from-green-500 to-teal-500',
-  },
-  {
-    title: 'Continuous Improvement',
-    desc: 'Foster a culture of ongoing improvement and innovation',
-    icon: Zap,
-    color: 'from-blue-500 to-purple-500',
-  },
-  {
-    title: 'Employee Engagement',
-    desc: 'Improve staff satisfaction through clear processes and responsibilities',
-    icon: Star,
-    color: 'from-yellow-500 to-orange-500',
-  },
-  {
-    title: 'Long-term Growth',
-    desc: 'Build a foundation for sustainable business growth and success',
-    icon: Target,
-    color: 'from-teal-500 to-green-500',
-  },
-];
+import {
+  whyChooseReasons,
+  services,
+  benefits,
+} from '../../../data/iso9001Data';
 
 const Iso9001Page = () => {
   const handleContactClick = () => {
@@ -177,28 +45,8 @@ const Iso9001Page = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ED2568"
-            fillOpacity="0.2"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
-
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
-          {/* Icon Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-              <Award className="h-20 w-20 text-white" />
-            </div>
-          </div>
-
           {/* Title */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
             <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">

@@ -1,11 +1,11 @@
-import { Shield, CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import {
   whyChooseUs,
   processSteps,
   services,
   benefits,
 } from '../../../data/siaContractorData';
-
+import { motion } from 'framer-motion';
 export default function SiaContractorPage() {
   const handleServiceClick = (serviceId: any) => {
     console.log('Navigate to service:', serviceId);
@@ -18,69 +18,142 @@ export default function SiaContractorPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
-        {/* Background Image */}
+      <section className="min-h-screen relative flex items-center bg-charcoal-navy text-pure-white overflow-hidden">
+        {/* Background Image with Enhanced Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/siaapproved.jpg')", // update the path accordingly
-            filter: 'brightness(0.6)',
+            backgroundImage: "url('/Images/services/Cover1.jpg')",
           }}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal-navy/90 via-charcoal-navy/85 to-charcoal-navy/95 z-10"></div>
 
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ED2568"
-            fillOpacity="0.2"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
+        {/* Main Content Container */}
+        <div className="relative z-30 w-full px-6 sm:px-12 lg:px-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Left Content - Text */}
+              <div className="space-y-8 animate-fade-in-left">
+                {/* Main Heading - Left Aligned */}
+                <div className="space-y-4">
+                  <h1 className="text-5xl md:text-7xl font-bold leading-tight text-left">
+                    <span className="text-pure-white block">SIA Approved</span>
+                    <span className="text-gradient-crimson block">
+                      Contractor
+                    </span>
+                    <span className="text-pure-white block">Scheme</span>
+                  </h1>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-          {/* Icon Badge */}
-          <div className="flex justify-center mb-4">
-            <div className="p-4 bg-white/10 rounded-full shadow-lg backdrop-blur-sm">
-              <Shield className="h-16 w-16 text-white" />
+                  {/* Animated underline */}
+                  <div className="w-24 h-1 bg-crimson-gradient rounded-full animate-pulse"></div>
+                </div>
+
+                {/* Description - Left Aligned */}
+                <p className="text-xl md:text-2xl text-soft-lavender-grey/80 leading-relaxed max-w-3xl text-left">
+                  CiTRiX provides a simple and affordable route to{' '}
+                  <span className="text-crimson-pink font-semibold">
+                    SIA ACS certification
+                  </span>
+                  . We are experts in the delivery of QHSE management systems
+                  tailored to your business.
+                </p>
+
+                {/* Highlight Box - Left Aligned */}
+                <div className="bg-pure-white/10 backdrop-blur-lg border border-soft-lavender-grey/20 rounded-2xl p-6 max-w-4xl shadow-xl">
+                  <div className="flex items-start gap-4">
+                    <div className="w-3 h-3 bg-warm-amber rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-lg font-semibold text-pure-white leading-relaxed">
+                      The only recognised scheme to standardise organisations
+                      operating within the private security sector
+                    </p>
+                  </div>
+                </div>
+
+                {/* CTA Buttons - Left Aligned */}
+                <div className="flex flex-col sm:flex-row gap-6 pt-4">
+                  <button className="bg-crimson-gradient hover:bg-vivid-red text-pure-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl btn-premium group relative overflow-hidden">
+                    <span className="relative z-10 flex items-center gap-3">
+                      Get SIA Certified
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </button>
+
+                  <button className="border-2 border-pure-white/80 text-pure-white hover:bg-pure-white hover:text-charcoal-navy px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:backdrop-blur-none group">
+                    <span className="flex items-center gap-3">
+                      Learn More
+                      <ExternalLink className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+      {/* About SIA ACS */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold tracking-tight mb-6 text-primary">
+                About The <span className="text-gradient-crimson">SIA ACS</span>
+              </h2>
 
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-            SIA Approved Contractor Scheme
-          </h1>
-
-          {/* Description */}
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            CiTRiX provides a simple and affordable route to SIA ACS
-            certification. We are experts in the delivery of QHSE management
-            systems tailored to your business.
-          </p>
-
-          {/* Highlight Box */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 max-w-3xl mx-auto border border-white/10">
-            <p className="text-lg font-medium text-white">
-              The only recognised scheme to standardise organisations operating
-              within the private security sector
-            </p>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-4">
+                The{' '}
+                <span className="text-gradient-crimson">
+                  SIA ACS (Approved Contractor Scheme)
+                </span>{' '}
+                is the UK’s recognised standard for quality and compliance in
+                the private security sector.
+              </p>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-4">
+                Developed in line with the Private Security Industry Act 2001,
+                it incorporates best practices from ISO 9001 and other business
+                improvement models.
+              </p>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-4">
+                ACS accreditation shows your commitment to high standards,
+                continuous improvement, and operational excellence.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-teal-50 to-blue-50 p-8 rounded-lg border border-teal-100">
+              <h3 className="text-2xl font-bold text-crimson-pink mb-4">
+                Key Facts
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                  <span className="text-gray-700">
+                    Only recognised standardisation scheme
+                  </span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                  <span className="text-gray-700">
+                    Based on ISO 9001 standards
+                  </span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                  <span className="text-gray-700">
+                    Industry-designed requirements
+                  </span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                  <span className="text-gray-700">
+                    Voluntary but increasingly mandatory
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
-
-          {/* Buttons (optional, remove if not needed) */}
-          {/* <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
-          <button className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all">
-            Start Your Journey
-          </button>
-        </div> */}
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-12 bg-white">
+      <section className="mb-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyChooseUs.map((item, index) => {
@@ -106,138 +179,170 @@ export default function SiaContractorPage() {
         </div>
       </section>
 
-      {/* QMS Process */}
+      {/* SIA ACS Services Section - Redesigned */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Section - Original Styling */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">
-              Our QMS Process
+            <h2 className="text-4xl font-bold tracking-tight mb-2 text-primary">
+              Our SIA ACS{' '}
+              <span className="text-gradient-crimson">Services</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Simple three-step process to achieve your SIA ACS certification
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {processSteps.map((step) => {
-              const IconComponent = step.icon;
-              return (
-                <div
-                  key={step.id}
-                  className={`${step.color} p-6 rounded-lg border border-gray-200 relative`}
-                >
-                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-crimson-pink text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {step.step}
-                  </div>
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-white/80 rounded-lg">
-                      <IconComponent className="h-10 w-10 text-crimson-pink" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-crimson-pink mb-3 text-center">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 text-center">
-                    {step.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">
-              Our SIA ACS Services
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Comprehensive services to help you achieve and maintain SIA ACS
               certification
             </p>
           </div>
 
+          {/* Services Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <div
+                <motion.div
                   key={service.id}
-                  className="bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer p-6"
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: index * 0.15,
+                    type: 'spring',
+                    stiffness: 100,
+                  }}
+                  viewport={{ once: true }}
+                  className="group cursor-pointer"
                   onClick={() => handleServiceClick(service.id)}
                 >
-                  <div className="text-center mb-6">
-                    <div className="flex justify-center mb-4">
-                      <div className="p-3 bg-crimson-pink rounded-lg group-hover:bg-vivid-red transition-colors">
-                        <IconComponent className="h-10 w-10 text-white" />
-                      </div>
+                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 card-premium relative overflow-hidden p-6 h-full">
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-crimson-pink/5 via-transparent to-warm-amber/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+
+                    {/* Top accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-crimson-gradient transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-lg"></div>
+
+                    <div className="relative z-10">
+                      {/* Icon and Title Section */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-6"
+                      >
+                        <div className="flex justify-center mb-4">
+                          <div className="p-3 bg-crimson-pink rounded-lg group-hover:bg-vivid-red group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                            <IconComponent className="h-10 w-10 text-white" />
+                          </div>
+                        </div>
+
+                        <div className="flex items-center justify-center gap-2 mb-2">
+                          <h3 className="text-xl font-bold text-slate-800 group-hover:text-crimson-pink transition-colors duration-300">
+                            {service.title}
+                          </h3>
+                          <span className="px-2 py-1 bg-green-600 text-white text-xs rounded-full">
+                            {service.badge}
+                          </span>
+                        </div>
+                      </motion.div>
+
+                      {/* Description */}
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
+                        viewport={{ once: true }}
+                        className="text-gray-600 mb-4 text-center"
+                      >
+                        {service.description}
+                      </motion.p>
+
+                      {/* Features List */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
+                        viewport={{ once: true }}
+                        className="mb-4"
+                      >
+                        <h4 className="font-semibold text-slate-700 mb-2">
+                          Includes:
+                        </h4>
+                        <ul className="space-y-1">
+                          {service.features.map((feature, featureIndex) => (
+                            <motion.li
+                              key={featureIndex}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{
+                                duration: 0.4,
+                                delay: index * 0.1 + 0.6 + featureIndex * 0.1,
+                              }}
+                              viewport={{ once: true }}
+                              className="flex items-center text-sm text-gray-600"
+                            >
+                              <CheckCircle className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
+                              {feature}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </motion.div>
+
+                      {/* Pricing Section */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 + 0.7 }}
+                        viewport={{ once: true }}
+                        className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-100 relative overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-crimson-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="relative z-10">
+                          <p className="text-sm text-blue-800 mb-1">
+                            Investment:
+                          </p>
+                          <p className="font-bold text-xl text-crimson-pink group-hover:scale-105 transition-transform duration-300">
+                            {service.price}
+                          </p>
+                        </div>
+                      </motion.div>
+
+                      {/* CTA Button */}
+                      <motion.button
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 + 0.8 }}
+                        viewport={{ once: true }}
+                        className="w-full bg-crimson-pink hover:bg-vivid-red text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 transform group-hover:scale-105 btn-premium flex items-center justify-center gap-2 relative overflow-hidden"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleServiceClick(service.id);
+                        }}
+                      >
+                        <span className="relative z-10">Learn More</span>
+                        <ArrowRight className="h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+                      </motion.button>
                     </div>
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <h3 className="text-xl font-bold text-slate-800 group-hover:text-crimson-pink transition-colors">
-                        {service.title}
-                      </h3>
-                      <span className="px-2 py-1 bg-green-600 text-white text-xs rounded-full">
-                        {service.badge}
-                      </span>
-                    </div>
+
+                    {/* Corner decoration */}
+                    <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-crimson-pink/10 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-
-                  <p className="text-gray-600 mb-4 text-center">
-                    {service.description}
-                  </p>
-
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-slate-700 mb-2">
-                      Includes:
-                    </h4>
-                    <ul className="space-y-1">
-                      {service.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-center text-sm text-gray-600"
-                        >
-                          <CheckCircle className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                    <p className="text-sm text-blue-800 mb-1">Investment:</p>
-                    <p className="font-bold text-xl text-crimson-pink">
-                      {service.price}
-                    </p>
-                  </div>
-
-                  <button
-                    className="w-full bg-crimson-pink hover:bg-vivid-red text-white px-4 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleServiceClick(service.id);
-                    }}
-                  >
-                    Learn More
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
       </section>
-
       {/* Benefits Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">
-              Advantages of Becoming an SIA Approved Contractor
+            <h2 className="text-4xl font-bold tracking-tight mb-4 text-primary">
+              Advantages of Becoming an{' '}
+              <span className="text-gradient-crimson">
+                SIA Approved Contractor
+              </span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Your potential clients are increasingly making SIA ACS approval
               mandatory for their security service providers
             </p>
@@ -273,65 +378,43 @@ export default function SiaContractorPage() {
         </div>
       </section>
 
-      {/* About SIA ACS */}
-      <section className="py-16 bg-white">
+      {/* QMS Process */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-6">
-                About the SIA ACS
-              </h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  The SIA ACS (Security Industry Authority Approved Contractor
-                  Scheme) is the only recognised scheme to standardise
-                  organisations operating within the private security sector.
-                </p>
-                <p>
-                  The standard was designed by members of the security industry
-                  in consultation with the Private Security Industry Act 2001.
-                  The SIA ACS includes elements of widely recognised business
-                  improvement models including ISO 9001 and the European
-                  Foundation for Quality Management Excellence Model.
-                </p>
-                <p>
-                  The scheme proves not only your competency in security
-                  practices but also demonstrates your continuing investment in
-                  improving your operational efficiency.
-                </p>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-teal-50 to-blue-50 p-8 rounded-lg border border-teal-100">
-              <h3 className="text-2xl font-bold text-crimson-pink mb-4">
-                Key Facts
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Only recognised standardisation scheme
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Based on ISO 9001 standards
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Industry-designed requirements
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Voluntary but increasingly mandatory
-                  </span>
-                </li>
-              </ul>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold tracking-tight mb-2 text-primary">
+              Our <span className="text-gradient-crimson">QMS Process</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+              Simple three-step process to achieve your SIA ACS certification
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {processSteps.map((step) => {
+              const IconComponent = step.icon;
+              return (
+                <div
+                  key={step.id}
+                  className={`${step.color} p-6 rounded-lg border border-gray-200 relative`}
+                >
+                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-crimson-pink text-white rounded-full flex items-center justify-center font-bold text-sm">
+                    {step.step}
+                  </div>
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-white/80 rounded-lg">
+                      <IconComponent className="h-10 w-10 text-crimson-pink" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-crimson-pink mb-3 text-center">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 text-center">
+                    {step.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,12 +1,6 @@
 import { Card, CardContent } from '../components/ui/card';
-import { Button } from '../components/ui/button';
 import { CheckCircle, Users, Award, Target, Shield } from 'lucide-react';
-import {
-  HeroSection,
-  SectionHeader,
-  BenefitCard,
-  ContactCTA,
-} from '../components/common';
+import { HeroSection, SectionHeader, ContactCTA } from '../components/common';
 
 export function AboutPage() {
   return (

@@ -11,9 +11,13 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={`text-center mb-12 ${className}`}>
-      <h2 className="text-3xl font-bold text-slate-800 mb-4">{title}</h2>
+      <h2 className="text-4xl font-bold tracking-tight mb-6 text-primary">
+        {title}
+      </h2>
       {description && (
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">{description}</p>
+        <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-6">
+          {description}
+        </p>
       )}
     </div>
   );

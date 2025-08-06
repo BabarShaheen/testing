@@ -1,24 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   CheckCircle,
   ArrowRight,
   Shield,
   Award,
-  Users,
-  Search,
-  AlertTriangle,
-  Building,
-  Eye,
   FlameKindling,
   Target,
   Star,
-  TrendingUp,
   Phone,
-  Mail,
-  Zap,
   Clock,
-  Globe,
-  Lock,
   BadgeCheck,
   BookOpen,
   ScrollText,
@@ -29,7 +19,6 @@ import {
   GraduationCap,
   FileText,
   Play,
-  Calendar,
   DollarSign,
 } from 'lucide-react';
 

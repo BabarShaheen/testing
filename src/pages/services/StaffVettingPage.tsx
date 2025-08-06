@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Users,
   CheckCircle,
@@ -14,13 +13,8 @@ import {
   Search,
   Lock,
   Clock,
-  Building,
   Award,
-  TrendingUp,
   Star,
-  Zap,
-  Phone,
-  Mail,
 } from 'lucide-react';
 
 // Mock data - replace with your actual data imports
@@ -747,48 +741,6 @@ const StaffVettingPage = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              {/* Get Started Card */}
-              <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-teal-100 p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Zap className="w-6 h-6 text-teal-500" />
-                  <h3 className="text-xl font-semibold text-slate-800">
-                    Start Vetting Today
-                  </h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Begin the BS7858 vetting process for your security personnel.
-                  Get expert guidance and comprehensive screening services.
-                </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-teal-100">
-                    <Phone className="w-5 h-5 text-teal-500" />
-                    <div>
-                      <p className="text-sm text-gray-600">Call us at</p>
-                      <p className="font-semibold text-slate-800">
-                        0447446131794
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-teal-100">
-                    <Mail className="w-5 h-5 text-teal-500" />
-                    <div>
-                      <p className="text-sm text-gray-600">Email us at</p>
-                      <p className="font-semibold text-slate-800 text-sm">
-                        admin@citrix-consulting-limited.co.uk
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    className="w-full bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2"
-                    onClick={handleConsultationClick}
-                  >
-                    Request Vetting Quote
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-
               {/* Processing Times Card */}
               <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-100 shadow-lg">
                 <div className="flex items-center gap-3 mb-4">

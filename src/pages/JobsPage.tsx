@@ -2,12 +2,7 @@ import { Card, CardContent, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { MapPin, Clock, Briefcase, Users } from 'lucide-react';
-import {
-  HeroSection,
-  SectionHeader,
-  JobCard,
-  ContactCTA,
-} from '../components/common';
+import { HeroSection, SectionHeader, ContactCTA } from '../components/common';
 
 export function JobsPage() {
   const jobs = [

@@ -27,7 +27,7 @@ export function SafetyAdviserPage() {
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
+      <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
         {/* Background Image Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -38,41 +38,25 @@ export function SafetyAdviserPage() {
           }}
         />
 
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ED2568"
-            fillOpacity="0.25"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
-
-        {/* Content Layer */}
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-block bg-pink-600/10 text-pink-300 font-semibold tracking-wide px-5 py-1.5 rounded-full text-sm shadow-md">
-            Safety Adviser Services
-          </div>
-
+        {/* Content Layer - aligned to left edge */}
+        <div className="relative z-10 w-full max-w-2xl text-left space-y-8">
           {/* Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
-            Expert Safety Advisory Solutions
+            Expert{' '}
+            <span className="text-gradient-crimson">Safety Advisory </span>
+            Solutions
           </h1>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
             Ensure your business stays compliant and secure with our
             professional health and safety advisory services. We help you
             maintain the highest industry standards through expert guidance and
             strategic planning.
           </p>
 
-          {/* Optional CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
             <button
               onClick={handleContactClick}
               className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
@@ -89,64 +73,116 @@ export function SafetyAdviserPage() {
           </div>
         </div>
       </section>
-      {/* Services Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1E2A3A] mb-2">
-              Our Health & Safety Services
+
+      {/* Services Grid  */}
+      <section className="py-24 bg-gradient-to-br from-off-white via-pure-white to-soft-lavender-grey relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-30">
+          <div
+            className="absolute inset-0 bg-soft-lavender-grey/20"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, var(--crimson-pink) 1px, transparent 0)`,
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold tracking-tight mb-6 text-primary">
+              Our Health & Safety
+              <span className="text-gradient-crimson"> Services</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-6">
               Explore our range of trusted, compliant, and affordable health &
-              safety services designed for your needs.
+              safety services designed to protect your business and ensure
+              regulatory compliance.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Services Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 3).map((service) => (
               <Card
                 key={service.id}
-                className="bg-white border border-gray-200 shadow-sm hover:shadow-md rounded-xl transition-all duration-300 group"
+                className="bg-pure-white/90 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl rounded-2xl transition-all duration-500 group cursor-pointer relative overflow-hidden card-premium"
                 onClick={() => handleServiceClick(service.id)}
               >
-                <CardHeader className="flex items-center gap-4 px-5 pt-5">
-                  <div className="p-3 bg-[#ED2568]/10 rounded-full group-hover:bg-[#ED2568]/20 transition">
-                    <service.icon className="h-6 w-6 text-[#ED2568]" />
-                  </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-base font-semibold text-[#1E2A3A] group-hover:text-[#007E7A] transition">
-                      {service.title}
-                    </CardTitle>
-                    <Badge className="bg-[#F7941E]/10 text-[#F7941E] text-xs px-2 py-0.5 rounded-md">
-                      {service.badge}
-                    </Badge>
+                {/* Card gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-pure-white via-pure-white to-off-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Floating accent */}
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-crimson-gradient opacity-20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+
+                <CardHeader className="relative z-10 p-6 pb-4">
+                  {/* Icon container with enhanced styling */}
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="relative">
+                      <div className="p-4 bg-crimson-pink/10 rounded-2xl group-hover:bg-crimson-pink/20 transition-all duration-500 group-hover:scale-110">
+                        <service.icon className="h-7 w-7 text-crimson-pink group-hover:text-vivid-red transition-colors duration-300" />
+                      </div>
+                      {/* Floating dot indicator */}
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-warm-amber rounded-full animate-pulse"></div>
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <CardTitle className="text-lg font-bold text-charcoal-navy group-hover:text-crimson-pink transition-colors duration-300 mb-2 leading-tight">
+                        {service.title}
+                      </CardTitle>
+                      <Badge className="bg-warm-amber/10 text-warm-amber text-xs px-3 py-1 rounded-full font-medium border border-warm-amber/20">
+                        {service.badge}
+                      </Badge>
+                    </div>
                   </div>
                 </CardHeader>
 
-                <CardContent className="px-5 pb-5">
-                  <CardDescription className="text-sm text-gray-600 mb-3 leading-relaxed">
+                <CardContent className="relative z-10 px-6 pb-6">
+                  <CardDescription className="text-muted-foreground mb-6 leading-relaxed text-sm">
                     {service.description}
                   </CardDescription>
 
-                  <div className="mb-3 p-2 bg-gray-50 rounded-md text-center border border-gray-100">
-                    <p className="text-xs text-gray-500 mb-1">Starting from</p>
-                    <p className="text-base font-bold text-[#007E7A]">
-                      {service.price}
-                    </p>
+                  {/* Enhanced pricing section */}
+                  <div className="mb-6 p-4 bg-gradient-to-r from-off-white to-pure-white rounded-xl border border-soft-lavender-grey/50 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-crimson-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative">
+                      <p className="text-xs text-muted-foreground mb-1 font-medium">
+                        Starting from
+                      </p>
+                      <p className="text-xl font-bold text-crimson-pink group-hover:scale-105 transition-transform duration-300">
+                        {service.price}
+                      </p>
+                    </div>
                   </div>
 
+                  {/* Enhanced CTA button */}
                   <Button
-                    className="w-full bg-[#EE343B] hover:bg-[#ED2568] text-white text-sm font-medium flex items-center justify-center gap-2 transition"
+                    className="w-full bg-crimson-gradient hover:bg-vivid-red text-pure-white font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 relative overflow-hidden btn-premium"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleServiceClick(service.id);
                     }}
                   >
-                    Learn More <ArrowRight className="h-4 w-4" />
+                    <span className="relative z-10">Learn More</span>
+                    <ArrowRight className="h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </CardContent>
+
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-crimson-gradient transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               </Card>
             ))}
+          </div>
+
+          {/* Optional: View All Services CTA */}
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              className="px-10 py-3 border-2 border-crimson-pink text-crimson-pink hover:bg-crimson-pink hover:text-pure-white rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+            >
+              View All Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
@@ -162,10 +198,11 @@ export function SafetyAdviserPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-extrabold text-[#1C1F2A]">
-              Why Choose Our Safety Services?
+            <h2 className="text-4xl font-bold tracking-tight mb-6 text-primary">
+              Why Choose Our{' '}
+              <span className="text-gradient-crimson">Safety Services?</span>
             </h2>
-            <p className="text-base text-gray-600 mt-3 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-6">
               Professional safety advisory services that deliver results and
               protect your business.
             </p>
@@ -226,17 +263,11 @@ export function SafetyAdviserPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
+              className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
               onClick={handleContactClick}
-              className="bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
             >
               Get Free Consultation
-            </button>
-
-            <button
-              onClick={handleContactClick}
-              className="border-2 border-white text-white hover:bg-white hover:text-teal-dark px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-            >
-              Contact Us Today
+              <ArrowRight className="ml-2 h-5 w-5 inline transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 

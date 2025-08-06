@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/common/ScrollToTop';
 import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
-import { TestimonialsPage } from './pages/about-us/TestimonialsPage';
+import SSIPAccreditationPage from './pages/about-us/AccreditationPage';
 import PoliciesPage from './pages/about-us/PoliciesPage';
 import { JobsPage } from './pages/JobsPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
@@ -33,6 +34,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <ScrollToTop />
       <main>
         <Routes>
           {/* Main Pages */}
@@ -146,10 +148,14 @@ export default function App() {
 
           {/* About Us Routes */}
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/about/testimonials" element={<TestimonialsPage />} />
+          <Route
+            path="/about/accreditation"
+            element={<SSIPAccreditationPage />}
+          />
           <Route path="/about/policies" element={<PoliciesPage />} />
           <Route path="/about/insurance" element={<InsurancePage />} />
           <Route path="/about/careers" element={<CareersPage />} />
+          <Route path="/about/" element={<CareersPage />} />
 
           {/* Jobs Route */}
           <Route path="/jobs" element={<JobsPage />} />

@@ -77,26 +77,72 @@ export const healthSafetyServices: HealthSafetyService[] = [
     details:
       'Essential for preventing similar events. Independent view crucial when multiple parties involved. HSE reporting guidance included.',
   },
+];
+
+export const benefitsData = [
   {
-    id: 'workplace-audits',
-    title: 'Workplace Audits',
-    badge: '2-3 Days',
-    color: 'bg-gradient-to-br from-green-50 to-emerald-50',
-    iconName: 'ClipboardCheck',
+    icon: 'Award',
+    name: 'Qualified Professionals',
     description:
-      'Thorough workplace audits providing the best starting point for managing health and safety within your organization.',
-    features: [
-      'Complete compliance evaluation',
-      'Detailed practical advice',
-      'Legal compliance assessment',
-      'Insurance documentation',
-      'Accreditation body evidence',
-      'Annual or biennial options',
-      'Improvement tracking',
-      'Standards enhancement',
+      'Experienced, certified safety professionals with proven track records.',
+  },
+  {
+    icon: 'Shield',
+    name: 'Legal Compliance',
+    description:
+      'Ensures your business stays compliant with all current H&S regulations.',
+  },
+  {
+    icon: 'Target',
+    name: 'Tailored Solutions',
+    description:
+      'Bespoke consulting, documentation, and systems designed for you.',
+  },
+  {
+    icon: 'Users',
+    name: 'Expert Support',
+    description: 'Ongoing expert help — 24/7 emergency support included.',
+  },
+];
+
+export const accreditationCards = [
+  {
+    title: 'CHAS Accreditation',
+    description: 'Full application and registration help',
+    price: '£99.99',
+    icon: 'Award' as const,
+    color: 'from-[#E5E6F0] to-white',
+    pricingDetails: [
+      { label: 'Under 5 Employees', price: '£99.99' },
+      { label: '5+ Employees', price: '£250' },
     ],
-    pricing: '2-3 day comprehensive assessment',
-    details:
-      'Best starting point for health and safety management. Provides evidence for insurance companies and accreditation bodies of monitoring and review.',
+  },
+  {
+    title: 'SafeContractor',
+    description: 'SSIP Application & Registration Support',
+    price: '£299.99',
+    icon: 'Shield' as const,
+    color: 'from-[#F9F9F9] to-white',
+  },
+  {
+    title: 'SMAS WorkSafe',
+    description: 'Application assistance with qualified consultant',
+    price: '£299.99',
+    icon: 'CheckCircle' as const,
+    color: 'from-[#FFC857] to-white',
+  },
+  {
+    title: 'ConstructionLine',
+    description: 'Full registration help & email/phone support',
+    price: '£349.99',
+    icon: 'ClipboardCheck' as const,
+    color: 'from-[#ED2568] to-[#F9F9F9]',
+  },
+  {
+    title: 'Altius Accreditation',
+    description: 'SSIP help with ongoing support',
+    price: '£ POA',
+    icon: 'Target' as const,
+    color: 'from-[#EE343B] to-[#F9F9F9]',
   },
 ];

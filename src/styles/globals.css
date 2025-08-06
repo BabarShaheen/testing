@@ -136,6 +136,19 @@
     scroll-behavior: smooth;
   }
 
+  .animate-slide {
+    animation: slide 30s linear infinite;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
   :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
     h1 {
       @apply text-4xl font-bold tracking-tight;

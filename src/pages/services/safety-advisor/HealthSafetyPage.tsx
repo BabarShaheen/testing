@@ -8,59 +8,17 @@ import {
   Target,
   Users,
   Award,
+  ArrowRight,
 } from 'lucide-react';
 import { Button } from '../../../components/ui/button';
-import { healthSafetyServices } from '../../../data/healthSafetyServicesData';
 import {
-  ServiceCard,
-  AccreditationCard,
-  BenefitCard,
-  SectionHeader,
-} from '../../../components/common';
+  healthSafetyServices,
+  benefitsData,
+  accreditationCards,
+} from '../../../data/healthSafetyServicesData';
+import { AccreditationCard, SectionHeader } from '../../../components/common';
 
 import { motion } from 'framer-motion';
-
-const accreditationCards = [
-  {
-    title: 'CHAS Accreditation',
-    description: 'Full application and registration help',
-    price: '£99.99',
-    icon: 'Award' as const,
-    color: 'from-[#E5E6F0] to-white',
-    pricingDetails: [
-      { label: 'Under 5 Employees', price: '£99.99' },
-      { label: '5+ Employees', price: '£250' },
-    ],
-  },
-  {
-    title: 'SafeContractor',
-    description: 'SSIP Application & Registration Support',
-    price: '£299.99',
-    icon: 'Shield' as const,
-    color: 'from-[#F9F9F9] to-white',
-  },
-  {
-    title: 'SMAS WorkSafe',
-    description: 'Application assistance with qualified consultant',
-    price: '£299.99',
-    icon: 'CheckCircle' as const,
-    color: 'from-[#FFC857] to-white',
-  },
-  {
-    title: 'ConstructionLine',
-    description: 'Full registration help & email/phone support',
-    price: '£349.99',
-    icon: 'ClipboardCheck' as const,
-    color: 'from-[#ED2568] to-[#F9F9F9]',
-  },
-  {
-    title: 'Altius Accreditation',
-    description: 'SSIP help with ongoing support',
-    price: '£ POA',
-    icon: 'Target' as const,
-    color: 'from-[#EE343B] to-[#F9F9F9]',
-  },
-];
 
 export const AccreditationSection = () => (
   <motion.div
@@ -137,33 +95,18 @@ export function HealthSafetyPage() {
           }}
         />
 
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ED2568"
-            fillOpacity="0.25"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
-
         {/* Content Layer */}
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-block bg-pink-600/10 text-pink-300 font-semibold tracking-wide px-5 py-1.5 rounded-full text-sm shadow-md">
-            Health & Safety Services
-          </div>
-
           {/* Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
-            Comprehensive Health & Safety Solutions
+
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <span className="text-pure-white block">Comprehensive</span>
+            <span className="text-gradient-crimson block">Health & Safety</span>
+            <span className="text-pure-white block">Solutions</span>
           </h1>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-soft-lavender-grey/80 leading-relaxed max-w-2xl">
             Protect your workforce, ensure compliance, and build a culture of
             safety with our expert health and safety services. From risk
             assessments to training programs, we've got you covered.
@@ -194,12 +137,16 @@ export function HealthSafetyPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            title="Our Core Services"
+            title={
+              <>
+                Our <span className="text-crimson-pink">Core Services</span>
+              </>
+            }
             description="Comprehensive health and safety solutions tailored to your business needs"
           />
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {healthSafetyServices.map((service, idx) => {
+            {healthSafetyServices.map((service) => {
               const IconComponent = getIconComponent(service.iconName);
               return (
                 <div
@@ -247,42 +194,63 @@ export function HealthSafetyPage() {
         </div>
       </section>
 
-      {/* SSIP Accreditation Support Section */}
+      {/* SSIP Accreditation Support Section - Redesigned */}
       <section
         id="ssip-accreditation"
-        className="py-16 bg-[url('/your')] bg-cover bg-fixed bg-center"
+        className="py-24 bg-gradient-to-br from-charcoal-navy via-charcoal-navy to-charcoal-navy/90 relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal-navy to-charcoal-navy/80"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 20% 50%, var(--crimson-pink) 2px, transparent 2px), radial-gradient(circle at 80% 50%, var(--warm-amber) 1px, transparent 1px)`,
+              backgroundSize: '100px 100px, 80px 80px',
+            }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <SectionHeader
-              title="SSIP Accreditation Support"
-              description={
-                <>
-                  CHAS, SafeContractor, Acclaim, Achilles, ConstructionLine,
-                  SMAS, EXOR & Altius
-                  <br />
-                  <strong className="text-[#ED2568]">
-                    Discounts available for multiple accreditations — Call us:
-                    02071400015
-                  </strong>
-                </>
-              }
-            />
+            <h2 className="text-4xl md:text-6xl font-bold text-pure-white mb-6 leading-tight">
+              SSIP Accreditation
+              <span className="text-gradient-crimson block mt-2">
+                Support Services
+              </span>
+            </h2>
+
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xl text-soft-lavender-grey/80 mb-6 leading-relaxed">
+                CHAS, SafeContractor, Acclaim, Achilles, ConstructionLine, SMAS,
+                EXOR & Altius
+              </p>
+              <div className="bg-crimson-pink/10 backdrop-blur-sm border border-crimson-pink/30 rounded-2xl p-6 inline-block">
+                <p className="text-lg font-semibold text-crimson-pink">
+                  Discounts available for multiple accreditations — Call us:
+                  <span className="text-warm-amber font-bold ml-2">
+                    +44 (0) 123 456 7890
+                  </span>
+                </p>
+              </div>
+            </div>
           </motion.div>
 
+          {/* Accreditation Cards Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-16"
             initial="hidden"
             whileInView="visible"
             variants={{
               visible: {
                 transition: {
-                  staggerChildren: 0.2,
+                  staggerChildren: 0.15,
                 },
               },
             }}
@@ -291,16 +259,40 @@ export function HealthSafetyPage() {
             {accreditationCards.map((card, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: idx * 0.1,
+                  type: 'spring',
+                  stiffness: 100,
+                }}
                 viewport={{ once: true }}
+                className="group"
               >
-                <AccreditationCard {...card} />
+                <div className="bg-pure-white/10 backdrop-blur-sm border border-soft-lavender-grey/20 rounded-2xl p-6 hover:bg-pure-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl card-premium relative overflow-hidden">
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-crimson-pink/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+
+                  {/* Card content - you'll need to customize based on AccreditationCard component */}
+                  <div className="relative z-10">
+                    {/* Title */}
+                    <h3 className="text-lg font-bold text-pure-white mb-2 group-hover:text-crimson-pink transition-colors duration-300">
+                      {card.title || `Accreditation ${idx + 1}`}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-soft-lavender-grey/70 text-sm leading-relaxed">
+                      {card.description ||
+                        'Professional accreditation support and guidance'}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>
 
+          {/* Call-to-Action Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -308,26 +300,64 @@ export function HealthSafetyPage() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-              <p className="text-lg text-[#1C1F2A] mb-4">
-                <strong className="text-[#1C1F2A]">
-                  All packages include honest pricing with no hidden fees.
-                </strong>
-                <br />
-                Our consultants are Chartered or Grad IOSH with NEBOSH & Masters
-                in Occupational Health & Safety.
-              </p>
-              <p className="text-lg text-[#1C1F2A] mb-6">
-                <strong className="text-[#1C1F2A]">Also includes:</strong>{' '}
-                Safety Advisory Service — Your own competent H&S advisor for
-                under £1/day.
-              </p>
-              <Button
-                onClick={handleContactClick}
-                className="bg-[#ED2568] hover:bg-[#EE343B] text-white px-8 py-3 text-lg"
-              >
-                Get Accredited
-              </Button>
+            <div className="bg-pure-white/10 backdrop-blur-lg border border-soft-lavender-grey/20 rounded-3xl p-10 max-w-5xl mx-auto relative overflow-hidden shadow-2xl">
+              {/* Background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-pure-white/5 to-transparent rounded-3xl"></div>
+
+              <div className="relative z-10">
+                {/* Features highlight */}
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-pure-white mb-4 flex items-center gap-3">
+                      <div className="w-3 h-3 bg-warm-amber rounded-full"></div>
+                      Transparent Pricing
+                    </h3>
+                    <p className="text-soft-lavender-grey/80 leading-relaxed">
+                      <strong className="text-pure-white">
+                        All packages include honest pricing with no hidden fees.
+                      </strong>
+                      <br />
+                      Our consultants are Chartered or Grad IOSH with NEBOSH &
+                      Masters in Occupational Health & Safety.
+                    </p>
+                  </div>
+
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-pure-white mb-4 flex items-center gap-3">
+                      <div className="w-3 h-3 bg-crimson-pink rounded-full"></div>
+                      Advisory Service Included
+                    </h3>
+                    <p className="text-soft-lavender-grey/80 leading-relaxed">
+                      <strong className="text-pure-white">
+                        Safety Advisory Service included:
+                      </strong>
+                      <br />
+                      Your own competent H&S advisor for under £1/day.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Main CTA */}
+                <div className="pt-6 border-t border-soft-lavender-grey/20">
+                  <Button
+                    onClick={handleContactClick}
+                    className="bg-crimson-gradient hover:bg-vivid-red text-pure-white px-12 py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl btn-premium relative overflow-hidden group"
+                  >
+                    <span className="relative z-10 flex items-center gap-3">
+                      Get Accredited Today
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+
+                  <p className="text-soft-lavender-grey/60 text-sm mt-4">
+                    Start your accreditation journey with industry experts
+                  </p>
+                </div>
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-crimson-gradient opacity-20 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-warm-amber/30 rounded-full blur-xl"></div>
             </div>
           </motion.div>
         </div>
@@ -336,37 +366,19 @@ export function HealthSafetyPage() {
       <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            title="Why Choose Our Health & Safety Services?"
+            title={
+              <>
+                Why Choose Our{' '}
+                <span className="text-crimson-pink">
+                  Health & Safety Services?
+                </span>
+              </>
+            }
             description="Professional expertise backed by experience, care, and legal compliance"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-            {[
-              {
-                icon: 'Award',
-                name: 'Qualified Professionals',
-                description:
-                  'Experienced, certified safety professionals with proven track records.',
-              },
-              {
-                icon: 'Shield',
-                name: 'Legal Compliance',
-                description:
-                  'Ensures your business stays compliant with all current H&S regulations.',
-              },
-              {
-                icon: 'Target',
-                name: 'Tailored Solutions',
-                description:
-                  'Bespoke consulting, documentation, and systems designed for you.',
-              },
-              {
-                icon: 'Users',
-                name: 'Expert Support',
-                description:
-                  'Ongoing expert help — 24/7 emergency support included.',
-              },
-            ].map((item, index) => (
+            {benefitsData.map((item, index) => (
               <div
                 key={index}
                 className="group bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:border-crimson-pink transition-all duration-300"
@@ -380,6 +392,64 @@ export function HealthSafetyPage() {
                 <p className="text-gray-600 text-sm">{item.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="py-20 bg-gradient-to-r from-teal-gradient-dark to-teal-gradient-light text-white relative overflow-hidden"
+        style={{
+          backgroundImage: "url('/Images/landingpage/get-started.jpg')", // Replace with your own image path
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            Ready to Comprehense Health & Safety Solutions?
+          </h2>
+
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10">
+            Contact us today for a free consultation and discover how we can
+            help your business achieve safety excellence.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <button
+              className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+              onClick={handleContactClick}
+            >
+              Contact Us Today
+              <ArrowRight className="ml-2 h-5 w-5 inline transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
+
+          {/* Optional Metrics Block – remove if not needed */}
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
+            <div className="grid md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-3xl font-bold text-orange mb-2">99%</div>
+                <p className="text-gray-200">Client Satisfaction</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-teal-300 mb-2">
+                  250+
+                </div>
+                <p className="text-gray-200">Projects Completed</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-300 mb-2">10+</div>
+                <p className="text-gray-200">Industries Served</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-pink-300 mb-2">
+                  24/7
+                </div>
+                <p className="text-gray-200">Support Available</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

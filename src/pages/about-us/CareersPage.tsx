@@ -1,21 +1,7 @@
-import React from 'react';
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '../../components/ui/card';
-import { Button } from '../../components/ui/button';
-import { Badge } from '../../components/ui/badge';
-import {
-  Users,
-  Mail,
   MapPin,
-  Clock,
   PoundSterling,
-  Calendar,
   Star,
-  Award,
   CheckCircle,
   Heart,
   Target,
@@ -23,312 +9,588 @@ import {
   Gift,
   Phone,
   Building,
+  ArrowRight,
+  TrendingUp,
+  Briefcase,
 } from 'lucide-react';
-import {
-  tasks,
-  requirements,
-  benefits,
-  values,
-} from '../../data/about-us/careersData'; // Adjust path as needed
 
-const CareersPage: React.FC = () => {
+// Mock data - replace with actual imports
+const tasks = [
+  'Develop and execute marketing campaigns across digital and traditional channels',
+  'Create engaging content for social media, website, and marketing materials',
+  'Support event planning and coordination for client engagements',
+  'Assist with market research and competitor analysis',
+  'Manage marketing databases and CRM systems',
+  'Collaborate with the team to develop marketing strategies',
+  'Monitor and report on campaign performance and ROI',
+  'Support lead generation and client acquisition efforts',
+];
+
+const requirements = [
+  "Bachelor's degree in Marketing, Communications, or related field",
+  '1-2 years of marketing experience (internships count!)',
+  'Strong written and verbal communication skills',
+  'Proficiency in social media platforms and digital marketing tools',
+  'Basic knowledge of design software (Canva, Adobe Creative Suite)',
+  'Analytical mindset with attention to detail',
+  'Ability to work independently and as part of a team',
+  'Passion for marketing and eagerness to learn',
+];
+
+const benefits = [
+  'Competitive salary with performance-based bonuses',
+  '23 days annual leave plus bank holidays',
+  'Professional development and training opportunities',
+  'Flexible working arrangements',
+  'Health and wellness programs',
+  'Company pension scheme',
+  'Modern office environment in central London',
+  'Career progression opportunities in a growing company',
+];
+
+const values = [
+  'Inclusion and diversity at our core',
+  'People-first approach',
+  'Purpose-driven work',
+  'Innovation and creativity',
+  'Continuous learning and growth',
+];
+
+export default function CareersPage() {
+  const handleApplyClick = () => {
+    console.log('Apply for position');
+  };
+
+  const handleContactClick = () => {
+    console.log('Contact us');
+  };
+
+  const handleReadMore = () => {
+    document
+      .getElementById('main-content')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-teal-dark via-teal-light to-orange py-12 sm:py-16 md:py-20">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Badge className="mb-4 bg-white/20 text-white border-white/30 hover:bg-white/30 text-xs sm:text-sm">
-              <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-              Join Our Team
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Careers at CCS
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
-              Are you passionate about marketing and diversity? Do you want to
-              grow your career with a small but thriving health and safety
-              consultancy in London?
-            </p>
+      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
+            filter: 'brightness(0.4)',
+          }}
+        />
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#FFC857]/10 to-[#ED2568]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        {/* Wave Overlay */}
+        <svg
+          className="absolute bottom-0 left-0 w-full h-40 z-0"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#ED2568"
+            fillOpacity="0.3"
+            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+          />
+        </svg>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
+          {/* Title */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
+            Join Our
+            <br />
+            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#FFC857] bg-clip-text">
+              Growing Team
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+            Are you passionate about marketing and diversity? Join our thriving
+            health and safety consultancy and shape the future of workplace
+            safety.
+          </p>
+
+          {/* Feature Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <Building className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
+              <h3 className="text-lg font-semibold mb-2">Full-Time</h3>
+              <p className="text-gray-200 text-sm">Permanent Position</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <PoundSterling className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
+              <h3 className="text-lg font-semibold mb-2">Competitive</h3>
+              <p className="text-gray-200 text-sm">Salary & Benefits</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <TrendingUp className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
+              <h3 className="text-lg font-semibold mb-2">Growth</h3>
+              <p className="text-gray-200 text-sm">Career Development</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <MapPin className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
+              <h3 className="text-lg font-semibold mb-2">London</h3>
+              <p className="text-gray-200 text-sm">Central Location</p>
+            </div>
+          </div>
+
+          {/* Badge and CTA */}
+          <div className="mt-12">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full text-white font-medium mb-6 shadow-lg">
+              <Briefcase className="h-5 w-5" />
+              <span>Marketing Assistant Role</span>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={handleReadMore}
+              >
+                Learn More
+                <ArrowRight className="ml-2 h-5 w-5 inline" />
+              </button>
+              <button
+                className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
+                onClick={handleApplyClick}
+              >
+                Apply Now
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
-        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6 sm:space-y-8">
-            {/* Job Introduction */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-teal-light/10 to-orange/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl text-teal-dark">
-                  <Building className="w-5 h-5 sm:w-6 sm:h-6 text-orange flex-shrink-0" />
-                  <span className="break-words">
-                    Marketing Assistant – Full-Time
-                  </span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
+      <div id="main-content">
+        {/* Job Introduction Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
+                    <Building className="h-8 w-8 text-white" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-[#1C1F2A]">
+                    MARKETING ASSISTANT – FULL-TIME
+                  </h2>
+                </div>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   <strong>Citrix Consultancy Services (CCS)</strong> is a
                   forward-thinking consultancy that puts inclusion, people, and
                   purpose at the heart of everything we do. We're now expanding
-                  our team and looking for a{' '}
-                  <strong>Marketing Assistant</strong> who's ready to make an
-                  impact.
+                  our team and looking for a Marketing Assistant who's ready to
+                  make an impact.
                 </p>
-              </CardContent>
-            </Card>
-
-            {/* What You'll Do */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-teal-light/10 to-orange/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl text-teal-dark">
-                  <Target className="w-5 h-5 sm:w-6 sm:h-6 text-orange flex-shrink-0" />
-                  What You'll Do
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                  {tasks.map((task, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200"
-                    >
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-teal-dark text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </div>
-                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
-                        {task}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-[#1C1F2A] mb-1">
+                        Growing Company
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        Join a small but thriving health and safety consultancy
+                        with expansion opportunities.
                       </p>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* What You Bring */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-teal-light/10 to-orange/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl text-teal-dark">
-                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-orange flex-shrink-0" />
-                  What You Bring
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                  {requirements.map((requirement, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-orange hover:bg-orange/5 transition-colors duration-200"
-                    >
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-orange text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Star className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </div>
-                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
-                        {requirement}
+                  </div>
+                  <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-[#1C1F2A] mb-1">
+                        Purpose-Driven Work
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        Make a real impact in workplace safety while developing
+                        your marketing career.
                       </p>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* What We Offer */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-teal-light/10 to-orange/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl text-teal-dark">
-                  <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-orange flex-shrink-0" />
-                  What We Offer
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                  {benefits.map((benefit, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border-l-4 border-teal-dark hover:bg-teal-light/5 transition-colors duration-200"
-                    >
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-teal-dark text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </div>
-                      <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
-                        {benefit}
+                  </div>
+                  <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-[#1C1F2A] mb-1">
+                        Inclusive Culture
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        Be part of a company that values diversity and puts
+                        people first.
                       </p>
                     </div>
-                  ))}
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Call to Action */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-orange/10 to-teal-light/10">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <h3 className="text-xl sm:text-2xl font-bold text-teal-dark mb-3 sm:mb-4">
-                  Ready to Shape the Future of CCS?
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                  If this sounds like the opportunity you've been looking for,
-                  apply now and help shape the future of CCS!
-                </p>
-                <Button className="bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white px-6 sm:px-8 py-3 text-base sm:text-lg min-h-[44px] w-full sm:w-auto">
-                  Apply Now
-                </Button>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FFC857]/20 to-[#ED2568]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Briefcase className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#1C1F2A] mb-4">
+                      Join Our Team
+                    </h3>
+                    <div className="space-y-3 mb-6">
+                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
+                        <span className="text-gray-600 text-sm">Salary:</span>
+                        <span className="font-bold text-[#ED2568]">
+                          £7.80-£8.50/hr
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
+                        <span className="text-gray-600 text-sm">Holiday:</span>
+                        <span className="font-semibold text-[#1C1F2A]">
+                          23 days
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
+                        <span className="text-gray-600 text-sm">Location:</span>
+                        <span className="font-semibold text-[#FFC857]">
+                          London
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      className="w-full bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                      onClick={handleApplyClick}
+                    >
+                      Apply for Position
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          {/* Sidebar */}
-          <div className="space-y-4 sm:space-y-6">
-            {/* Job Details */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-orange/10 to-teal-light/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl text-teal-dark">
-                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-orange flex-shrink-0" />
-                  Job Details
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
-                    <Clock className="w-4 h-4 text-orange flex-shrink-0" />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">
-                        Job Type
-                      </p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
-                        Full-time
-                      </p>
+        {/* What You'll Do Section */}
+        <section className="py-16 bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#FFC857]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Target className="h-8 w-8 text-white" />
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
-                    <PoundSterling className="w-4 h-4 text-orange flex-shrink-0" />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">Salary</p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
-                        £7.80 – £8.50 /hour
-                      </p>
+                    <h3 className="text-2xl font-bold text-[#1C1F2A] mb-6">
+                      Your Impact
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
+                        <span className="text-gray-600 text-sm">
+                          Marketing Campaigns:
+                        </span>
+                        <span className="font-bold text-[#ED2568] text-sm">
+                          Lead & Execute
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
+                        <span className="text-gray-600 text-sm">
+                          Content Creation:
+                        </span>
+                        <span className="font-semibold text-[#1C1F2A] text-sm">
+                          Multi-Channel
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
+                        <span className="text-gray-600 text-sm">
+                          Event Support:
+                        </span>
+                        <span className="font-semibold text-[#FFC857] text-sm">
+                          Client Focused
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
+                        <span className="text-gray-600 text-sm">
+                          Market Research:
+                        </span>
+                        <span className="font-semibold text-[#ED2568] text-sm">
+                          Data-Driven
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
-                    <MapPin className="w-4 h-4 text-orange flex-shrink-0" />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">
-                        Location
-                      </p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
-                        London
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
-                    <Calendar className="w-4 h-4 text-orange flex-shrink-0" />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">
-                        Holiday
-                      </p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
-                        23 days annual
-                      </p>
-                    </div>
+                    <button
+                      className="w-full mt-6 bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                      onClick={handleContactClick}
+                    >
+                      Learn More
+                    </button>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Company Values */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-orange/10 to-teal-light/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl text-teal-dark">
-                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-orange flex-shrink-0" />
-                  Our Values
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <div className="space-y-2 sm:space-y-3">
-                  {values.map((value, index) => (
+              </div>
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
+                    <Target className="h-8 w-8 text-white" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-[#1C1F2A]">
+                    WHAT YOU'LL DO
+                  </h2>
+                </div>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  As our Marketing Assistant, you'll play a crucial role in
+                  developing and executing marketing campaigns that showcase our
+                  expertise in health and safety consulting.
+                </p>
+                <div className="space-y-4">
+                  {tasks.slice(0, 4).map((task, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-2 sm:gap-3"
+                      className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                     >
-                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-orange mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 text-xs sm:text-sm">
-                        {value}
-                      </span>
+                      <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {task}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            {/* Contact Information */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-orange/10 to-teal-light/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl text-teal-dark">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-orange flex-shrink-0" />
-                  Apply Now
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                  To apply or get in touch, contact us at:
-                </p>
-                <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
-                    <Mail className="w-4 h-4 text-orange flex-shrink-0" />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">
-                        Email us at
-                      </p>
-                      <p className="font-semibold text-teal-dark text-xs sm:text-sm break-all">
-                        admin@citrix-consulting-limited.co.uk
-                      </p>
-                    </div>
+        {/* What You Bring Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-3 bg-gradient-to-br from-[#1C1F2A] to-[#ED2568] rounded-lg">
+                    <Zap className="h-8 w-8 text-white" />
                   </div>
-                  <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
-                    <Phone className="w-4 h-4 text-orange flex-shrink-0" />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm text-gray-600">
-                        Call us at
-                      </p>
-                      <p className="font-semibold text-teal-dark text-sm sm:text-base">
-                        02085755544
-                      </p>
-                    </div>
-                  </div>
-                  <Button className="w-full bg-gradient-to-r from-orange to-orange/90 hover:from-orange/90 hover:to-orange text-white min-h-[44px] text-sm sm:text-base">
-                    Send Application
-                  </Button>
+                  <h2 className="text-3xl font-bold text-[#1C1F2A]">
+                    WHAT YOU BRING
+                  </h2>
                 </div>
-              </CardContent>
-            </Card>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  We're looking for someone passionate about marketing with a
+                  desire to make a real impact. Whether you're a recent graduate
+                  or have some experience, we want to hear from you.
+                </p>
+                <div className="space-y-4">
+                  {requirements.slice(0, 4).map((requirement, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300"
+                    >
+                      <Star className="h-6 w-6 text-[#FFC857] mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {requirement}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A]/20 to-[#FFC857]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#1C1F2A] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Zap className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#1C1F2A] mb-4">
+                      Perfect Fit?
+                    </h3>
+                    <p className="text-gray-600 mb-6 text-sm">
+                      We believe in potential and are looking for someone eager
+                      to grow with us in the dynamic world of health and safety
+                      marketing.
+                    </p>
+                    <div className="bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] p-4 rounded-lg mb-6 border border-[#ED2568]/20">
+                      <p className="text-sm text-[#1C1F2A] font-medium">
+                        "Ready to make an impact?"
+                      </p>
+                      <p className="text-xs text-gray-600 mt-1">
+                        Join our inclusive, purpose-driven team
+                      </p>
+                    </div>
+                    <button
+                      className="w-full bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] hover:from-[#ED2568] hover:to-[#1C1F2A] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                      onClick={handleApplyClick}
+                    >
+                      Submit Application
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            {/* Why Join Us */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-orange/10 to-teal-light/10 border-b border-gray-100 p-4 sm:p-6">
-                <CardTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl text-teal-dark">
-                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-orange flex-shrink-0" />
-                  Why Join Us
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-orange mb-2">
+        {/* Benefits Section */}
+        <section className="py-16 bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
+                  <Gift className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h2 className="text-4xl font-bold text-[#1C1F2A] mb-4">
+                WHAT WE OFFER
+              </h2>
+              <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+                We believe in taking care of our team members with competitive
+                benefits, growth opportunities, and a supportive work
+                environment that helps you thrive both personally and
+                professionally.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+              {benefits.map((benefit, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer border border-[#E5E6F0]"
+                >
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-[#FFC857] group-hover:to-[#ED2568] transition-all duration-300">
+                      <Heart className="w-6 h-6 text-white" />
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed group-hover:text-[#1C1F2A] transition-colors">
+                      {benefit}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <button
+                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#EE343B] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={handleApplyClick}
+              >
+                Join Our Team
+                <ArrowRight className="ml-2 h-5 w-5 inline" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Company Values Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
+                  <Heart className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h2 className="text-4xl font-bold text-[#1C1F2A] mb-4">
+                Our Values Drive Everything We Do
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                At CCS, our values aren't just words on a wall – they're the
+                foundation of how we work, grow, and succeed together.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {values.map((value, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100"
+                >
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-7 w-7 text-white" />
+                    </div>
+                    <p className="text-gray-600 leading-relaxed text-sm group-hover:text-[#1C1F2A] transition-colors font-medium">
+                      {value}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section
+          className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
+          style={{
+            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0 bg-black/70"></div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
+              Ready to Start Your Journey?
+            </h2>
+
+            <p className="text-xl text-gray-100 max-w-4xl mx-auto mb-10">
+              Take the next step in your marketing career and join a team that
+              values inclusion, innovation, and making a real difference in
+              workplace safety.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <button
+                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={handleApplyClick}
+              >
+                Apply Today
+                <Briefcase className="ml-2 h-5 w-5 inline" />
+              </button>
+              <button
+                className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
+                onClick={handleContactClick}
+              >
+                Get in Touch
+                <Phone className="ml-2 h-5 w-5 inline" />
+              </button>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold text-[#FFC857] mb-2">
                     Growing
                   </div>
-                  <p className="text-gray-700 text-xs sm:text-sm">
-                    Small but thriving consultancy with expansion opportunities
-                  </p>
+                  <p className="text-gray-200">Company Culture</p>
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
+                    £7.80-£8.50
+                  </div>
+                  <p className="text-gray-200">Per Hour</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-white mb-2">
+                    London
+                  </div>
+                  <p className="text-gray-200">Central Location</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
-};
-
-export default CareersPage;
+}

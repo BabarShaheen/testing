@@ -1,228 +1,24 @@
-import React from 'react';
 import {
   Leaf,
-  CheckCircle,
-  Building,
   TrendingUp,
   Star,
   Settings,
   BookOpen,
-  Phone,
   Globe,
-  Download,
   ArrowRight,
   Award,
-  Users,
-  Target,
-  Shield,
-  Zap,
-  FileText,
-  Clock,
-  BadgeCheck,
 } from 'lucide-react';
 
-// Mock data based on the original structure
-const heroFeatures = [
-  'UKAS Certified',
-  'Guaranteed Results',
-  '12 Months Support',
-  'Expert Guidance',
-];
-
-const environmentalFocusAreas = [
-  {
-    title: 'Natural Resource Management',
-    desc: 'Efficient use and conservation of natural resources',
-    icon: Leaf,
-  },
-  {
-    title: 'Waste Management',
-    desc: 'Proper handling and treatment of waste materials',
-    icon: Target,
-  },
-  {
-    title: 'Energy Conservation',
-    desc: 'Reducing energy consumption and improving efficiency',
-    icon: Zap,
-  },
-  {
-    title: 'Environmental Compliance',
-    desc: 'Meeting regulatory requirements and standards',
-    icon: Shield,
-  },
-];
-
-const benefitsData = [
-  {
-    title: 'Cost Reduction',
-    description:
-      'Reduce operational costs through improved resource efficiency and waste management',
-    icon: TrendingUp,
-    gradient: 'from-green-500 to-teal-500',
-  },
-  {
-    title: 'Legal Compliance',
-    description:
-      'Ensure compliance with environmental regulations and avoid penalties',
-    icon: Shield,
-    gradient: 'from-blue-500 to-purple-500',
-  },
-  {
-    title: 'Brand Enhancement',
-    description:
-      'Improve brand reputation and demonstrate environmental commitment',
-    icon: Star,
-    gradient: 'from-pink-500 to-red-500',
-  },
-  {
-    title: 'Market Access',
-    description:
-      'Access new markets and opportunities requiring environmental certification',
-    icon: Globe,
-    gradient: 'from-orange-500 to-yellow-500',
-  },
-];
-
-const implementationSteps = [
-  {
-    title: 'Environmental Assessment',
-    description:
-      'Comprehensive evaluation of your current environmental impact and management systems',
-    icon: Target,
-    highlights: [
-      'Environmental impact analysis',
-      'Legal requirements review',
-      'System gap identification',
-      'Baseline establishment',
-    ],
-  },
-  {
-    title: 'Documentation Development',
-    description:
-      'Creation of comprehensive environmental management documentation',
-    icon: FileText,
-    highlights: [
-      'Environmental policy creation',
-      'Procedure documentation',
-      'Work instructions',
-      'Environmental manual',
-    ],
-  },
-  {
-    title: 'Training & Implementation',
-    description:
-      'Staff training and systematic implementation of environmental management',
-    icon: Users,
-    highlights: [
-      'Staff awareness training',
-      'System implementation',
-      'Environmental monitoring',
-      'Performance measurement',
-    ],
-  },
-  {
-    title: 'Certification Support',
-    description:
-      'Complete support through certification process and ongoing maintenance',
-    icon: Award,
-    highlights: [
-      'Audit preparation',
-      'Certification guidance',
-      'Continuous improvement',
-      '12 months support',
-    ],
-  },
-];
-
-const assessmentProcess = [
-  {
-    phase: 'Initial Assessment',
-    description:
-      'Review of current environmental management systems and identification of gaps',
-    duration: '1-2 days',
-    icon: Target,
-  },
-  {
-    phase: 'Documentation Review',
-    description:
-      'Evaluation of existing environmental documentation and procedures',
-    duration: '3-5 days',
-    icon: FileText,
-  },
-  {
-    phase: 'Implementation Audit',
-    description: 'Assessment of implemented environmental management practices',
-    duration: '2-3 days',
-    icon: CheckCircle,
-  },
-  {
-    phase: 'Certification Audit',
-    description: 'Final certification audit by accredited certification body',
-    duration: '1-2 days',
-    icon: Award,
-  },
-];
-
-const impactReductionMetrics = [
-  { metric: 'Energy Consumption', improvement: '25%' },
-  { metric: 'Waste Generation', improvement: '30%' },
-  { metric: 'Water Usage', improvement: '20%' },
-  { metric: 'Carbon Footprint', improvement: '35%' },
-];
-
-const whyChooseUsData = [
-  {
-    title: 'Industry Expertise',
-    description:
-      'Deep understanding of environmental management across various industries with proven track record',
-    icon: Award,
-    gradient: 'from-teal-500 to-blue-500',
-    bgGradient: 'from-teal-50 to-blue-50',
-    borderColor: 'border-teal-200',
-  },
-  {
-    title: 'Transparent Pricing',
-    description:
-      'Clear, upfront pricing with no hidden costs and comprehensive service packages',
-    icon: BadgeCheck,
-    gradient: 'from-green-500 to-teal-500',
-    bgGradient: 'from-green-50 to-teal-50',
-    borderColor: 'border-green-200',
-  },
-  {
-    title: 'Ongoing Support',
-    description:
-      '12 months post-certification support to ensure continued compliance and improvement',
-    icon: Users,
-    gradient: 'from-purple-500 to-pink-500',
-    bgGradient: 'from-purple-50 to-pink-50',
-    borderColor: 'border-purple-200',
-  },
-];
-
-const certificationSteps = [
-  {
-    title: 'Pre-Assessment',
-    description:
-      'Comprehensive evaluation of your environmental management readiness and gap identification',
-    icon: Target,
-    gradient: 'from-teal-500 to-blue-500',
-  },
-  {
-    title: 'System Development',
-    description:
-      'Implementation of environmental management systems and documentation development',
-    icon: Settings,
-    gradient: 'from-green-500 to-teal-500',
-  },
-  {
-    title: 'Certification Audit',
-    description:
-      'Final assessment by accredited certification body leading to ISO 14001 certification',
-    icon: Award,
-    gradient: 'from-purple-500 to-pink-500',
-  },
-];
+import {
+  heroFeatures,
+  environmentalFocusAreas,
+  benefitsData,
+  implementationSteps,
+  assessmentProcess,
+  impactReductionMetrics,
+  whyChooseUsData,
+  certificationSteps,
+} from '../../../data/iso14001Data';
 
 const Iso14001Page = () => {
   const handleContactClick = () => {
@@ -253,28 +49,8 @@ const Iso14001Page = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#1BB66E"
-            fillOpacity="0.2"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
-
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
-          {/* Icon Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-              <Leaf className="h-20 w-20 text-white" />
-            </div>
-          </div>
-
           {/* Title */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
             <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">

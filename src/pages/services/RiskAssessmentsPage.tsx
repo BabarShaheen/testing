@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   CheckCircle,
   ArrowRight,
@@ -10,15 +9,10 @@ import {
   Building,
   Eye,
   FlameKindling,
-  Target,
   Star,
-  TrendingUp,
   Phone,
   Mail,
-  Zap,
-  Clock,
   Globe,
-  Lock,
 } from 'lucide-react';
 import {
   specificAssessments,
@@ -574,7 +568,7 @@ export function RiskAssessmentsPage() {
         <section
           className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/services/risk-assessment-cta.jpg')",
+            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

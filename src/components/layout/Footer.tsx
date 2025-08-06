@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           <div className="animate-fade-in-up">
             <div className="flex items-center mb-3 sm:mb-4">
               <img
-                src="/citrix_logo.png"
+                src="/citrix-logo.png"
                 alt="Citrix Consulting Services"
                 className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 transition-transform duration-300 hover:rotate-12"
                 onError={(e) => {
@@ -56,7 +56,9 @@ const Footer: React.FC = () => {
                 }}
               />
               <div className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 bg-teal-dark rounded-full flex items-center justify-center hidden">
-                <span className="text-white font-bold text-xs sm:text-sm">C</span>
+                <span className="text-white font-bold text-xs sm:text-sm">
+                  C
+                </span>
               </div>
               <h3 className="text-base sm:text-lg font-semibold text-white">
                 Citrix Consulting Services
@@ -97,7 +99,9 @@ const Footer: React.FC = () => {
             className="animate-fade-in-up"
             style={{ animationDelay: '0.1s' }}
           >
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Links</h3>
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-1 sm:space-y-2">
               {[
                 { path: '/', label: 'Home' },
@@ -128,7 +132,9 @@ const Footer: React.FC = () => {
             className="animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Our Services</h3>
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+              Our Services
+            </h3>
             <ul className="space-y-1 sm:space-y-2">
               {[
                 { id: 'iso-9001', name: 'ISO 9001 Certification' },
@@ -158,7 +164,9 @@ const Footer: React.FC = () => {
             className="animate-fade-in-up"
             style={{ animationDelay: '0.3s' }}
           >
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact Info</h3>
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+              Contact Info
+            </h3>
             <div className="space-y-2 sm:space-y-3">
               {[
                 { icon: Mail, text: 'info@citrixconsulting.co.uk' },
@@ -172,7 +180,9 @@ const Footer: React.FC = () => {
                   style={{ animationDelay: `${0.4 + index * 0.05}s` }}
                 >
                   <contact.icon className="h-3 w-3 sm:h-4 sm:w-4 text-orange mr-2 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="text-gray-300 text-xs sm:text-sm break-all">{contact.text}</span>
+                  <span className="text-gray-300 text-xs sm:text-sm break-all">
+                    {contact.text}
+                  </span>
                 </div>
               ))}
             </div>

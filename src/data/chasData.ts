@@ -1,4 +1,11 @@
-import { Award, TrendingUp, Shield, Building } from 'lucide-react';
+import {
+  Award,
+  TrendingUp,
+  Shield,
+  Building,
+  FileText,
+  Target,
+} from 'lucide-react';
 
 export interface Benefit {
   icon: React.ElementType;
@@ -92,4 +99,40 @@ export const chasProcessSteps: ProcessStep[] = [
     description:
       'We submit your application and provide ongoing support throughout the process.',
   },
+];
+export const serviceItems = [
+  {
+    icon: FileText,
+    title: 'Application Completion',
+    description:
+      'We complete the CHAS registration forms on your behalf together with the submission of supporting documents.',
+    bgFrom: 'from-[#E5E6F0]', // soft-lavender-grey
+    bgTo: 'to-[#F9F9F9]', // off-white
+    iconBg: 'bg-[hsl(var(--primary))]',
+  },
+  {
+    icon: Shield,
+    title: 'Expert Guidance',
+    description:
+      'Our expert guidance regarding health and safety procedures ensures your application meets all required standards.',
+    bgFrom: 'from-[#FFC857]', // warm amber
+    bgTo: 'to-[#F9F9F9]',
+    iconBg: 'bg-[hsl(var(--accent))]',
+  },
+  {
+    icon: Target,
+    title: 'Proven Success',
+    description:
+      "We've successfully completed CHAS registration for hundreds of contractors with a 100% success rate.",
+    bgFrom: 'from-[#ED2568]', // primary crimson pink
+    bgTo: 'to-[#F9F9F9]',
+    iconBg: 'bg-[hsl(var(--destructive))]',
+  },
+];
+
+export const statsData = [
+  { label: 'Success Rate', value: 100, suffix: '%', duration: 1.5 },
+  { label: 'Contractors Accredited', value: 500, suffix: '+', duration: 2 },
+  { label: 'Expert Support', value: 24, suffix: '/7', duration: 1.8 },
+  { label: 'Turnaround Time', value: '', suffix: 'Fast', duration: 0 },
 ];

@@ -13,7 +13,6 @@ import {
   BarChart3,
   TrendingUp,
   Award,
-  Download,
 } from 'lucide-react';
 
 export interface ImplementationStep {

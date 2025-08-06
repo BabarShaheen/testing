@@ -1,33 +1,20 @@
-import React from 'react';
 import {
   Shield,
   CheckCircle,
   Users,
   Target,
-  Building,
   FileText,
   TrendingUp,
   Star,
-  Clock,
   ArrowRight,
   Briefcase,
   Settings,
   BookOpen,
-  BadgeCheck,
   Eye,
   Download,
-  Search,
-  Clipboard,
   ShieldCheck,
-  Phone,
-  Mail,
-  Zap,
-  Award,
-  Globe,
-  Lock,
 } from 'lucide-react';
 
-// Mock data - replace with your actual data imports
 import {
   implementationSteps,
   assessmentProcess,
@@ -59,19 +46,6 @@ const OHSAS18001Page = () => {
           <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-green-500/10 to-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
-
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#10B981"
-            fillOpacity="0.3"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
@@ -548,49 +522,6 @@ const OHSAS18001Page = () => {
 
             {/* Contact Sidebar */}
             <div className="space-y-6">
-              {/* Get Started Card */}
-              <div className="bg-gradient-to-br from-teal-50 to-green-50 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-teal-100 p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Zap className="w-6 h-6 text-teal-500" />
-                  <h3 className="text-xl font-semibold text-slate-800">
-                    Get Started Today
-                  </h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  Whether you're new to OHSAS 18001 or looking to improve your
-                  current system, we'll make the process simple. Get in touch
-                  for a consultation.
-                </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-teal-100">
-                    <Phone className="w-5 h-5 text-teal-500" />
-                    <div>
-                      <p className="text-sm text-gray-600">Call us at</p>
-                      <p className="font-semibold text-slate-800">
-                        0447446131794
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-teal-100">
-                    <Mail className="w-5 h-5 text-teal-500" />
-                    <div>
-                      <p className="text-sm text-gray-600">Email us at</p>
-                      <p className="font-semibold text-slate-800 text-sm">
-                        admin@citrix-consulting-limited.co.uk
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    className="w-full bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2"
-                    onClick={handleConsultationClick}
-                  >
-                    Request OHSAS Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-
               {/* Success Rate Card */}
               <div className="bg-gradient-to-br from-blue-50 to-teal-50 p-6 rounded-xl border border-blue-100 shadow-lg">
                 <div className="flex items-center gap-3 mb-4">

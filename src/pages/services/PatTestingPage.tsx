@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   CheckCircle,
   ArrowRight,
@@ -11,14 +10,7 @@ import {
   Phone,
   Mail,
   Clipboard,
-  TrendingUp,
-  Award,
   Target,
-  Building,
-  Users,
-  Clock,
-  Globe,
-  Lock,
 } from 'lucide-react';
 
 import { benefits, legislation, appliances, tier } from '../../data/patData';
@@ -91,18 +83,14 @@ const PatTestingPage = () => {
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
               <span className="text-white font-medium">
-                ⚡ Professional Testing
+                Professional Testing
               </span>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-              <span className="text-white font-medium">
-                📋 Full Certification
-              </span>
+              <span className="text-white font-medium">Full Certification</span>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-              <span className="text-white font-medium">
-                🔒 Legal Compliance
-              </span>
+              <span className="text-white font-medium">Legal Compliance</span>
             </div>
           </div>
 
@@ -302,7 +290,7 @@ const PatTestingPage = () => {
               PAT Testing Pricing
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Transparent and cost-effective pricing from CiTRiX — a CHAS SSIP
+              Transparent and cost-effective pricing from CiTRiX - a CHAS SSIP
               Approved Provider
             </p>
           </div>

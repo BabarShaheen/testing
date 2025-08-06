@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '../ui/button';
 import {
   Menu,
   X,
@@ -186,9 +185,9 @@ const Navigation: React.FC = () => {
       description: 'Learn about our company',
       children: [
         {
-          id: 'testimonials',
-          label: 'Testimonials',
-          path: '/about/testimonials',
+          id: 'accreditation',
+          label: 'Accreditation',
+          path: '/about/accreditation',
           icon: Users,
           description: 'Client success stories',
         },
@@ -254,13 +253,13 @@ const Navigation: React.FC = () => {
     if (itemId) {
       // Immediately show the dropdown
       setHoveredItem(itemId);
-      setActiveDropdown(null); // Reset submenu state
+      setActiveDropdown(null);
     } else {
-      // Add a small delay before closing
+      // Add a delay before closing
       hoverTimeoutRef.current = setTimeout(() => {
         setHoveredItem(null);
         setActiveDropdown(null);
-      }, 200);
+      }, 300);
     }
   };
 
@@ -276,7 +275,7 @@ const Navigation: React.FC = () => {
     } else {
       dropdownTimeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
-      }, 150);
+      }, 200);
     }
   };
 
@@ -292,29 +291,26 @@ const Navigation: React.FC = () => {
       return (
         <Link
           to={item.path || '#'}
-          className={`group flex items-center gap-3 px-4 py-3.5 text-sm transition-all duration-300 cursor-pointer rounded-xl mx-1 text-left relative overflow-hidden ${
+          className={`dropdown-item group flex items-center gap-3 px-5 py-4 text-base transition-all duration-300 cursor-pointer rounded-xl mx-2 text-left ${
             isActiveRoute(item.path || '')
-              ? 'bg-gradient-to-r from-pink-50/80 to-amber-50/80 text-pink-700 shadow-sm'
-              : 'text-slate-700 hover:text-pink-700'
+              ? 'bg-gradient-to-r from-pink-50/80 to-red-50/80 text-crimson-pink shadow-sm'
+              : 'text-charcoal-navy hover:text-crimson-pink hover:bg-gradient-to-r hover:from-gray-50/60 hover:to-pink-50/40'
           }`}
           onClick={closeMobileMenu}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
           {item.icon && (
-            <item.icon className="relative z-10 h-4 w-4 text-pink-600 group-hover:text-amber-500 group-hover:scale-110 transition-all duration-300" />
+            <item.icon className="h-5 w-5 text-crimson-pink group-hover:text-vivid-red group-hover:scale-110 transition-all duration-300" />
           )}
-          <div className="relative z-10 flex-1">
-            <div className="font-medium text-slate-800 group-hover:text-pink-700 transition-colors duration-300">
-              {item.label}
-            </div>
+          <div className="flex-1">
+            <div className="font-semibold">{item.label}</div>
             {item.description && (
-              <div className="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 leading-relaxed">
+              <div className="text-sm text-gray-500 mt-1 leading-relaxed">
                 {item.description}
               </div>
             )}
           </div>
           {item.badge && (
-            <span className="relative z-10 px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium shadow-sm border border-amber-200/50">
+            <span className="px-3 py-1.5 text-xs bg-gradient-to-r from-warm-amber/20 to-warm-amber/10 text-warm-amber border border-warm-amber/20 rounded-full font-semibold">
               {item.badge}
             </span>
           )}
@@ -330,49 +326,43 @@ const Navigation: React.FC = () => {
       >
         <Link
           to={item.path || '#'}
-          className="group flex items-center justify-between px-4 py-3.5 text-sm text-slate-700 hover:text-pink-700 transition-all duration-300 cursor-pointer rounded-xl mx-1 relative overflow-hidden"
+          className="dropdown-item group flex items-center justify-between px-5 py-4 text-base text-charcoal-navy hover:text-crimson-pink hover:bg-gradient-to-r hover:from-gray-50/60 hover:to-pink-50/40 transition-all duration-300 cursor-pointer rounded-xl mx-2"
           onClick={closeMobileMenu}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-          <div className="relative z-10 flex items-center gap-3">
+          <div className="flex items-center gap-3">
             {item.icon && (
-              <item.icon className="h-4 w-4 text-pink-600 group-hover:text-amber-500 group-hover:scale-110 transition-all duration-300" />
+              <item.icon className="h-5 w-5 text-crimson-pink group-hover:text-vivid-red group-hover:scale-110 transition-all duration-300" />
             )}
             <div className="flex-1 text-left">
-              <div className="font-medium text-slate-800 group-hover:text-pink-700 transition-colors duration-300">
-                {item.label}
-              </div>
+              <div className="font-semibold">{item.label}</div>
               {item.description && (
-                <div className="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 leading-relaxed">
+                <div className="text-sm text-gray-500 mt-1 leading-relaxed">
                   {item.description}
                 </div>
               )}
             </div>
             {item.badge && (
-              <span className="px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium mr-2 shadow-sm border border-amber-200/50">
+              <span className="px-3 py-1.5 text-xs bg-gradient-to-r from-warm-amber/20 to-warm-amber/10 text-warm-amber border border-warm-amber/20 rounded-full font-semibold mr-3">
                 {item.badge}
               </span>
             )}
           </div>
-          <ChevronRight className="relative z-10 h-4 w-4 text-slate-400 group-hover:text-amber-500 transition-all duration-300 group-hover:translate-x-1" />
+          <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-crimson-pink group-hover:translate-x-1 transition-all duration-300" />
         </Link>
 
         {hoveredSubItem === item.id && (
           <div
-            className="absolute left-full top-0 ml-2 w-72 bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 py-3 z-50"
+            className="absolute left-full top-0 ml-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100/50 py-3 z-50"
             style={{
               boxShadow:
-                '0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.2)',
-              animation: 'slideInRight 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.06)',
             }}
             onMouseEnter={() => onItemHover?.(item.id)}
             onMouseLeave={() => onItemHover?.(null)}
           >
-            <div className="p-2">
-              {item.children?.map((child) => (
-                <DropdownItem key={child.id} item={child} level={level + 1} />
-              ))}
-            </div>
+            {item.children?.map((child) => (
+              <DropdownItem key={child.id} item={child} level={level + 1} />
+            ))}
           </div>
         )}
       </div>
@@ -387,37 +377,32 @@ const Navigation: React.FC = () => {
     return (
       <div
         key={item.id}
-        className={`${level > 0 ? 'ml-6 border-l border-pink-100 pl-4' : ''}`}
+        className={`${level > 0 ? 'ml-6 border-l border-gray-200 pl-4' : ''}`}
       >
         <div className="flex items-center justify-between">
           {item.path ? (
             <Link
               to={item.path}
-              className={`flex-1 flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 group text-left relative overflow-hidden ${
+              className={`flex-1 flex items-center gap-3 px-5 py-4 rounded-xl transition-all duration-300 group text-left ${
                 isActive
-                  ? 'text-red-600 bg-gradient-to-r from-red-50/80 to-pink-50/80 font-medium shadow-sm'
-                  : 'text-pink-700 hover:text-red-500'
+                  ? 'text-crimson-pink bg-gradient-to-r from-pink-50/80 to-red-50/80 font-semibold'
+                  : 'text-charcoal-navy hover:text-crimson-pink hover:bg-gradient-to-r hover:from-gray-50/60 hover:to-pink-50/40'
               }`}
               onClick={closeMobileMenu}
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-r from-red-50/60 to-pink-50/60 rounded-xl transition-opacity duration-300 ${
-                  isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                }`}
-              ></div>
               {item.icon && (
-                <item.icon className="relative z-10 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+                <item.icon className="h-5 w-5 transition-all duration-300 group-hover:scale-110" />
               )}
-              <div className="relative z-10 text-left">
-                <div className="font-medium">{item.label}</div>
+              <div className="text-left">
+                <div className="font-semibold text-base">{item.label}</div>
                 {item.description && (
-                  <div className="text-sm text-slate-600 leading-relaxed mt-0.5">
+                  <div className="text-sm text-gray-600 mt-1 leading-relaxed">
                     {item.description}
                   </div>
                 )}
               </div>
               {item.badge && (
-                <span className="relative z-10 ml-auto px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium shadow-sm border border-amber-200/50">
+                <span className="ml-auto px-3 py-1.5 text-xs bg-gradient-to-r from-warm-amber/20 to-warm-amber/10 text-warm-amber border border-warm-amber/20 rounded-full font-semibold">
                   {item.badge}
                 </span>
               )}
@@ -425,22 +410,21 @@ const Navigation: React.FC = () => {
           ) : (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="flex-1 flex items-center gap-3 text-left px-4 py-3.5 text-pink-700 hover:text-red-500 hover:bg-gradient-to-r hover:from-red-50/60 hover:to-pink-50/60 rounded-xl transition-all duration-300 group relative overflow-hidden"
+              className="flex-1 flex items-center gap-3 text-left px-5 py-4 text-charcoal-navy hover:text-crimson-pink hover:bg-gradient-to-r hover:from-gray-50/60 hover:to-pink-50/40 rounded-xl transition-all duration-300 group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-red-50/60 to-pink-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               {item.icon && (
-                <item.icon className="relative z-10 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+                <item.icon className="h-5 w-5 transition-all duration-300 group-hover:scale-110" />
               )}
-              <div className="relative z-10 text-left">
-                <div className="font-medium">{item.label}</div>
+              <div className="text-left">
+                <div className="font-semibold text-base">{item.label}</div>
                 {item.description && (
-                  <div className="text-sm text-slate-600 leading-relaxed mt-0.5">
+                  <div className="text-sm text-gray-600 mt-1 leading-relaxed">
                     {item.description}
                   </div>
                 )}
               </div>
               {item.badge && (
-                <span className="relative z-10 ml-auto px-2.5 py-1 text-xs bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 rounded-full font-medium mr-2 shadow-sm border border-amber-200/50">
+                <span className="ml-auto px-3 py-1.5 text-xs bg-gradient-to-r from-warm-amber/20 to-warm-amber/10 text-warm-amber border border-warm-amber/20 rounded-full font-semibold mr-3">
                   {item.badge}
                 </span>
               )}
@@ -449,10 +433,10 @@ const Navigation: React.FC = () => {
           {hasChildren && (
             <button
               onClick={() => handleMobileItemToggle(item.id)}
-              className="p-3 text-pink-700 hover:text-red-500 hover:bg-gradient-to-r hover:from-red-50/60 hover:to-pink-50/60 rounded-lg transition-all duration-300"
+              className="p-3 text-charcoal-navy hover:text-crimson-pink hover:bg-gradient-to-r hover:from-gray-50/60 hover:to-pink-50/40 rounded-xl transition-all duration-300"
             >
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${
+                className={`h-4 w-4 transition-transform duration-200 ${
                   isExpanded ? 'rotate-180' : ''
                 }`}
               />
@@ -460,10 +444,7 @@ const Navigation: React.FC = () => {
           )}
         </div>
         {hasChildren && isExpanded && (
-          <div
-            className="mt-2 space-y-1"
-            style={{ animation: 'slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1)' }}
-          >
+          <div className="mt-2 space-y-1">
             {item.children?.map((child) => renderMobileItem(child, level + 1))}
           </div>
         )}
@@ -498,147 +479,122 @@ const Navigation: React.FC = () => {
   return (
     <>
       <style>{`
-        :root {
-          --crimson-pink: #ED2568;
-          --vivid-red: #EE343B;
-          --charcoal-navy: #1C1F2A;
-          --off-white: #F9F9F9;
-          --pure-white: #FFFFFF;
-          --soft-lavender-grey: #E5E6F0;
-          --warm-amber: #FFC857;
-        }
-
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(-15px) scale(0.96);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-          }
+        .nav-dropdown {
+          animation: dropdownSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-15px) scale(0.96);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
+        .nav-link {
+          position: relative;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px) scale(0.98);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        .nav-scrollbar::-webkit-scrollbar {
-          width: 6px;
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(135deg, var(--crimson-pink), var(--vivid-red));
+          border-radius: 1px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transform: translateX(-50%);
         }
         
-        .nav-scrollbar::-webkit-scrollbar-track {
-          background: linear-gradient(to bottom, var(--off-white), var(--soft-lavender-grey));
-          border-radius: 10px;
+        .nav-link.active::after {
+          width: 80%;
         }
         
-        .nav-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #cbd5e1, #94a3b8);
-          border-radius: 10px;
-          border: 1px solid var(--soft-lavender-grey);
+        .nav-link:hover::after {
+          width: 60%;
         }
         
-        .nav-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #94a3b8, #64748b);
+        .dropdown-item {
+          position: relative;
+          overflow: hidden;
         }
-
-        .glass-nav {
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        
+        .dropdown-item::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(237, 37, 104, 0.1), transparent);
+          transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dropdown-item:hover::before {
+          left: 100%;
         }
       `}</style>
 
       <nav
-        className={`sticky top-0 z-50 transition-all duration-500 ease-out ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'glass-nav shadow-xl shadow-slate-200/50'
-            : 'bg-white shadow-md shadow-slate-200/30'
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50'
+            : 'bg-white shadow-sm border-b border-gray-200/30'
         }`}
       >
-        <div className=" mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center h-20">
-            {/* Logo */}
+            {/* Logo - Left side */}
             <div className="flex items-center">
-              <Link to="/" className="flex items-center cursor-pointer">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4 overflow-hidden">
+              <Link to="/" className="flex items-center cursor-pointer group">
+                <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
                   <img
-                    src="/citrix_logo.png"
+                    src="/citrix-logo.png"
                     alt="Citrix Logo"
-                    className="w-full h-full object-cover"
+                    className="w-11 h-11 object-cover"
                   />
                 </div>
-                <div>
-                  <div className="text-slate-800 font-bold text-xl tracking-tight">
+                <div className="transition-all duration-300">
+                  <div className="text-charcoal-navy font-bold text-2xl tracking-tight group-hover:text-crimson-pink transition-colors duration-300">
                     Citrix Consulting
                   </div>
-                  <div className="text-slate-500 text-sm font-medium">
+                  <div className="text-gray-500 text-base font-medium">
                     Services Limited
                   </div>
                 </div>
               </Link>
             </div>
 
-            {/* Desktop Navigation - Right Aligned */}
-            <div className="hidden lg:flex items-center space-x-2">
-              {navigationStructure.map((item) => (
-                <div
-                  key={item.id}
-                  className="relative"
-                  onMouseEnter={() => handleMainItemHover(item.id)}
-                  onMouseLeave={() => handleMainItemHover(null)}
-                >
-                  {item.children ? (
-                    <div>
-                      <button
-                        className={`px-6 py-4 rounded-xl transition-all duration-300 flex items-center font-semibold relative overflow-hidden group text-sm ${
-                          location.pathname.startsWith(`/${item.id}`)
-                            ? 'text-red-600 bg-gradient-to-r from-red-50/60 to-pink-50/60 shadow-sm'
-                            : 'text-slate-700 hover:text-pink-700'
-                        }`}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                        <span className="relative z-10 flex items-center gap-2">
-                          {item.icon && (
-                            <item.icon className="h-4 w-4 group-hover:text-amber-500 transition-colors duration-300" />
-                          )}
-                          {item.label}
-                        </span>
-                        <ChevronDown className="relative z-10 ml-2 h-4 w-4 transition-all duration-300 group-hover:rotate-180 group-hover:text-amber-500" />
-                      </button>
-
-                      {hoveredItem === item.id && (
-                        <div
-                          className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 py-3 z-50"
-                          style={{
-                            boxShadow:
-                              '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.2)',
-                            animation:
-                              'fadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                          }}
-                          onMouseEnter={() => handleMainItemHover(item.id)}
-                          onMouseLeave={() => handleMainItemHover(null)}
+            {/* Desktop Navigation - Center */}
+            <div className="hidden lg:flex items-center justify-center flex-1 max-w-3xl mx-12">
+              <div className="flex items-center space-x-8">
+                {navigationStructure.map((item) => (
+                  <div
+                    key={item.id}
+                    className="relative"
+                    onMouseEnter={() => handleMainItemHover(item.id)}
+                    onMouseLeave={() => handleMainItemHover(null)}
+                  >
+                    {item.children ? (
+                      <div>
+                        <button
+                          className={`nav-link px-8 py-3 rounded-2xl transition-all duration-300 flex items-center font-medium text-base group ${
+                            location.pathname.startsWith(`/${item.id}`)
+                              ? 'active text-crimson-pink bg-gradient-to-r from-pink-50/50 to-red-50/50'
+                              : 'text-charcoal-navy hover:text-crimson-pink hover:bg-gradient-to-r hover:from-gray-50/80 hover:to-pink-50/30'
+                          }`}
                         >
-                          <div className="p-2">
+                          <span className="flex items-center gap-2">
+                            {item.label}
+                            <ChevronDown className="h-4 w-4 transition-all duration-300 group-hover:rotate-180" />
+                          </span>
+                        </button>
+
+                        {hoveredItem === item.id && (
+                          <div
+                            className="absolute top-full left-0 mt-3 w-96 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100/50 py-4 z-50 nav-dropdown"
+                            style={{
+                              boxShadow:
+                                '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.06)',
+                            }}
+                            onMouseEnter={() => handleMainItemHover(item.id)}
+                            onMouseLeave={() => handleMainItemHover(null)}
+                          >
                             {item.children?.map((child) => (
                               <DropdownItem
                                 key={child.id}
@@ -648,59 +604,35 @@ const Navigation: React.FC = () => {
                               />
                             ))}
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.path || '/'}
-                      className={`px-6 py-4 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden group flex items-center gap-2 text-sm ${
-                        isActiveRoute(item.path || '')
-                          ? 'text-red-600 bg-gradient-to-r from-red-50/60 to-pink-50/60 shadow-sm'
-                          : 'text-slate-700 hover:text-pink-700'
-                      }`}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-pink-50/60 to-amber-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                      <span className="relative z-10 flex items-center gap-2">
-                        {item.icon && (
-                          <item.icon className="h-4 w-4 group-hover:text-amber-500 transition-colors duration-300" />
                         )}
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.path || '/'}
+                        className={`nav-link px-8 py-3 rounded-2xl transition-all duration-300 font-medium flex items-center gap-2 text-base ${
+                          isActiveRoute(item.path || '')
+                            ? 'active text-crimson-pink bg-gradient-to-r from-pink-50/50 to-red-50/50'
+                            : 'text-charcoal-navy hover:text-crimson-pink hover:bg-gradient-to-r hover:from-gray-50/80 hover:to-pink-50/30'
+                        }`}
+                      >
                         {item.label}
-                      </span>
-                    </Link>
-                  )}
-                </div>
-              ))}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
 
+            {/* Login Button - Right side */}
+            <div className="hidden lg:flex items-center">
               <a
                 href="https://portal.sisqs.co.uk/admin/users/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-6"
               >
-                <Button
-                  className="px-8 py-3 font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-white"
-                  style={{
-                    background:
-                      'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)',
-                    boxShadow:
-                      '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      'linear-gradient(135deg, var(--vivid-red) 0%, var(--crimson-pink) 100%)';
-                    e.currentTarget.style.boxShadow =
-                      '0 20px 40px -10px rgba(237, 37, 104, 0.4), 0 15px 20px -8px rgba(238, 52, 59, 0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background =
-                      'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)';
-                    e.currentTarget.style.boxShadow =
-                      '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)';
-                  }}
-                >
+                <button className="bg-crimson-gradient hover:shadow-lg hover:shadow-crimson-pink/25 px-8 py-3.5 font-semibold rounded-2xl transition-all duration-300 text-white border-0 text-base hover:-translate-y-0.5 transform">
                   Login
-                </Button>
+                </button>
               </a>
             </div>
 
@@ -708,7 +640,7 @@ const Navigation: React.FC = () => {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="text-slate-700 hover:text-pink-700 transition-colors duration-300 p-2 rounded-xl hover:bg-gradient-to-r hover:from-pink-50/60 hover:to-amber-50/60"
+                className="text-charcoal-navy hover:text-crimson-pink transition-colors duration-300 p-3 rounded-xl hover:bg-gradient-to-r hover:from-gray-50/60 hover:to-pink-50/40"
                 aria-label="Toggle mobile menu"
               >
                 {isMobileOpen ? (
@@ -723,39 +655,19 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileOpen && (
-          <div
-            className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-slate-200/50"
-            style={{ animation: 'slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1)' }}
-          >
-            <div className="px-6 pt-4 pb-6 space-y-2 max-h-[80vh] overflow-y-auto nav-scrollbar">
+          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/50">
+            <div className="px-6 pt-6 pb-8 space-y-3 max-h-[80vh] overflow-y-auto">
               {navigationStructure.map((item) => renderMobileItem(item))}
-              <div className="pt-6 border-t border-slate-200/50">
+              <div className="pt-6 border-t border-gray-200/50">
                 <a
                   href="https://portal.sisqs.co.uk/admin/users/login"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block"
                 >
                   <button
-                    className="w-full font-semibold shadow-lg transition-all duration-300 py-4 rounded-xl text-white"
-                    style={{
-                      background:
-                        'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)',
-                      boxShadow:
-                        '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)',
-                    }}
+                    className="w-full font-semibold py-4 rounded-2xl bg-crimson-gradient hover:shadow-lg hover:shadow-crimson-pink/25 text-white transition-all duration-300 text-base transform hover:-translate-y-0.5"
                     onClick={closeMobileMenu}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background =
-                        'linear-gradient(135deg, var(--vivid-red) 0%, var(--crimson-pink) 100%)';
-                      e.currentTarget.style.boxShadow =
-                        '0 20px 40px -10px rgba(237, 37, 104, 0.4), 0 15px 20px -8px rgba(238, 52, 59, 0.2)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background =
-                        'linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%)';
-                      e.currentTarget.style.boxShadow =
-                        '0 10px 25px -5px rgba(237, 37, 104, 0.25), 0 8px 10px -6px rgba(238, 52, 59, 0.1)';
-                    }}
                   >
                     Login
                   </button>
