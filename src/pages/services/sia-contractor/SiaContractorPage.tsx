@@ -23,7 +23,8 @@ export default function SiaContractorPage() {
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/Cover1.jpg')",
+            backgroundImage: "url('/Images/services/Cover1_optimized.jpg')",
+            filter: 'brightness(0.5)',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal-navy/90 via-charcoal-navy/85 to-charcoal-navy/95 z-10"></div>
@@ -423,7 +424,7 @@ export default function SiaContractorPage() {
       <section
         className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

@@ -2,18 +2,18 @@
 import { OptimizedImage } from './OptimizedImage';
 
 const logos = [
-  '/Images/slider/2.png',
-  '/Images/slider/3.png',
-  '/Images/slider/4.png',
-  '/Images/slider/5.png',
-  '/Images/slider/6.png',
-  '/Images/slider/7.png',
-  '/Images/slider/8.png',
-  '/Images/slider/9.png',
-  '/Images/slider/10.png',
-  '/Images/slider/11.png',
-  '/Images/slider/12.png',
-  '/Images/slider/13.png',
+  '/Images/slider/2_optimized.png',
+  '/Images/slider/3_optimized.png',
+  '/Images/slider/4_optimized.png',
+  '/Images/slider/5_optimized.png',
+  '/Images/slider/6_optimized.png',
+  '/Images/slider/7_optimized.png',
+  '/Images/slider/8_optimized.png',
+  '/Images/slider/9_optimized.png',
+  '/Images/slider/10_optimized.png',
+  '/Images/slider/11_optimized.png',
+  '/Images/slider/12_optimized.png',
+  '/Images/slider/13_optimized.png',
 ];
 
 export default function LogoSlider() {

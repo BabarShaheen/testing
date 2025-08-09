@@ -76,7 +76,7 @@ export default function FireSafetyCertificationPage() {
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/fire-safety-cover.jpg')",
+            backgroundImage: "url('/Images/services/fire-safety-cover_optimized.jpg')",
             filter: 'brightness(0.4)',
           }}
         />
@@ -509,7 +509,7 @@ export default function FireSafetyCertificationPage() {
       <section
         className="py-20 bg-gradient-to-r from-charcoal-navy to-crimson-pink text-pure-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

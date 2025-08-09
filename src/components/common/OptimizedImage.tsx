@@ -9,6 +9,7 @@ interface OptimizedImageProps extends HTMLMotionProps<'img'> {
   priority?: boolean;
   background?: boolean;
   children?: React.ReactNode;
+  fallbackSrc?: string;
 }
 
 export function OptimizedImage({ 
@@ -19,16 +20,26 @@ export function OptimizedImage({
   priority = false, 
   background = false,
   children,
+  fallbackSrc,
   ...motionProps
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(priority);
   const [isInView, setIsInView] = useState(priority);
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Generate WebP source
+  // Generate optimized image sources
   const webpSrc = src.replace(/\.(jpg|jpeg|png)$/, '.webp');
+  const optimizedSrc = src.replace(/\.(jpg|jpeg|png)$/, '_optimized.$1');
   const isWebPSupported = typeof window !== 'undefined' && 'WebP' in window;
+
+  // Determine the best source to use
+  const getBestSource = () => {
+    if (hasError && fallbackSrc) return fallbackSrc;
+    if (isWebPSupported) return webpSrc;
+    return optimizedSrc || src;
+  };
 
   useEffect(() => {
     if (priority) return;
@@ -40,7 +51,7 @@ export function OptimizedImage({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.1, rootMargin: '100px' } // Increased rootMargin for earlier loading
     );
 
     if (containerRef.current) {
@@ -55,13 +66,16 @@ export function OptimizedImage({
     if (background && isInView) {
       const img = new Image();
       img.onload = () => setIsLoaded(true);
-      img.onerror = () => setIsLoaded(true);
-      img.src = isWebPSupported ? webpSrc : src;
+      img.onerror = () => {
+        setHasError(true);
+        setIsLoaded(true);
+      };
+      img.src = getBestSource();
     }
-  }, [background, isInView, src, webpSrc, isWebPSupported]);
+  }, [background, isInView, src, webpSrc, optimizedSrc, isWebPSupported, hasError, fallbackSrc]);
 
   if (background) {
-    const backgroundImage = isInView && isLoaded ? `url(${isWebPSupported ? webpSrc : src})` : 'none';
+    const backgroundImage = isInView && isLoaded ? `url(${getBestSource()})` : 'none';
     
     return (
       <motion.div 
@@ -77,7 +91,7 @@ export function OptimizedImage({
         {...motionProps}
       >
         {!isLoaded && (
-          <div className="absolute inset-0 bg-gray-200" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
         {children}
       </motion.div>
@@ -86,7 +100,11 @@ export function OptimizedImage({
 
   if (!isInView) {
     return (
-      <motion.div ref={containerRef} className={`${className} bg-gray-200`} {...motionProps}>
+      <motion.div 
+        ref={containerRef} 
+        className={`${className} bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse`} 
+        {...motionProps}
+      >
         {children}
       </motion.div>
     );
@@ -94,20 +112,23 @@ export function OptimizedImage({
 
   return (
     <motion.picture className={className} {...motionProps}>
-      {isWebPSupported && <source srcSet={webpSrc} type="image/webp" />}
+      {isWebPSupported && !hasError && <source srcSet={webpSrc} type="image/webp" />}
       <motion.img
         ref={imgRef}
-        src={src}
+        src={getBestSource()}
         alt={alt}
         className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         loading={priority ? "eager" : "lazy"}
         sizes={sizes}
         onLoad={() => setIsLoaded(true)}
-        onError={() => setIsLoaded(true)}
+        onError={() => {
+          setHasError(true);
+          setIsLoaded(true);
+        }}
         {...motionProps}
       />
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-200" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
       )}
     </motion.picture>
   );

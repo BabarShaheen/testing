@@ -531,7 +531,7 @@ export default function CareersPage() {
         <section
           className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

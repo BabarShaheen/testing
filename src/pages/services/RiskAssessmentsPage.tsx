@@ -43,7 +43,7 @@ export function RiskAssessmentsPage() {
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage:
-              "url('/Images/services/risk-assessment-cover.jpg')",
+              "url('/Images/services/risk-assessment-cover_optimized.jpg')",
             filter: 'brightness(0.5)',
           }}
         />
@@ -568,7 +568,7 @@ export function RiskAssessmentsPage() {
         <section
           className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

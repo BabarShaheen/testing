@@ -28,8 +28,8 @@ const AcsCompliancePage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/Cover2.jpg')",
-            filter: 'brightness(0.6)',
+            backgroundImage: "url('/Images/services/Cover2_optimized.jpg')",
+            filter: 'brightness(0.5)',
           }}
         />
 
@@ -450,7 +450,7 @@ const AcsCompliancePage = () => {
       <section
         className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

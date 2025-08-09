@@ -23,7 +23,7 @@ export function HomePage() {
   return (
     <div className="min-h-screen">
       <OptimizedImage
-        src="/bg-cover1.jpg"
+        src="/bg-cover1_optimized.jpg"
         alt="Hero Background"
         className="relative h-[90vh] w-full bg-cover bg-center bg-no-repeat text-white overflow-hidden"
         background
@@ -211,11 +211,10 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <OptimizedImage
-                      src="/Images/landingpage/health-safety.jpeg"
-                      alt="Health & Safety"
-                      className="w-full h-48 object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      src="/Images/landingpage/health-safety_optimized.jpeg"
+                      alt="Health and Safety"
+                      className="w-full h-64 object-cover rounded-xl shadow-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/20 to-transparent"
@@ -283,11 +282,10 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <OptimizedImage
-                      src="/Images/landingpage/ISO-9001-Certification.jpg"
-                      alt="ISO 9001"
-                      className="w-full h-48 object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      src="/Images/landingpage/ISO-9001-Certification_optimized.jpg"
+                      alt="ISO 9001 Certification"
+                      className="w-full h-64 object-cover rounded-xl shadow-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/20 to-transparent"
@@ -354,11 +352,10 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <OptimizedImage
-                      src="/Images/landingpage/sia.png"
-                      alt="SIA ACS"
-                      className="w-full h-48 object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      src="/Images/landingpage/sia_optimized.png"
+                      alt="SIA"
+                      className="w-full h-64 object-cover rounded-xl shadow-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/20 to-transparent"
@@ -425,11 +422,10 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <OptimizedImage
-                      src="/Images/landingpage/chas.jpg"
-                      alt="CHAS Assistance"
-                      className="w-full h-48 object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      src="/Images/landingpage/chas_optimized.jpg"
+                      alt="CHAS"
+                      className="w-full h-64 object-cover rounded-xl shadow-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/20 to-transparent"
@@ -497,11 +493,10 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <OptimizedImage
-                      src="/Images/landingpage/pat.png"
+                      src="/Images/landingpage/pat_optimized.png"
                       alt="PAT Testing"
-                      className="w-full h-48 object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      className="w-full h-64 object-cover rounded-xl shadow-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/20 to-transparent"
@@ -568,11 +563,10 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <OptimizedImage
-                      src="/Images/landingpage/risk.jpg"
-                      alt="Risk Assessments"
-                      className="w-full h-48 object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      src="/Images/landingpage/risk_optimized.jpg"
+                      alt="Risk Assessment"
+                      className="w-full h-64 object-cover rounded-xl shadow-lg"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-charcoal-navy/20 to-transparent"
@@ -672,8 +666,8 @@ export function HomePage() {
       </section>
 
       <OptimizedImage
-        src="/Images/landingpage/why-choose-us.jpg"
-        alt="Why Choose Us Background"
+        src="/Images/landingpage/why-choose-us_optimized.jpg"
+        alt="Why Choose Us"
         className="relative bg-fixed bg-cover bg-center bg-no-repeat py-24 overflow-hidden"
         background
       >
@@ -846,7 +840,7 @@ export function HomePage() {
       </OptimizedImage>
 
       <OptimizedImage
-        src="/Images/landingpage/get-started.jpg"
+        src="/Images/landingpage/get-started_optimized.jpg"
         alt="Get Started Background"
         className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
         background

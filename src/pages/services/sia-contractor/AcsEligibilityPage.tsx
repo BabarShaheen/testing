@@ -33,8 +33,8 @@ const AcsEligibilityPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/acs_elig.jpg')",
-            filter: 'brightness(0.6)',
+            backgroundImage: "url('/Images/services/acs_elig_optimized.jpg')",
+            filter: 'brightness(0.5)',
           }}
         />
 
@@ -385,7 +385,7 @@ const AcsEligibilityPage = () => {
       <section
         className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

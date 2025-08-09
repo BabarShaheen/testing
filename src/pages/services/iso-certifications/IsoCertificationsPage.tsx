@@ -55,7 +55,7 @@ export function IsoCertificationsPage() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
             style={{
-              backgroundImage: "url('/iso_cover.jpg')", // change path if needed
+              backgroundImage: "url('/iso_cover_optimized.jpg')", // change path if needed
               filter: 'brightness(0.6)',
             }}
           />
@@ -458,7 +458,7 @@ export function IsoCertificationsPage() {
       <section
         className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

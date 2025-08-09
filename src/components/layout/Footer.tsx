@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           <div className="animate-fade-in-up">
             <div className="flex items-center mb-3 sm:mb-4">
               <img
-                src="/citrix-logo.png"
+                src="/citrix-logo_optimized.png"
                 alt="Citrix Consulting Services"
                 className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 transition-transform duration-300 hover:rotate-12"
                 onError={(e) => {

@@ -33,7 +33,7 @@ const Iso9001Page = () => {
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/iso_9001.jpg')",
+            backgroundImage: "url('/Images/services/iso_9001_optimized.jpg')",
             filter: 'brightness(0.4)',
           }}
         />
@@ -499,7 +499,7 @@ const Iso9001Page = () => {
       <section
         className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

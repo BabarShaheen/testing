@@ -67,7 +67,7 @@ export function ChasAssistancePage() {
       {/* Hero Section - Redesigned */}
       <section
         className="relative min-h-screen bg-cover bg-center bg-fixed overflow-hidden"
-        style={{ backgroundImage: "url('/chas12.png')" }}
+        style={{ backgroundImage: "url('/chas12_optimized.png')" }}
       >
         {/* Enhanced overlay with gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal-navy/90 via-charcoal-navy/85 to-charcoal-navy/95"></div>
@@ -534,7 +534,7 @@ export function ChasAssistancePage() {
       <section
         className="py-20 bg-gradient-to-r from-charcoal-navy to-charcoal-navy text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

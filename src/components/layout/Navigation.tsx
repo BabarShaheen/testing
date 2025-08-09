@@ -545,7 +545,7 @@ const Navigation: React.FC = () => {
               <Link to="/" className="flex items-center cursor-pointer group">
                 <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
                   <OptimizedImage
-                    src="/citrix-logo.png"
+                    src="/citrix-logo_optimized.png"
                     alt="Citrix Logo"
                     className="w-11 h-11 object-cover"
                     priority
