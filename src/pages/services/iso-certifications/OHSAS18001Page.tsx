@@ -133,25 +133,25 @@ const OHSAS18001Page = () => {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-off-white to-soft-lavender-grey rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-crimson-pink flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     International standard
                   </span>
                 </div>
                 <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-off-white to-soft-lavender-grey rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-crimson-pink flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     Audit specification
                   </span>
                 </div>
                 <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-off-white to-soft-lavender-grey rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-crimson-pink flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     Comprehensive framework
                   </span>
                 </div>
                 <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-off-white to-soft-lavender-grey rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-crimson-pink flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     All industries
                   </span>
@@ -159,14 +159,14 @@ const OHSAS18001Page = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-green-500/20 rounded-2xl transform rotate-3 scale-105"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-crimson-pink/15 to-warm-amber/15 rounded-2xl transform rotate-3 scale-105"></div>
               <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
                 <h3 className="text-2xl font-bold text-charcoal-navy mb-4">
                   OHSAS 18000 Family
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-off-white to-soft-lavender-grey rounded-xl border-l-4 border-teal-500">
-                    <div className="flex-shrink-0 w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-off-white to-soft-lavender-grey rounded-xl border-l-4 border-crimson-pink">
+                    <div className="flex-shrink-0 w-8 h-8 bg-crimson-pink rounded-full flex items-center justify-center text-white">
                       <span className="text-white font-bold text-sm">1</span>
                     </div>
                     <div>
@@ -179,8 +179,8 @@ const OHSAS18001Page = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
-                    <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-off-white to-soft-lavender-grey rounded-xl border-l-4 border-vivid-red">
+                    <div className="flex-shrink-0 w-8 h-8 bg-vivid-red rounded-full flex items-center justify-center text-white">
                       <span className="text-white font-bold text-sm">2</span>
                     </div>
                     <div>
@@ -201,7 +201,7 @@ const OHSAS18001Page = () => {
       </section>
 
       {/* Why Seek Certification Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-br from-off-white to-soft-lavender-grey/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
@@ -221,11 +221,11 @@ const OHSAS18001Page = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
               <div className="flex items-start gap-4">
-                <div className="p-2 bg-gradient-to-br from-teal-100 to-green-100 rounded-lg group-hover:from-teal-500 group-hover:to-green-500 transition-all duration-300">
-                  <ShieldCheck className="h-6 w-6 text-teal-500 group-hover:text-white" />
+                <div className="p-2 bg-gradient-to-br from-crimson-pink/10 to-vivid-red/10 rounded-lg group-hover:from-crimson-pink group-hover:to-vivid-red transition-all duration-300">
+                  <ShieldCheck className="h-6 w-6 text-crimson-pink group-hover:text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-charcoal-navy mb-2 group-hover:text-teal-500 transition-colors">
+                  <h3 className="font-semibold text-charcoal-navy mb-2 group-hover:text-crimson-pink transition-colors">
                     Independent Validation
                   </h3>
                   <p className="text-gray-600 text-sm">
@@ -238,11 +238,11 @@ const OHSAS18001Page = () => {
 
             <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
               <div className="flex items-start gap-4">
-                <div className="p-2 bg-gradient-to-br from-blue-100 to-teal-100 rounded-lg group-hover:from-blue-500 group-hover:to-teal-500 transition-all duration-300">
-                  <CheckCircle className="h-6 w-6 text-blue-500 group-hover:text-white" />
+                <div className="p-2 bg-gradient-to-br from-crimson-pink/10 to-warm-amber/10 rounded-lg group-hover:from-crimson-pink group-hover:to-warm-amber transition-all duration-300">
+                  <CheckCircle className="h-6 w-6 text-warm-amber group-hover:text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-charcoal-navy mb-2 group-hover:text-blue-500 transition-colors">
+                  <h3 className="font-semibold text-charcoal-navy mb-2 group-hover:text-crimson-pink transition-colors">
                     Legislative Confidence
                   </h3>
                   <p className="text-gray-600 text-sm">
@@ -255,11 +255,11 @@ const OHSAS18001Page = () => {
 
             <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
               <div className="flex items-start gap-4">
-                <div className="p-2 bg-gradient-to-br from-green-100 to-blue-100 rounded-lg group-hover:from-green-500 group-hover:to-blue-500 transition-all duration-300">
-                  <TrendingUp className="h-6 w-6 text-green-500 group-hover:text-white" />
+                <div className="p-2 bg-gradient-to-br from-soft-lavender-grey/10 to-off-white rounded-lg group-hover:from-vivid-red group-hover:to-crimson-pink transition-all duration-300">
+                  <TrendingUp className="h-6 w-6 text-vivid-red group-hover:text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-charcoal-navy mb-2 group-hover:text-green-500 transition-colors">
+                  <h3 className="font-semibold text-charcoal-navy mb-2 group-hover:text-crimson-pink transition-colors">
                     Continuous Improvement
                   </h3>
                   <p className="text-gray-600 text-sm">
@@ -285,12 +285,12 @@ const OHSAS18001Page = () => {
                 {
                   benefit: 'Reduced Incidents',
                   percentage: '87%',
-                  color: 'from-blue-500 to-teal-500',
+                  color: 'from-warm-amber to-crimson-pink',
                 },
                 {
                   benefit: 'Improved Compliance',
                   percentage: '96%',
-                  color: 'from-green-500 to-blue-500',
+                  color: 'from-crimson-pink to-vivid-red',
                 },
                 {
                   benefit: 'Staff Confidence',
@@ -318,11 +318,11 @@ const OHSAS18001Page = () => {
       </section>
 
       {/* Implementation Process Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section className="py-16 bg-gradient-to-br from-off-white to-soft-lavender-grey/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                 <Settings className="h-8 w-8 text-white" />
               </div>
             </div>
@@ -344,7 +344,7 @@ const OHSAS18001Page = () => {
                   className="flex flex-col lg:flex-row items-center gap-8"
                 >
                   <div className="lg:w-1/3">
-                    <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-teal-500">
+                    <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-crimson-pink">
                       <div className="flex items-center gap-4 mb-3">
                         <div className="w-12 h-12 bg-gradient-to-br from-crimson-pink to-vivid-red text-white rounded-full flex items-center justify-center">
                           <IconComponent className="h-6 w-6" />
@@ -364,7 +364,7 @@ const OHSAS18001Page = () => {
                         {step.highlights.map((highlight, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-gradient-to-r from-off-white to-soft-lavender-grey text-teal-700 rounded-full text-sm font-medium border border-teal-200"
+                            className="px-3 py-1 bg-gradient-to-r from-off-white to-soft-lavender-grey text-crimson-pink rounded-full text-sm font-medium border border-crimson-pink/30"
                           >
                             {highlight}
                           </span>
@@ -381,7 +381,7 @@ const OHSAS18001Page = () => {
 
       {/* Assessment Process Section */}
       <section
-        className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
+        className="py-20 bg-gradient-to-r from-charcoal-navy to-charcoal-navy/95 text-white relative overflow-hidden"
         style={{
           backgroundImage: "url('/Images/services/assessment_optimized.jpg')",
           backgroundSize: 'cover',
@@ -459,9 +459,9 @@ const OHSAS18001Page = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-off-white to-soft-lavender-grey/50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <Users className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                    <Users className="h-6 w-6 text-crimson-pink mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal-navy mb-2">
                         Customer Satisfaction
@@ -474,9 +474,9 @@ const OHSAS18001Page = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-off-white to-soft-lavender-grey/50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <Briefcase className="h-6 w-6 text-teal-600 mt-1 flex-shrink-0" />
+                    <Briefcase className="h-6 w-6 text-warm-amber mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal-navy mb-2">
                         Industry Experience
@@ -489,9 +489,9 @@ const OHSAS18001Page = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-off-white to-soft-lavender-grey/50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <Target className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <Target className="h-6 w-6 text-vivid-red mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal-navy mb-2">
                         Practical Approach
@@ -503,9 +503,9 @@ const OHSAS18001Page = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-off-white to-soft-lavender-grey/50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-purple-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-crimson-pink mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-charcoal-navy mb-2">
                         Guaranteed Results
@@ -523,22 +523,22 @@ const OHSAS18001Page = () => {
             {/* Contact Sidebar */}
             <div className="space-y-6">
               {/* Success Rate Card */}
-              <div className="bg-gradient-to-br from-blue-50 to-teal-50 p-6 rounded-xl border border-blue-100 shadow-lg">
+              <div className="bg-gradient-to-br from-off-white to-soft-lavender-grey/50 p-6 rounded-xl border border-soft-lavender-grey shadow-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <TrendingUp className="w-6 h-6 text-blue-500" />
+                  <TrendingUp className="w-6 h-6 text-crimson-pink" />
                   <h3 className="text-xl font-semibold text-charcoal-navy">
                     Our Track Record
                   </h3>
                 </div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-blue-500 mb-2">
+                  <div className="text-5xl font-bold text-crimson-pink mb-2">
                     100%
                   </div>
                   <p className="text-gray-700 mb-4">
                     Success rate in achieving OHSAS 18001 certification
                   </p>
                   <div className="flex items-center justify-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <CheckCircle className="h-5 w-5 text-warm-amber" />
                     <span className="text-sm text-gray-600">
                       Guaranteed results
                     </span>
@@ -549,32 +549,32 @@ const OHSAS18001Page = () => {
               {/* Download Resources Card */}
               <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
                 <div className="flex items-center gap-3 mb-4">
-                  <Download className="w-6 h-6 text-green-500" />
+                  <Download className="w-6 h-6 text-crimson-pink" />
                   <h3 className="text-xl font-semibold text-charcoal-navy">
                     Free Resources
                   </h3>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <FileText className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                    <FileText className="w-4 h-4 text-crimson-pink mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700 text-sm">
                       Self-Assessment Questionnaire
                     </span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <FileText className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                    <FileText className="w-4 h-4 text-crimson-pink mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700 text-sm">
                       Implementation Guide
                     </span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <FileText className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                    <FileText className="w-4 h-4 text-crimson-pink mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700 text-sm">
                       Compliance Checklist
                     </span>
                   </div>
                 </div>
-                <button className="w-full mt-4 bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300">
+                <button className="w-full mt-4 bg-crimson-gradient text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300">
                   Download Resources
                 </button>
               </div>
@@ -585,7 +585,7 @@ const OHSAS18001Page = () => {
 
       {/* Final CTA Section */}
       <section
-        className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
+        className="py-20 bg-gradient-to-r from-charcoal-navy to-charcoal-navy/95 text-white relative overflow-hidden"
         style={{
           backgroundImage: "url('/Images/landingpage/get-started_optimized.jpg')",
           backgroundSize: 'cover',
@@ -624,13 +624,13 @@ const OHSAS18001Page = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-teal-400 mb-2">
+                <div className="text-3xl font-bold text-crimson-pink mb-2">
                   100%
                 </div>
                 <p className="text-gray-200">Success Rate</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-400 mb-2">
+                <div className="text-3xl font-bold text-warm-amber mb-2">
                   500+
                 </div>
                 <p className="text-gray-200">Clients Certified</p>
