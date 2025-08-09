@@ -28,9 +28,11 @@ export function HomePage() {
         className="relative h-[90vh] w-full bg-cover bg-center bg-no-repeat text-white overflow-hidden"
         background
         priority
+        flipBackground
+        backgroundPosition="right center"
       >
         {/* Enhanced Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-navy/90 via-charcoal-navy/70 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-charcoal-navy/70 to-charcoal-navy/90 z-10"></div>
 
         {/* Content - Left Aligned */}
         <div className="relative z-20 h-full flex items-center px-6 sm:px-12 lg:px-24">

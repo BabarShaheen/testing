@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, CSSProperties } from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
 interface OptimizedImageProps extends HTMLMotionProps<'img'> {
@@ -10,6 +10,9 @@ interface OptimizedImageProps extends HTMLMotionProps<'img'> {
   background?: boolean;
   children?: React.ReactNode;
   fallbackSrc?: string;
+  // New background-only options
+  flipBackground?: boolean;
+  backgroundPosition?: CSSProperties['backgroundPosition'];
 }
 
 export function OptimizedImage({ 
@@ -21,6 +24,8 @@ export function OptimizedImage({
   background = false,
   children,
   fallbackSrc,
+  flipBackground = false,
+  backgroundPosition,
   ...motionProps
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(priority);
@@ -69,25 +74,25 @@ export function OptimizedImage({
   }, [background, isInView, src, hasError, fallbackSrc]);
 
   if (background) {
-    const backgroundImage = isInView && isLoaded ? `url(${getBestSource()})` : 'none';
-    
+    const bgStyle: CSSProperties = {
+      backgroundImage: isInView && isLoaded ? `url(${getBestSource()})` : 'none',
+      backgroundSize: 'cover',
+      backgroundPosition: backgroundPosition || 'center',
+      backgroundRepeat: 'no-repeat',
+      transform: flipBackground ? 'scaleX(-1)' : undefined,
+      transformOrigin: flipBackground ? 'center' : undefined,
+      transition: 'background-image 0.3s ease-in-out',
+    };
+
     return (
-      <motion.div 
-        ref={containerRef}
-        className={`relative ${className}`}
-        style={{ 
-          backgroundImage,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          transition: 'background-image 0.3s ease-in-out'
-        }}
-        {...motionProps}
-      >
+      <motion.div ref={containerRef} className={`relative ${className}`} {...motionProps}>
+        {/* Background layer only */}
+        <div className="absolute inset-0" style={bgStyle} />
         {!isLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
-        {children}
+        {/* Foreground content should not be flipped */}
+        <div className="relative z-10">{children}</div>
       </motion.div>
     );
   }

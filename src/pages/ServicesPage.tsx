@@ -60,7 +60,7 @@ export function ServicesPage() {
       />
 
       {/* Services Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-br from-off-white via-pure-white to-soft-lavender-grey/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service) => {
@@ -80,7 +80,7 @@ export function ServicesPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-off-white via-pure-white to-soft-lavender-grey/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Additional Services"
@@ -116,12 +116,12 @@ export function ServicesPage() {
             ].map((additional, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
+                className="bg-pure-white p-6 rounded-lg shadow-sm border border-soft-lavender-grey"
               >
                 <h3 className="font-semibold text-crimson-pink mb-2">
                   {additional.name}
                 </h3>
-                <p className="text-gray-600 text-sm">{additional.desc}</p>
+                <p className="text-charcoal-navy/70 text-sm">{additional.desc}</p>
               </div>
             ))}
           </div>
