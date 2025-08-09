@@ -23,28 +23,19 @@ export function HeroSection({
   onSecondaryClick,
 }: UniqueHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-[#1C1F2A] text-white min-h-screen flex items-center">
-      {/* Background Wave SVG */}
-      <div className="absolute inset-0 z-0">
-        <svg
-          className="w-full h-full"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ED2568"
-            fillOpacity="0.2"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
+    <section className="relative overflow-hidden bg-gradient-to-br from-charcoal-navy to-charcoal-navy/95 text-white py-24">
+      {/* Decorative soft glows */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 -left-24 w-72 h-72 bg-crimson-pink/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-warm-amber/10 rounded-full blur-3xl" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-8 sm:px-16 lg:px-24 max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between">
+      <div className="relative z-10 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Left Content */}
-        <div className="max-w-xl space-y-6 text-left">
+        <div className="max-w-2xl space-y-6 text-left">
           {badge && (
-            <div className="inline-flex items-center px-4 py-1 bg-crimson-pink/10 text-crimson-pink rounded-full text-sm font-semibold tracking-wide shadow-md mb-2">
+            <div className="inline-flex items-center px-4 py-1 bg-crimson-pink/10 text-crimson-pink rounded-full text-sm font-semibold tracking-wide shadow-sm">
               <Sparkles className="w-4 h-4 mr-2" />
               {badge}
             </div>
@@ -56,18 +47,18 @@ export function HeroSection({
             </h4>
           )}
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
             {title}
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+          <p className="text-lg sm:text-xl text-off-white/80 leading-relaxed">
             {description}
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
             <Button
               onClick={onPrimaryClick}
-              className="bg-crimson-gradient text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
+              className="bg-crimson-gradient text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-crimson-pink/30 transition-all"
             >
               {primaryButtonText} <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -75,7 +66,7 @@ export function HeroSection({
               <Button
                 onClick={onSecondaryClick}
                 variant="outline"
-                className="border-white/30 text-white hover:text-crimson-pink hover:border-crimson-pink transition-all px-8 py-3 text-lg rounded-xl"
+                className="border-soft-lavender-grey/50 text-white hover:text-crimson-pink hover:border-crimson-pink transition-all px-8 py-3 text-lg rounded-xl"
               >
                 {secondaryButtonText}
               </Button>
@@ -84,13 +75,13 @@ export function HeroSection({
         </div>
 
         {/* Icon Row or Graphic */}
-        <div className="hidden lg:flex flex-col items-end justify-center gap-8">
+        <div className="hidden lg:flex flex-col items-end justify-center gap-6">
           {[BookOpen, Star, Search].map((Icon, i) => (
             <div
               key={i}
               className="p-4 bg-white/10 rounded-full border border-white/20 hover:bg-white/20 transition-all"
             >
-              <Icon className="w-6 h-6 text-pink-200" />
+              <Icon className="w-6 h-6 text-soft-lavender-grey" />
             </div>
           ))}
         </div>

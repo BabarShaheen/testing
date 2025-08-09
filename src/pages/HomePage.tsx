@@ -25,14 +25,14 @@ export function HomePage() {
       <OptimizedImage
         src="/bg-cover1_optimized.jpg"
         alt="Hero Background"
-        className="relative h-[90vh] w-full bg-cover bg-center bg-no-repeat text-white overflow-hidden"
+        className="relative h-[90vh] w-full text-white overflow-hidden"
         background
         priority
         flipBackground
         backgroundPosition="right center"
       >
         {/* Enhanced Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-charcoal-navy/70 to-charcoal-navy/90 z-10"></div>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-charcoal-navy/90 via-charcoal-navy/50 to-transparent z-10"></div>
 
         {/* Content - Left Aligned */}
         <div className="relative z-20 h-full flex items-center px-6 sm:px-12 lg:px-24">
@@ -844,31 +844,31 @@ export function HomePage() {
       <OptimizedImage
         src="/Images/landingpage/get-started_optimized.jpg"
         alt="Get Started Background"
-        className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
+        className="py-20 bg-gradient-to-r from-charcoal-navy to-crimson-pink text-white relative overflow-hidden"
         background
       >
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
             Ready to Get Started?
           </h2>
 
-          <p className="text-xl text-gray-100 max-w-4xl mx-auto mb-10">
+          <p className="text-xl text-off-white/90 max-w-4xl mx-auto mb-10">
             Contact our expert team today for a free consultation and discover
             how we can help your business achieve compliance excellence.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
-              className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+              className="bg-crimson-gradient text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
               onClick={() => handleNavClick('contact')}
             >
               Get Free Consultation
               <ArrowRight className="ml-2 h-5 w-5 inline transition-transform group-hover:translate-x-1" />
             </button>
             <button
-              className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white hover:text-charcoal-navy px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
               onClick={() => handleNavClick('services')}
             >
               View All Services
@@ -878,15 +878,11 @@ export function HomePage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-[#FFC857] mb-2">
-                  FREE
-                </div>
+                <div className="text-3xl font-bold text-warm-amber mb-2">FREE</div>
                 <p className="text-gray-200">Initial Consultation</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-[#ED2568] mb-2">
-                  24/7
-                </div>
+                <div className="text-3xl font-bold text-crimson-pink mb-2">24/7</div>
                 <p className="text-gray-200">Expert Support</p>
               </div>
               <div>
