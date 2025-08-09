@@ -29,16 +29,10 @@ export function OptimizedImage({
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Generate optimized image sources
-  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/, '.webp');
-  const optimizedSrc = src.replace(/\.(jpg|jpeg|png)$/, '_optimized.$1');
-  const isWebPSupported = typeof window !== 'undefined' && 'WebP' in window;
-
-  // Determine the best source to use
+  // Always use the original source for maximum reliability
   const getBestSource = () => {
     if (hasError && fallbackSrc) return fallbackSrc;
-    if (isWebPSupported) return webpSrc;
-    return optimizedSrc || src;
+    return src;
   };
 
   useEffect(() => {
@@ -51,7 +45,7 @@ export function OptimizedImage({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '100px' } // Increased rootMargin for earlier loading
+      { threshold: 0.1, rootMargin: '100px' }
     );
 
     if (containerRef.current) {
@@ -72,7 +66,7 @@ export function OptimizedImage({
       };
       img.src = getBestSource();
     }
-  }, [background, isInView, src, webpSrc, optimizedSrc, isWebPSupported, hasError, fallbackSrc]);
+  }, [background, isInView, src, hasError, fallbackSrc]);
 
   if (background) {
     const backgroundImage = isInView && isLoaded ? `url(${getBestSource()})` : 'none';
@@ -111,25 +105,19 @@ export function OptimizedImage({
   }
 
   return (
-    <motion.picture className={className} {...motionProps}>
-      {isWebPSupported && !hasError && <source srcSet={webpSrc} type="image/webp" />}
-      <motion.img
-        ref={imgRef}
-        src={getBestSource()}
-        alt={alt}
-        className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        loading={priority ? "eager" : "lazy"}
-        sizes={sizes}
-        onLoad={() => setIsLoaded(true)}
-        onError={() => {
-          setHasError(true);
-          setIsLoaded(true);
-        }}
-        {...motionProps}
-      />
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
-      )}
-    </motion.picture>
+    <motion.img
+      ref={imgRef}
+      src={getBestSource()}
+      alt={alt}
+      className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+      loading={priority ? "eager" : "lazy"}
+      sizes={sizes}
+      onLoad={() => setIsLoaded(true)}
+      onError={() => {
+        setHasError(true);
+        setIsLoaded(true);
+      }}
+      {...motionProps}
+    />
   );
 }

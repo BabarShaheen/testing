@@ -74,6 +74,7 @@ export default async function handler(request, response) {
   try {
     body = request.body && typeof request.body === 'object' ? request.body : await parseJson(request);
   } catch (err) {
+    console.error('JSON parse error:', err);
     return response.status(400).json({ error: 'Invalid JSON body' });
   }
 
@@ -100,7 +101,7 @@ export default async function handler(request, response) {
     const resend = new Resend(apiKey);
 
     // Send to admin
-    await resend.emails.send({
+    const adminEmailResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: [ADMIN_EMAIL],
       subject: `[Website] New contact from ${name}`,
@@ -109,17 +110,24 @@ export default async function handler(request, response) {
     });
 
     // Send confirmation to client
-    await resend.emails.send({
+    const clientEmailResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: [email],
       subject: 'We received your message — Citrix Consulting',
       html: buildClientHtml({ name, message }),
     });
 
-    return response.status(200).json({ ok: true });
+    console.log('Email send results:', { adminEmailResult, clientEmailResult });
+
+    return response.status(200).json({ ok: true, adminEmailResult, clientEmailResult });
   } catch (error) {
-    console.error('Email send error', error);
-    return response.status(500).json({ error: 'Failed to send email' });
+    console.error('Email send error:', error);
+    // Return a more detailed error for debugging
+    return response.status(500).json({ 
+      error: 'Failed to send email', 
+      details: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
   }
 }
 
