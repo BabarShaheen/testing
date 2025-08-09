@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Search,
   Settings,
@@ -14,7 +15,7 @@ import {
 
 export interface ProcessStep {
   id: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   title: string;
   description: string;
   color: string;
@@ -23,7 +24,7 @@ export interface ProcessStep {
 
 export interface Service {
   id: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   title: string;
   description: string;
   price: string;
@@ -32,14 +33,14 @@ export interface Service {
 }
 
 export interface Benefit {
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   title: string;
   description: string;
   bgColor: string;
 }
 
 export interface WhyChooseUs {
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   title: string;
   description: string;
 }

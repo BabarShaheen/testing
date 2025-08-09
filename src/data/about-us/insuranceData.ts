@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Shield,
   FileText,
@@ -19,7 +20,7 @@ export interface InsuranceCoverage {
   title: string;
   amount: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   features: string[];
   color: string;
 }
@@ -36,7 +37,7 @@ export interface CompanyInfo {
 export interface InsuranceBenefit {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   stats?: {
     value: string;
     label: string;
@@ -46,7 +47,7 @@ export interface InsuranceBenefit {
 export interface InsuranceService {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   bgColor: string;
   features: string[];
 }

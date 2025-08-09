@@ -44,14 +44,14 @@ export function HeroSection({
         {/* Left Content */}
         <div className="max-w-xl space-y-6 text-left">
           {badge && (
-            <div className="inline-flex items-center px-4 py-1 bg-pink-600/10 text-pink-300 rounded-full text-sm font-semibold tracking-wide shadow-md mb-2">
+            <div className="inline-flex items-center px-4 py-1 bg-crimson-pink/10 text-crimson-pink rounded-full text-sm font-semibold tracking-wide shadow-md mb-2">
               <Sparkles className="w-4 h-4 mr-2" />
               {badge}
             </div>
           )}
 
           {subtitle && (
-            <h4 className="text-pink-200 text-xl font-medium tracking-wide">
+            <h4 className="text-soft-lavender-grey text-xl font-medium tracking-wide">
               {subtitle}
             </h4>
           )}
@@ -67,7 +67,7 @@ export function HeroSection({
           <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
             <Button
               onClick={onPrimaryClick}
-              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
+              className="bg-crimson-gradient text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
             >
               {primaryButtonText} <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -75,7 +75,7 @@ export function HeroSection({
               <Button
                 onClick={onSecondaryClick}
                 variant="outline"
-                className="border-white/30 text-white hover:text-pink-300 hover:border-pink-300 transition-all px-8 py-3 text-lg rounded-xl"
+                className="border-white/30 text-white hover:text-crimson-pink hover:border-crimson-pink transition-all px-8 py-3 text-lg rounded-xl"
               >
                 {secondaryButtonText}
               </Button>

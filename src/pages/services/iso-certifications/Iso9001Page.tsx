@@ -28,7 +28,7 @@ const Iso9001Page = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+      <section className="min-h-screen relative flex items-center justify-center bg-charcoal-navy text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
@@ -40,9 +40,9 @@ const Iso9001Page = () => {
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+          <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-r from-crimson-pink/10 to-vivid-red/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-crimson-pink/10 to-warm-amber/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-charcoal-navy/5 to-crimson-pink/5 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
         {/* Content */}
@@ -53,13 +53,13 @@ const Iso9001Page = () => {
               ISO 9001
             </span>
             <br />
-            <span className="text-transparent bg-gradient-to-r from-teal-400 via-blue-400 to-purple-400 bg-clip-text">
+            <span className="text-gradient-crimson">
               Quality Management
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-2xl sm:text-3xl text-yellow-300 font-semibold">
+          <p className="text-2xl sm:text-3xl text-warm-amber font-semibold">
             Low Cost Certification with Guaranteed Results
           </p>
 
@@ -90,7 +90,7 @@ const Iso9001Page = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <button
-              className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red hover:from-vivid-red hover:to-crimson-pink text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
               onClick={handleConsultationClick}
             >
               Start Your Certification

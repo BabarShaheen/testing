@@ -32,7 +32,7 @@ const Iso14001Page = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+      <section className="min-h-screen relative flex items-center justify-center bg-charcoal-navy text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
@@ -44,9 +44,9 @@ const Iso14001Page = () => {
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-r from-green-500/10 to-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+          <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-r from-crimson-pink/10 to-vivid-red/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-crimson-pink/10 to-warm-amber/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-charcoal-navy/5 to-crimson-pink/5 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
         {/* Content */}
@@ -57,13 +57,13 @@ const Iso14001Page = () => {
               ISO 14001
             </span>
             <br />
-            <span className="text-transparent bg-gradient-to-r from-green-400 via-teal-400 to-blue-400 bg-clip-text">
+            <span className="text-gradient-crimson">
               Environmental Management
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-2xl sm:text-3xl text-green-300 font-semibold">
+          <p className="text-2xl sm:text-3xl text-warm-amber font-semibold">
             Low Cost Certification with Guaranteed Results
           </p>
 
@@ -90,7 +90,7 @@ const Iso14001Page = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <button
-              className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red hover:from-green-600 hover:to-teal-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
               onClick={handleConsultationClick}
             >
               Start Your Certification
@@ -107,15 +107,15 @@ const Iso14001Page = () => {
       </section>
 
       {/* What is ISO 14001 Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className="py-16 bg-gradient-to-br from-off-white to-soft-lavender-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                 <BookOpen className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               What is ISO 14001 Environmental Management?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -128,11 +128,11 @@ const Iso14001Page = () => {
             <div className="space-y-8">
               <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg group-hover:scale-110 transition-transform duration-300">
                     <Leaf className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-green-500 transition-colors">
+                    <h3 className="text-xl font-semibold text-charcoal-navy mb-3 group-hover:text-green-500 transition-colors">
                       Environmental Controls
                     </h3>
                     <p className="text-gray-700 leading-relaxed">
@@ -147,11 +147,11 @@ const Iso14001Page = () => {
 
               <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg group-hover:scale-110 transition-transform duration-300">
                     <Globe className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-teal-500 transition-colors">
+                    <h3 className="text-xl font-semibold text-charcoal-navy mb-3 group-hover:text-teal-500 transition-colors">
                       International Recognition
                     </h3>
                     <p className="text-gray-700 leading-relaxed">
@@ -170,11 +170,11 @@ const Iso14001Page = () => {
               <div className="relative z-10">
                 <div className="text-center mb-6">
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-gradient-to-br from-green-500 to-teal-500 rounded-full shadow-lg">
+                    <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-full shadow-lg">
                       <Leaf className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                  <h3 className="text-2xl font-bold text-charcoal-navy mb-4">
                     Environmental Focus Areas
                   </h3>
                 </div>
@@ -189,7 +189,7 @@ const Iso14001Page = () => {
                         <area.icon className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-800 text-sm">
+                        <h4 className="font-semibold text-charcoal-navy text-sm">
                           {area.title}
                         </h4>
                         <p className="text-gray-600 text-xs">{area.desc}</p>
@@ -209,10 +209,10 @@ const Iso14001Page = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                   <TrendingUp className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-4xl font-bold text-slate-800">
+                <h2 className="text-4xl font-bold text-charcoal-navy">
                   Benefits of ISO 14001
                 </h2>
               </div>
@@ -225,7 +225,7 @@ const Iso14001Page = () => {
                       <benefit.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-slate-800 mb-2">
+                      <h3 className="text-xl font-semibold text-charcoal-navy mb-2">
                         {benefit.title}
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
@@ -238,7 +238,7 @@ const Iso14001Page = () => {
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl border border-green-100 shadow-xl">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">
+              <h3 className="text-2xl font-bold text-charcoal-navy mb-6 text-center">
                 Environmental Impact Reduction
               </h3>
               <div className="space-y-4">
@@ -250,7 +250,7 @@ const Iso14001Page = () => {
                     <span className="text-gray-700 font-medium">
                       {item.metric}
                     </span>
-                    <div className="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-full shadow-sm">
+                    <div className="px-4 py-2 bg-gradient-to-r from-crimson-pink to-vivid-red rounded-full shadow-sm">
                       <span className="text-white font-bold text-sm">
                         ↓ {item.improvement}
                       </span>
@@ -337,7 +337,7 @@ const Iso14001Page = () => {
                   key={idx}
                   className="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-colors duration-300"
                 >
-                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
+                  <div className="w-10 h-10 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
                     <item.icon className="h-5 w-5 text-white" />
                   </div>
                   <h4 className="font-semibold text-white text-sm mb-2">
@@ -355,7 +355,7 @@ const Iso14001Page = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className="py-16 bg-gradient-to-br from-off-white to-soft-lavender-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
@@ -363,7 +363,7 @@ const Iso14001Page = () => {
                 <Star className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               Why Choose Our Environmental Consultancy?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -384,7 +384,7 @@ const Iso14001Page = () => {
                   >
                     <item.icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-green-500 transition-colors">
+                  <h3 className="text-xl font-bold text-charcoal-navy mb-3 group-hover:text-green-500 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed text-sm">
@@ -402,11 +402,11 @@ const Iso14001Page = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                 <Award className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               ISO 14001 Certification Process
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -427,7 +427,7 @@ const Iso14001Page = () => {
                   >
                     <step.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-green-500 transition-colors">
+                  <h3 className="text-2xl font-bold text-charcoal-navy mb-4 group-hover:text-green-500 transition-colors">
                     {step.title}
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
@@ -464,7 +464,7 @@ const Iso14001Page = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
-              className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red hover:from-green-600 hover:to-teal-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
               onClick={handleConsultationClick}
             >
               Start Your Environmental Journey

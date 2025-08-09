@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { OptimizedImage } from '../common/OptimizedImage';
 import {
   Menu,
   X,
@@ -543,10 +544,12 @@ const Navigation: React.FC = () => {
             <div className="flex items-center">
               <Link to="/" className="flex items-center cursor-pointer group">
                 <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-                  <img
+                  <OptimizedImage
                     src="/citrix-logo.png"
                     alt="Citrix Logo"
                     className="w-11 h-11 object-cover"
+                    priority
+                    sizes="44px"
                   />
                 </div>
                 <div className="transition-all duration-300">

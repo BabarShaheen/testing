@@ -4,9 +4,13 @@ import { whyChooseUsData } from '../data/whyChooseUsData';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { OptimizedImage } from '../components/common/OptimizedImage';
+
 
 export function HomePage() {
   const navigate = useNavigate();
+
+
 
   useEffect(() => {
     // Component mounted successfully
@@ -18,9 +22,12 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen">
-      <section
+      <OptimizedImage
+        src="/bg-cover1.jpg"
+        alt="Hero Background"
         className="relative h-[90vh] w-full bg-cover bg-center bg-no-repeat text-white overflow-hidden"
-        style={{ backgroundImage: "url('/bg-cover1.jpg')" }}
+        background
+        priority
       >
         {/* Enhanced Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal-navy/90 via-charcoal-navy/70 to-transparent z-10"></div>
@@ -101,7 +108,7 @@ export function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </OptimizedImage>
       {/* Services Preview - Framer Motion Version */}
       <section className="py-20 bg-gradient-to-br from-off-white via-pure-white to-soft-lavender-grey/30 relative overflow-hidden">
         {/* Background Decorative Elements */}
@@ -203,7 +210,7 @@ export function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.img
+                    <OptimizedImage
                       src="/Images/landingpage/health-safety.jpeg"
                       alt="Health & Safety"
                       className="w-full h-48 object-cover"
@@ -275,7 +282,7 @@ export function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.img
+                    <OptimizedImage
                       src="/Images/landingpage/ISO-9001-Certification.jpg"
                       alt="ISO 9001"
                       className="w-full h-48 object-cover"
@@ -346,7 +353,7 @@ export function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.img
+                    <OptimizedImage
                       src="/Images/landingpage/sia.png"
                       alt="SIA ACS"
                       className="w-full h-48 object-cover"
@@ -417,7 +424,7 @@ export function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.img
+                    <OptimizedImage
                       src="/Images/landingpage/chas.jpg"
                       alt="CHAS Assistance"
                       className="w-full h-48 object-cover"
@@ -489,7 +496,7 @@ export function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.img
+                    <OptimizedImage
                       src="/Images/landingpage/pat.png"
                       alt="PAT Testing"
                       className="w-full h-48 object-cover"
@@ -560,7 +567,7 @@ export function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.img
+                    <OptimizedImage
                       src="/Images/landingpage/risk.jpg"
                       alt="Risk Assessments"
                       className="w-full h-48 object-cover"
@@ -664,11 +671,11 @@ export function HomePage() {
         </div>
       </section>
 
-      <section
+      <OptimizedImage
+        src="/Images/landingpage/why-choose-us.jpg"
+        alt="Why Choose Us Background"
         className="relative bg-fixed bg-cover bg-center bg-no-repeat py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/Images/landingpage/why-choose-us.jpg')",
-        }}
+        background
       >
         {/* Enhanced gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal-navy/80 via-charcoal-navy/70 to-charcoal-navy/60"></div>
@@ -836,15 +843,13 @@ export function HomePage() {
             }}
           ></motion.div>
         </div>
-      </section>
+      </OptimizedImage>
 
-      <section
+      <OptimizedImage
+        src="/Images/landingpage/get-started.jpg"
+        alt="Get Started Background"
         className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
-        style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        background
       >
         <div className="absolute inset-0 bg-black/70"></div>
 
@@ -895,7 +900,7 @@ export function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </OptimizedImage>
     </div>
   );
 }

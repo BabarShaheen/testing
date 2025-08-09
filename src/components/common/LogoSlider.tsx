@@ -1,4 +1,6 @@
 // components/common/LogoSlider.tsx
+import { OptimizedImage } from './OptimizedImage';
+
 const logos = [
   '/Images/slider/2.png',
   '/Images/slider/3.png',
@@ -17,23 +19,27 @@ const logos = [
 export default function LogoSlider() {
   return (
     <div className="overflow-hidden py-5 bg-gray-50">
-      <div className=" animate-slide flex items-center gap-8">
+      <div className="animate-slide flex items-center gap-8">
         {logos.map((src, idx) => (
-          <img
+          <OptimizedImage
             key={idx}
             src={src}
             alt={`Logo ${idx + 1}`}
-            className="h-16 w-auto inline-block transition duration-300"
+            className="h-16 w-auto inline-block"
+            sizes="64px"
+            priority={idx < 6} // Prioritize first 6 logos
           />
         ))}
 
         {/* Duplicate logos for infinite loop feel */}
         {logos.map((src, idx) => (
-          <img
+          <OptimizedImage
             key={`dup-${idx}`}
             src={src}
             alt={`Logo duplicate ${idx + 1}`}
-            className="h-16 w-auto inline-block transition duration-30000"
+            className="h-16 w-auto inline-block"
+            sizes="64px"
+            priority={false}
           />
         ))}
       </div>

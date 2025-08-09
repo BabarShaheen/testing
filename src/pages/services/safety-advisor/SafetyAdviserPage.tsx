@@ -27,7 +27,7 @@ export function SafetyAdviserPage() {
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
+      <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-charcoal-navy text-white px-6 sm:px-12 lg:px-20">
         {/* Background Image Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -59,14 +59,14 @@ export function SafetyAdviserPage() {
           <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
             <button
               onClick={handleContactClick}
-              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
             >
               Book a Consultation
             </button>
 
             <button
               onClick={() => navigate('/services')}
-              className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all"
+              className="border border-white/30 text-white hover:text-crimson-pink hover:border-crimson-pink px-8 py-3 text-lg rounded-xl transition-all"
             >
               Explore More Services
             </button>
@@ -227,10 +227,10 @@ export function SafetyAdviserPage() {
                 >
                   {/* White overlay box */}
                   <div className="absolute bottom-0 left-0 right-0 bg-white/90 p-6 backdrop-blur-md">
-                    <div className="w-12 h-12 bg-[#ED2568] rounded-full flex items-center justify-center mb-4 text-white shadow-md">
+                    <div className="w-12 h-12 bg-crimson-pink rounded-full flex items-center justify-center mb-4 text-white shadow-md">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <h3 className="text-lg font-semibold text-[#1C1F2A] mb-1">
+                    <h3 className="text-lg font-semibold text-charcoal-navy mb-1">
                       {item.title}
                     </h3>
                     <p className="text-sm text-gray-700">{item.description}</p>
@@ -263,7 +263,7 @@ export function SafetyAdviserPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
-              className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+              className="bg-gradient-to-r from-warm-amber to-crimson-pink hover:from-crimson-pink hover:to-warm-amber text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
               onClick={handleContactClick}
             >
               Get Free Consultation
@@ -275,11 +275,11 @@ export function SafetyAdviserPage() {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
             <div className="grid md:grid-cols-4 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-orange mb-2">99%</div>
+                <div className="text-3xl font-bold text-warm-amber mb-2">99%</div>
                 <p className="text-gray-200">Client Satisfaction</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-teal-300 mb-2">
+                <div className="text-3xl font-bold text-crimson-pink mb-2">
                   250+
                 </div>
                 <p className="text-gray-200">Projects Completed</p>

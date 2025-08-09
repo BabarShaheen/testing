@@ -23,7 +23,7 @@ const SiaAcsPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+      <section className="min-h-screen relative flex items-center justify-center bg-charcoal-navy text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
@@ -35,8 +35,8 @@ const SiaAcsPage = () => {
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-pink-500/10 to-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-crimson-pink/10 to-warm-amber/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-crimson-pink/10 to-vivid-red/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         {/* Content */}
@@ -45,7 +45,7 @@ const SiaAcsPage = () => {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
             SIA ACS Approved
             <br />
-            <span className="text-transparent bg-gradient-to-r from-pink-400 via-red-400 to-orange-400 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-crimson-pink via-vivid-red to-warm-amber bg-clip-text">
               Contractor Scheme
             </span>
           </h1>
@@ -73,7 +73,7 @@ const SiaAcsPage = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <button
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red hover:from-vivid-red hover:to-crimson-pink text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
               onClick={handleConsultationClick}
             >
               Start Your ACS Journey
@@ -95,10 +95,10 @@ const SiaAcsPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                   <Building className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-800">
+                <h2 className="text-3xl font-bold text-charcoal-navy">
                   About the SIA ACS Scheme
                 </h2>
               </div>
@@ -106,7 +106,7 @@ const SiaAcsPage = () => {
                 The Security Industry Authority (SIA), established by the
                 Private Security Industry Act 2001, regulates the private
                 security industry across the UK. One of its key programs is the{' '}
-                <span className="font-semibold text-slate-800">
+                <span className="font-semibold text-charcoal-navy">
                   Approved Contractor Scheme (ACS)
                 </span>{' '}
                 — a voluntary program designed to raise performance standards
@@ -140,15 +140,15 @@ const SiaAcsPage = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-orange-500/20 rounded-2xl transform rotate-3 scale-105"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-crimson-pink/20 to-warm-amber/20 rounded-2xl transform rotate-3 scale-105"></div>
               <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                <h3 className="text-2xl font-bold text-charcoal-navy mb-4">
                   Key Statistics
                 </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Success Rate</span>
-                    <span className="text-2xl font-bold text-pink-500">
+                     <span className="text-2xl font-bold text-crimson-pink">
                       100%
                     </span>
                   </div>
@@ -176,11 +176,11 @@ const SiaAcsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               Why Become an Approved Contractor?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -196,11 +196,11 @@ const SiaAcsPage = () => {
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-gradient-to-br from-pink-100 to-red-100 rounded-lg group-hover:from-pink-500 group-hover:to-red-500 transition-all duration-300">
-                    <CheckCircle className="h-6 w-6 text-pink-500 group-hover:text-white" />
+                  <div className="p-2 bg-gradient-to-br from-crimson-pink/10 to-vivid-red/10 rounded-lg group-hover:from-crimson-pink group-hover:to-vivid-red transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-crimson-pink group-hover:text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-800 mb-2 group-hover:text-pink-500 transition-colors">
+                    <h3 className="font-semibold text-charcoal-navy mb-2 group-hover:text-crimson-pink transition-colors">
                       {benefit}
                     </h3>
                     <p className="text-gray-600 text-sm">
@@ -219,11 +219,11 @@ const SiaAcsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                 <Shield className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               What Services Are Eligible?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -235,14 +235,14 @@ const SiaAcsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {acsData.eligibleServices.map((service, index) => (
               <div key={index} className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-crimson-pink to-vivid-red rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                 <div className="relative bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-teal-500 transition-all duration-300 shadow-sm hover:shadow-lg">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-500 text-white rounded-full flex items-center justify-center text-lg font-bold flex-shrink-0">
+                    <div className="w-10 h-10 bg-gradient-to-br from-crimson-pink to-vivid-red text-white rounded-full flex items-center justify-center text-lg font-bold flex-shrink-0">
                       {index + 1}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-800 group-hover:text-teal-600 transition-colors">
+                      <h3 className="font-semibold text-charcoal-navy group-hover:text-teal-600 transition-colors">
                         {service}
                       </h3>
                       <p className="text-gray-600 text-sm">
@@ -262,11 +262,11 @@ const SiaAcsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-warm-amber to-vivid-red rounded-lg">
                 <Target className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               Our Approach to ACS Certification
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -284,10 +284,10 @@ const SiaAcsPage = () => {
                 <div className="lg:w-1/3">
                   <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-orange-500">
                     <div className="flex items-center gap-4 mb-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                      <div className="w-12 h-12 bg-gradient-to-br from-warm-amber to-vivid-red text-white rounded-full flex items-center justify-center text-xl font-bold">
                         {index + 1}
                       </div>
-                      <h3 className="text-xl font-bold text-slate-800">
+                      <h3 className="text-xl font-bold text-charcoal-navy">
                         {item.step}
                       </h3>
                     </div>
@@ -313,10 +313,10 @@ const SiaAcsPage = () => {
             {/* Why Choose Us */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-crimson-pink to-vivid-red rounded-lg">
                   <Star className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-800">
+                <h2 className="text-3xl font-bold text-charcoal-navy">
                   Why Choose Us for ACS Certification?
                 </h2>
               </div>
@@ -330,7 +330,7 @@ const SiaAcsPage = () => {
                     <div className="flex items-start gap-3">
                       <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h3 className="font-semibold text-slate-800 mb-2">
+                        <h3 className="font-semibold text-charcoal-navy mb-2">
                           {benefit}
                         </h3>
                         <p className="text-gray-600 text-sm">
@@ -349,7 +349,7 @@ const SiaAcsPage = () => {
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-xl border border-orange-100 shadow-lg">
                 <div className="flex items-center gap-3 mb-4">
                   <TrendingUp className="w-6 h-6 text-orange-500" />
-                  <h3 className="text-xl font-semibold text-slate-800">
+                  <h3 className="text-xl font-semibold text-charcoal-navy">
                     Our Success Rate
                   </h3>
                 </div>
@@ -373,7 +373,7 @@ const SiaAcsPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
                 <div className="flex items-center gap-3 mb-4">
                   <Award className="w-6 h-6 text-teal-500" />
-                  <h3 className="text-xl font-semibold text-slate-800">
+                  <h3 className="text-xl font-semibold text-charcoal-navy">
                     ACS Key Benefits
                   </h3>
                 </div>
@@ -415,7 +415,7 @@ const SiaAcsPage = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red hover:from-vivid-red hover:to-crimson-pink text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
               onClick={handleConsultationClick}
             >
               Start Your ACS Application
@@ -432,7 +432,7 @@ const SiaAcsPage = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-pink-400 mb-2">
+                <div className="text-3xl font-bold text-crimson-pink mb-2">
                   100%
                 </div>
                 <p className="text-gray-200">Success Rate</p>

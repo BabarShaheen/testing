@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/common/ScrollToTop';
 import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
+import { PerformanceMonitor } from './components/common/PerformanceMonitor';
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
 import { AboutPage } from './pages/AboutPage';
@@ -33,6 +34,7 @@ import FireSafetyCertificationPage from './pages/services/FireSafetyCertificatio
 export default function App() {
   return (
     <div className="min-h-screen bg-white">
+      <PerformanceMonitor />
       <Navigation />
       <ScrollToTop />
       <main>

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   FileText,
   Shield,
@@ -24,7 +25,7 @@ import {
 export interface PolicyDocument {
   id: string;
   name: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   category: string;
   description: string;
   compliance: string[];
@@ -33,7 +34,7 @@ export interface PolicyDocument {
 export interface PolicyService {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   bgColor: string;
   features: string[];
 }
@@ -41,7 +42,7 @@ export interface PolicyService {
 export interface PolicyBenefit {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   stats?: {
     value: string;
     label: string;

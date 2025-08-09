@@ -85,7 +85,7 @@ export function HealthSafetyPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal-navy text-white px-6 sm:px-12 lg:px-20">
         {/* Background Image Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -116,14 +116,14 @@ export function HealthSafetyPage() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
             <button
               onClick={handleContactClick}
-              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
             >
               Get Free Consultation
             </button>
 
             <button
               onClick={() => navigate('/services')}
-              className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all"
+              className="border border-white/30 text-white hover:text-crimson-pink hover:border-crimson-pink px-8 py-3 text-lg rounded-xl transition-all"
             >
               View Our Services
             </button>
@@ -133,7 +133,7 @@ export function HealthSafetyPage() {
 
       {/* Services Grid */}
       <section className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100 relative">
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-r from-crimson-pink/10 to-vivid-red/10 pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -153,9 +153,9 @@ export function HealthSafetyPage() {
                   key={service.id}
                   className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden"
                 >
-                  <div className="bg-gradient-to-br from-[#ED2568]/10 to-[#EE343B]/10 p-6 rounded-b-none flex items-center justify-center">
+                  <div className="bg-gradient-to-br from-crimson-pink/10 to-vivid-red/10 p-6 rounded-b-none flex items-center justify-center">
                     <div className="w-14 h-14 rounded-full bg-white shadow-lg flex items-center justify-center">
-                      <IconComponent className="w-6 h-6 text-[#ED2568]" />
+                      <IconComponent className="w-6 h-6 text-crimson-pink" />
                     </div>
                   </div>
 
@@ -174,14 +174,14 @@ export function HealthSafetyPage() {
 
                     <div className="pt-4 flex gap-4">
                       <button
-                        onClick={() => handleServiceClick(service as any)}
-                        className="text-sm font-medium text-[#ED2568] hover:underline"
+                        onClick={() => handleServiceClick(service.id)}
+                        className="text-sm font-medium text-crimson-pink hover:underline"
                       >
                         Learn More
                       </button>
                       <button
                         onClick={handleContactClick}
-                        className="text-sm font-medium text-white bg-[#ED2568] hover:bg-[#EE343B] px-4 py-2 rounded-lg transition-all"
+                        className="text-sm font-medium text-white bg-crimson-pink hover:bg-vivid-red px-4 py-2 rounded-lg transition-all"
                       >
                         Get a Quote
                       </button>

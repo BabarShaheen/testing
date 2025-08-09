@@ -1,9 +1,13 @@
-export { HeroSection } from './HeroSection';
-export { ServiceCard } from './ServiceCard';
 export { AccreditationCard } from './AccreditationCard';
 export { BenefitCard } from './BenefitCard';
-export { SectionHeader } from './SectionHeader';
 export { ContactCTA } from './ContactCTA';
-export { ServicePreviewCard } from './ServicePreviewCard';
+export { HeroSection } from './HeroSection';
 export { JobCard } from './JobCard';
-export { LoadingSpinner } from './LoadingSpinner'; 
+export { LoadingSpinner } from './LoadingSpinner';
+export { default as LogoSlider } from './LogoSlider';
+export { OptimizedImage } from './OptimizedImage';
+export { PerformanceMonitor } from './PerformanceMonitor';
+export { default as ScrollToTop } from './ScrollToTop';
+export { SectionHeader } from './SectionHeader';
+export { ServiceCard } from './ServiceCard';
+export { ServicePreviewCard } from './ServicePreviewCard'; 

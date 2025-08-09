@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Shield,
   CheckCircle,
@@ -14,7 +15,7 @@ import {
 } from 'lucide-react';
 
 export type BenefitItem = {
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   title: string;
   description: string;
   bgColor: string;
@@ -22,7 +23,7 @@ export type BenefitItem = {
 
 export type ApplianceItem = {
   name: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
 };
 
 export type TierItem = {

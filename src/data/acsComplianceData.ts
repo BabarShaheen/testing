@@ -1,4 +1,5 @@
 // data/siaComplianceData.ts
+import React from 'react';
 import {
   ClipboardCheck,
   FileText,
@@ -12,7 +13,7 @@ import {
 } from 'lucide-react';
 
 export type ServiceItem = {
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   title: string;
   description: string;
 };

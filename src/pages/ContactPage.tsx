@@ -26,22 +26,70 @@ export function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your message! We will contact you within 24 hours.');
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      service: '',
-      message: '',
-      consent: false,
-    });
+    setSubmitMessage(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || 'Failed to send message');
+      }
+      setSubmitMessage('Thank you! Your message has been sent. We will contact you within 24 hours.');
+      setShowModal(true);
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        service: '',
+        message: '',
+        consent: false,
+      });
+    } catch (err: any) {
+      setSubmitMessage(err?.message || 'Something went wrong while sending your message.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen">
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="relative z-10 w-full max-w-md mx-auto">
+            <div className="rounded-2xl shadow-2xl overflow-hidden">
+              <div className="bg-crimson-gradient p-6 text-pure-white">
+                <h3 className="text-xl font-bold">Message sent</h3>
+                <p className="text-pure-white/90 text-sm mt-1">
+                  We will contact you within 24 hours.
+                </p>
+              </div>
+              <div className="bg-white p-6">
+                <p className="text-charcoal-navy text-sm mb-6">
+                  A confirmation copy has been emailed to you.
+                </p>
+                <button
+                  className="w-full bg-crimson-gradient text-white py-2.5 rounded-xl font-semibold shadow hover:brightness-110 transition-all"
+                  onClick={() => setShowModal(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <HeroSection
         title="Contact Us"
         description="Get in touch with our expert team for a free consultation"
@@ -53,7 +101,7 @@ export function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-navy-blue mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-charcoal-navy mb-4 sm:mb-6">
                 Send us a Message
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
@@ -171,12 +219,20 @@ export function ContactPage() {
                         accordance with the privacy policy.
                       </Label>
                     </div>
-                    <Button
-                      type="submit"
-                      className="w-full bg-warm-amber hover:bg-warm-amber/90 text-white min-h-[44px] text-sm sm:text-base"
-                    >
-                      Send Message
-                    </Button>
+                    <div className="space-y-3">
+                      <Button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full bg-warm-amber hover:bg-warm-amber/90 text-white min-h-[44px] text-sm sm:text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                      >
+                        {submitting ? 'Sending…' : 'Send Message'}
+                      </Button>
+      {submitMessage && (
+        <p className="text-sm text-charcoal-navy" role="status">
+          {submitMessage}
+        </p>
+      )}
+                    </div>
                   </form>
                 </CardContent>
               </Card>
@@ -184,7 +240,7 @@ export function ContactPage() {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-navy-blue mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-charcoal-navy mb-4 sm:mb-6">
                 Get in Touch
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
@@ -198,7 +254,7 @@ export function ContactPage() {
                       <div className="flex items-start gap-3">
                         <Mail className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                          <h3 className="font-semibold text-charcoal-navy text-sm sm:text-base">
                             Email
                           </h3>
                           <p className="text-gray-600 text-sm sm:text-base">
@@ -209,7 +265,7 @@ export function ContactPage() {
                       <div className="flex items-start gap-3">
                         <Phone className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                          <h3 className="font-semibold text-charcoal-navy text-sm sm:text-base">
                             Phone
                           </h3>
                           <p className="text-gray-600 text-sm sm:text-base">
@@ -220,7 +276,7 @@ export function ContactPage() {
                       <div className="flex items-start gap-3">
                         <MapPin className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                          <h3 className="font-semibold text-charcoal-navy text-sm sm:text-base">
                             Address
                           </h3>
                           <p className="text-gray-600 text-sm sm:text-base">
@@ -231,7 +287,7 @@ export function ContactPage() {
                       <div className="flex items-start gap-3">
                         <Clock className="h-5 w-5 text-warm-amber mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-navy-blue text-sm sm:text-base">
+                          <h3 className="font-semibold text-charcoal-navy text-sm sm:text-base">
                             Business Hours
                           </h3>
                           <p className="text-gray-600 text-sm sm:text-base">
@@ -245,7 +301,7 @@ export function ContactPage() {
 
                 <Card className="border-none shadow-lg bg-soft-lavender-grey/5">
                   <CardContent className="p-4 sm:p-6">
-                    <h3 className="font-semibold text-navy-blue mb-3 text-sm sm:text-base">
+                    <h3 className="font-semibold text-charcoal-navy mb-3 text-sm sm:text-base">
                       Why Choose Us?
                     </h3>
                     <ul className="space-y-2 text-sm sm:text-base text-gray-600">

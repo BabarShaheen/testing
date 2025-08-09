@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Search,
   FileText,
@@ -18,7 +19,7 @@ import {
 export interface ImplementationStep {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   highlights: string[];
 }
 
@@ -26,7 +27,7 @@ export interface AssessmentPhase {
   phase: string;
   description: string;
   duration: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
 }
 
 export interface IntegratedSystem {
@@ -37,7 +38,7 @@ export interface IntegratedSystem {
 }
 
 export interface EnvironmentalArea {
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: string | number }>;
   title: string;
   desc: string;
 }

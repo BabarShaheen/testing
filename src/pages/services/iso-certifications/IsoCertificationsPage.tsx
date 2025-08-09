@@ -50,7 +50,7 @@ export function IsoCertificationsPage() {
   return (
     <div className="min-h-screen">
       <section className="min-h-screen">
-        <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
+        <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal-navy text-white px-6 sm:px-12 lg:px-20">
           {/* Background Image Layer */}
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -67,7 +67,7 @@ export function IsoCertificationsPage() {
             preserveAspectRatio="none"
           >
             <path
-              fill="#ED2568"
+              fill="var(--crimson-pink)"
               fillOpacity="0.25"
               d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
             />
@@ -76,7 +76,7 @@ export function IsoCertificationsPage() {
           {/* Content Layer */}
           <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
             {/* Badge */}
-            <div className="inline-block bg-pink-600/10 text-pink-300 font-semibold tracking-wide px-5 py-1.5 rounded-full text-sm shadow-md">
+            <div className="inline-block bg-crimson-pink/10 text-crimson-pink font-semibold tracking-wide px-5 py-1.5 rounded-full text-sm shadow-md">
               Certified Expertise
             </div>
 
@@ -96,14 +96,14 @@ export function IsoCertificationsPage() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
               <button
                 onClick={handleContactClick}
-                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
+                className="bg-gradient-to-r from-crimson-pink to-vivid-red text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all"
               >
                 Get Certified Now
               </button>
 
               <button
                 onClick={() => navigate('/services')}
-                className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all"
+                className="border border-white/30 text-white hover:text-crimson-pink hover:border-crimson-pink px-8 py-3 text-lg rounded-xl transition-all"
               >
                 View Other Services
               </button>

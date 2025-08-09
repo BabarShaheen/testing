@@ -227,7 +227,7 @@ export function ChasAssistancePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
               >
-                <div className="text-4xl font-extrabold text-pink-600 mb-2">
+                <div className="text-4xl font-extrabold text-crimson-pink mb-2">
                   {typeof stat.value === 'number' ? (
                     <AnimatedCounter
                       target={stat.value}
@@ -532,7 +532,7 @@ export function ChasAssistancePage() {
       </section>
       {/* Call to Action */}
       <section
-        className="py-20 bg-gradient-to-r from-teal-gradient-dark to-teal-gradient-light text-white relative overflow-hidden"
+        className="py-20 bg-gradient-to-r from-charcoal-navy to-charcoal-navy text-white relative overflow-hidden"
         style={{
           backgroundImage: "url('/Images/landingpage/get-started.jpg')",
           backgroundSize: 'cover',
@@ -558,7 +558,7 @@ export function ChasAssistancePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <button
               onClick={handleContactClick}
-              className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+              className="bg-gradient-to-r from-warm-amber to-crimson-pink hover:from-crimson-pink hover:to-warm-amber text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
             >
               Speak to an Advisor
               <ArrowRight className="ml-2 h-5 w-5 inline transition-transform group-hover:translate-x-1" />
