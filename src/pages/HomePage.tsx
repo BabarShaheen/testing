@@ -20,7 +20,7 @@ export function HomePage() {
     <div className="min-h-screen">
       <section
         className="relative h-[90vh] w-full bg-cover bg-center bg-no-repeat text-white overflow-hidden"
-        style={{ backgroundImage: "url('/bg-cover1.jpg')" }}
+        style={{ backgroundImage: "url('/test-cover1.webp')" }}
       >
         {/* Enhanced Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal-navy/90 via-charcoal-navy/70 to-transparent z-10"></div>

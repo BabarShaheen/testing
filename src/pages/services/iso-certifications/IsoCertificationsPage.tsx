@@ -13,28 +13,8 @@ import {
   isoCertifications,
   isoCertificationBenefits,
   certificationProcessSteps,
+  jointSystemBenefits,
 } from '../../../data/isoCertificationData';
-
-const jointSystemBenefits = [
-  {
-    system: 'ISO 9001',
-    focus: 'Quality Management',
-    integration: 'Document control, management review, corrective actions',
-    color: 'from-blue-500 to-blue-600',
-  },
-  {
-    system: 'ISO 14001',
-    focus: 'Environmental Management',
-    integration: 'Risk assessment, legal compliance, operational control',
-    color: 'from-green-500 to-green-600',
-  },
-  {
-    system: 'OHSAS 18001',
-    focus: 'Health & Safety Management',
-    integration: 'Hazard identification, incident investigation, training',
-    color: 'from-orange-500 to-orange-600',
-  },
-];
 
 export function IsoCertificationsPage() {
   const navigate = useNavigate();
@@ -60,26 +40,8 @@ export function IsoCertificationsPage() {
             }}
           />
 
-          {/* Wave Overlay */}
-          <svg
-            className="absolute bottom-0 left-0 w-full h-40 z-0"
-            viewBox="0 0 1440 320"
-            preserveAspectRatio="none"
-          >
-            <path
-              fill="#ED2568"
-              fillOpacity="0.25"
-              d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-            />
-          </svg>
-
           {/* Content Layer */}
           <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-            {/* Badge */}
-            <div className="inline-block bg-pink-600/10 text-pink-300 font-semibold tracking-wide px-5 py-1.5 rounded-full text-sm shadow-md">
-              Certified Expertise
-            </div>
-
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
               ISO Certifications
@@ -229,17 +191,13 @@ export function IsoCertificationsPage() {
           {/* Description & Benefits */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
             {/* Left Text Block */}
-            <div
-              className="space-y-6 text-gray-700 leading-relaxed animate-fade-right"
-              data-aos="fade-right"
-              data-aos-delay="200"
-            >
-              <p>
+            <div className="space-y-6 text-gray-700 leading-relaxed animate-fade-right">
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-4">
                 Raise standards for your staff and customers with a certificate
                 in health and safety best practice. BS OHSAS 18001 is the best
                 benchmark for occupational health and safety management.
               </p>
-              <p>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-4">
                 Achieve certification and you can prioritize staff welfare,
                 improve customer satisfaction, and give your company preferred
                 supplier status.

@@ -122,3 +122,24 @@ export const certificationProcessSteps = [
       'Receive your 3-year BS OHSAS 18001 certificate and ongoing improvement support from our client manager.',
   },
 ];
+
+export const jointSystemBenefits = [
+  {
+    system: 'ISO 9001',
+    focus: 'Quality Management',
+    integration: 'Document control, management review, corrective actions',
+    color: 'from-blue-500 to-blue-600',
+  },
+  {
+    system: 'ISO 14001',
+    focus: 'Environmental Management',
+    integration: 'Risk assessment, legal compliance, operational control',
+    color: 'from-green-500 to-green-600',
+  },
+  {
+    system: 'OHSAS 18001',
+    focus: 'Health & Safety Management',
+    integration: 'Hazard identification, incident investigation, training',
+    color: 'from-orange-500 to-orange-600',
+  },
+];
