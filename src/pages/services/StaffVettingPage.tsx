@@ -17,7 +17,6 @@ import {
   Star,
 } from 'lucide-react';
 
-// Mock data - replace with your actual data imports
 import {
   vettingFeatures,
   screeningRequirements,
@@ -52,34 +51,8 @@ const StaffVettingPage = () => {
           }}
         />
 
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-red-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#14B8A6"
-            fillOpacity="0.3"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
-
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
-          {/* Icon Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-              <ShieldCheck className="h-20 w-20 text-white" />
-            </div>
-          </div>
-
           {/* Title */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
             SIA BS7858
@@ -132,11 +105,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg">
-                <Lock className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               Why Professional Vetting Matters
             </h2>
@@ -240,11 +208,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               Screening Requirements by Role
             </h2>
@@ -319,11 +282,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               Balancing Rehabilitation with Responsibility
             </h2>
@@ -389,11 +347,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-gradient-to-br from-slate-50 to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               What Professional Screening Achieves
             </h2>
@@ -434,11 +387,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
-                <ClipboardList className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               Required Documentation
             </h2>
@@ -482,11 +430,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
-                <Search className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold mb-4">Our Screening Process</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               A systematic, thorough approach ensuring complete compliance and
@@ -541,11 +484,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg">
-                <ShieldCheck className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               Comprehensive Vetting Services
             </h2>
@@ -600,11 +538,6 @@ const StaffVettingPage = () => {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg">
-                <Award className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               Key Benefits of Professional Screening
             </h2>
@@ -811,12 +744,6 @@ const StaffVettingPage = () => {
         <div className="absolute inset-0 bg-black/70"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="flex justify-center mb-6">
-            <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-              <ShieldCheck className="h-16 w-16 text-white" />
-            </div>
-          </div>
-
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
             Secure Your Workforce Today
           </h2>

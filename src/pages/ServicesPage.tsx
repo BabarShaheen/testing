@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-
 import {
   CheckCircle,
   Shield,
@@ -53,26 +52,31 @@ export function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-off-white dark:bg-charcoal-navy text-charcoal-navy dark:text-off-white">
+      {/* Hero Section */}
       <HeroSection
         title="Our Services"
         description="Comprehensive compliance and safety solutions designed to help your business meet regulatory requirements and achieve operational excellence."
       />
 
       {/* Services Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-off-white dark:bg-charcoal-navy transition-colors-smooth">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service) => {
               const IconComponent = getIconComponent(service.iconName);
               return (
-                <ServiceCard
+                <div
                   key={service.id}
-                  {...service}
-                  iconComponent={IconComponent}
-                  onLearnMore={handleServiceClick}
-                  onGetQuote={handleContactClick}
-                />
+                  className="hover-lift hover-glow transition-all-smooth"
+                >
+                  <ServiceCard
+                    {...service}
+                    iconComponent={IconComponent}
+                    onLearnMore={handleServiceClick}
+                    onGetQuote={handleContactClick}
+                  />
+                </div>
               );
             })}
           </div>
@@ -80,14 +84,14 @@ export function ServicesPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-off-white dark:bg-charcoal-navy transition-colors-smooth">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Additional Services"
             description="We also provide specialized consulting services tailored to your specific industry needs"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {[
               {
                 name: 'Construction Safety',
@@ -116,24 +120,27 @@ export function ServicesPage() {
             ].map((additional, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
+                className="bg-white dark:bg-charcoal-navy border border-neutral-200 dark:border-neutral-700 rounded-lg p-6 shadow-sm hover-lift hover-glow transition-all-smooth"
               >
                 <h3 className="font-semibold text-crimson-pink mb-2">
                   {additional.name}
                 </h3>
-                <p className="text-gray-600 text-sm">{additional.desc}</p>
+                <p className="text-charcoal-navy/70 dark:text-off-white/70 text-sm">
+                  {additional.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Contact CTA */}
       <ContactCTA
         title="Need a Custom Solution?"
         description="Our expert team can create a tailored compliance solution specifically for your business needs."
         buttonText="Contact Us Today"
         onButtonClick={handleContactClick}
-        className="bg-crimson-gradient text-white relative overflow-hidden"
+        className="bg-gradient-to-r from-crimson-pink to-vivid-red text-white relative overflow-hidden"
       />
     </div>
   );

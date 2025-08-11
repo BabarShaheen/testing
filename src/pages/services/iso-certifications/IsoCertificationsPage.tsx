@@ -78,10 +78,11 @@ export function IsoCertificationsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-blue mb-4">
-              Our ISO Services
+            <h2 className="text-4xl font-bold tracking-tight mb-2 text-primary">
+              Our ISO <span className="text-gradient-crimson">Services</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Comprehensive ISO certification services designed to help your
               business achieve international standards.
             </p>

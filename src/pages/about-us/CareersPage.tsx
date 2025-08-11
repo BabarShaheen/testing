@@ -14,47 +14,12 @@ import {
   Briefcase,
 } from 'lucide-react';
 
-// Mock data - replace with actual imports
-const tasks = [
-  'Develop and execute marketing campaigns across digital and traditional channels',
-  'Create engaging content for social media, website, and marketing materials',
-  'Support event planning and coordination for client engagements',
-  'Assist with market research and competitor analysis',
-  'Manage marketing databases and CRM systems',
-  'Collaborate with the team to develop marketing strategies',
-  'Monitor and report on campaign performance and ROI',
-  'Support lead generation and client acquisition efforts',
-];
-
-const requirements = [
-  "Bachelor's degree in Marketing, Communications, or related field",
-  '1-2 years of marketing experience (internships count!)',
-  'Strong written and verbal communication skills',
-  'Proficiency in social media platforms and digital marketing tools',
-  'Basic knowledge of design software (Canva, Adobe Creative Suite)',
-  'Analytical mindset with attention to detail',
-  'Ability to work independently and as part of a team',
-  'Passion for marketing and eagerness to learn',
-];
-
-const benefits = [
-  'Competitive salary with performance-based bonuses',
-  '23 days annual leave plus bank holidays',
-  'Professional development and training opportunities',
-  'Flexible working arrangements',
-  'Health and wellness programs',
-  'Company pension scheme',
-  'Modern office environment in central London',
-  'Career progression opportunities in a growing company',
-];
-
-const values = [
-  'Inclusion and diversity at our core',
-  'People-first approach',
-  'Purpose-driven work',
-  'Innovation and creativity',
-  'Continuous learning and growth',
-];
+import {
+  tasks,
+  requirements,
+  benefits,
+  values,
+} from '../../data/about-us/careersData';
 
 export default function CareersPage() {
   const handleApplyClick = () => {
@@ -84,25 +49,6 @@ export default function CareersPage() {
             filter: 'brightness(0.4)',
           }}
         />
-
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#FFC857]/10 to-[#ED2568]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ED2568"
-            fillOpacity="0.3"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">

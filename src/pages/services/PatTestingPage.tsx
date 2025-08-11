@@ -41,7 +41,7 @@ const PatTestingPage = () => {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
             PAT Testing
             <br />
-            <span className="text-transparent bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#FFC857] bg-clip-text">
               Services
             </span>
           </h1>
@@ -89,11 +89,6 @@ const PatTestingPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-crimson-pink to-warm-amber rounded-lg">
-                <BookOpen className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               What is PAT Testing?
             </h2>
@@ -185,11 +180,6 @@ const PatTestingPage = () => {
       <section className="py-16 bg-gradient-to-br from-soft-lavender-grey/10 to-crimson-pink/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-crimson-pink to-warm-amber rounded-lg">
-                <Star className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               Benefits of PAT Testing
             </h2>
@@ -253,11 +243,6 @@ const PatTestingPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-crimson-pink to-warm-amber rounded-lg">
-                <Clipboard className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               PAT Testing Pricing
             </h2>
@@ -339,11 +324,6 @@ const PatTestingPage = () => {
       <section className="py-16 bg-gradient-to-br from-soft-lavender-grey/10 to-charcoal-navy/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-crimson-pink to-warm-amber rounded-lg">
-                <FileText className="h-8 w-8 text-white" />
-              </div>
-            </div>
             <h2 className="text-4xl font-bold text-charcoal-navy mb-4">
               LEGISLATION
             </h2>
