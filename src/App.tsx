@@ -9,7 +9,6 @@ import { ContactPage } from './pages/ContactPage';
 import SSIPAccreditationPage from './pages/about-us/AccreditationPage';
 import PoliciesPage from './pages/about-us/PoliciesPage';
 import { JobsPage } from './pages/JobsPage';
-import { ServiceDetailPage } from './pages/ServiceDetailPage';
 import { SafetyAdviserPage } from './pages/services/safety-advisor/SafetyAdviserPage';
 import { HealthSafetyPage } from './pages/services/safety-advisor/HealthSafetyPage';
 import { ChasAssistancePage } from './pages/services/safety-advisor/ChasAssistancePage';
@@ -54,10 +53,7 @@ export default function App() {
             path="/services/safety-advisor/health-safety"
             element={<HealthSafetyPage />}
           />
-          <Route
-            path="/services/safety-adviser/health-safety/accreditation-support"
-            element={<ServiceDetailPage />}
-          />
+
           <Route
             path="/services/safety-advisor/chas-assistance"
             element={<ChasAssistancePage />}
@@ -92,10 +88,7 @@ export default function App() {
             element={<Iso14001Page />}
           />
           <Route path="/iso-14001" element={<Iso14001Page />} />
-          <Route
-            path="/services/iso-certifications/iso-14001/certification"
-            element={<ServiceDetailPage />}
-          />
+
           <Route
             path="/services/iso-certifications/sia-acs-integration"
             element={<SiaAcsPage />}
@@ -103,10 +96,6 @@ export default function App() {
           <Route
             path="/services/iso-certifications/ohsas-18001"
             element={<OHSAS18001Page />}
-          />
-          <Route
-            path="/services/iso-certifications/ohsas-18001/certification"
-            element={<ServiceDetailPage />}
           />
 
           {/* Other Services Routes */}
@@ -126,24 +115,6 @@ export default function App() {
           <Route
             path="/services/bafe-certification"
             element={<BafeCertificationPage />}
-          />
-
-          {/* Health & Safety Specific Routes */}
-          <Route
-            path="/services/site-inspections"
-            element={<ServiceDetailPage />}
-          />
-          <Route
-            path="/services/fire-risk-assessment"
-            element={<ServiceDetailPage />}
-          />
-          <Route
-            path="/services/accident-investigations"
-            element={<ServiceDetailPage />}
-          />
-          <Route
-            path="/services/workplace-audits"
-            element={<ServiceDetailPage />}
           />
 
           {/* About Us Routes */}

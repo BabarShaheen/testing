@@ -10,7 +10,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
-import { SectionHeader, ServiceCard, ContactCTA } from '../components/common';
+import { SectionHeader, ServiceCard } from '../components/common';
 
 export function ServicesPage() {
   const navigate = useNavigate();

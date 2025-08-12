@@ -136,10 +136,19 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-1 sm:space-y-2">
               {[
-                { path: '/services/iso-certifications/iso-9001', name: 'ISO 9001 Certification' },
+                {
+                  path: '/services/iso-certifications/iso-9001',
+                  name: 'ISO 9001 Certification',
+                },
                 { path: '/about/accreditation', name: 'CHAS Accreditation' },
-                { path: '/services/risk-assessments', name: 'Fire Risk Assessment' },
-                { path: '/services/health-safety-consulting', name: 'Health & Safety' },
+                {
+                  path: '/services/risk-assessments',
+                  name: 'Fire Risk Assessment',
+                },
+                {
+                  path: '/services/health-safety-consulting',
+                  name: 'Health & Safety',
+                },
               ].map((service, index) => (
                 <li
                   key={service.path}
@@ -168,9 +177,12 @@ const Footer: React.FC = () => {
             </h3>
             <div className="space-y-2 sm:space-y-3">
               {[
-                { icon: Mail, text: 'info@citrixconsultinglimited.co.uk' },
+                { icon: Mail, text: 'info@citrix-consulting-limited.co.uk' },
                 { icon: Phone, text: '+44 20 8575 5544' },
-                { icon: MapPin, text: '272 Bath Street, Glasgow, Scotland, Middlesex G2 4JR' },
+                {
+                  icon: MapPin,
+                  text: '272 Bath Street, Glasgow, Scotland, Middlesex G2 4JR',
+                },
                 { icon: Clock, text: 'Mon-Fri: 9AM-6PM' },
               ].map((contact, index) => (
                 <div

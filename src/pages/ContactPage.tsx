@@ -33,27 +33,39 @@ export function ContactPage() {
     let error = '';
     if (name === 'name') {
       if (!value.trim()) error = 'Name is required';
-      else if (value.trim().length < 3) error = 'Name must be at least 3 characters';
-      else if (!/^[A-Za-z\s]+$/.test(value.trim())) error = 'Name can contain only letters and spaces';
+      else if (value.trim().length < 3)
+        error = 'Name must be at least 3 characters';
+      else if (!/^[A-Za-z\s]+$/.test(value.trim()))
+        error = 'Name can contain only letters and spaces';
     }
     if (name === 'email') {
       if (!value.trim()) error = 'Email is required';
-      else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value.trim())) error = 'Enter a valid email';
+      else if (
+        !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value.trim())
+      )
+        error = 'Enter a valid email';
     }
-    if (name === 'phone' && value.trim() && !/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(value.trim())) {
+    if (
+      name === 'phone' &&
+      value.trim() &&
+      !/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(value.trim())
+    ) {
       error = 'Enter a valid phone number';
     }
     if (name === 'message') {
       if (!value.trim()) error = 'Message is required';
-      else if (value.trim().length < 10) error = 'Message should be at least 10 characters';
+      else if (value.trim().length < 10)
+        error = 'Message should be at least 10 characters';
     }
     return error;
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     const error = validateField(name, value);
-    setErrors(prev => ({ ...prev, [name]: error }));
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleInputChange = (
@@ -88,15 +100,15 @@ export function ContactPage() {
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (
-      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email.trim())
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(
+        formData.email.trim()
+      )
     ) {
       newErrors.email = 'Enter a valid email address';
     }
     // Phone: optional, but if present must match pattern
     if (formData.phone.trim()) {
-      if (
-        !/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(formData.phone.trim())
-      ) {
+      if (!/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(formData.phone.trim())) {
         newErrors.phone = 'Enter a valid phone number';
       }
     }
@@ -163,8 +175,11 @@ export function ContactPage() {
   };
 
   const isFormValid =
-    Object.values(errors).every(e => !e) &&
-    formData.name && formData.email && formData.message && formData.consent;
+    Object.values(errors).every((e) => !e) &&
+    formData.name &&
+    formData.email &&
+    formData.message &&
+    formData.consent;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-off-white to-soft-lavender-grey/30">
@@ -263,34 +278,35 @@ export function ContactPage() {
         )}
       </AnimatePresence>
 
-{/* Hero Section */}
-<div className="relative bg-crimson-gradient text-center py-24 sm:py-32 overflow-hidden">
-  {/* Single subtle blurred circle in vivid red for depth */}
-  <div className="absolute -bottom-28 -right-28 w-96 h-96 rounded-full bg-vivid-red opacity-12 blur-3xl pointer-events-none"></div>
+      {/* Hero Section */}
+      <div className="relative bg-crimson-gradient text-center py-24 sm:py-32 overflow-hidden">
+        {/* Single subtle blurred circle in vivid red for depth */}
+        <div className="absolute -bottom-28 -right-28 w-96 h-96 rounded-full bg-vivid-red opacity-12 blur-3xl pointer-events-none"></div>
 
-  <h1 className="text-5xl sm:text-6xl font-extrabold text-pure-white mb-6 tracking-tight drop-shadow-[0_2px_8px_rgba(237,37,104,0.6)] animate-fade-in-up">
-    Contact Us
-  </h1>
-  <p className="text-xl sm:text-2xl text-pure-white/85 max-w-3xl mx-auto mb-16 font-light leading-relaxed animate-fade-in">
-    Get in touch with our expert team for a free consultation — we’re here to bring your vision to life with elegance and precision.
-  </p>
+        <h1 className="text-5xl sm:text-6xl font-extrabold text-pure-white mb-6 tracking-tight drop-shadow-[0_2px_8px_rgba(237,37,104,0.6)] animate-fade-in-up">
+          Contact Us
+        </h1>
+        <p className="text-xl sm:text-2xl text-pure-white/85 max-w-3xl mx-auto mb-16 font-light leading-relaxed animate-fade-in">
+          Get in touch with our expert team for a free consultation — we’re here
+          to bring your vision to life with elegance and precision.
+        </p>
 
-  {/* Decorative Wave with subtle smooth curve */}
-  <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none">
-    <svg
-      className="relative block w-full h-24"
-      viewBox="0 0 1440 120"
-      preserveAspectRatio="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill="#ffffff"
-        fillOpacity="1"
-        d="M0,96 C480,192 960,0 1440,96 L1440,120 L0,120 Z"
-      ></path>
-    </svg>
-  </div>
-</div>
+        {/* Decorative Wave with subtle smooth curve */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none">
+          <svg
+            className="relative block w-full h-24"
+            viewBox="0 0 1440 120"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#ffffff"
+              fillOpacity="1"
+              d="M0,96 C480,192 960,0 1440,96 L1440,120 L0,120 Z"
+            ></path>
+          </svg>
+        </div>
+      </div>
 
       {/* Contact Form and Info */}
       <section className="py-16 sm:py-20 bg-white">
@@ -347,7 +363,9 @@ export function ContactPage() {
                           autoComplete="name"
                         />
                         {errors.name && (
-                          <p className="text-xs text-red-500 mt-1">{errors.name}</p>
+                          <p className="text-xs text-red-500 mt-1">
+                            {errors.name}
+                          </p>
                         )}
                       </div>
                       <div className="space-y-2">
@@ -375,7 +393,9 @@ export function ContactPage() {
                           autoComplete="email"
                         />
                         {errors.email && (
-                          <p className="text-xs text-red-500 mt-1">{errors.email}</p>
+                          <p className="text-xs text-red-500 mt-1">
+                            {errors.email}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -424,7 +444,9 @@ export function ContactPage() {
                           autoComplete="tel"
                         />
                         {errors.phone && (
-                          <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+                          <p className="text-xs text-red-500 mt-1">
+                            {errors.phone}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -473,7 +495,9 @@ export function ContactPage() {
                         placeholder="Tell us about your requirements..."
                       />
                       {errors.message && (
-                        <p className="text-xs text-red-500 mt-1">{errors.message}</p>
+                        <p className="text-xs text-red-500 mt-1">
+                          {errors.message}
+                        </p>
                       )}
                     </div>
 
@@ -564,7 +588,7 @@ export function ContactPage() {
                             Email
                           </h3>
                           <p className="text-gray-600 text-base">
-                            info@citrixconsultinglimited.co.uk
+                            info@citrix-consulting-limited.co.uk
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             We typically respond within 2 hours
@@ -581,7 +605,8 @@ export function ContactPage() {
                             Phone
                           </h3>
                           <p className="text-gray-600 text-base">
-                            Phone: +44 20 8575 5544<br />
+                            Phone: +44 20 8575 5544
+                            <br />
                             Mobile: +44 7446 131 794
                           </p>
                           <p className="text-sm text-gray-500 mt-1">

@@ -1,5 +1,3 @@
-// ESM serverless function for Vercel
-// Sends a structured email to site admins and a confirmation copy to the client
 /* eslint-env node */
 import 'dotenv/config';
 import { Resend } from 'resend';
