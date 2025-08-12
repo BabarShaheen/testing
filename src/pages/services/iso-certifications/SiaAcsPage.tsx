@@ -10,16 +10,10 @@ import {
 } from 'lucide-react';
 
 import { acsData } from '../../../data/siaAcsData';
+import { useNavigate } from "react-router-dom";
 
 const SiaAcsPage = () => {
-  const handleContactClick = () => {
-    console.log('Navigate to contact');
-  };
-
-  const handleConsultationClick = () => {
-    console.log('Request ACS consultation');
-  };
-
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -28,16 +22,12 @@ const SiaAcsPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/siaapproved.jpg')",
+            backgroundImage: "url('/Images/services/siaapproved_optimized.webp')",
             filter: 'brightness(0.5)',
           }}
         />
 
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-pink-500/10 to-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
@@ -45,7 +35,7 @@ const SiaAcsPage = () => {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
             SIA ACS Approved
             <br />
-            <span className="text-transparent bg-gradient-to-r from-pink-400 via-red-400 to-orange-400 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#f57aa9] bg-clip-text">
               Contractor Scheme
             </span>
           </h1>
@@ -73,15 +63,15 @@ const SiaAcsPage = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <button
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-              onClick={handleConsultationClick}
+              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#d81e58] hover:to-[#d82329] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              onClick={() => navigate('/contact')}
             >
               Start Your ACS Journey
               <ArrowRight className="ml-2 h-5 w-5 inline" />
             </button>
             <button
               className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
-              onClick={handleContactClick}
+              onClick={() => navigate('/contact')}
             >
               Learn More
             </button>
@@ -95,7 +85,7 @@ const SiaAcsPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                   <Building className="h-8 w-8 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold text-slate-800">
@@ -113,26 +103,26 @@ const SiaAcsPage = () => {
                 and help buyers identify trusted private security providers.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-[#fce8ef] to-[#fff0f5] rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-[#ED2568] flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     Voluntary accreditation
                   </span>
                 </div>
-                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-[#fce8ef] to-[#fff0f5] rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-[#ED2568] flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     Annual assessments
                   </span>
                 </div>
-                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-[#fce8ef] to-[#fff0f5] rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-[#ED2568] flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     Quality standards
                   </span>
                 </div>
-                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                <div className="flex items-center gap-3 p-4 bg-gradient-to-br from-[#fce8ef] to-[#fff0f5] rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-[#ED2568] flex-shrink-0" />
                   <span className="text-gray-700 font-medium">
                     Industry recognition
                   </span>
@@ -148,19 +138,19 @@ const SiaAcsPage = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Success Rate</span>
-                    <span className="text-2xl font-bold text-pink-500">
+                    <span className="text-2xl font-bold text-[#ED2568]">
                       100%
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Clients Served</span>
-                    <span className="text-2xl font-bold text-orange-500">
+                    <span className="text-2xl font-bold text-[#f57aa9]">
                       500+
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Years Experience</span>
-                    <span className="text-2xl font-bold text-teal-500">
+                    <span className="text-2xl font-bold text-[#ED2568]">
                       15+
                     </span>
                   </div>
@@ -172,11 +162,11 @@ const SiaAcsPage = () => {
       </section>
 
       {/* Why Become Approved Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-br from-[#fce8ef] to-[#fff0f5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
             </div>
@@ -196,11 +186,11 @@ const SiaAcsPage = () => {
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-gradient-to-br from-pink-100 to-red-100 rounded-lg group-hover:from-pink-500 group-hover:to-red-500 transition-all duration-300">
-                    <CheckCircle className="h-6 w-6 text-pink-500 group-hover:text-white" />
+                  <div className="p-2 bg-gradient-to-br from-[#fce8ef] to-[#fff0f5] rounded-lg group-hover:from-[#ED2568] group-hover:to-[#EE343B] transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-[#ED2568] group-hover:text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-800 mb-2 group-hover:text-pink-500 transition-colors">
+                    <h3 className="font-semibold text-slate-800 mb-2 group-hover:text-[#ED2568] transition-colors">
                       {benefit}
                     </h3>
                     <p className="text-gray-600 text-sm">
@@ -219,7 +209,7 @@ const SiaAcsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                 <Shield className="h-8 w-8 text-white" />
               </div>
             </div>
@@ -235,14 +225,14 @@ const SiaAcsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {acsData.eligibleServices.map((service, index) => (
               <div key={index} className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div className="relative bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-teal-500 transition-all duration-300 shadow-sm hover:shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div className="relative bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-[#ED2568] transition-all duration-300 shadow-sm hover:shadow-lg">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-500 text-white rounded-full flex items-center justify-center text-lg font-bold flex-shrink-0">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#ED2568] to-[#EE343B] text-white rounded-full flex items-center justify-center text-lg font-bold flex-shrink-0">
                       {index + 1}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-800 group-hover:text-teal-600 transition-colors">
+                      <h3 className="font-semibold text-slate-800 group-hover:text-[#ED2568] transition-colors">
                         {service}
                       </h3>
                       <p className="text-gray-600 text-sm">
@@ -258,11 +248,11 @@ const SiaAcsPage = () => {
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section className="py-16 bg-gradient-to-br from-[#fce8ef] to-[#fff0f5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg">
+              <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                 <Target className="h-8 w-8 text-white" />
               </div>
             </div>
@@ -282,9 +272,9 @@ const SiaAcsPage = () => {
                 className="flex flex-col lg:flex-row items-center gap-8"
               >
                 <div className="lg:w-1/3">
-                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-orange-500">
+                  <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-[#ED2568]">
                     <div className="flex items-center gap-4 mb-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] text-white rounded-full flex items-center justify-center text-xl font-bold">
                         {index + 1}
                       </div>
                       <h3 className="text-xl font-bold text-slate-800">
@@ -313,7 +303,7 @@ const SiaAcsPage = () => {
             {/* Why Choose Us */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                   <Star className="h-8 w-8 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold text-slate-800">
@@ -325,10 +315,10 @@ const SiaAcsPage = () => {
                 {acsData.whyChooseUs.map((benefit, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300"
+                    className="bg-gradient-to-br from-[#fce8ef] to-[#fff0f5] p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                      <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
                       <div>
                         <h3 className="font-semibold text-slate-800 mb-2">
                           {benefit}
@@ -346,22 +336,22 @@ const SiaAcsPage = () => {
             {/* Contact Sidebar */}
             <div className="space-y-6">
               {/* Success Rate Card */}
-              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-xl border border-orange-100 shadow-lg">
+              <div className="bg-gradient-to-br from-[#fce8ef] to-[#fff0f5] p-6 rounded-xl border border-[#f57aa9] shadow-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <TrendingUp className="w-6 h-6 text-orange-500" />
+                  <TrendingUp className="w-6 h-6 text-[#ED2568]" />
                   <h3 className="text-xl font-semibold text-slate-800">
                     Our Success Rate
                   </h3>
                 </div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-orange-500 mb-2">
+                  <div className="text-5xl font-bold text-[#ED2568] mb-2">
                     100%
                   </div>
                   <p className="text-gray-700 mb-4">
                     Success rate in achieving ACS approval for our clients
                   </p>
                   <div className="flex items-center justify-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <CheckCircle className="h-5 w-5 text-[#ED2568]" />
                     <span className="text-sm text-gray-600">
                       Proven track record
                     </span>
@@ -372,7 +362,7 @@ const SiaAcsPage = () => {
               {/* Key Benefits Card */}
               <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
                 <div className="flex items-center gap-3 mb-4">
-                  <Award className="w-6 h-6 text-teal-500" />
+                  <Award className="w-6 h-6 text-[#ED2568]" />
                   <h3 className="text-xl font-semibold text-slate-800">
                     ACS Key Benefits
                   </h3>
@@ -380,7 +370,7 @@ const SiaAcsPage = () => {
                 <div className="space-y-3">
                   {acsData.acsKeyBenefits.map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-[#ED2568] mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{benefit}</span>
                     </div>
                   ))}
@@ -395,7 +385,7 @@ const SiaAcsPage = () => {
       <section
         className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -415,15 +405,15 @@ const SiaAcsPage = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-              onClick={handleConsultationClick}
+              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#d81e58] hover:to-[#d82329] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              onClick={() => navigate('/contact')}
             >
               Start Your ACS Application
               <ArrowRight className="ml-2 h-5 w-5 inline" />
             </button>
             <button
               className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-              onClick={handleContactClick}
+              onClick={() => navigate('/contact')}
             >
               Schedule Consultation
             </button>
@@ -432,19 +422,19 @@ const SiaAcsPage = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-pink-400 mb-2">
+                <div className="text-3xl font-bold text-[#f57aa9] mb-2">
                   100%
                 </div>
                 <p className="text-gray-200">Success Rate</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-orange-400 mb-2">
+                <div className="text-3xl font-bold text-[#ED2568] mb-2">
                   500+
                 </div>
                 <p className="text-gray-200">Clients Certified</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-teal-400 mb-2">15+</div>
+                <div className="text-3xl font-bold text-[#f57aa9] mb-2">15+</div>
                 <p className="text-gray-200">Years Experience</p>
               </div>
             </div>

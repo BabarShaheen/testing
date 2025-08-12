@@ -1,17 +1,17 @@
 // components/common/LogoSlider.tsx
 const logos = [
-  '/Images/slider/2.png',
-  '/Images/slider/3.png',
-  '/Images/slider/4.png',
-  '/Images/slider/5.png',
-  '/Images/slider/6.png',
-  '/Images/slider/7.png',
-  '/Images/slider/8.png',
-  '/Images/slider/9.png',
-  '/Images/slider/10.png',
-  '/Images/slider/11.png',
-  '/Images/slider/12.png',
-  '/Images/slider/13.png',
+  '/Images/slider/2_optimized.webp',
+  '/Images/slider/3_optimized.webp',
+  '/Images/slider/4_optimized.webp',
+  '/Images/slider/5_optimized.webp',
+  '/Images/slider/6_optimized.webp',
+  '/Images/slider/7_optimized.webp',
+  '/Images/slider/8_optimized.webp',
+  '/Images/slider/9_optimized.webp',
+  '/Images/slider/10_optimized.webp',
+  '/Images/slider/11_optimized.webp',
+  '/Images/slider/12_optimized.webp',
+  '/Images/slider/13_optimized.webp',
 ];
 
 export default function LogoSlider() {

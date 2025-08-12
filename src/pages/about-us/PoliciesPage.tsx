@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   CheckCircle,
   ArrowRight,
@@ -113,7 +114,7 @@ const policyServices = [
     description:
       'Regular review and updating of existing policies to ensure continued compliance and effectiveness.',
     icon: CheckCircle,
-    bgColor: 'bg-gradient-to-br from-[#FFC857] to-[#ED2568]',
+    bgColor: 'bg-gradient-to-br from-[#ED2568] to-[#EE343B]',
     features: [
       'Annual reviews',
       'Compliance updates',
@@ -139,7 +140,7 @@ const policyServices = [
     description:
       'Modern digital solutions for policy distribution, tracking, and management across your workforce.',
     icon: Globe,
-    bgColor: 'bg-gradient-to-br from-[#ED2568] to-[#FFC857]',
+    bgColor: 'bg-gradient-to-br from-[#ED2568] to-[#EE343B]',
     features: [
       'Online access',
       'Version control',
@@ -152,7 +153,7 @@ const policyServices = [
     description:
       'Ongoing monitoring and reporting to ensure your policies remain compliant with current legislation.',
     icon: TrendingUp,
-    bgColor: 'bg-gradient-to-br from-[#FFC857] to-[#EE343B]',
+    bgColor: 'bg-gradient-to-br from-[#ED2568] to-[#EE343B]',
     features: [
       'Regular audits',
       'Compliance reports',
@@ -165,7 +166,7 @@ const policyServices = [
     description:
       'Access to our team of health and safety experts for guidance and support with policy matters.',
     icon: Award,
-    bgColor: 'bg-gradient-to-br from-[#1C1F2A] to-[#FFC857]',
+    bgColor: 'bg-gradient-to-br from-[#1C1F2A] to-[#ED2568]',
     features: [
       'Expert advice',
       'Best practice guidance',
@@ -274,18 +275,24 @@ const policyPackages = [
 export default function PoliciesPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
+  // Route to /contact when called
   const handleContactClick = () => {
-    console.log('Navigate to contact');
+    navigate('/contact');
   };
 
+  // Route to /contact for consultation as well
   const handleConsultationClick = () => {
-    console.log('Request consultation');
+    navigate('/contact');
   };
 
-  const handleReadMore = () => {
+
+
+  // Scroll to available policy documents section smoothly
+  const handleScrollToPolicies = () => {
     document
-      .getElementById('main-content')
+      .getElementById('policy-section')
       ?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -306,22 +313,17 @@ export default function PoliciesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+      <section className="min-h-screen relative flex items-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/policies-cover.jpg')",
+            backgroundImage: "url('/Images/services/policies-cover_optimized.webp')",
             filter: 'brightness(0.5)',
           }}
         />
 
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#FFC857]/10 to-[#ED2568]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-
+    
         {/* Wave Overlay */}
         <svg
           className="absolute bottom-0 left-0 w-full h-40 z-0"
@@ -336,77 +338,45 @@ export default function PoliciesPage() {
         </svg>
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
-          {/* Icon Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-              <FileText className="h-20 w-20 text-white" />
-            </div>
-          </div>
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="space-y-8 text-center">
+            {/* Title */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-center">
+              Health & Safety
+              <br />
+              <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#ED2568] bg-clip-text">
+                Policies & Procedures
+              </span>
+            </h1>
 
-          {/* Title */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
-            Health & Safety
-            <br />
-            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#FFC857] bg-clip-text">
-              Policies & Procedures
-            </span>
-          </h1>
+            {/* Description */}
+            <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl leading-relaxed mx-auto text-center">
+              Comprehensive health and safety policies tailored to your business
+              needs, ensuring legal compliance and workplace protection with
+              professional implementation support.
+            </p>
 
-          {/* Description */}
-          <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive health and safety policies tailored to your business
-            needs, ensuring legal compliance and workplace protection with
-            professional implementation support.
-          </p>
-
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <FileText className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Custom Policies</h3>
-              <p className="text-gray-200 text-sm">Tailored Solutions</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Lock className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Legal Compliance</h3>
-              <p className="text-gray-200 text-sm">100% Compliant</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <BookOpen className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Implementation</h3>
-              <p className="text-gray-200 text-sm">Full Support</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <TrendingUp className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Regular Updates</h3>
-              <p className="text-gray-200 text-sm">Always Current</p>
-            </div>
-          </div>
-
-          {/* Badge and CTA */}
-          <div className="mt-12">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full text-white font-medium mb-6 shadow-lg">
-              <Globe className="h-5 w-5" />
-              <span>Nationwide Coverage</span>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleReadMore}
-              >
-                Explore Policies
-                <ArrowRight className="ml-2 h-5 w-5 inline" />
-              </button>
-              <button
-                className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
-                onClick={handleContactClick}
-              >
-                Get Quote
-              </button>
+            {/* Badge and CTA */}
+            <div className="mt-12">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full text-white font-medium mb-6 shadow-lg">
+                <Globe className="h-5 w-5" />
+                <span>Nationwide Coverage</span>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  onClick={handleScrollToPolicies}
+                >
+                  Explore Policies
+                  <ArrowRight className="ml-2 h-5 w-5 inline" />
+                </button>
+                <button
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
+                  onClick={handleContactClick}
+                >
+                  Get Quote
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -415,7 +385,7 @@ export default function PoliciesPage() {
       {/* Main Content */}
       <div id="main-content">
         {/* Policy Documents Section */}
-        <section className="py-16 bg-white">
+        <section id="policy-section" className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4">
@@ -505,11 +475,11 @@ export default function PoliciesPage() {
         <section className="py-16 bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
-                  <Target className="h-8 w-8 text-white" />
-                </div>
+            <div className="flex justify-center mb-4">
+              <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
+                <Target className="h-8 w-8 text-white" />
               </div>
+            </div>
               <h2 className="text-4xl font-bold text-[#1C1F2A] mb-4">
                 POLICY DEVELOPMENT SERVICES
               </h2>
@@ -662,7 +632,7 @@ export default function PoliciesPage() {
                   className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100"
                 >
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                       <benefit.icon className="h-7 w-7 text-white" />
                     </div>
                     <h3 className="text-xl font-semibold text-[#1C1F2A] mb-4 group-hover:text-[#ED2568] transition-colors">
@@ -799,7 +769,7 @@ export default function PoliciesPage() {
         <section
           className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -807,17 +777,13 @@ export default function PoliciesPage() {
           <div className="absolute inset-0 bg-black/70"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-                <FileText className="h-12 w-12 text-white" />
-              </div>
-            </div>
+            {/* Removed top logo/icon */}
 
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-center">
               Ready to Secure Your Policies?
             </h2>
 
-            <p className="text-xl text-gray-100 max-w-4xl mx-auto mb-10">
+            <p className="text-xl text-gray-100 max-w-4xl mx-auto mb-10 text-center">
               Contact us today for a free consultation and discover how our
               comprehensive policy development services can protect your
               business and ensure legal compliance.
@@ -825,25 +791,19 @@ export default function PoliciesPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <button
-                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
                 onClick={handleConsultationClick}
               >
                 Get Free Consultation
                 <Phone className="ml-2 h-5 w-5 inline" />
               </button>
-              <button
-                className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-                onClick={handleContactClick}
-              >
-                Download Brochure
-                <Download className="ml-2 h-5 w-5 inline" />
-              </button>
+            
             </div>
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-[#FFC857] mb-2">
+                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
                     £850
                   </div>
                   <p className="text-gray-200">Starting Price</p>

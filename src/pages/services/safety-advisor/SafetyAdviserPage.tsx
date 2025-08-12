@@ -32,7 +32,7 @@ export function SafetyAdviserPage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
           style={{
-            backgroundImage: "url('/Images/services/safety-advisor.jpg')",
+            backgroundImage: "url('/Images/services/safety-advisor_optimized.webp')",
             filter: 'brightness(0.6)',
             backgroundAttachment: 'fixed',
           }}
@@ -244,7 +244,7 @@ export function SafetyAdviserPage() {
       <section
         className="py-20 bg-gradient-to-r from-teal-gradient-dark to-teal-gradient-light text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')", // Replace with your own image path
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')", // Replace with your own image path
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

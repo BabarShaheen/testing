@@ -14,7 +14,7 @@ import {
   serviceItems,
   statsData,
 } from '../../../data/chasData';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -62,12 +62,20 @@ export function ChasAssistancePage() {
     navigate('/contact');
   };
 
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+
+  const handleLearnMoreClick = () => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section - Redesigned */}
       <section
         className="relative min-h-screen bg-cover bg-center bg-fixed overflow-hidden"
-        style={{ backgroundImage: "url('/chas12.png')" }}
+        style={{ backgroundImage: "url('/Images/services/chas12_optimized.webp')" }}
       >
         {/* Enhanced overlay with gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal-navy/90 via-charcoal-navy/85 to-charcoal-navy/95"></div>
@@ -129,7 +137,10 @@ export function ChasAssistancePage() {
                   </span>
                 </button>
 
-                <button className="border-2 border-pure-white/80 text-pure-white hover:bg-pure-white hover:text-charcoal-navy px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:backdrop-blur-none group">
+                <button
+                  onClick={handleLearnMoreClick}
+                  className="border-2 border-pure-white/80 text-pure-white hover:bg-pure-white hover:text-charcoal-navy px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:backdrop-blur-none group"
+                >
                   <span className="flex items-center justify-center gap-3">
                     Learn More
                     <ExternalLink className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
@@ -246,7 +257,7 @@ export function ChasAssistancePage() {
       </section>
 
       {/* About CHAS Section */}
-      <section className="py-6 bg-background text-foreground">
+      <section id="about-chas" ref={aboutRef} className="py-6 bg-background text-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
             {/* Left Column */}
@@ -534,7 +545,7 @@ export function ChasAssistancePage() {
       <section
         className="py-20 bg-gradient-to-r from-teal-gradient-dark to-teal-gradient-light text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

@@ -1,3 +1,4 @@
+// src/pages/services/BafeCertificationPage.tsx
 import {
   Shield,
   CheckCircle,
@@ -5,21 +6,16 @@ import {
   Settings,
   Star,
   Building,
-  ShieldCheck,
   UserCheck,
 } from 'lucide-react';
 import { consultancySteps, Benefits } from '../../data/bafeData';
 
 export default function BafeSP205Page() {
   const handleContactClick = () => {
-    console.log('Navigate to contact page');
+    window.location.href = '/contact';
   };
 
-  const handleReadMore = () => {
-    document
-      .getElementById('main-content')
-      ?.scrollIntoView({ behavior: 'smooth' });
-  };
+ 
 
   return (
     <div className="min-h-screen">
@@ -29,78 +25,64 @@ export default function BafeSP205Page() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
           style={{
-            backgroundImage: "url('/Images/services/life-safety.jpg')",
+            backgroundImage: "url('/Images/services/life-safety_optimized.webp')",
             filter: 'brightness(0.7)',
           }}
         />
-
-        {/* Wave Overlay */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-40 z-0"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ED2568"
-            fillOpacity="0.25"
-            d="M0,64L40,90.7C80,117,160,171,240,186.7C320,203,400,181,480,181.3C560,181,640,203,720,224C800,245,880,267,960,240C1040,213,1120,139,1200,106.7C1280,75,1360,85,1400,90.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-          />
-        </svg>
-
-        {/* Content Layer */}
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-block bg-pink-600/10 text-pink-300 font-semibold tracking-wide px-5 py-2 rounded-full text-sm shadow-md">
-            BAFE SP205 Certification
-          </div>
-
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
-            Life Safety Fire Risk Assessment Consultancy
-          </h1>
-
-          {/* Description */}
-          <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            If you are the Responsible Person (or Duty Holder in Scotland) you
-            hold the responsibility for the adequacy of your company's Fire Risk
-            Assessment by law, rather than the assessor themselves. To ensure
-            you are using a competent provider you should be using a BAFE
-            registered company.
-          </p>
-
-          {/* Info Box */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/20 shadow-lg">
-            <div className="flex items-center justify-center mb-6">
-              <Shield className="h-12 w-12 text-pink-300 mr-4" />
-              <h2 className="text-2xl font-bold">BAFE SP 205</h2>
+        {/* Content Layer: left-aligned layout, now with explicit flex for left/right columns */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-12">
+            {/* Left Column */}
+            <div className="flex flex-col justify-center text-left space-y-6 w-full lg:w-1/2">
+              {/* Title */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white" style={{textAlign: 'left'}}>
+                Life Safety{' '}
+                <span className="text-[#ED2568]">Fire Risk Assessment</span>{' '}
+                Consultancy
+              </h1>
+              {/* Paragraph */}
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed" style={{textAlign: 'left'}}>
+                If you are the Responsible Person (or Duty Holder in Scotland)
+                you hold the responsibility for the adequacy of your company's{' '}
+                <span className="text-[#ED2568] font-semibold">
+                  Fire Risk Assessment
+                </span>{' '}
+                by law, rather than the assessor themselves. To ensure you are
+                using a competent provider you should be using a BAFE registered
+                company.
+              </p>
+              {/* Industry Leading Training Badge/info */}
+              <div
+                className="inline-block bg-[#ED2568] text-white px-5 py-2 rounded-full font-semibold text-base shadow-md mb-2 w-fit"
+                style={{ textAlign: 'left' }}
+              >
+                Industry Leading Training
+              </div>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row justify-start items-center gap-4 pt-4">
+                <a
+                  className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all flex items-center border-0"
+                  style={{fontFamily: 'inherit', borderRadius: '0.75rem'}}
+                  onClick={() => document.getElementById('benefits-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  tabIndex={0}
+                  role="button"
+                >
+                  View Benefits
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+                <button
+                  className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all font-semibold shadow-lg"
+                  style={{fontFamily: 'inherit', borderRadius: '0.75rem'}}
+                  onClick={handleContactClick}
+                >
+                  Apply Now
+                </button>
+              </div>
             </div>
-            <p className="text-gray-100 leading-relaxed text-lg">
-              <strong>Life Safety Fire Risk Assessment SP205</strong> specifies
-              that organisations (including in-house departments and sole
-              traders) have the required technical and quality management
-              capabilities and risk assessment staff meet appropriate criteria.
-              The scheme has been designed to meet the requirements of fire risk
-              assessment providers large and small, recognising that there are
-              many individuals working as assessors.
-            </p>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-            <button
-              onClick={handleReadMore}
-              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all flex items-center"
-            >
-              Learn About Our Process
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-
-            <button
-              onClick={handleContactClick}
-              className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all"
-            >
-              Get Free Consultation
-            </button>
+            {/* Right Column (image/illustration placeholder) */}
+            <div className="flex justify-center items-center w-full lg:w-1/2 h-full" aria-hidden>
+              {/* Reserve space for hero image/illustration if needed */}
+            </div>
           </div>
         </div>
       </div>
@@ -270,7 +252,7 @@ export default function BafeSP205Page() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        <section id="benefits-section" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-[#1C1F2A] mb-6">
@@ -365,10 +347,11 @@ export default function BafeSP205Page() {
           </div>
         </section>
 
+        {/* Final CTA Section */}
         <section
           className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -378,13 +361,9 @@ export default function BafeSP205Page() {
 
           {/* Content */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="flex justify-center mb-6">
-              <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-                <ShieldCheck className="h-16 w-16 text-white" />
-              </div>
-            </div>
+            {/* removed the ShieldCheck icon here as requested */}
 
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-[#ED2568]">
               Ready to Achieve BAFE SP205 Certification?
             </h2>
 

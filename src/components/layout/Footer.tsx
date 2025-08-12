@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           <div className="animate-fade-in-up">
             <div className="flex items-center mb-3 sm:mb-4">
               <img
-                src="/citrix-logo.png"
+                src="/citrix-logo_optimized.webp"
                 alt="Citrix Consulting Services"
                 className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 transition-transform duration-300 hover:rotate-12"
                 onError={(e) => {
@@ -107,7 +107,6 @@ const Footer: React.FC = () => {
                 { path: '/', label: 'Home' },
                 { path: '/about', label: 'About Us' },
                 { path: '/services', label: 'Services' },
-                { path: '/testimonials', label: 'Testimonials' },
                 { path: '/contact', label: 'Contact' },
               ].map((link, index) => (
                 <li
@@ -137,18 +136,18 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-1 sm:space-y-2">
               {[
-                { id: 'iso-9001', name: 'ISO 9001 Certification' },
-                { id: 'chas-accreditation', name: 'CHAS Accreditation' },
-                { id: 'fire-risk-assessment', name: 'Fire Risk Assessment' },
-                { id: 'health-safety-consulting', name: 'Health & Safety' },
+                { path: '/services/iso-certifications/iso-9001', name: 'ISO 9001 Certification' },
+                { path: '/about/accreditation', name: 'CHAS Accreditation' },
+                { path: '/services/risk-assessments', name: 'Fire Risk Assessment' },
+                { path: '/services/health-safety-consulting', name: 'Health & Safety' },
               ].map((service, index) => (
                 <li
-                  key={service.id}
+                  key={service.path}
                   className="animate-fade-in-up"
                   style={{ animationDelay: `${0.3 + index * 0.05}s` }}
                 >
                   <Link
-                    to={`/services/${service.id}`}
+                    to={service.path}
                     className="text-gray-300 hover:text-white transition-all duration-300 text-left relative overflow-hidden group text-xs sm:text-sm"
                   >
                     <span className="relative z-10">{service.name}</span>
@@ -169,9 +168,9 @@ const Footer: React.FC = () => {
             </h3>
             <div className="space-y-2 sm:space-y-3">
               {[
-                { icon: Mail, text: 'info@citrixconsulting.co.uk' },
-                { icon: Phone, text: '+44 (0) 123 456 7890' },
-                { icon: MapPin, text: 'London, United Kingdom' },
+                { icon: Mail, text: 'info@citrixconsultinglimited.co.uk' },
+                { icon: Phone, text: '+44 20 8575 5544' },
+                { icon: MapPin, text: '272 Bath Street, Glasgow, Scotland, Middlesex G2 4JR' },
                 { icon: Clock, text: 'Mon-Fri: 9AM-6PM' },
               ].map((contact, index) => (
                 <div

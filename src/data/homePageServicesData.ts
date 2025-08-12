@@ -34,7 +34,7 @@ export const homePageServices: HomePageService[] = [
     title: 'SIA ACS Audit Support',
     description:
       'Full support for achieving Approved Contractor Scheme compliance in the security industry.',
-    imageSrc: '/Images/landingpage/sia.png',
+    imageSrc: '/Images/landingpage/sia_optimization.webp',
     imageAlt: 'SIA ACS',
     ctaText: 'Start Process',
     route: '/services/sia-contractor',
@@ -54,7 +54,7 @@ export const homePageServices: HomePageService[] = [
     title: 'PAT Testing',
     description:
       'Ensure workplace electrical safety with reliable, affordable PAT testing services.',
-    imageSrc: '/Images/landingpage/pat.png',
+    imageSrc: '/Images/landingpage/pat_optimized.webp',
     imageAlt: 'PAT Testing',
     ctaText: 'View Pricing',
     route: '/services/pat-testing',

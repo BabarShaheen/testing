@@ -4,14 +4,9 @@ import {
   ArrowRight,
   Shield,
   FileText,
-  ShieldCheck,
   AlertTriangle,
   UserCheck,
   UserX,
-  Target,
-  ClipboardList,
-  Search,
-  Lock,
   Clock,
   Award,
   Star,
@@ -25,74 +20,71 @@ import {
   screened,
   exempt,
   screeningprocess,
-  processingtime,
   advantages,
 } from '../../data/staffVettingData';
 
 const StaffVettingPage = () => {
   const handleContactClick = () => {
-    console.log('Navigate to contact');
+    window.location.href = '/contact';
   };
 
   const handleConsultationClick = () => {
-    console.log('Request consultation');
+    window.location.href = '/contact';
   };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+      <section className="min-h-screen relative flex items-center justify-start bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center z-0"
+          className="absolute inset-0 bg-cover bg-center z-0 transform scale-x-[-1]"
           style={{
-            backgroundImage: "url('/Images/services/BS7858_cover.jpg')",
+            backgroundImage: "url('/Images/services/BS7858_cover_optimized.webp')",
             filter: 'brightness(0.4)',
           }}
         />
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
+        <div className="relative z-10 max-w-6xl space-y-8">
           {/* Title */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-left">
             SIA BS7858
             <br />
-            <span className="text-transparent bg-gradient-to-r from-teal-400 via-blue-400 to-cyan-400 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-crimson-pink via-vivid-red to-vivid-red bg-clip-text text-left">
               Staff Vetting
             </span>
           </h1>
 
           {/* Description */}
-          <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive security personnel screening in full compliance with
-            British Standard 7858, ensuring trust, integrity, and professional
-            excellence.
+          <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl leading-relaxed text-left">
+            Comprehensive security personnel screening in full compliance with British Standard 7858, ensuring trust, integrity, and professional excellence.
           </p>
 
           {/* Feature Pills */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-              <span className="text-white font-medium">✓ BS7858 Compliant</span>
+          <div className="flex flex-wrap gap-4 mt-8">
+            <div className="bg-gradient-to-r from-crimson-pink via-vivid-red to-vivid-red text-white rounded-full px-6 py-3 border border-white/20">
+              <span className="font-medium">✓ BS7858 Compliant</span>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-              <span className="text-white font-medium">✓ SIA Approved</span>
+            <div className="bg-gradient-to-r from-crimson-pink via-vivid-red to-vivid-red text-white rounded-full px-6 py-3 border border-white/20">
+              <span className="font-medium">✓ SIA Approved</span>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-              <span className="text-white font-medium">✓ ACS Accredited</span>
+            <div className="bg-gradient-to-r from-crimson-pink via-vivid-red to-vivid-red text-white rounded-full px-6 py-3 border border-white/20">
+              <span className="font-medium">✓ ACS Accredited</span>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+          <div className="flex flex-col sm:flex-row gap-4 mt-10">
             <button
-              className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red hover:from-vivid-red hover:to-crimson-pink text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 text-left"
               onClick={handleConsultationClick}
             >
               Start Vetting Process
               <ArrowRight className="ml-2 h-5 w-5 inline" />
             </button>
             <button
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm text-left"
               onClick={handleContactClick}
             >
               Learn More
@@ -117,7 +109,7 @@ const StaffVettingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -133,7 +125,7 @@ const StaffVettingPage = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -149,7 +141,7 @@ const StaffVettingPage = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -166,10 +158,10 @@ const StaffVettingPage = () => {
             </div>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/20 rounded-2xl transform rotate-3 scale-105"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-red-600/20 rounded-2xl transform rotate-3 scale-105"></div>
               <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
                 <div className="text-center mb-6">
-                  <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg mb-4 inline-block">
+                <div className="p-3 bg-gradient-to-br from-red-500 to-red-600 rounded-lg mb-4 inline-block">
                     <FileText className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-800 mb-4">
@@ -177,7 +169,7 @@ const StaffVettingPage = () => {
                   </h3>
                 </div>
 
-                <blockquote className="text-gray-700 text-center italic border-l-4 border-teal-500 pl-6 mb-6 bg-gray-50 p-4 rounded-lg">
+                <blockquote className="text-gray-700 text-center italic border-l-4 border-red-500 pl-6 mb-6 bg-gray-50 p-4 rounded-lg">
                   "The organisation should not employ individuals whose career
                   or history indicates that they would be unlikely to resist
                   opportunities for illicit personal gain..."
@@ -186,14 +178,14 @@ const StaffVettingPage = () => {
                 <div className="space-y-3 mb-6">
                   {vettingpackage.map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3">
-                      <CheckCircle className="h-4 w-4 text-teal-500 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-red-500 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 <button
-                  className="w-full bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                   onClick={handleContactClick}
                 >
                   Get Your Customised Quote
@@ -205,7 +197,7 @@ const StaffVettingPage = () => {
       </section>
 
       {/* Screening Requirements Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
@@ -219,9 +211,9 @@ const StaffVettingPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Who Must Be Screened */}
-            <div className="bg-white p-8 rounded-2xl shadow-xl border-l-4 border-teal-500">
+            <div className="bg-white p-8 rounded-2xl shadow-xl border-l-4 border-red-500">
               <div className="text-center mb-8">
-                <div className="p-4 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full mb-4 inline-block">
+                <div className="p-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full mb-4 inline-block">
                   <UserCheck className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-2">
@@ -236,7 +228,7 @@ const StaffVettingPage = () => {
                 {screened.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-4 bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl hover:shadow-lg transition-all duration-300"
+                  className="p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-xl hover:shadow-lg transition-all duration-300"
                   >
                     <h4 className="font-semibold text-slate-800 mb-2">
                       {item.title}
@@ -266,7 +258,7 @@ const StaffVettingPage = () => {
                 {exempt.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-3 p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl hover:shadow-lg transition-all duration-300"
+                  className="flex items-center gap-3 p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl hover:shadow-lg transition-all duration-300"
                   >
                     <div className="w-3 h-3 bg-orange-500 rounded-full flex-shrink-0"></div>
                     <span className="text-gray-700">{item}</span>
@@ -292,9 +284,9 @@ const StaffVettingPage = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300">
+            <div className="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl shadow-lg border border-red-100 hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
-                <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mb-4 inline-block">
+                <div className="p-3 bg-gradient-to-br from-red-500 to-red-600 rounded-full mb-4 inline-block">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">
@@ -308,9 +300,9 @@ const StaffVettingPage = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl shadow-lg border border-yellow-100 hover:shadow-xl transition-all duration-300">
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl shadow-lg border border-orange-100 hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
-                <div className="p-3 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full mb-4 inline-block">
+                <div className="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-full mb-4 inline-block">
                   <AlertTriangle className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">
@@ -324,9 +316,9 @@ const StaffVettingPage = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300">
+            <div className="bg-gradient-to-br from-red-100 to-red-200 p-8 rounded-2xl shadow-lg border border-red-200 hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
-                <div className="p-3 bg-gradient-to-br from-green-500 to-teal-500 rounded-full mb-4 inline-block">
+                <div className="p-3 bg-gradient-to-br from-red-600 to-red-700 rounded-full mb-4 inline-block">
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">
@@ -366,10 +358,10 @@ const StaffVettingPage = () => {
                   className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2"
                 >
                   <div className="text-center mb-4">
-                    <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full mb-4 inline-block group-hover:from-pink-500 group-hover:to-red-500 transition-all duration-300">
+                    <div className="p-3 bg-gradient-to-br from-red-500 to-red-600 rounded-full mb-4 inline-block group-hover:from-red-600 group-hover:to-red-700 transition-all duration-300">
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-slate-800 mb-2 group-hover:text-pink-500 transition-colors">
+                    <h3 className="font-bold text-slate-800 mb-2 group-hover:text-red-600 transition-colors">
                       {achievement.title}
                     </h3>
                   </div>
@@ -402,14 +394,14 @@ const StaffVettingPage = () => {
               return (
                 <div
                   key={idx}
-                  className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                  className="bg-gradient-to-br from-gray-50 to-red-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full flex items-center justify-center group-hover:from-pink-500 group-hover:to-red-500 transition-all duration-300">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center group-hover:from-red-600 group-hover:to-red-700 transition-all duration-300">
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-3">
                         <span className="text-white font-bold text-sm">
                           {idx + 1}
                         </span>
@@ -452,30 +444,53 @@ const StaffVettingPage = () => {
               ))}
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-2xl">
-              <h3 className="text-2xl font-bold text-center mb-8">
-                Typical Processing Times
-              </h3>
-              <div className="space-y-6">
-                {processingtime.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex justify-between items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300"
-                  >
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center mb-8">
+                  Typical Processing Times
+                </h3>
+                <div className="space-y-6">
+                  <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
                     <span className="text-gray-300 font-medium">
-                      {item.service}
+                      Basic Identity Checks
                     </span>
-                    <div
-                      className={`px-4 py-2 bg-gradient-to-r ${item.color} rounded-full shadow-lg`}
-                    >
+                    <div className="px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg">
                       <span className="text-white font-bold text-sm">
-                        {item.time}
+                        1-2 days
                       </span>
                     </div>
                   </div>
-                ))}
+                  <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <span className="text-gray-300 font-medium">
+                      Criminal Record Screening
+                    </span>
+                    <div className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full shadow-lg">
+                      <span className="text-white font-bold text-sm">
+                        3-5 days
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <span className="text-gray-300 font-medium">
+                      Employment History Verification
+                    </span>
+                    <div className="px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full shadow-lg">
+                      <span className="text-white font-bold text-sm">
+                        5-7 days
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <span className="text-gray-300 font-medium">
+                      Complete BS7858 Package
+                    </span>
+                    <div className="px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg">
+                      <span className="text-white font-bold text-sm">
+                        7-10 days
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
@@ -502,10 +517,10 @@ const StaffVettingPage = () => {
                   className="bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 group"
                 >
                   <div className="text-center mb-6">
-                    <div className="p-4 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full mb-4 inline-block group-hover:from-pink-500 group-hover:to-red-500 transition-all duration-300">
+                  <div className="p-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full mb-4 inline-block group-hover:from-red-600 group-hover:to-red-700 transition-all duration-300">
                       <IconComponent className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-teal-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-red-600 transition-colors">
                       {item.title}
                     </h3>
                   </div>
@@ -520,7 +535,7 @@ const StaffVettingPage = () => {
                     </h4>
                     {item.highlights.map((highlight, idx) => (
                       <div key={idx} className="flex items-center gap-3">
-                        <CheckCircle className="w-4 h-4 text-teal-500 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-red-500 flex-shrink-0" />
                         <span className="text-gray-700 text-sm">
                           {highlight}
                         </span>
@@ -535,7 +550,7 @@ const StaffVettingPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-red-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
@@ -553,12 +568,12 @@ const StaffVettingPage = () => {
                 className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2"
               >
                 <div className="text-center">
-                  <div
-                    className={`w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-br ${item.color} shadow-lg group-hover:scale-110 transition-all duration-300`}
-                  >
-                    <item.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-teal-600 transition-colors">
+                    <div
+                      className={`w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600 shadow-lg group-hover:scale-110 transition-all duration-300`}
+                    >
+                      <item.icon className="w-7 h-7 text-white" />
+                    </div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-red-600 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">{item.desc}</p>
@@ -576,7 +591,7 @@ const StaffVettingPage = () => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-teal-500 to-blue-500 rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-red-500 to-red-600 rounded-lg">
                   <Star className="h-8 w-8 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold text-slate-800">
@@ -585,9 +600,9 @@ const StaffVettingPage = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-red-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-slate-800 mb-2">
                         100% BS7858 Compliance
@@ -600,9 +615,9 @@ const StaffVettingPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-red-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-slate-800 mb-2">
                         Expert Screening Team
@@ -614,9 +629,9 @@ const StaffVettingPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-red-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-slate-800 mb-2">
                         Fast Turnaround Times
@@ -628,9 +643,9 @@ const StaffVettingPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-red-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-slate-800 mb-2">
                         Comprehensive Reports
@@ -642,9 +657,9 @@ const StaffVettingPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-red-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-slate-800 mb-2">
                         Ongoing Support
@@ -656,9 +671,9 @@ const StaffVettingPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-red-50 p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-slate-800 mb-2">
                         Cost-Effective Solutions
@@ -675,30 +690,36 @@ const StaffVettingPage = () => {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Processing Times Card */}
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-100 shadow-lg">
+              <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl border border-red-200 shadow-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <Clock className="w-6 h-6 text-orange-500" />
+                  <Clock className="w-6 h-6 text-red-500" />
                   <h3 className="text-xl font-semibold text-slate-800">
                     Processing Times
                   </h3>
                 </div>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-sm">Standard DBS</span>
+                    <span className="text-gray-600 text-sm">Basic Identity Checks</span>
+                    <span className="text-lg font-bold text-red-500">
+                      1-2 days
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-sm">Criminal Record Screening</span>
                     <span className="text-lg font-bold text-orange-500">
-                      7-10 days
+                      3-5 days
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-sm">Enhanced DBS</span>
-                    <span className="text-lg font-bold text-blue-500">
-                      10-14 days
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600 text-sm">Full Package</span>
+                    <span className="text-gray-600 text-sm">Employment History Verification</span>
                     <span className="text-lg font-bold text-purple-500">
-                      14-21 days
+                      5-7 days
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-sm">Complete BS7858 Package</span>
+                    <span className="text-lg font-bold text-red-500">
+                      7-10 days
                     </span>
                   </div>
                 </div>
@@ -713,14 +734,14 @@ const StaffVettingPage = () => {
                   </h3>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-teal-500 mb-2">
+                  <div className="text-4xl font-bold text-red-500 mb-2">
                     100%
                   </div>
                   <p className="text-gray-700 mb-4">
                     BS7858 compliant vetting process with full documentation
                   </p>
                   <div className="flex items-center justify-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <CheckCircle className="h-5 w-5 text-red-500" />
                     <span className="text-sm text-gray-600">
                       SIA approved procedures
                     </span>
@@ -736,7 +757,7 @@ const StaffVettingPage = () => {
       <section
         className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -756,7 +777,7 @@ const StaffVettingPage = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <button
-              className="bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
               onClick={handleConsultationClick}
             >
               Request Consultation
@@ -773,19 +794,19 @@ const StaffVettingPage = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-teal-400 mb-2">
+                <div className="text-3xl font-bold text-red-400 mb-2">
                   100%
                 </div>
                 <p className="text-gray-200">BS7858 Compliant</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">
+                <div className="text-3xl font-bold text-red-500 mb-2">
                   7-10
                 </div>
                 <p className="text-gray-200">Days Average Turnaround</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-cyan-400 mb-2">
+                <div className="text-3xl font-bold text-red-600 mb-2">
                   24/7
                 </div>
                 <p className="text-gray-200">Expert Support</p>

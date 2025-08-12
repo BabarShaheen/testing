@@ -1,6 +1,5 @@
 import {
-  MapPin,
-  PoundSterling,
+
   Star,
   CheckCircle,
   Heart,
@@ -10,7 +9,7 @@ import {
   Phone,
   Building,
   ArrowRight,
-  TrendingUp,
+  
   Briefcase,
 } from 'lucide-react';
 
@@ -21,14 +20,10 @@ import {
   values,
 } from '../../data/about-us/careersData';
 
-export default function CareersPage() {
-  const handleApplyClick = () => {
-    console.log('Apply for position');
-  };
+import { useNavigate } from 'react-router-dom';
 
-  const handleContactClick = () => {
-    console.log('Contact us');
-  };
+export default function CareersPage() {
+  const navigate = useNavigate();
 
   const handleReadMore = () => {
     document
@@ -39,7 +34,7 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+      <section className="min-h-screen relative flex items-center justify-start bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
@@ -51,70 +46,41 @@ export default function CareersPage() {
         />
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
-          {/* Title */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
-            Join Our
-            <br />
-            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#FFC857] bg-clip-text">
-              Growing Team
-            </span>
-          </h1>
+        <div className="relative z-10 max-w-6xl mx-auto flex w-full">
+          <div className="w-full max-w-2xl text-left space-y-8">
+            {/* Title */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
+              Join Our
+              <br />
+              <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#ED2568] bg-clip-text">
+                Growing Team
+              </span>
+            </h1>
 
-          {/* Description */}
-          <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Are you passionate about marketing and diversity? Join our thriving
-            health and safety consultancy and shape the future of workplace
-            safety.
-          </p>
+            {/* Description */}
+            <p className="text-xl sm:text-2xl text-gray-200 max-w-2xl leading-relaxed">
+              Are you passionate about marketing and diversity? Join our thriving
+              health and safety consultancy and shape the future of workplace
+              safety.
+            </p>
 
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Building className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Full-Time</h3>
-              <p className="text-gray-200 text-sm">Permanent Position</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <PoundSterling className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Competitive</h3>
-              <p className="text-gray-200 text-sm">Salary & Benefits</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <TrendingUp className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Growth</h3>
-              <p className="text-gray-200 text-sm">Career Development</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <MapPin className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">London</h3>
-              <p className="text-gray-200 text-sm">Central Location</p>
-            </div>
-          </div>
-
-          {/* Badge and CTA */}
-          <div className="mt-12">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full text-white font-medium mb-6 shadow-lg">
-              <Briefcase className="h-5 w-5" />
-              <span>Marketing Assistant Role</span>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleReadMore}
-              >
-                Learn More
-                <ArrowRight className="ml-2 h-5 w-5 inline" />
-              </button>
-              <button
-                className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
-                onClick={handleApplyClick}
-              >
-                Apply Now
-              </button>
+            {/* CTA Buttons */}
+            <div className="mt-12">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center"
+                  onClick={handleReadMore}
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-5 w-5 inline" />
+                </button>
+                <button
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
+                  onClick={() => navigate('/contact')}
+                >
+                  Apply Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -182,10 +148,10 @@ export default function CareersPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FFC857]/20 to-[#ED2568]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#EE343B]/20 rounded-2xl transform rotate-3 scale-105"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
                       <Briefcase className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-[#1C1F2A] mb-4">
@@ -206,14 +172,14 @@ export default function CareersPage() {
                       </div>
                       <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
                         <span className="text-gray-600 text-sm">Location:</span>
-                        <span className="font-semibold text-[#FFC857]">
+                        <span className="font-semibold text-[#ED2568]">
                           London
                         </span>
                       </div>
                     </div>
                     <button
                       className="w-full bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={handleApplyClick}
+                      onClick={() => navigate('/contact')}
                     >
                       Apply for Position
                     </button>
@@ -229,7 +195,7 @@ export default function CareersPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#FFC857]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#EE343B]/20 rounded-2xl transform rotate-3 scale-105"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
@@ -259,7 +225,7 @@ export default function CareersPage() {
                         <span className="text-gray-600 text-sm">
                           Event Support:
                         </span>
-                        <span className="font-semibold text-[#FFC857] text-sm">
+                        <span className="font-semibold text-[#ED2568] text-sm">
                           Client Focused
                         </span>
                       </div>
@@ -273,8 +239,8 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <button
-                      className="w-full mt-6 bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={handleContactClick}
+                      className="w-full mt-6 bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                      onClick={() => navigate('/contact')}
                     >
                       Learn More
                     </button>
@@ -282,14 +248,14 @@ export default function CareersPage() {
                 </div>
               </div>
               <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
-                    <Target className="h-8 w-8 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-[#1C1F2A]">
-                    WHAT YOU'LL DO
-                  </h2>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
+                  <Target className="h-8 w-8 text-white" />
                 </div>
+                <h2 className="text-3xl font-bold text-[#1C1F2A]">
+                  WHAT YOU'LL DO
+                </h2>
+              </div>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   As our Marketing Assistant, you'll play a crucial role in
                   developing and executing marketing campaigns that showcase our
@@ -339,7 +305,7 @@ export default function CareersPage() {
                       key={index}
                       className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300"
                     >
-                      <Star className="h-6 w-6 text-[#FFC857] mt-1 flex-shrink-0" />
+                      <Star className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
                       <div>
                         <p className="text-gray-600 text-sm leading-relaxed">
                           {requirement}
@@ -350,7 +316,7 @@ export default function CareersPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A]/20 to-[#FFC857]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A]/20 to-[#ED2568]/20 rounded-2xl transform rotate-3 scale-105"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#1C1F2A] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
@@ -374,7 +340,7 @@ export default function CareersPage() {
                     </div>
                     <button
                       className="w-full bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] hover:from-[#ED2568] hover:to-[#1C1F2A] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={handleApplyClick}
+                      onClick={() => navigate('/contact')}
                     >
                       Submit Application
                     </button>
@@ -390,7 +356,7 @@ export default function CareersPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4">
-                <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                   <Gift className="h-8 w-8 text-white" />
                 </div>
               </div>
@@ -412,7 +378,7 @@ export default function CareersPage() {
                   className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer border border-[#E5E6F0]"
                 >
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-[#FFC857] group-hover:to-[#ED2568] transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-[#EE343B] group-hover:to-[#ED2568] transition-all duration-300">
                       <Heart className="w-6 h-6 text-white" />
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed group-hover:text-[#1C1F2A] transition-colors">
@@ -425,8 +391,8 @@ export default function CareersPage() {
 
             <div className="text-center">
               <button
-                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#EE343B] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleApplyClick}
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={() => navigate('/contact')}
               >
                 Join Our Team
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
@@ -460,9 +426,9 @@ export default function CareersPage() {
                   className="bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100"
                 >
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <CheckCircle className="h-7 w-7 text-white" />
-                    </div>
+                <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="h-7 w-7 text-white" />
+                </div>
                     <p className="text-gray-600 leading-relaxed text-sm group-hover:text-[#1C1F2A] transition-colors font-medium">
                       {value}
                     </p>
@@ -477,7 +443,7 @@ export default function CareersPage() {
         <section
           className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -497,15 +463,15 @@ export default function CareersPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <button
-                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleApplyClick}
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={() => navigate('/contact')}
               >
                 Apply Today
                 <Briefcase className="ml-2 h-5 w-5 inline" />
               </button>
               <button
                 className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-                onClick={handleContactClick}
+                onClick={() => navigate('/contact')}
               >
                 Get in Touch
                 <Phone className="ml-2 h-5 w-5 inline" />
@@ -515,7 +481,7 @@ export default function CareersPage() {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-[#FFC857] mb-2">
+                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
                     Growing
                   </div>
                   <p className="text-gray-200">Company Culture</p>

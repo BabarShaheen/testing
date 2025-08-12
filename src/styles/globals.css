@@ -794,3 +794,64 @@ html {
     transition: none;
   }
 }
+
+
+/* === Append to end of global.css === */
+/* === IsoCertificationsPage — small visual fixes === */
+.system-badge {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.14);
+}
+.system-badge .sb-prefix {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0.95;
+}
+.system-badge .sb-number {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.iso-system-card h4 {
+  margin-bottom: 0.375rem;
+  line-height: 1.15;
+}
+.iso-system-card p {
+  line-height: 1.4;
+}
+.iso-integration {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* === ISO Card Color Themes === */
+.iso-card-primary {
+  background: linear-gradient(135deg, var(--crimson-pink) 0%, var(--vivid-red) 100%);
+  color: var(--pure-white);
+}
+
+.iso-card-success {
+  background: linear-gradient(135deg, var(--vivid-red) 0%, #b31217 100%);
+  color: var(--pure-white);
+}
+
+.iso-card-warning {
+  background: linear-gradient(135deg, var(--vivid-red) 0%, var(--warm-amber) 100%);
+  color: var(--pure-white);
+}
+
+/* Optional: Make sure the badge is always visible */
+.iso-system-card .system-badge {
+  background-color: rgba(255, 255, 255, 0.15);
+}

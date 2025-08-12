@@ -6,7 +6,6 @@ import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
 import { Checkbox } from '../components/ui/checkbox';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, X } from 'lucide-react';
-import { HeroSection } from '../components/common';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
@@ -22,11 +21,47 @@ export function ContactPage() {
     consent: false,
   });
 
+  // Validation error state
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    phone?: string;
+    message?: string;
+  }>({});
+
+  const validateField = (name: string, value: string) => {
+    let error = '';
+    if (name === 'name') {
+      if (!value.trim()) error = 'Name is required';
+      else if (value.trim().length < 3) error = 'Name must be at least 3 characters';
+      else if (!/^[A-Za-z\s]+$/.test(value.trim())) error = 'Name can contain only letters and spaces';
+    }
+    if (name === 'email') {
+      if (!value.trim()) error = 'Email is required';
+      else if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value.trim())) error = 'Enter a valid email';
+    }
+    if (name === 'phone' && value.trim() && !/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(value.trim())) {
+      error = 'Enter a valid phone number';
+    }
+    if (name === 'message') {
+      if (!value.trim()) error = 'Message is required';
+      else if (value.trim().length < 10) error = 'Message should be at least 10 characters';
+    }
+    return error;
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+    setErrors(prev => ({ ...prev, [name]: error }));
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
   const [submitting, setSubmitting] = useState(false);
@@ -38,11 +73,53 @@ export function ContactPage() {
   const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+  // Validation helpers
+  const validate = () => {
+    const newErrors: typeof errors = {};
+    // Name: minLength 3, letters and spaces only
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = 'Name must be at least 3 characters';
+    } else if (!/^[A-Za-z\s]+$/.test(formData.name.trim())) {
+      newErrors.name = 'Name can contain only letters and spaces';
+    }
+    // Email: required, pattern
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (
+      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email.trim())
+    ) {
+      newErrors.email = 'Enter a valid email address';
+    }
+    // Phone: optional, but if present must match pattern
+    if (formData.phone.trim()) {
+      if (
+        !/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(formData.phone.trim())
+      ) {
+        newErrors.phone = 'Enter a valid phone number';
+      }
+    }
+    // Message: minLength 10
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message should be at least 10 characters';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitMessage(null);
-    setSubmitting(true);
 
+    if (!validate()) {
+      // Don't submit if validation fails
+      return;
+    }
+
+    setSubmitting(true);
     try {
       if (!form.current) throw new Error('Form not found');
 
@@ -72,6 +149,7 @@ export function ContactPage() {
         message: '',
         consent: false,
       });
+      setErrors({});
     } catch (err: any) {
       console.error('EmailJS error:', err);
       setSubmitMessage(
@@ -83,6 +161,10 @@ export function ContactPage() {
       setSubmitting(false);
     }
   };
+
+  const isFormValid =
+    Object.values(errors).every(e => !e) &&
+    formData.name && formData.email && formData.message && formData.consent;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-off-white to-soft-lavender-grey/30">
@@ -181,10 +263,34 @@ export function ContactPage() {
         )}
       </AnimatePresence>
 
-      <HeroSection
-        title="Contact Us"
-        description="Get in touch with our expert team for a free consultation"
-      />
+{/* Hero Section */}
+<div className="relative bg-crimson-gradient text-center py-24 sm:py-32 overflow-hidden">
+  {/* Single subtle blurred circle in vivid red for depth */}
+  <div className="absolute -bottom-28 -right-28 w-96 h-96 rounded-full bg-vivid-red opacity-12 blur-3xl pointer-events-none"></div>
+
+  <h1 className="text-5xl sm:text-6xl font-extrabold text-pure-white mb-6 tracking-tight drop-shadow-[0_2px_8px_rgba(237,37,104,0.6)] animate-fade-in-up">
+    Contact Us
+  </h1>
+  <p className="text-xl sm:text-2xl text-pure-white/85 max-w-3xl mx-auto mb-16 font-light leading-relaxed animate-fade-in">
+    Get in touch with our expert team for a free consultation — we’re here to bring your vision to life with elegance and precision.
+  </p>
+
+  {/* Decorative Wave with subtle smooth curve */}
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none">
+    <svg
+      className="relative block w-full h-24"
+      viewBox="0 0 1440 120"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="#ffffff"
+        fillOpacity="1"
+        d="M0,96 C480,192 960,0 1440,96 L1440,120 L0,120 Z"
+      ></path>
+    </svg>
+  </div>
+</div>
 
       {/* Contact Form and Info */}
       <section className="py-16 sm:py-20 bg-white">
@@ -227,11 +333,22 @@ export function ContactPage() {
                           id="name"
                           name="name"
                           required
+                          minLength={3}
+                          pattern="^[A-Za-z\s]+$"
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
+                          onBlur={handleBlur}
+                          className={`h-12 border-2 ${
+                            errors.name
+                              ? 'border-red-500'
+                              : 'border-soft-lavender-grey'
+                          } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl`}
                           placeholder="Enter your full name"
+                          autoComplete="name"
                         />
+                        {errors.name && (
+                          <p className="text-xs text-red-500 mt-1">{errors.name}</p>
+                        )}
                       </div>
                       <div className="space-y-2">
                         <Label
@@ -245,11 +362,21 @@ export function ContactPage() {
                           name="email"
                           type="email"
                           required
+                          pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
+                          onBlur={handleBlur}
+                          className={`h-12 border-2 ${
+                            errors.email
+                              ? 'border-red-500'
+                              : 'border-soft-lavender-grey'
+                          } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl`}
                           placeholder="your@email.com"
+                          autoComplete="email"
                         />
+                        {errors.email && (
+                          <p className="text-xs text-red-500 mt-1">{errors.email}</p>
+                        )}
                       </div>
                     </div>
 
@@ -266,8 +393,10 @@ export function ContactPage() {
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
+                          onBlur={handleBlur}
                           className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
                           placeholder="Your company name"
+                          autoComplete="organization"
                         />
                       </div>
                       <div className="space-y-2">
@@ -281,11 +410,22 @@ export function ContactPage() {
                           id="phone"
                           name="phone"
                           type="tel"
+                          pattern="^(\+?\d{1,3}[- ]?)?\d{10,15}$"
+                          title="Enter a valid phone number"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
+                          onBlur={handleBlur}
+                          className={`h-12 border-2 ${
+                            errors.phone
+                              ? 'border-red-500'
+                              : 'border-soft-lavender-grey'
+                          } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl`}
                           placeholder="+44 (0) 123 456 7890"
+                          autoComplete="tel"
                         />
+                        {errors.phone && (
+                          <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+                        )}
                       </div>
                     </div>
 
@@ -301,8 +441,10 @@ export function ContactPage() {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
+                        onBlur={handleBlur}
                         className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
                         placeholder="e.g., ISO Certification, Staff Vetting, PAT Testing"
+                        autoComplete="off"
                       />
                     </div>
 
@@ -317,12 +459,22 @@ export function ContactPage() {
                         id="message"
                         name="message"
                         required
+                        minLength={10}
+                        title="Message should be at least 10 characters"
                         value={formData.message}
                         onChange={handleInputChange}
+                        onBlur={handleBlur}
                         rows={5}
-                        className="border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl resize-none"
+                        className={`border-2 ${
+                          errors.message
+                            ? 'border-red-500'
+                            : 'border-soft-lavender-grey'
+                        } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl resize-none`}
                         placeholder="Tell us about your requirements..."
                       />
+                      {errors.message && (
+                        <p className="text-xs text-red-500 mt-1">{errors.message}</p>
+                      )}
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-soft-lavender-grey/30 rounded-xl">
@@ -352,7 +504,7 @@ export function ContactPage() {
 
                     <Button
                       type="submit"
-                      disabled={submitting || !formData.consent}
+                      disabled={submitting || !isFormValid}
                       className="w-full h-14 bg-crimson-gradient text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       {submitting ? (
@@ -412,7 +564,7 @@ export function ContactPage() {
                             Email
                           </h3>
                           <p className="text-gray-600 text-base">
-                            info@citrixconsulting.co.uk
+                            info@citrixconsultinglimited.co.uk
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             We typically respond within 2 hours
@@ -429,7 +581,8 @@ export function ContactPage() {
                             Phone
                           </h3>
                           <p className="text-gray-600 text-base">
-                            +44 (0) 123 456 7890
+                            Phone: +44 20 8575 5544<br />
+                            Mobile: +44 7446 131 794
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             Mon-Fri: 9AM-6PM GMT
@@ -446,7 +599,7 @@ export function ContactPage() {
                             Address
                           </h3>
                           <p className="text-gray-600 text-base">
-                            London, United Kingdom
+                            272 Bath Street, Glasgow, Scotland, Middlesex G2 4JR
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             Serving clients nationwide

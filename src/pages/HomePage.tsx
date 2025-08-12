@@ -204,7 +204,7 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.img
-                      src="/Images/landingpage/health-safety.jpeg"
+                      src="/Images/landingpage/health-safety_optimized.webp"
                       alt="Health & Safety"
                       className="w-full h-48 object-cover"
                       whileHover={{ scale: 1.1 }}
@@ -276,7 +276,7 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.img
-                      src="/Images/landingpage/ISO-9001-Certification.jpg"
+                      src="/Images/landingpage/ISO-9001-Certification_optimized.webp"
                       alt="ISO 9001"
                       className="w-full h-48 object-cover"
                       whileHover={{ scale: 1.1 }}
@@ -347,7 +347,7 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.img
-                      src="/Images/landingpage/sia.png"
+                      src="/Images/landingpage/sia_optimized.webp"
                       alt="SIA ACS"
                       className="w-full h-48 object-cover"
                       whileHover={{ scale: 1.1 }}
@@ -418,7 +418,7 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.img
-                      src="/Images/landingpage/chas.jpg"
+                      src="/Images/landingpage/chas_optimized.webp"
                       alt="CHAS Assistance"
                       className="w-full h-48 object-cover"
                       whileHover={{ scale: 1.1 }}
@@ -490,7 +490,7 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.img
-                      src="/Images/landingpage/pat.png"
+                      src="/Images/landingpage/pat_optimized.webp"
                       alt="PAT Testing"
                       className="w-full h-48 object-cover"
                       whileHover={{ scale: 1.1 }}
@@ -561,7 +561,7 @@ export function HomePage() {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.img
-                      src="/Images/landingpage/risk.jpg"
+                      src="/Images/landingpage/risk_optimized.webp"
                       alt="Risk Assessments"
                       className="w-full h-48 object-cover"
                       whileHover={{ scale: 1.1 }}
@@ -667,7 +667,7 @@ export function HomePage() {
       <section
         className="relative bg-fixed bg-cover bg-center bg-no-repeat py-24 overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/why-choose-us.jpg')",
+          backgroundImage: "url('/Images/landingpage/why-choose-us_optimized.webp')",
         }}
       >
         {/* Enhanced gradient overlay */}
@@ -841,7 +841,7 @@ export function HomePage() {
       <section
         className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

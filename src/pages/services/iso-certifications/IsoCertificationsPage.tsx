@@ -1,3 +1,4 @@
+// src/pages/services/IsoCertificationsPage.tsx
 import { useNavigate } from 'react-router-dom';
 import {
   Card,
@@ -8,7 +9,7 @@ import {
 } from '../../../components/ui/card';
 import { Badge } from '../../../components/ui/badge';
 import { Button } from '../../../components/ui/button';
-import { CheckCircle, ArrowRight, Building } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import {
   isoCertifications,
   isoCertificationBenefits,
@@ -29,13 +30,14 @@ export function IsoCertificationsPage() {
 
   return (
     <div className="min-h-screen">
+      {/* HERO */}
       <section className="min-h-screen">
         <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
           {/* Background Image Layer */}
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
             style={{
-              backgroundImage: "url('/iso_cover.jpg')", // change path if needed
+              backgroundImage: "url('/iso_cover_optimized.webp')",
               filter: 'brightness(0.6)',
             }}
           />
@@ -74,7 +76,7 @@ export function IsoCertificationsPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* SERVICES GRID */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -89,59 +91,66 @@ export function IsoCertificationsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {isoCertifications.map((service) => (
-              <Card
-                key={service.id}
-                className="hover:shadow-xl transition-all duration-300 border-none bg-gray-50/50 group cursor-pointer"
-                onClick={() => handleServiceClick(service.id)}
-              >
-                <CardHeader className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-white rounded-lg group-hover:bg-soft-lavender-grey/10 transition-all duration-300">
-                      {/* Render icon as component */}
-                      <service.icon className="h-8 w-8 text-warm-amber" />
+            {isoCertifications.map((service) => {
+              const ServiceIcon = service.icon;
+              return (
+                <Card
+                  key={service.id}
+                  className="hover:shadow-xl transition-all duration-300 border-none bg-gray-50/50 group cursor-pointer"
+                  onClick={() => handleServiceClick(service.id)}
+                >
+                  <CardHeader className="text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="p-3 bg-white rounded-lg group-hover:bg-soft-lavender-grey/10 transition-all duration-300">
+                        <ServiceIcon
+                          className="h-8 w-8 text-warm-amber"
+                          aria-hidden
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <CardTitle className="text-crimson-pink group-hover:text-vivid-red transition-colors">
-                      {service.title}
-                    </CardTitle>
-                    <Badge
-                      variant="secondary"
-                      className="bg-leaf-green text-white"
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <CardTitle className="text-crimson-pink group-hover:text-vivid-red transition-colors">
+                        {service.title}
+                      </CardTitle>
+                      <Badge
+                        variant="secondary"
+                        className="bg-leaf-green text-white"
+                      >
+                        {service.badge}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent>
+                    <CardDescription className="text-gray-600 mb-4">
+                      {service.description}
+                    </CardDescription>
+                    <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
+                      <p className="text-sm text-gray-600 mb-1">Starting from:</p>
+                      <p className="font-semibold text-crimson-pink">
+                        {service.price}
+                      </p>
+                    </div>
+
+                    <Button
+                      className="w-full bg-crimson-pink hover:bg-vivid-red text-white transition-all-smooth"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleServiceClick(service.id);
+                      }}
                     >
-                      {service.badge}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 mb-4">
-                    {service.description}
-                  </CardDescription>
-                  <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
-                    <p className="text-sm text-gray-600 mb-1">Starting from:</p>
-                    <p className="font-semibold text-crimson-pink">
-                      {service.price}
-                    </p>
-                  </div>
-                  <Button
-                    className="w-full bg-crimson-pink hover:bg-vivid-red text-white transition-all-smooth"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleServiceClick(service.id);
-                    }}
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* BENEFITS */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -155,24 +164,27 @@ export function IsoCertificationsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {isoCertificationBenefits.map((item, index) => (
-              <div key={index} className="text-center">
-                <div
-                  className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}
-                >
-                  <item.icon className="w-8 h-8 text-white" />
+            {isoCertificationBenefits.map((item, index) => {
+              const BenefitIcon = item.icon;
+              return (
+                <div key={index} className="text-center">
+                 <div
+                  className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                    <BenefitIcon className="w-8 h-8 text-white" aria-hidden />
+                  </div>
+                  <h3 className="text-xl font-semibold text-navy-blue mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-navy-blue mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* BS OHSAS 18001 Certification Section */}
+      {/* BS OHSAS 18001 */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -242,7 +254,7 @@ export function IsoCertificationsPage() {
 
             <div className="relative">
               {/* Vertical line */}
-              <div className="absolute left-6 top-0 h-full w-0.5 bg-crimson-pink z-0"></div>
+              <div className="absolute left-6 top-0 h-full w-0.5 bg-crimson-pink z-0" />
 
               <div className="space-y-10 relative">
                 {certificationProcessSteps.map((step, index) => (
@@ -271,15 +283,11 @@ export function IsoCertificationsPage() {
         </div>
       </section>
 
-      {/* Joint Systems Section */}
+      {/* JOINT SYSTEMS */}
       <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg">
-                <Building className="h-8 w-8 text-white" />
-              </div>
-            </div>
+          
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
               Joint OHSAS 18001, ISO 9001 and ISO 14001 Systems
             </h2>
@@ -361,36 +369,45 @@ export function IsoCertificationsPage() {
                 System Integration Overview
               </h3>
 
-              {jointSystemBenefits.map((system, index) => (
-                <div
-                  key={index}
-                  className={`bg-gradient-to-r ${system.color} p-6 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-bold">
-                        {system.system.split(' ')[1]}
-                      </span>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold mb-2">
-                        {system.system}
-                      </h4>
-                      <p className="text-white/90 mb-3 font-medium">
-                        {system.focus}
-                      </p>
-                      <div className="bg-white/20 rounded-lg p-3">
-                        <p className="text-sm font-medium">
-                          Integration Points:
-                        </p>
-                        <p className="text-white/90 text-sm">
-                          {system.integration}
-                        </p>
+              {jointSystemBenefits.map((system, index) => {
+                // robust split: prefix = everything except last token, number = last token
+                const parts = system.system.split(' ');
+                const number = parts[parts.length - 1] ?? '';
+                const prefix = parts.slice(0, parts.length - 1).join(' ') ?? parts[0];
+
+                return (
+                  <div
+                    key={index}
+                    className={`iso-system-card ${
+                      index === 0
+                        ? 'iso-card-primary'
+                        : index === 1
+                        ? 'iso-card-success'
+                        : 'iso-card-warning'
+                    } p-6 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
+                    
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="system-badge flex-shrink-0">
+                        <div className="text-center leading-none">
+                          <div className="sb-prefix">{prefix}</div>
+                          <div className="sb-number">{number}</div>
+                        </div>
+                      </div>
+
+                      <div className="flex-1">
+                        <h4 className="text-xl font-bold mb-2">{system.system}</h4>
+                        <p className="text-white/90 mb-3 font-medium">{system.focus}</p>
+
+                        <div className="iso-integration">
+                          <p className="text-sm font-medium">Integration Points:</p>
+                          <p className="text-white/90 text-sm">{system.integration}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
               <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                 <h4 className="font-semibold text-slate-800 text-lg mb-4">
@@ -413,16 +430,16 @@ export function IsoCertificationsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section
         className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
@@ -450,9 +467,7 @@ export function IsoCertificationsPage() {
           </div>
 
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto shadow-md">
-            <p className="text-xl font-semibold mb-2">
-              Your ISO Journey Starts Here
-            </p>
+            <p className="text-xl font-semibold mb-2">Your ISO Journey Starts Here</p>
             <p className="text-gray-100 text-base leading-relaxed">
               With years of experience and a 100% success rate, we’re here to
               guide you through every step of the ISO certification process —

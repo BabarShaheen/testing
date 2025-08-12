@@ -2,13 +2,10 @@ import {
   CheckCircle,
   ArrowRight,
   Shield,
-  Award,
-  Users,
   Search,
   AlertTriangle,
   Building,
   Eye,
-  FlameKindling,
   Star,
   Phone,
   Mail,
@@ -18,15 +15,10 @@ import {
   specificAssessments,
   assessmentServices,
 } from '../../data/riskAssessmentData';
+import { useNavigate } from 'react-router-dom';
 // Mock data - replace with your actual data imports
 export function RiskAssessmentsPage() {
-  const handleContactClick = () => {
-    console.log('Navigate to contact');
-  };
-
-  const handleConsultationClick = () => {
-    console.log('Request consultation');
-  };
+  const navigate = useNavigate();
 
   const handleReadMore = () => {
     document
@@ -43,7 +35,7 @@ export function RiskAssessmentsPage() {
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage:
-              "url('/Images/services/risk-assessment-cover.jpg')",
+              "url('/Images/services/risk-assessment-cover_optimized.webp')",
             filter: 'brightness(0.5)',
           }}
         />
@@ -51,7 +43,7 @@ export function RiskAssessmentsPage() {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#FFC857]/10 to-[#ED2568]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         {/* Wave Overlay */}
@@ -68,79 +60,47 @@ export function RiskAssessmentsPage() {
         </svg>
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
-          {/* Icon Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="p-6 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-              <Shield className="h-20 w-20 text-white" />
-            </div>
-          </div>
+        <div className="relative z-10 flex justify-start w-full">
+          <div className="max-w-xl space-y-8 text-left">
+            {/* Title */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
+              Health & Safety
+              <br />
+              <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#EE343B] bg-clip-text">
+                Risk Assessment
+              </span>
+            </h1>
 
-          {/* Title */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
-            Health & Safety
-            <br />
-            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#FFC857] bg-clip-text">
-              Risk Assessment
-            </span>
-          </h1>
+            {/* Description */}
+            <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl leading-relaxed">
+              Professional health and safety risk assessments to protect your
+              business, employees, and visitors with comprehensive nationwide
+              coverage.
+            </p>
 
-          {/* Description */}
-          <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-            Professional health and safety risk assessments to protect your
-            business, employees, and visitors with comprehensive nationwide
-            coverage.
-          </p>
 
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Shield className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Fixed Price</h3>
-              <p className="text-gray-200 text-sm">No Hidden Extras</p>
-            </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <FlameKindling className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">
-                Fire Risk Assessment
-              </h3>
-              <p className="text-gray-200 text-sm">Comprehensive Coverage</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Users className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Free Online</h3>
-              <p className="text-gray-200 text-sm">Staff Training</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Award className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Never Knowingly</h3>
-              <p className="text-gray-200 text-sm">Undersold</p>
-            </div>
-          </div>
-
-          {/* Badge and CTA */}
-          <div className="mt-12">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full text-white font-medium mb-6 shadow-lg">
-              <Globe className="h-5 w-5" />
-              <span>Nationwide Coverage</span>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleReadMore}
-              >
-                Read More
-                <ArrowRight className="ml-2 h-5 w-5 inline" />
-              </button>
-              <button
-                className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
-                onClick={handleContactClick}
-              >
-                Get Quote
-              </button>
+            {/* Badge and CTA */}
+            <div className="mt-12">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ED2568] to-[#EE343B] rounded-full text-white font-medium mb-6 shadow-lg">
+                <Globe className="h-5 w-5" />
+                <span>Nationwide Coverage</span>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                <button
+                  className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  onClick={handleReadMore}
+                >
+                  Read More
+                  <ArrowRight className="ml-2 h-5 w-5 inline" />
+                </button>
+                <button
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm"
+                  onClick={() => navigate('/contact')}
+                >
+                  Get Quote
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -218,10 +178,10 @@ export function RiskAssessmentsPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FFC857]/20 to-[#ED2568]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#EE343B]/20 rounded-2xl transform rotate-3 scale-105"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
                       <AlertTriangle className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-[#1C1F2A] mb-4">
@@ -233,7 +193,7 @@ export function RiskAssessmentsPage() {
                     </p>
                     <button
                       className="w-full bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={handleContactClick}
+                      onClick={() => navigate('/contact')}
                     >
                       Request Investigation
                     </button>
@@ -249,7 +209,7 @@ export function RiskAssessmentsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#FFC857]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#EE343B]/20 rounded-2xl transform rotate-3 scale-105"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
@@ -279,14 +239,14 @@ export function RiskAssessmentsPage() {
                       </div>
                       <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
                         <span className="text-gray-600">Clients Served:</span>
-                        <span className="font-semibold text-[#FFC857]">
+                        <span className="font-semibold text-[#ED2568]">
                           800+
                         </span>
                       </div>
                     </div>
                     <button
-                      className="w-full mt-6 bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={handleContactClick}
+                      className="w-full mt-6 bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+                      onClick={() => navigate('/contact')}
                     >
                       Get Assessment
                     </button>
@@ -295,7 +255,7 @@ export function RiskAssessmentsPage() {
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
+                  <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                     <Shield className="h-8 w-8 text-white" />
                   </div>
                   <h2 className="text-3xl font-bold text-[#1C1F2A]">
@@ -432,7 +392,7 @@ export function RiskAssessmentsPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A]/20 to-[#FFC857]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A]/20 to-[#ED2568]/20 rounded-2xl transform rotate-3 scale-105"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#1C1F2A] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
@@ -455,7 +415,7 @@ export function RiskAssessmentsPage() {
                     </div>
                     <button
                       className="w-full bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] hover:from-[#ED2568] hover:to-[#1C1F2A] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={handleContactClick}
+                      onClick={() => navigate('/contact')}
                     >
                       Book Workplace Assessment
                     </button>
@@ -471,7 +431,7 @@ export function RiskAssessmentsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4">
-                <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                   <Eye className="h-8 w-8 text-white" />
                 </div>
               </div>
@@ -495,10 +455,10 @@ export function RiskAssessmentsPage() {
                 <div
                   key={index}
                   className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer border border-[#E5E6F0]"
-                  onClick={handleContactClick}
+                  onClick={() => navigate('/contact')}
                 >
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-[#FFC857] group-hover:to-[#ED2568] transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-[#EE343B] group-hover:to-[#ED2568] transition-all duration-300">
                       <assessment.icon className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="font-semibold text-[#1C1F2A] group-hover:text-[#ED2568] transition-colors text-sm">
@@ -511,8 +471,8 @@ export function RiskAssessmentsPage() {
 
             <div className="text-center">
               <button
-                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#EE343B] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleContactClick}
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={() => navigate('/contact')}
               >
                 Request Specific Assessment
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
@@ -547,7 +507,7 @@ export function RiskAssessmentsPage() {
                 >
                   <div className="text-center">
                     <div
-                      className={`w-16 h-16 ${item.bgColor} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
                     >
                       <item.icon className="h-7 w-7 text-white" />
                     </div>
@@ -568,7 +528,7 @@ export function RiskAssessmentsPage() {
         <section
           className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started.jpg')",
+            backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -576,12 +536,6 @@ export function RiskAssessmentsPage() {
           <div className="absolute inset-0 bg-black/70"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-white/10 rounded-full shadow-2xl backdrop-blur-sm border border-white/20">
-                <Shield className="h-12 w-12 text-white" />
-              </div>
-            </div>
-
             <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
               Ready to Secure Your Workplace?
             </h2>
@@ -594,15 +548,15 @@ export function RiskAssessmentsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <button
-                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleConsultationClick}
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={() => navigate('/contact')}
               >
                 Get Free Consultation
                 <Phone className="ml-2 h-5 w-5 inline" />
               </button>
               <button
                 className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-                onClick={handleContactClick}
+                onClick={() => navigate('/contact')}
               >
                 Contact Us Today
                 <Mail className="ml-2 h-5 w-5 inline" />
@@ -612,7 +566,7 @@ export function RiskAssessmentsPage() {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-[#FFC857] mb-2">
+                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
                     £450
                   </div>
                   <p className="text-gray-200">Starting Price</p>

@@ -1,14 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import {
   Shield,
   Award,
   CheckCircle,
   Star,
-  Users,
   Building,
   Target,
   ArrowRight,
   Phone,
-  PoundSterling,
   Network,
 } from 'lucide-react';
 import LogoSlider from '../../components/common/LogoSlider';
@@ -58,34 +57,7 @@ const benefits = [
   'Streamlined tender processes and faster approvals',
 ];
 
-const features = [
-  {
-    icon: Shield,
-    title: 'Single Assessment',
-    description: 'One assessment satisfies all SSIP member scheme requirements',
-    color: 'from-[#ED2568] to-[#EE343B]',
-  },
-  {
-    icon: PoundSterling,
-    title: 'Cost Savings',
-    description:
-      'Saved over £68 million in 2023 by reducing assessment duplication',
-    color: 'from-[#FFC857] to-[#ED2568]',
-  },
-  {
-    icon: Users,
-    title: '89,000+ Suppliers',
-    description: 'Join thousands of registered suppliers across all industries',
-    color: 'from-[#1C1F2A] to-[#ED2568]',
-  },
-  {
-    icon: Network,
-    title: 'SSIP Portal Access',
-    description:
-      'Clients can verify your competence through the free SSIP portal',
-    color: 'from-[#ED2568] to-[#FFC857]',
-  },
-];
+
 
 const processSteps = [
   {
@@ -124,12 +96,14 @@ const processSteps = [
 ];
 
 export default function SSIPAccreditationPage() {
+  const navigate = useNavigate();
+
   const handleApplyClick = () => {
-    console.log('Apply for SSIP accreditation');
+    navigate('/contact');
   };
 
   const handleContactClick = () => {
-    console.log('Contact us about SSIP');
+    navigate('/contact');
   };
 
   const handleReadMore = () => {
@@ -141,7 +115,7 @@ export default function SSIPAccreditationPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center justify-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
+      <section className="min-h-screen relative flex items-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
@@ -155,7 +129,7 @@ export default function SSIPAccreditationPage() {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#FFC857]/10 to-[#ED2568]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#ED2568]/10 to-[#EE343B]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         {/* Wave Overlay */}
@@ -172,36 +146,22 @@ export default function SSIPAccreditationPage() {
         </svg>
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-8">
+        <div className="relative z-10 max-w-xl text-left space-y-8">
           {/* Title */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-left">
             SSIP
             <br />
-            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#FFC857] bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-[#ED2568] via-[#EE343B] to-[#ED2568] bg-clip-text">
               Accreditation
             </span>
           </h1>
 
           {/* Description */}
-          <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-200 max-w-2xl leading-relaxed text-left">
             Safety Schemes in Procurement - Your gateway to reduced bureaucracy,
             cost savings, and enhanced credibility in health and safety
             compliance.
           </p>
-
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
-              >
-                <feature.icon className="h-12 w-12 text-[#FFC857] mb-4 mx-auto" />
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-200 text-sm">{feature.description}</p>
-              </div>
-            ))}
-          </div>
 
           {/* Badge and CTA */}
           <div className="mt-12">
@@ -209,7 +169,7 @@ export default function SSIPAccreditationPage() {
               <Award className="h-5 w-5" />
               <span>HSE Approved Umbrella Scheme</span>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <button
                 className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
                 onClick={handleReadMore}
@@ -292,10 +252,10 @@ export default function SSIPAccreditationPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FFC857]/20 to-[#ED2568]/20 rounded-2xl transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#EE343B]/20 rounded-2xl transform rotate-3 scale-105"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
                       <Award className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-[#1C1F2A] mb-4">
@@ -320,7 +280,7 @@ export default function SSIPAccreditationPage() {
                         <span className="text-gray-600 text-sm">
                           Suppliers:
                         </span>
-                        <span className="font-semibold text-[#FFC857]">
+                        <span className="font-semibold text-[#ED2568]">
                           89,000+
                         </span>
                       </div>
@@ -343,7 +303,7 @@ export default function SSIPAccreditationPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4">
-                <div className="p-3 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                   <Network className="h-8 w-8 text-white" />
                 </div>
               </div>
@@ -364,7 +324,7 @@ export default function SSIPAccreditationPage() {
                   className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer border border-[#E5E6F0]"
                 >
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-[#FFC857] group-hover:to-[#ED2568] transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-[#ED2568] group-hover:to-[#EE343B] transition-all duration-300">
                       <Building className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-[#1C1F2A] mb-2">
@@ -381,15 +341,7 @@ export default function SSIPAccreditationPage() {
               ))}
             </div>
 
-            <div className="text-center">
-              <button
-                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#EE343B] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
-                onClick={handleContactClick}
-              >
-                Choose Your Scheme
-                <ArrowRight className="ml-2 h-5 w-5 inline" />
-              </button>
-            </div>
+          
           </div>
         </section>
 
@@ -419,7 +371,7 @@ export default function SSIPAccreditationPage() {
                   className="bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100"
                 >
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#FFC857] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       <CheckCircle className="h-6 w-6 text-white" />
                     </div>
                     <p className="text-gray-600 leading-relaxed text-sm group-hover:text-[#1C1F2A] transition-colors">
@@ -438,7 +390,7 @@ export default function SSIPAccreditationPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4">
-                <div className="p-3 bg-gradient-to-br from-[#1C1F2A] to-[#ED2568] rounded-lg">
+                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
                   <Target className="h-8 w-8 text-white" />
                 </div>
               </div>
@@ -459,7 +411,7 @@ export default function SSIPAccreditationPage() {
                   className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-[#E5E6F0]"
                 >
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:from-[#FFC857] group-hover:to-[#ED2568] transition-all duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:from-[#ED2568] group-hover:to-[#EE343B] transition-all duration-300">
                       <span className="text-2xl font-bold text-white">
                         {step.step}
                       </span>
@@ -486,7 +438,7 @@ export default function SSIPAccreditationPage() {
                   so in accordance with the accreditation body.
                 </p>
                 <button
-                  className="bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] hover:from-[#ED2568] hover:to-[#1C1F2A] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
                   onClick={handleContactClick}
                 >
                   Start Your Journey
@@ -521,7 +473,7 @@ export default function SSIPAccreditationPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <button
-                className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
                 onClick={handleApplyClick}
               >
                 Get Accredited Today
@@ -539,13 +491,13 @@ export default function SSIPAccreditationPage() {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-[#FFC857] mb-2">
+                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
                     89,000+
                   </div>
                   <p className="text-gray-200">Registered Suppliers</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
+                  <div className="text-3xl font-bold text-[#EE343B] mb-2">
                     £68M+
                   </div>
                   <p className="text-gray-200">Saved in 2023</p>

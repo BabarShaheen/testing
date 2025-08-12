@@ -28,7 +28,7 @@ export function ContactCTA({
             </p>
             <Button
               onClick={onButtonClick}
-              className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg"
+              className="bg-gradient-to-r from-crimson-pink to-vivid-red hover:brightness-110 text-white px-8 py-3 text-lg"
             >
               {buttonText}
             </Button>
