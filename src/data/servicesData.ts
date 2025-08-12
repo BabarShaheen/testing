@@ -108,7 +108,7 @@ export const servicesData: Service[] = [
     },
   },
   {
-    id: 'chas-assistance',
+    id: 'safety-advisor/chas-assistance',
     title: 'CHAS Assistance',
     subtitle: 'Contractor Health and Safety Assessment Scheme',
     description:
@@ -329,7 +329,7 @@ export const servicesData: Service[] = [
     },
   },
   {
-    id: 'acs-audits',
+    id: 'sia-contractor/acs-audit',
     title: 'ACS Audits',
     subtitle: 'SIA ACS Audit Services',
     description:
@@ -399,7 +399,7 @@ export const servicesData: Service[] = [
     },
   },
   {
-    id: 'acs-eligibility',
+    id: 'sia-contractor/acs-eligibility',
     title: 'ACS Eligibility',
     subtitle: 'SIA ACS Eligibility Assessment',
     description:
@@ -536,7 +536,7 @@ export const servicesData: Service[] = [
     },
   },
   {
-    id: 'iso-9001',
+    id: 'iso-certifications/iso-9001',
     title: 'ISO 9001',
     subtitle: 'Quality Management System Certification',
     description:
@@ -611,7 +611,7 @@ export const servicesData: Service[] = [
     },
   },
   {
-    id: 'iso-14001',
+    id: 'iso-certifications/iso-14001',
     title: 'ISO 14001',
     subtitle: 'Environmental Management System Certification',
     description:
@@ -687,7 +687,7 @@ export const servicesData: Service[] = [
     },
   },
   {
-    id: 'ohsas-18001',
+    id: 'iso-certifications/ohsas-18001',
     title: 'OHSAS 18001',
     subtitle: 'Occupational Health and Safety Management System',
     description:

@@ -15,33 +15,39 @@ export default function BafeSP205Page() {
     window.location.href = '/contact';
   };
 
- 
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
         {/* Background Image Layer */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+          className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: "url('/Images/services/life-safety_optimized.webp')",
-            filter: 'brightness(0.7)',
+            backgroundImage:
+              "url('/Images/services/life-safety_optimized.webp')",
+            filter: 'brightness(0.3)',
           }}
         />
+
         {/* Content Layer: left-aligned layout, now with explicit flex for left/right columns */}
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-12">
             {/* Left Column */}
             <div className="flex flex-col justify-center text-left space-y-6 w-full lg:w-1/2">
               {/* Title */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white" style={{textAlign: 'left'}}>
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white"
+                style={{ textAlign: 'left' }}
+              >
                 Life Safety{' '}
                 <span className="text-[#ED2568]">Fire Risk Assessment</span>{' '}
                 Consultancy
               </h1>
               {/* Paragraph */}
-              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed" style={{textAlign: 'left'}}>
+              <p
+                className="text-lg sm:text-xl text-gray-300 leading-relaxed"
+                style={{ textAlign: 'left' }}
+              >
                 If you are the Responsible Person (or Duty Holder in Scotland)
                 you hold the responsibility for the adequacy of your company's{' '}
                 <span className="text-[#ED2568] font-semibold">
@@ -62,8 +68,12 @@ export default function BafeSP205Page() {
               <div className="flex flex-col sm:flex-row justify-start items-center gap-4 pt-4">
                 <a
                   className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:brightness-110 transition-all flex items-center border-0"
-                  style={{fontFamily: 'inherit', borderRadius: '0.75rem'}}
-                  onClick={() => document.getElementById('benefits-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  style={{ fontFamily: 'inherit', borderRadius: '0.75rem' }}
+                  onClick={() =>
+                    document
+                      .getElementById('benefits-section')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
                   tabIndex={0}
                   role="button"
                 >
@@ -72,7 +82,7 @@ export default function BafeSP205Page() {
                 </a>
                 <button
                   className="border border-white/30 text-white hover:text-pink-300 hover:border-pink-300 px-8 py-3 text-lg rounded-xl transition-all font-semibold shadow-lg"
-                  style={{fontFamily: 'inherit', borderRadius: '0.75rem'}}
+                  style={{ fontFamily: 'inherit', borderRadius: '0.75rem' }}
                   onClick={handleContactClick}
                 >
                   Apply Now
@@ -80,7 +90,10 @@ export default function BafeSP205Page() {
               </div>
             </div>
             {/* Right Column (image/illustration placeholder) */}
-            <div className="flex justify-center items-center w-full lg:w-1/2 h-full" aria-hidden>
+            <div
+              className="flex justify-center items-center w-full lg:w-1/2 h-full"
+              aria-hidden
+            >
               {/* Reserve space for hero image/illustration if needed */}
             </div>
           </div>
@@ -252,7 +265,10 @@ export default function BafeSP205Page() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits-section" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        <section
+          id="benefits-section"
+          className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-[#1C1F2A] mb-6">
@@ -351,7 +367,8 @@ export default function BafeSP205Page() {
         <section
           className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
+            backgroundImage:
+              "url('/Images/landingpage/get-started_optimized.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

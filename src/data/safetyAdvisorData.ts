@@ -31,41 +31,41 @@ export const benefits: Benefit[] = [
     title: 'Expert Knowledge',
     description:
       'Our qualified safety advisers have extensive experience across various industries.',
-    image: '/Images/services/expert1.jpg',
+    image: '/Images/services/expert1_optimized.webp',
   },
   {
     icon: CheckCircle,
     title: 'Compliance Assurance',
     description:
       'Ensure your business meets all health and safety regulatory requirements.',
-    image: '/Images/services/handshake.jpg',
+    image: '/Images/services/handshake_optimized.webp',
   },
   {
     icon: Users,
     title: 'Workforce Protection',
     description:
       'Protect your employees and create a safe working environment.',
-    image: '/Images/services/workforce.jpg',
+    image: '/Images/services/workforce_optimized.webp',
   },
   {
     icon: FileText,
     title: 'Documentation Support',
     description: 'Comprehensive documentation and policy development services.',
-    image: '/Images/services/documentation.jpg',
+    image: '/Images/services/documentation_optimized.webp',
   },
   {
     icon: Award,
     title: 'Professional Recognition',
     description:
       'Achieve industry recognition and enhance your business reputation.',
-    image: '/Images/services/recognition.jpg',
+    image: '/Images/services/recognition_optimized.webp',
   },
   {
     icon: ArrowRight,
     title: 'Ongoing Support',
     description:
       'Continuous support and monitoring to maintain safety standards.',
-    image: '/Images/services/monitoring.jpg',
+    image: '/Images/services/monitoring_optimized.webp',
   },
 ];
 

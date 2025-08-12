@@ -10,11 +10,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
-import {
-  SectionHeader,
-  ServiceCard,
-  ContactCTA,
-} from '../components/common';
+import { SectionHeader, ServiceCard, ContactCTA } from '../components/common';
 
 export function ServicesPage() {
   const navigate = useNavigate();
@@ -43,7 +39,11 @@ export function ServicesPage() {
   };
 
   const handleServiceClick = (serviceId: string) => {
-    navigate(`/services/${serviceId}`);
+    if (serviceId === 'accreditation-support') {
+      navigate('/about/accreditation');
+    } else {
+      navigate(`/services/${serviceId}`);
+    }
   };
 
   const handleContactClick = () => {
@@ -72,7 +72,9 @@ export function ServicesPage() {
               </h1>
 
               <p className="mt-6 text-lg sm:text-xl text-pure-white/90 max-w-2xl">
-                Comprehensive compliance and safety solutions designed to help your business meet regulatory requirements and achieve operational excellence.
+                Comprehensive compliance and safety solutions designed to help
+                your business meet regulatory requirements and achieve
+                operational excellence.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -92,7 +94,9 @@ export function ServicesPage() {
               </div>
 
               <p className="mt-6 text-sm text-pure-white/80 max-w-xl mx-auto lg:mx-0">
-                Start with a free consultation — we'll tailor a compliance plan for your business and help you achieve CHAS and other recognised accreditations.
+                Start with a free consultation — we'll tailor a compliance plan
+                for your business and help you achieve CHAS and other recognised
+                accreditations.
               </p>
             </div>
 
@@ -128,7 +132,10 @@ export function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section id="services-grid" className="py-16 bg-off-white dark:bg-charcoal-navy transition-colors-smooth">
+      <section
+        id="services-grid"
+        className="py-16 bg-off-white dark:bg-charcoal-navy transition-colors-smooth"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service) => {
@@ -202,14 +209,38 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <ContactCTA
-        title="Need a Custom Solution?"
-        description="Our expert team can create a tailored compliance solution specifically for your business needs."
-        buttonText="Contact Us Today"
-        onButtonClick={handleContactClick}
-        className="bg-gradient-to-r from-crimson-pink to-vivid-red text-white relative overflow-hidden"
-      />
+      {/* Final CTA Section */}
+      <section
+        className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('/Images/landingpage/get-started_optimized.webp')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
+            Need a Custom Solution?
+          </h2>
+
+          <p className="text-xl text-gray-100 max-w-4xl mx-auto mb-10">
+            Our expert team can create a tailored compliance solution
+            specifically for your business needs.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <button
+              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              onClick={() => navigate('/contact')}
+            >
+              Contact Us Today
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
