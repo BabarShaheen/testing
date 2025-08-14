@@ -500,13 +500,37 @@ const Navigation: React.FC = () => {
   return (
     <>
       <style>{`
+        @keyframes dropdownSlideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+          from { transform: scale(0.95); }
+          to { transform: scale(1); }
+        }
+        
         .nav-dropdown {
-          animation: dropdownSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: dropdownSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1), fadeIn 0.3s ease;
+          transform-origin: top center;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
         .nav-link {
           position: relative;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          overflow: hidden;
         }
         
         .nav-link::after {
@@ -518,7 +542,7 @@ const Navigation: React.FC = () => {
           height: 2px;
           background: linear-gradient(135deg, var(--crimson-pink), var(--vivid-red));
           border-radius: 1px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           transform: translateX(-50%);
         }
         
@@ -527,12 +551,35 @@ const Navigation: React.FC = () => {
         }
         
         .nav-link:hover::after {
-          width: 60%;
+          width: 70%;
+        }
+        
+        .nav-link::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(237, 37, 104, 0.08), rgba(255, 200, 87, 0.08));
+          opacity: 0;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+          border-radius: 2xl;
+          z-index: -1;
+        }
+        
+        .nav-link:hover::before {
+          transform: scaleX(1);
+          transform-origin: left;
+          opacity: 1;
         }
         
         .dropdown-item {
           position: relative;
           overflow: hidden;
+          transition: all 0.3s ease;
         }
         
         .dropdown-item::before {
@@ -543,11 +590,24 @@ const Navigation: React.FC = () => {
           width: 100%;
           height: 100%;
           background: linear-gradient(90deg, transparent, rgba(237, 37, 104, 0.1), transparent);
-          transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 0;
         }
         
         .dropdown-item:hover::before {
           left: 100%;
+        }
+        
+        .dropdown-item:hover {
+          transform: translateX(5px);
+        }
+        
+        .mobile-nav-item {
+          transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-item:active {
+          transform: scale(0.98);
         }
       `}</style>
 
@@ -563,18 +623,19 @@ const Navigation: React.FC = () => {
             {/* Logo - Left side */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center cursor-pointer group">
-                <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+                <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
                   <img
                     src="/citrix-logo_optimized.webp"
                     alt="Citrix Logo"
-                    className="w-11 h-11 object-cover"
+                    className="w-11 h-11 object-cover drop-shadow-md transition-all duration-300 group-hover:drop-shadow-xl"
                   />
                 </div>
                 <div className="transition-all duration-300">
-                  <div className="text-charcoal-navy font-bold text-2xl tracking-tight group-hover:text-crimson-pink transition-colors duration-300">
-                    Citrix Consulting
+                  <div className="text-charcoal-navy font-bold text-2xl tracking-tight group-hover:text-crimson-pink transition-all duration-300 relative overflow-hidden">
+                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">Citrix</span>
+                    <span className="inline-block transition-transform duration-300 delay-75 group-hover:translate-x-1"> Consulting</span>
                   </div>
-                  <div className="text-gray-500 text-base font-medium">
+                  <div className="text-gray-500 text-base font-medium transition-all duration-300 group-hover:text-gray-700">
                     Services Limited
                   </div>
                 </div>
@@ -616,13 +677,20 @@ const Navigation: React.FC = () => {
                             onMouseEnter={() => handleMainItemHover(item.id)}
                             onMouseLeave={() => handleMainItemHover(null)}
                           >
-                            {item.children?.map((child) => (
-                              <DropdownItem
+                            {item.children?.map((child, index) => (
+                              <div 
                                 key={child.id}
-                                item={child}
-                                onItemHover={handleDropdownHover}
-                                hoveredSubItem={activeDropdown}
-                              />
+                                style={{
+                                  animationDelay: `${index * 0.05}s`,
+                                  animation: 'fadeIn 0.3s forwards, scaleIn 0.3s forwards'
+                                }}
+                              >
+                                <DropdownItem
+                                  item={child}
+                                  onItemHover={handleDropdownHover}
+                                  hoveredSubItem={activeDropdown}
+                                />
+                              </div>
                             ))}
                           </div>
                         )}
