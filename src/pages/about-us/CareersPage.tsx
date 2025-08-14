@@ -1,21 +1,16 @@
 import {
-
-  Star,
+  
   CheckCircle,
   Heart,
-  Target,
-  Zap,
   Gift,
   Phone,
-  Building,
   ArrowRight,
-  
   Briefcase,
 } from 'lucide-react';
 
 import {
-  tasks,
-  requirements,
+  // tasks,
+  // requirements,
   benefits,
   values,
 } from '../../data/about-us/careersData';
@@ -88,266 +83,32 @@ export default function CareersPage() {
 
       {/* Main Content */}
       <div id="main-content">
-        {/* Job Introduction Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
-                    <Building className="h-8 w-8 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-[#1C1F2A]">
-                    MARKETING ASSISTANT – FULL-TIME
-                  </h2>
-                </div>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  <strong>Citrix Consultancy Services (CCS)</strong> is a
-                  forward-thinking consultancy that puts inclusion, people, and
-                  purpose at the heart of everything we do. We're now expanding
-                  our team and looking for a Marketing Assistant who's ready to
-                  make an impact.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300">
-                    <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-[#1C1F2A] mb-1">
-                        Growing Company
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Join a small but thriving health and safety consultancy
-                        with expansion opportunities.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300">
-                    <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-[#1C1F2A] mb-1">
-                        Purpose-Driven Work
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Make a real impact in workplace safety while developing
-                        your marketing career.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300">
-                    <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-[#1C1F2A] mb-1">
-                        Inclusive Culture
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Be part of a company that values diversity and puts
-                        people first.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#EE343B]/20 rounded-2xl transform rotate-3 scale-105"></div>
-                <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Briefcase className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-[#1C1F2A] mb-4">
-                      Join Our Team
-                    </h3>
-                    <div className="space-y-3 mb-6">
-                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
-                        <span className="text-gray-600 text-sm">Salary:</span>
-                        <span className="font-bold text-[#ED2568]">
-                          £7.80-£8.50/hr
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
-                        <span className="text-gray-600 text-sm">Holiday:</span>
-                        <span className="font-semibold text-[#1C1F2A]">
-                          23 days
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
-                        <span className="text-gray-600 text-sm">Location:</span>
-                        <span className="font-semibold text-[#ED2568]">
-                          London
-                        </span>
-                      </div>
-                    </div>
-                    <button
-                      className="w-full bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={() => navigate('/contact')}
-                    >
-                      Apply for Position
-                    </button>
-                  </div>
-                </div>
-              </div>
+        {/* No Job Openings Section */}
+        <section className="py-24 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg mb-6">
+              <Briefcase className="h-10 w-10 text-white" />
             </div>
-          </div>
-        </section>
-
-        {/* What You'll Do Section */}
-        <section className="py-16 bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ED2568]/20 to-[#EE343B]/20 rounded-2xl transform rotate-3 scale-105"></div>
-                <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Target className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-[#1C1F2A] mb-6">
-                      Your Impact
-                    </h3>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
-                        <span className="text-gray-600 text-sm">
-                          Marketing Campaigns:
-                        </span>
-                        <span className="font-bold text-[#ED2568] text-sm">
-                          Lead & Execute
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
-                        <span className="text-gray-600 text-sm">
-                          Content Creation:
-                        </span>
-                        <span className="font-semibold text-[#1C1F2A] text-sm">
-                          Multi-Channel
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
-                        <span className="text-gray-600 text-sm">
-                          Event Support:
-                        </span>
-                        <span className="font-semibold text-[#ED2568] text-sm">
-                          Client Focused
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg">
-                        <span className="text-gray-600 text-sm">
-                          Market Research:
-                        </span>
-                        <span className="font-semibold text-[#ED2568] text-sm">
-                          Data-Driven
-                        </span>
-                      </div>
-                    </div>
-                    <button
-                      className="w-full mt-6 bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={() => navigate('/contact')}
-                    >
-                      Learn More
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-lg">
-                  <Target className="h-8 w-8 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold text-[#1C1F2A]">
-                  WHAT YOU'LL DO
-                </h2>
-              </div>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  As our Marketing Assistant, you'll play a crucial role in
-                  developing and executing marketing campaigns that showcase our
-                  expertise in health and safety consulting.
-                </p>
-                <div className="space-y-4">
-                  {tasks.slice(0, 4).map((task, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      <CheckCircle className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {task}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What You Bring Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-gradient-to-br from-[#1C1F2A] to-[#ED2568] rounded-lg">
-                    <Zap className="h-8 w-8 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-[#1C1F2A]">
-                    WHAT YOU BRING
-                  </h2>
-                </div>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  We're looking for someone passionate about marketing with a
-                  desire to make a real impact. Whether you're a recent graduate
-                  or have some experience, we want to hear from you.
-                </p>
-                <div className="space-y-4">
-                  {requirements.slice(0, 4).map((requirement, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      <Star className="h-6 w-6 text-[#ED2568] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {requirement}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A]/20 to-[#ED2568]/20 rounded-2xl transform rotate-3 scale-105"></div>
-                <div className="relative bg-white p-8 rounded-2xl shadow-2xl border border-[#E5E6F0]">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#1C1F2A] to-[#ED2568] rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Zap className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-[#1C1F2A] mb-4">
-                      Perfect Fit?
-                    </h3>
-                    <p className="text-gray-600 mb-6 text-sm">
-                      We believe in potential and are looking for someone eager
-                      to grow with us in the dynamic world of health and safety
-                      marketing.
-                    </p>
-                    <div className="bg-gradient-to-r from-[#F9F9F9] to-[#E5E6F0] p-4 rounded-lg mb-6 border border-[#ED2568]/20">
-                      <p className="text-sm text-[#1C1F2A] font-medium">
-                        "Ready to make an impact?"
-                      </p>
-                      <p className="text-xs text-gray-600 mt-1">
-                        Join our inclusive, purpose-driven team
-                      </p>
-                    </div>
-                    <button
-                      className="w-full bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] hover:from-[#ED2568] hover:to-[#1C1F2A] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
-                      onClick={() => navigate('/contact')}
-                    >
-                      Submit Application
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1C1F2A] mb-4 text-center">
+              No Job Openings Currently Available
+            </h2>
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed text-center max-w-2xl">
+              We appreciate your interest in joining our team! While there are no job vacancies at this time, we’re always excited to connect with talented individuals. Please check back soon or&nbsp;
+              <span
+                className="underline cursor-pointer text-[#ED2568] hover:text-[#EE343B] transition"
+                onClick={() => navigate('/contact')}
+              >
+                contact us
+              </span>
+              &nbsp;to express your interest in future opportunities.
+            </p>
+            <button
+              className="bg-gradient-to-r from-[#ED2568] to-[#EE343B] hover:from-[#EE343B] hover:to-[#ED2568] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105"
+              onClick={() => navigate('/contact')}
+            >
+              Get in Touch
+              <Phone className="ml-2 h-5 w-5 inline" />
+            </button>
           </div>
         </section>
 
@@ -426,9 +187,9 @@ export default function CareersPage() {
                   className="bg-gradient-to-br from-[#F9F9F9] to-[#E5E6F0] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100"
                 >
                   <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <CheckCircle className="h-7 w-7 text-white" />
-                </div>
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-7 w-7 text-white" />
+                    </div>
                     <p className="text-gray-600 leading-relaxed text-sm group-hover:text-[#1C1F2A] transition-colors font-medium">
                       {value}
                     </p>
