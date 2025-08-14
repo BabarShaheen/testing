@@ -153,10 +153,12 @@ export function HomePage() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 min-h-[90vh] items-center py-8 sm:py-10 lg:py-12">
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 min-h-[90vh] items-start py-4 sm:py-6 lg:py-8">
+
             
             {/* Left Content - Text and CTA */}
-            <div className="flex flex-col justify-center lg:pr-8">
+            <div className="flex flex-col justify-center lg:pr-8 mt-20">
+
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
