@@ -1,15 +1,39 @@
+import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { whyChooseUsData } from '../data/whyChooseUsData';
-import { CheckCircle, ArrowRight, Phone, FileText, MessageSquare } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, Phone, FileText, MessageSquare } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import LogoSlider from '../components/common/LogoSlider';
 import FeatureSlider from '../components/common/FeatureSlider';
 import AnimatedAssembly from '../components/common/AnimatedAssembly';
+import DynamicWords from "../components/common/DynamicWords.tsx";
+import { PageLoader } from '../components/common/LoadingSpinner';
+
+
 
 export function HomePage() {
   const navigate = useNavigate();
+  const [loading, setLoading] = React.useState(true);
 
+  React.useEffect(() => {
+    // Check if this is the first visit to the home page
+    const hasVisitedBefore = sessionStorage.getItem('hasVisitedHomePage');
+    
+    if (!hasVisitedBefore) {
+      // First visit - show loading screen
+      const timer = setTimeout(() => {
+        setLoading(false);
+        // Mark that user has visited the home page
+        sessionStorage.setItem('hasVisitedHomePage', 'true');
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    } else {
+      // Not first visit - don't show loading screen
+      setLoading(false);
+    }
+  }, []);
 
   const handleNavClick = (page: string) => {
     navigate(`/${page}`);
@@ -17,20 +41,37 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen">
-      <section
-        className="relative h-[90vh] w-full bg-cover bg-center bg-no-repeat text-white overflow-hidden"
-        style={{ backgroundImage: "url('/test-cover1.webp')" }}
-      >
-        {/* Enhanced Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-navy/90 via-charcoal-navy/70 to-transparent z-10"></div>
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <PageLoader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <section className="relative min-h-[90vh] bg-[#1C1F2A] text-white overflow-hidden">
+        {/* Background Image Layer with Red Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A] to-[#2A1C22] z-0"></div>
         
-        {/* Animated Background Elements */}
-        <motion.div 
-          className="absolute top-20 right-20 w-72 h-72 bg-crimson-pink/10 rounded-full blur-3xl z-5"
+        {/* Red-themed background pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.05] z-0" 
+          style={{
+            backgroundImage: `linear-gradient(to right, #ed2568 1px, transparent 1px), linear-gradient(to bottom, #ed2568 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
+        
+        {/* Animated background circles */}
+        <motion.div
+          className="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-white/30 to-white/10 blur-3xl z-0"
           animate={{
-            y: [0, -30, 0],
-            opacity: [0.4, 0.6, 0.4],
             scale: [1, 1.2, 1],
+            opacity: [0.7, 0.9, 0.7],
           }}
           transition={{
             duration: 8,
@@ -38,12 +79,11 @@ export function HomePage() {
             ease: "easeInOut",
           }}
         />
-        <motion.div 
-          className="absolute bottom-20 left-20 w-96 h-96 bg-warm-amber/10 rounded-full blur-3xl z-5"
+        <motion.div
+          className="absolute bottom-20 left-[5%] w-72 h-72 rounded-full bg-gradient-to-tr from-white/30 to-white/10 blur-3xl z-0"
           animate={{
-            y: [0, 30, 0],
-            opacity: [0.3, 0.5, 0.3],
-            scale: [1, 1.1, 1],
+            scale: [1, 0.8, 1],
+            opacity: [0.7, 0.9, 0.7],
           }}
           transition={{
             duration: 10,
@@ -52,160 +92,247 @@ export function HomePage() {
             delay: 1,
           }}
         />
+        
+        {/* New white waves positioned above the end of Hero section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 overflow-visible z-30">
+          {/* White wave 1 */}
+          <motion.svg 
+            viewBox="0 0 1440 320" 
+            className="absolute bottom-0 w-full h-auto"
+            initial={{ y: 0, opacity: 1 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0 }}
+          >
+            <motion.path 
+              fill="#ffffff" 
+              fillOpacity="1"
+              d="M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,138.7C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+              animate={{
+                d: [
+                  "M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,138.7C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+                  "M0,160L48,170.7C96,181,192,203,288,213.3C384,224,480,224,576,213.3C672,203,768,181,864,186.7C960,192,1056,224,1152,218.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                ],
+              }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 8,
+                ease: "easeInOut",
+                delay: 0
+              }}
+            />
+          </motion.svg>
+          
+          {/* White wave 2 */}
+          <motion.svg 
+            viewBox="0 0 1440 320" 
+            className="absolute bottom-0 w-full h-auto"
+            initial={{ y: 0, opacity: 1 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0 }}
+          >
+            <motion.path 
+              fill="#ffffff" 
+              fillOpacity="0.8"
+              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+              animate={{
+                d: [
+                  "M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+                  "M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,154.7C672,160,768,192,864,202.7C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                ],
+              }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 10,
+                ease: "easeInOut",
+                delay: 0
+              }}
+            />
+          </motion.svg>
+        </div>
 
-        {/* Content - Left Aligned */}
-        <div className="relative z-20 h-full flex items-center px-6 sm:px-12 lg:px-24">
-          <div className="max-w-4xl">
-            {/* Main Heading */}
-            <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Professional{' '}
-              </motion.span>
-              <motion.span 
-                className="text-gradient-crimson relative inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                Compliance
-                <motion.div
-                  className="absolute -bottom-2 left-0 h-1 bg-crimson-gradient rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                />
-              </motion.span>{' '}
-              <br className="hidden sm:block" />
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                Solutions
-              </motion.span>
-            </motion.h1>
-
-            {/* Subheading */}
-            <motion.p
-              className="text-lg sm:text-xl text-off-white/90 mb-8 leading-relaxed max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              Helping businesses meet legal standards with expert accreditation,
-              risk assessment, and compliance services across the UK.
-            </motion.p>
-
-            {/* CTA Button */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 min-h-[90vh] items-center py-8 sm:py-10 lg:py-12">
+            
+            {/* Left Content - Text and CTA */}
+            <div className="flex flex-col justify-center lg:pr-8">
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="mb-3 mt-0"
               >
-                <Button
-                  size="lg"
-                  className="bg-crimson-gradient hover:shadow-lg hover:shadow-crimson-pink/25 text-white px-8 py-4 min-h-[52px] text-base font-medium transition-all duration-300 group relative overflow-hidden"
-                  onClick={() => handleNavClick('contact')}
-                >
-                  <span className="relative z-10 flex items-center">
-                    Get Started Today
-                    <motion.span
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </motion.span>
+                <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-[#ed2568]/20 to-[#ffc857]/10 text-white font-semibold rounded-full text-sm">
+                  UK's Leading Compliance Partner
+                </span>
+              </motion.div>
+              
+              <motion.h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                Empowering <span className="text-gradient-crimson">
+                  Compliance
+                </span>
+                <br />
+                <span className="block mt-1">
+                  For <span className="inline-block">
+                    <DynamicWords words={["Ambitious Businesses.", "the Modern Era.", "UK Leaders.", "Every Industry."]} />
                   </span>
-                  
-                  {/* Button shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.7 }}
-                  />
-                </Button>
+                </span>
+              </motion.h1>
+
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 mb-12 mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+
+
               </motion.div>
 
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2 mt-6"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-4 min-h-[52px] text-base font-medium transition-all duration-300 backdrop-blur-sm"
-                  onClick={() => handleNavClick('services')}
-                >
-                  View Services
-                </Button>
-              </motion.div>
-            </motion.div>
+               
+               
+                <div className="flex space-x-3">
+                  <motion.div 
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-[#1C1F2A] border border-white/10 shadow-lg"
+                    whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(237, 37, 104, 0.3)' }}
+                    transition={{ duration: 0.2 }}
+                  >
 
-            {/* Stats/Features */}
-            <motion.div
-              className="flex flex-wrap gap-8 text-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <motion.div 
-                className="flex items-center gap-3 group"
-                whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              >
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-crimson-pink/20 border border-crimson-pink/30 group-hover:bg-crimson-pink/30 transition-colors">
-                  <CheckCircle className="h-4 w-4 text-crimson-pink" />
+                   
+                  </motion.div>
                 </div>
-                <span className="text-off-white font-medium">UK Based</span>
               </motion.div>
+            </div>
 
-              <motion.div 
-                className="flex items-center gap-3 group"
-                whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              >
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-warm-amber/20 border border-warm-amber/30 group-hover:bg-warm-amber/30 transition-colors">
-                  <CheckCircle className="h-4 w-4 text-warm-amber" />
-                </div>
-                <span className="text-off-white font-medium">
-                  20+ Years Experience
-                </span>
-              </motion.div>
+            {/* Right Content - Animated Cards */}
+            <div className="relative flex items-center justify-center lg:justify-end h-full mt-8 lg:mt-0">
+              <div className="relative w-full max-w-lg">
+                {/* Animated Cards Stack */}
+                <motion.div className="relative h-[400px] sm:h-[450px] md:h-[500px] w-full">
+                  {/* Card 1 - ISO Certification */}
+                  <motion.div
+                    className="absolute top-0 right-0 sm:right-0 w-60 sm:w-64 bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/20"
+                    initial={{ opacity: 0, y: 60, rotate: 5 }}
+                    animate={{ opacity: 1, y: 0, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    whileHover={{ y: -10, rotate: -2, scale: 1.03, transition: { duration: 0.3 } }}
+                  >
+                    <div className="h-3 bg-gradient-to-r from-[#ed2568] to-[#ff4081]"></div>
+                    <div className="p-5">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 rounded-full bg-[#ed2568]/10 flex items-center justify-center mr-3 shadow-md">
+                          <FileText className="w-5 h-5 text-[#ed2568]" />
+                        </div>
+                        <h3 className="font-bold text-charcoal-navy">ISO Certification</h3>
+                      </div>
+                      <p className="text-sm text-charcoal-navy/70 mb-3">Streamlined certification process with expert guidance</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-[#ed2568] hover:underline cursor-pointer">Learn more</span>
+                        <span className="text-xs font-medium bg-[#ed2568]/10 text-[#ed2568] px-2 py-1 rounded-full shadow-sm">99% Success</span>
+                      </div>
+                    </div>
+                  </motion.div>
 
-              <motion.div 
-                className="flex items-center gap-3 group"
-                whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              >
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-vivid-red/20 border border-vivid-red/30 group-hover:bg-vivid-red/30 transition-colors">
-                  <CheckCircle className="h-4 w-4 text-vivid-red" />
-                </div>
-                <span className="text-off-white font-medium">
-                  98% Client Satisfaction
-                </span>
-              </motion.div>
-            </motion.div>
+                  {/* Card 2 - Health & Safety */}
+                  <motion.div
+                    className="absolute top-[100px] sm:top-[120px] right-[60px] sm:right-[80px] w-60 sm:w-64 bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/20"
+                    initial={{ opacity: 0, y: 60, rotate: -5 }}
+                    animate={{ opacity: 1, y: 0, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    whileHover={{ y: -10, rotate: 2, scale: 1.03, transition: { duration: 0.3 } }}
+                  >
+                    <div className="h-3 bg-gradient-to-r from-[#ffc857] to-[#ffb74d]"></div>
+                    <div className="p-5">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 rounded-full bg-[#ffc857]/10 flex items-center justify-center mr-3 shadow-md">
+                          <Phone className="w-5 h-5 text-[#ffc857]" />
+                        </div>
+                        <h3 className="font-bold text-charcoal-navy">Health & Safety</h3>
+                      </div>
+                      <p className="text-sm text-charcoal-navy/70 mb-3">Comprehensive workplace safety solutions</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-[#ffc857] hover:underline cursor-pointer">Learn more</span>
+                        <span className="text-xs font-medium bg-[#ffc857]/10 text-[#ffc857] px-2 py-1 rounded-full shadow-sm">UK Compliant</span>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Card 3 - Compliance Stats */}
+                  <motion.div
+                    className="absolute top-[200px] sm:top-[240px] right-[20px] sm:right-[30px] w-60 sm:w-64 bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/20"
+                    initial={{ opacity: 0, y: 60, rotate: 3 }}
+                    animate={{ opacity: 1, y: 0, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    whileHover={{ y: -10, rotate: -1, scale: 1.03, transition: { duration: 0.3 } }}
+                  >
+                    <div className="h-3 bg-gradient-to-r from-[#4a90e2] to-[#81c3fd]"></div>
+                    <div className="p-5">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 rounded-full bg-[#4a90e2]/10 flex items-center justify-center mr-3">
+                          <MessageSquare className="w-5 h-5 text-[#4a90e2]" />
+                        </div>
+                        <h3 className="font-bold text-charcoal-navy">Compliance Stats</h3>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2 mb-3">
+                        <div className="bg-gray-50 p-2 rounded-lg text-center">
+                          <div className="text-lg font-bold text-[#ed2568]">98%</div>
+                          <div className="text-xs text-charcoal-navy/70">Success Rate</div>
+                        </div>
+                        <div className="bg-gray-50 p-2 rounded-lg text-center">
+                          <div className="text-lg font-bold text-[#ffc857]">500+</div>
+                          <div className="text-xs text-charcoal-navy/70">Clients</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="text-xs font-medium text-[#4a90e2]">View all statistics</span>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Removed decorative elements that were causing white effect behind cards */}
+                </motion.div>
+              </div>
+            </div>
           </div>
         </div>
+
+        {/* Animated Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center cursor-pointer"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 0.7, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.7 }}
+          onClick={() => {
+            document.getElementById('services-section')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="text-xs text-white/60 mb-2 font-medium">Scroll to explore</span>
+          <svg className="animate-bounce" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="#ED2568" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+              d="M19 9l-7 7-7-7" />
+          </svg>
+        </motion.div>
       </section>
+
+
+
+  
       {/* Services Preview - Framer Motion Version */}
-      <section className="py-20 bg-gradient-to-br from-off-white via-pure-white to-soft-lavender-grey/30 relative overflow-hidden">
+      <section id="services-section" className="py-20 bg-gradient-to-br from-off-white via-pure-white to-soft-lavender-grey/30 relative overflow-hidden">
         {/* Modern Geometric Background Pattern */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {/* Diagonal lines pattern */}
