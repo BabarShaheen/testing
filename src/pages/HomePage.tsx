@@ -4,6 +4,9 @@ import { whyChooseUsData } from '../data/whyChooseUsData';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import LogoSlider from '../components/common/LogoSlider';
+import FeatureSlider from '../components/common/FeatureSlider';
+import AnimatedAssembly from '../components/common/AnimatedAssembly';
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -25,80 +28,183 @@ export function HomePage() {
         {/* Enhanced Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal-navy/90 via-charcoal-navy/70 to-transparent z-10"></div>
 
+        {/* Animated Background Elements */}
+        <motion.div 
+          className="absolute top-20 right-20 w-72 h-72 bg-crimson-pink/10 rounded-full blur-3xl z-5"
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.4, 0.6, 0.4],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-20 left-20 w-96 h-96 bg-warm-amber/10 rounded-full blur-3xl z-5"
+          animate={{
+            y: [0, 30, 0],
+            opacity: [0.3, 0.5, 0.3],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+
         {/* Content - Left Aligned */}
         <div className="relative z-20 h-full flex items-center px-6 sm:px-12 lg:px-24">
           <div className="max-w-4xl">
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in-up">
-              Professional{' '}
-              <span className="text-gradient-crimson">Compliance</span>{' '}
+            <motion.h1 
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Professional{' '}
+              </motion.span>
+              <motion.span 
+                className="text-gradient-crimson relative inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                Compliance
+                <motion.div
+                  className="absolute -bottom-2 left-0 h-1 bg-crimson-gradient rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: '100%' }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
+                />
+              </motion.span>{' '}
               <br className="hidden sm:block" />
-              Solutions
-            </h1>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Solutions
+              </motion.span>
+            </motion.h1>
 
             {/* Subheading */}
-            <p
-              className="text-lg sm:text-xl text-off-white/90 mb-8 leading-relaxed max-w-2xl animate-fade-in-up"
-              style={{ animationDelay: '0.2s' }}
+            <motion.p
+              className="text-lg sm:text-xl text-off-white/90 mb-8 leading-relaxed max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
               Helping businesses meet legal standards with expert accreditation,
               risk assessment, and compliance services across the UK.
-            </p>
+            </motion.p>
 
             {/* CTA Button */}
-            <div
-              className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up"
-              style={{ animationDelay: '0.4s' }}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
             >
-              <Button
-                size="lg"
-                className="bg-crimson-gradient hover:shadow-lg hover:shadow-crimson-pink/25 text-white px-8 py-4 min-h-[52px] text-base font-medium btn-premium transition-all-smooth hover-lift group"
-                onClick={() => handleNavClick('contact')}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Get Started Today
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-crimson-gradient hover:shadow-lg hover:shadow-crimson-pink/25 text-white px-8 py-4 min-h-[52px] text-base font-medium transition-all duration-300 group relative overflow-hidden"
+                  onClick={() => handleNavClick('contact')}
+                >
+                  <span className="relative z-10 flex items-center">
+                    Get Started Today
+                    <motion.span
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </motion.span>
+                  </span>
+                  
+                  {/* Button shine effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '100%' }}
+                    transition={{ duration: 0.7 }}
+                  />
+                </Button>
+              </motion.div>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-4 min-h-[52px] text-base font-medium transition-all-smooth backdrop-blur-sm"
-                onClick={() => handleNavClick('services')}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                View Services
-              </Button>
-            </div>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-4 min-h-[52px] text-base font-medium transition-all duration-300 backdrop-blur-sm"
+                  onClick={() => handleNavClick('services')}
+                >
+                  View Services
+                </Button>
+              </motion.div>
+            </motion.div>
 
             {/* Stats/Features */}
-            <div
-              className="flex flex-wrap gap-8 text-sm animate-fade-in-up"
-              style={{ animationDelay: '0.6s' }}
+            <motion.div
+              className="flex flex-wrap gap-8 text-sm"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
             >
-              <div className="flex items-center gap-3 group">
+              <motion.div 
+                className="flex items-center gap-3 group"
+                whileHover={{ x: 5 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-crimson-pink/20 border border-crimson-pink/30 group-hover:bg-crimson-pink/30 transition-colors">
                   <CheckCircle className="h-4 w-4 text-crimson-pink" />
                 </div>
                 <span className="text-off-white font-medium">UK Based</span>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-3 group">
+              <motion.div 
+                className="flex items-center gap-3 group"
+                whileHover={{ x: 5 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-warm-amber/20 border border-warm-amber/30 group-hover:bg-warm-amber/30 transition-colors">
                   <CheckCircle className="h-4 w-4 text-warm-amber" />
                 </div>
                 <span className="text-off-white font-medium">
                   20+ Years Experience
                 </span>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-3 group">
+              <motion.div 
+                className="flex items-center gap-3 group"
+                whileHover={{ x: 5 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-vivid-red/20 border border-vivid-red/30 group-hover:bg-vivid-red/30 transition-colors">
                   <CheckCircle className="h-4 w-4 text-vivid-red" />
                 </div>
                 <span className="text-off-white font-medium">
                   98% Client Satisfaction
                 </span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -664,22 +770,43 @@ export function HomePage() {
         </div>
       </section>
 
-      <section
-        className="relative bg-fixed bg-cover bg-center bg-no-repeat py-24 overflow-hidden"
-        style={{
-          backgroundImage: "url('/Images/landingpage/why-choose-us_optimized.webp')",
-        }}
-      >
-        {/* Enhanced gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-charcoal-navy/80 via-charcoal-navy/70 to-charcoal-navy/60"></div>
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+        {/* Animated background elements */}
+        <motion.div 
+          className="absolute top-20 right-20 w-96 h-96 bg-crimson-pink/5 rounded-full blur-3xl z-0"
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-20 left-20 w-96 h-96 bg-warm-amber/5 rounded-full blur-3xl z-0"
+          animate={{
+            y: [0, 30, 0],
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-white z-10">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
           {/* Header Section */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true }}
             transition={{
               duration: 0.8,
               type: 'spring',
@@ -687,8 +814,8 @@ export function HomePage() {
             }}
           >
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, scale: 0.8 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-charcoal-navy"
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{
@@ -716,7 +843,7 @@ export function HomePage() {
             </motion.h2>
 
             <motion.p
-              className="text-xl text-soft-lavender-grey max-w-4xl mx-auto leading-relaxed"
+              className="text-xl text-charcoal-navy/70 max-w-4xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -732,94 +859,19 @@ export function HomePage() {
             </motion.p>
           </motion.div>
 
-          {/* Cards Grid */}
+          {/* Feature Slider */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: '-50px' }}
+            className="w-full"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{
-              staggerChildren: 0.2,
-              delayChildren: 0.3,
+              duration: 0.8,
+              delay: 0.6,
+              ease: 'easeOut',
             }}
           >
-            {whyChooseUsData.map((card, idx) => (
-              <motion.div
-                key={idx}
-                className="group relative perspective-1000"
-                initial={{
-                  opacity: 0,
-                  y: 60,
-                  scale: 0.9,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 100,
-                  damping: 12,
-                  duration: 0.1,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -8,
-                  rotateX: 5,
-                }}
-              >
-                <motion.div
-                  className="relative glass border border-white/20 p-8 rounded-2xl overflow-hidden cursor-pointer"
-                  style={{ transformStyle: 'preserve-3d' }}
-                  whileHover={{
-                    boxShadow: '0 25px 50px -12px rgba(237, 37, 104, 0.4)',
-                  }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 20,
-                  }}
-                >
-                  <div className="relative z-10">
-                    {/* Title */}
-                    <motion.h3
-                      className="text-xl font-bold mb-4 text-white group-hover:text-warm-amber transition-colors duration-300"
-                      whileHover={{ x: 5 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 300,
-                        damping: 20,
-                      }}
-                    >
-                      {card.title}
-                    </motion.h3>
-
-                    {/* Description */}
-                    <motion.p
-                      className="text-soft-lavender-grey leading-relaxed group-hover:text-white transition-colors duration-300"
-                      whileHover={{ x: 5 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 300,
-                        damping: 20,
-                      }}
-                    >
-                      {card.description}
-                    </motion.p>
-                  </div>
-
-                  {/* Corner accent */}
-                  <motion.div
-                    className="absolute top-0 right-0 w-16 h-16 bg-crimson-gradient opacity-20 rounded-bl-full"
-                    initial={{ scale: 0, rotate: 0 }}
-                    whileHover={{ scale: 1, rotate: 180 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </motion.div>
-              </motion.div>
-            ))}
+            <FeatureSlider features={whyChooseUsData} />
           </motion.div>
 
           {/* Bottom CTA */}
@@ -838,63 +890,254 @@ export function HomePage() {
         </div>
       </section>
 
-      <section
-        className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
-        style={{
-          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-black/70"></div>
+      {/* Animated Assembly Section */}
+      <AnimatedAssembly />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
-            Ready to Get Started?
-          </h2>
-
-          <p className="text-xl text-gray-100 max-w-4xl mx-auto mb-10">
-            Contact our expert team today for a free consultation and discover
-            how we can help your business achieve compliance excellence.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-            <button
-              className="bg-gradient-to-r from-[#FFC857] to-[#ED2568] hover:from-[#ED2568] hover:to-[#FFC857] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl transition-all duration-300 transform hover:scale-105 group"
-              onClick={() => handleNavClick('contact')}
-            >
-              Get Free Consultation
-              <ArrowRight className="ml-2 h-5 w-5 inline transition-transform group-hover:translate-x-1" />
-            </button>
-            <button
-              className="border-2 border-white text-white hover:bg-white hover:text-[#1C1F2A] px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-              onClick={() => handleNavClick('services')}
-            >
-              View All Services
-            </button>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold text-[#FFC857] mb-2">
-                  FREE
-                </div>
-                <p className="text-gray-200">Initial Consultation</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#ED2568] mb-2">
-                  24/7
-                </div>
-                <p className="text-gray-200">Expert Support</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">100%</div>
-                <p className="text-gray-200">Compliance Guaranteed</p>
-              </div>
-            </div>
-          </div>
+      {/* Logo Slider Section - Above Why Choose Citrix */}
+      <section className="py-10 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-charcoal-navy mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Trusted By Leading Organizations
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-charcoal-navy/70 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            We work with businesses of all sizes across the UK to ensure compliance excellence
+          </motion.p>
         </div>
+        <LogoSlider />
+      </section>
+
+      {/* Ready to Get Started Section - Enhanced with Cards */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <motion.div 
+          className="absolute top-0 right-0 w-96 h-96 bg-crimson-pink/5 rounded-full blur-3xl z-0"
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.3, 0.5, 0.3],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-0 left-0 w-96 h-96 bg-warm-amber/5 rounded-full blur-3xl z-0"
+          animate={{
+            y: [0, 30, 0],
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold mb-6 text-charcoal-navy"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Ready to Get Started?
+            </motion.h2>
+
+            <motion.p 
+              className="text-xl text-charcoal-navy/70 max-w-4xl mx-auto mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Contact our expert team today for a free consultation and discover
+              how we can help your business achieve compliance excellence.
+            </motion.p>
+          </motion.div>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Button
+                size="lg"
+                className="bg-crimson-gradient hover:shadow-lg hover:shadow-crimson-pink/25 text-white px-8 py-4 min-h-[56px] text-lg font-semibold relative overflow-hidden group"
+                onClick={() => handleNavClick('contact')}
+              >
+                <span className="relative z-10 flex items-center">
+                  Get Free Consultation
+                  <motion.span
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </motion.span>
+                </span>
+                
+                {/* Button shine effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.7 }}
+                />
+              </Button>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-charcoal-navy/30 text-charcoal-navy hover:bg-charcoal-navy/5 hover:border-charcoal-navy/50 px-8 py-4 min-h-[56px] text-lg font-semibold transition-all duration-300"
+                onClick={() => handleNavClick('services')}
+              >
+                View All Services
+              </Button>
+            </motion.div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg p-8 text-center relative overflow-hidden group"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ 
+                y: -10,
+                boxShadow: '0 25px 50px -12px rgba(238, 52, 59, 0.25)',
+              }}
+            >
+              <motion.div
+                className="w-16 h-16 bg-warm-amber/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-warm-amber/20 transition-colors duration-300"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+              >
+                <span className="text-2xl font-bold text-warm-amber">FREE</span>
+              </motion.div>
+              <motion.h3 
+                className="text-xl font-bold text-charcoal-navy mb-2"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                Initial Consultation
+              </motion.h3>
+              <p className="text-charcoal-navy/70 text-sm">No obligation assessment of your compliance needs</p>
+              
+              {/* Decorative elements */}
+              <motion.div 
+                className="absolute top-0 right-0 w-24 h-24 bg-warm-amber/10 rounded-bl-full -z-10"
+                whileHover={{ scale: 1.2, rotate: 45 }}
+                transition={{ duration: 0.5 }}
+              />
+            </motion.div>
+
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg p-8 text-center relative overflow-hidden group"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ 
+                y: -10,
+                boxShadow: '0 25px 50px -12px rgba(238, 52, 59, 0.25)',
+              }}
+            >
+              <motion.div
+                className="w-16 h-16 bg-crimson-pink/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-crimson-pink/20 transition-colors duration-300"
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+              >
+                <span className="text-2xl font-bold text-crimson-pink">24/7</span>
+              </motion.div>
+              <motion.h3 
+                className="text-xl font-bold text-charcoal-navy mb-2"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                Expert Support
+              </motion.h3>
+              <p className="text-charcoal-navy/70 text-sm">Dedicated assistance whenever you need it</p>
+              
+              {/* Decorative elements */}
+              <motion.div 
+                className="absolute top-0 right-0 w-24 h-24 bg-crimson-pink/10 rounded-bl-full -z-10"
+                whileHover={{ scale: 1.2, rotate: 45 }}
+                transition={{ duration: 0.5 }}
+              />
+            </motion.div>
+
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg p-8 text-center relative overflow-hidden group"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              whileHover={{ 
+                y: -10,
+                boxShadow: '0 25px 50px -12px rgba(238, 52, 59, 0.25)',
+              }}
+            >
+              <motion.div
+                className="w-16 h-16 bg-vivid-red/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-vivid-red/20 transition-colors duration-300"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+              >
+                <span className="text-2xl font-bold text-vivid-red">100%</span>
+              </motion.div>
+              <motion.h3 
+                className="text-xl font-bold text-charcoal-navy mb-2"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                Compliance Guaranteed
+              </motion.h3>
+              <p className="text-charcoal-navy/70 text-sm">We ensure your business meets all requirements</p>
+              
+              {/* Decorative elements */}
+              <motion.div 
+                 className="absolute top-0 right-0 w-24 h-24 bg-vivid-red/10 rounded-bl-full -z-10"
+                 whileHover={{ scale: 1.2, rotate: 45 }}
+                 transition={{ duration: 0.5 }}
+               />
+             </motion.div>
+           </div>
+         </div>
       </section>
     </div>
   );

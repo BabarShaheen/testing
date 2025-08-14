@@ -16,7 +16,7 @@ import {
 } from '../../../data/chasData';
 import { useEffect, useState, useRef } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion, cubicBezier } from 'framer-motion';
 
 type AnimatedCounterProps = {
   target: number;
@@ -236,7 +236,7 @@ export function ChasAssistancePage() {
                 className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
+                transition={{ duration: 0.8, ease: cubicBezier(0, 0, 0.2, 1) }}
               >
                 <div className="text-4xl font-extrabold text-pink-600 mb-2">
                   {typeof stat.value === 'number' ? (

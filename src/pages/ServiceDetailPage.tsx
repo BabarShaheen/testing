@@ -19,9 +19,194 @@ import {
   Users,
   Award,
   ArrowLeft,
+  Shield,
+  FileText,
+  Leaf,
+  Target,
 } from 'lucide-react';
-import { Shield, FileText, Leaf, Target } from 'lucide-react';
 import { getServiceById, Service } from '../data/servicesData';
+
+// --- NEW: fallback data for the three new services (if not found in getServiceById)
+const newServicesMap: Record<string, Service> = {
+  'smas-accreditation': {
+    id: 'smas-accreditation',
+    iconName: 'Award',
+    title: 'SMAS Accreditation',
+    badge: 'SSIP Approved',
+    subtitle: 'Streamlined health & safety assessment for UK contractors.',
+    description:
+      'Achieve SMAS Worksafe accreditation with expert support at every stage. Our consultants guide you through document preparation, evidence submission, and compliance to quickly secure your SSIP certificate.',
+    timeline: '2-5 working days',
+    pricing: 'From £249+VAT',
+    benefits: [
+      'Fast-tracked SMAS Worksafe approval',
+      'Expert help with documentation & evidence',
+      'Improved eligibility for principal contractor roles',
+      'Reduced risk of failed submissions',
+      'Dedicated support throughout renewal',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Initial Assessment',
+        description: 'We assess your business and gather required documentation for SMAS Worksafe.',
+      },
+      {
+        step: 2,
+        title: 'Application Preparation',
+        description: 'We complete your application, ensure evidence meets SMAS standards, and submit on your behalf.',
+      },
+      {
+        step: 3,
+        title: 'Accreditation Achieved',
+        description: 'We track your application, respond to assessor queries, and deliver your SSIP certificate.',
+      },
+    ],
+    stats: {
+      successRate: '99%',
+      clientRating: '4.9/5',
+      avgProjectTime: '3 days',
+      clientsServed: '500+ businesses',
+    },
+    relatedServices: [
+      {
+        id: 'acclaim-accreditation',
+        name: 'Acclaim Accreditation',
+        price: 'From £239+VAT',
+      },
+      {
+        id: 'constructionline-accreditation',
+        name: 'Constructionline Accreditation',
+        price: 'From £289+VAT',
+      },
+    ],
+    features: [
+      'Dedicated account manager',
+      'Compliant with SSIP standards',
+      'Priority support available',
+    ],
+    color: 'amber', // adjust to match your brand or theme
+  },
+  'acclaim-accreditation': {
+    id: 'acclaim-accreditation',
+    iconName: 'Shield',
+    title: 'Acclaim Accreditation',
+    badge: 'SSIP Member',
+    subtitle: 'Showcase your health & safety competence to major clients.',
+    description:
+      'Let us help you achieve Acclaim Accreditation for public and private sector contracts. We review, complete, and submit your application, handling all documentation and compliance requirements.',
+    timeline: '3-6 working days',
+    pricing: 'From £239+VAT',
+    benefits: [
+      'Enhance your profile for major tenders',
+      'Professional support with health & safety paperwork',
+      'Minimise resubmission risk',
+      'Support for annual renewals and evidence',
+      'Meet prequalification standards for buyers',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Gap Analysis',
+        description: 'We audit your health & safety management against Acclaim requirements.',
+      },
+      {
+        step: 2,
+        title: 'Application & Submission',
+        description: 'Our experts prepare and submit your Acclaim application, with all supporting evidence.',
+      },
+      {
+        step: 3,
+        title: 'Post-Accreditation Support',
+        description: 'We offer guidance for any queries, plus support for maintaining your accreditation.',
+      },
+    ],
+    stats: {
+      successRate: '98%',
+      clientRating: '4.8/5',
+      avgProjectTime: '4 days',
+      clientsServed: '350+ contractors',
+    },
+    relatedServices: [
+      {
+        id: 'smas-accreditation',
+        name: 'SMAS Accreditation',
+        price: 'From £249+VAT',
+      },
+      {
+        id: 'constructionline-accreditation',
+        name: 'Constructionline Accreditation',
+        price: 'From £289+VAT',
+      },
+    ],
+    features: [
+      'Streamlined renewal process',
+      'Guidance for complex documentation',
+      'Priority consultant response',
+    ],
+    color: 'emerald', // example color
+  },
+  'constructionline-accreditation': {
+    id: 'constructionline-accreditation',
+    iconName: 'Award',
+    title: 'Constructionline Accreditation',
+    badge: 'Supply Chain',
+    subtitle: 'Open up contract opportunities across the construction industry.',
+    description:
+      'Maximise your exposure and contract success with Constructionline Bronze, Silver, or Gold accreditation. We handle the registration, evidence, and compliance process for you.',
+    timeline: '5-10 working days',
+    pricing: 'From £289+VAT',
+    benefits: [
+      'Access to thousands of buyers and tenders',
+      'Bronze, Silver, or Gold registration handled for you',
+      'Ongoing renewal and compliance reminders',
+      'All evidence and document collation managed',
+      'Personal guidance for higher-level accreditations',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Eligibility Review',
+        description: 'We check your business meets Constructionline requirements and advise on Bronze/Silver/Gold tiers.',
+      },
+      {
+        step: 2,
+        title: 'Application Management',
+        description: 'We gather and upload your company evidence, manage all forms, and submit for assessment.',
+      },
+      {
+        step: 3,
+        title: 'Registration & Ongoing Support',
+        description: 'You get full access to Constructionline plus help with renewals and profile optimisation.',
+      },
+    ],
+    stats: {
+      successRate: '97%',
+      clientRating: '4.8/5',
+      avgProjectTime: '6 days',
+      clientsServed: '250+ construction firms',
+    },
+    relatedServices: [
+      {
+        id: 'smas-accreditation',
+        name: 'SMAS Accreditation',
+        price: 'From £249+VAT',
+      },
+      {
+        id: 'acclaim-accreditation',
+        name: 'Acclaim Accreditation',
+        price: 'From £239+VAT',
+      },
+    ],
+    features: [
+      'Tender eligibility guidance',
+      'Tiered support options',
+      'UK-wide compliance expertise',
+    ],
+    color: 'crimson', // example color
+  },
+};
+
 
 export function ServiceDetailPage() {
   const { serviceId } = useParams<{ serviceId: string }>();
@@ -39,7 +224,11 @@ export function ServiceDetailPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    const foundService = getServiceById(serviceId || '');
+    // First try to get from main/global data, else from local fallback.
+    let foundService = getServiceById(serviceId || '');
+    if (!foundService && serviceId && newServicesMap[serviceId]) {
+      foundService = newServicesMap[serviceId];
+    }
     setService(foundService);
     setIsLoading(false);
   }, [serviceId]);
@@ -157,12 +346,14 @@ export function ServiceDetailPage() {
                 <div className="p-3 bg-white/10 rounded-lg backdrop-blur-sm">
                   <IconComponent className="h-12 w-12 text-warm-amber" />
                 </div>
-                <Badge
-                  variant="secondary"
-                  className="bg-leaf-green text-white ml-4"
-                >
-                  {service.badge}
-                </Badge>
+                {service.badge && (
+                  <Badge
+                    variant="secondary"
+                    className="bg-leaf-green text-white ml-4"
+                  >
+                    {service.badge}
+                  </Badge>
+                )}
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 {service.title}
@@ -210,14 +401,14 @@ export function ServiceDetailPage() {
                     <Users className="h-8 w-8 text-warm-amber mx-auto mb-2" />
                     <div className="text-lg font-semibold">Success Rate</div>
                     <div className="text-gray-100">
-                      {service.stats.successRate}
+                      {service.stats?.successRate}
                     </div>
                   </div>
                   <div>
                     <Star className="h-8 w-8 text-warm-amber mx-auto mb-2" />
                     <div className="text-lg font-semibold">Client Rating</div>
                     <div className="text-gray-100">
-                      {service.stats.clientRating}
+                      {service.stats?.clientRating}
                     </div>
                   </div>
                 </div>
@@ -240,7 +431,7 @@ export function ServiceDetailPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.benefits.map((benefit, index) => (
+            {service.benefits?.map((benefit, index) => (
               <div
                 key={index}
                 className="flex items-center bg-white p-4 rounded-lg shadow-sm"
@@ -266,7 +457,7 @@ export function ServiceDetailPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {service.process.map((step, index) => (
+            {service.process?.map((step, index) => (
               <Card key={index} className="border-none shadow-lg">
                 <CardHeader>
                   <div className="flex items-center mb-4">
@@ -403,7 +594,7 @@ export function ServiceDetailPage() {
                 Related Services
               </h3>
               <div className="space-y-4">
-                {service.relatedServices.map((relatedService, index) => (
+                {service.relatedServices?.map((relatedService, index) => (
                   <Card
                     key={index}
                     className="border-none shadow-sm cursor-pointer"

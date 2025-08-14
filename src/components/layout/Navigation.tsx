@@ -176,6 +176,27 @@ const Navigation: React.FC = () => {
           icon: Award,
           description: 'Fire safety certification body',
         },
+        {
+          id: 'smas-accreditation',
+          label: 'SMAS Accreditation',
+          path: '/services/smas-accreditation',
+          icon: Award,
+          description: 'SMAS accreditation support',
+        },
+        {
+          id: 'acclaim-accreditation',
+          label: 'Acclaim Accreditation',
+          path: '/services/acclaim-accreditation',
+          icon: Award,
+          description: 'Acclaim accreditation support',
+        },
+        {
+          id: 'constructionline-accreditation',
+          label: 'Constructionline Accreditation',
+          path: '/services/constructionline-accreditation',
+          icon: Award,
+          description: 'Constructionline accreditation support',
+        },
       ],
     },
     {

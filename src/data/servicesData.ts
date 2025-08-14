@@ -29,6 +29,237 @@ export interface Service {
 }
 
 export const servicesData: Service[] = [
+  // SMAS Accreditation Service
+  {
+    id: 'smas-accreditation',
+    title: 'SMAS Accreditation',
+    subtitle: 'Safety Management Advisory Services',
+    description:
+      'Professional support to achieve SMAS accreditation and demonstrate your health and safety compliance.',
+    iconName: 'Award',
+    badge: 'Essential',
+    timeline: '4-6 weeks',
+    pricing: 'Starting from £1,800',
+    features: [
+      'Health & safety compliance',
+      'Tender opportunities',
+      'Risk reduction',
+      'Industry recognition',
+    ],
+    color: 'bg-green-50/50 border-leaf-green/30',
+    benefits: [
+      'Access to more tender opportunities',
+      'Reduced insurance premiums',
+      'Improved health and safety standards',
+      'Enhanced reputation',
+      'Compliance with regulations',
+      'Competitive advantage',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Pre-Assessment',
+        description:
+          'Review your current health and safety policies and procedures.',
+      },
+      {
+        step: 2,
+        title: 'Documentation Review',
+        description:
+          'Comprehensive review and development of health and safety documentation.',
+      },
+      {
+        step: 3,
+        title: 'Policy Development',
+        description: 'Creation or improvement of health and safety policies.',
+      },
+      {
+        step: 4,
+        title: 'Application Support',
+        description: 'Complete support through the SMAS application process.',
+      },
+      {
+        step: 5,
+        title: 'Assessment Preparation',
+        description:
+          'Preparation for SMAS assessment including mock assessments.',
+      },
+      {
+        step: 6,
+        title: 'Ongoing Support',
+        description: 'Continued support for annual reviews and maintenance.',
+      },
+    ],
+    relatedServices: [
+      { name: 'Safety Adviser', price: '£150/hour', id: 'safety-adviser' },
+      {
+        name: 'Accreditation Support',
+        price: '£2,200',
+        id: 'accreditation-support',
+      },
+      { name: 'Risk Assessments', price: '£450', id: 'risk-assessments' },
+    ],
+    stats: {
+      successRate: '96%',
+      clientRating: '4.8/5',
+      avgProjectTime: '5 weeks',
+      clientsServed: '180+',
+    },
+  },
+  // Acclaim Accreditation Service
+  {
+    id: 'acclaim-accreditation',
+    title: 'Acclaim Accreditation',
+    subtitle: 'Acclaim Accreditation Services',
+    description:
+      'Professional support to achieve Acclaim accreditation and demonstrate your health and safety compliance.',
+    iconName: 'Award',
+    badge: 'Essential',
+    timeline: '4-6 weeks',
+    pricing: 'Starting from £1,800',
+    features: [
+      'Health & safety compliance',
+      'Tender opportunities',
+      'Risk reduction',
+      'Industry recognition',
+    ],
+    color: 'bg-blue-50/50 border-blue/30',
+    benefits: [
+      'Access to more tender opportunities',
+      'Reduced insurance premiums',
+      'Improved health and safety standards',
+      'Enhanced reputation',
+      'Compliance with regulations',
+      'Competitive advantage',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Pre-Assessment',
+        description:
+          'Review your current health and safety policies and procedures.',
+      },
+      {
+        step: 2,
+        title: 'Documentation Review',
+        description:
+          'Comprehensive review and development of health and safety documentation.',
+      },
+      {
+        step: 3,
+        title: 'Policy Development',
+        description: 'Creation or improvement of health and safety policies.',
+      },
+      {
+        step: 4,
+        title: 'Application Support',
+        description: 'Complete support through the Acclaim application process.',
+      },
+      {
+        step: 5,
+        title: 'Assessment Preparation',
+        description:
+          'Preparation for Acclaim assessment including mock assessments.',
+      },
+      {
+        step: 6,
+        title: 'Ongoing Support',
+        description: 'Continued support for annual reviews and maintenance.',
+      },
+    ],
+    relatedServices: [
+      { name: 'Safety Adviser', price: '£150/hour', id: 'safety-adviser' },
+      {
+        name: 'Accreditation Support',
+        price: '£2,200',
+        id: 'accreditation-support',
+      },
+      { name: 'Risk Assessments', price: '£450', id: 'risk-assessments' },
+    ],
+    stats: {
+      successRate: '95%',
+      clientRating: '4.7/5',
+      avgProjectTime: '5 weeks',
+      clientsServed: '150+',
+    },
+  },
+  // Constructionline Accreditation Service
+  {
+    id: 'constructionline-accreditation',
+    title: 'Constructionline Accreditation',
+    subtitle: 'Constructionline Accreditation Services',
+    description:
+      'Professional support to achieve Constructionline accreditation and demonstrate your compliance with industry standards.',
+    iconName: 'Award',
+    badge: 'Essential',
+    timeline: '4-6 weeks',
+    pricing: 'Starting from £1,800',
+    features: [
+      'Industry compliance',
+      'Tender opportunities',
+      'Risk reduction',
+      'Industry recognition',
+    ],
+    color: 'bg-purple-50/50 border-purple/30',
+    benefits: [
+      'Access to more tender opportunities',
+      'Reduced insurance premiums',
+      'Improved industry standards',
+      'Enhanced reputation',
+      'Compliance with regulations',
+      'Competitive advantage',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Pre-Assessment',
+        description:
+          'Review your current policies and procedures.',
+      },
+      {
+        step: 2,
+        title: 'Documentation Review',
+        description:
+          'Comprehensive review and development of required documentation.',
+      },
+      {
+        step: 3,
+        title: 'Policy Development',
+        description: 'Creation or improvement of necessary policies.',
+      },
+      {
+        step: 4,
+        title: 'Application Support',
+        description: 'Complete support through the Constructionline application process.',
+      },
+      {
+        step: 5,
+        title: 'Assessment Preparation',
+        description:
+          'Preparation for Constructionline assessment including mock assessments.',
+      },
+      {
+        step: 6,
+        title: 'Ongoing Support',
+        description: 'Continued support for annual reviews and maintenance.',
+      },
+    ],
+    relatedServices: [
+      { name: 'Safety Adviser', price: '£150/hour', id: 'safety-adviser' },
+      {
+        name: 'Accreditation Support',
+        price: '£2,200',
+        id: 'accreditation-support',
+      },
+      { name: 'Risk Assessments', price: '£450', id: 'risk-assessments' },
+    ],
+    stats: {
+      successRate: '94%',
+      clientRating: '4.7/5',
+      avgProjectTime: '5 weeks',
+      clientsServed: '120+',
+    },
+  },
   // Safety Adviser Services
   {
     id: 'safety-adviser',

@@ -18,6 +18,9 @@ import StaffVettingPage from './pages/services/StaffVettingPage';
 import PatTestingPage from './pages/services/PatTestingPage';
 import { RiskAssessmentsPage } from './pages/services/RiskAssessmentsPage';
 import BafeCertificationPage from './pages/services/BafeCertificationPage';
+import { SmasAccreditationPage } from './pages/services/SmasAccreditationPage';
+import { AcclaimAccreditationPage } from './pages/services/AcclaimAccreditationPage';
+import { ConstructionlineAccreditationPage } from './pages/services/ConstructionlineAccreditationPage';
 import SiaAcsPage from './pages/services/iso-certifications/SiaAcsPage';
 import AcsEligibilityPage from './pages/services/sia-contractor/AcsEligibilityPage';
 import AcsCompliancePage from './pages/services/sia-contractor/AcsCompliancePage';
@@ -115,6 +118,18 @@ export default function App() {
           <Route
             path="/services/bafe-certification"
             element={<BafeCertificationPage />}
+          />
+          <Route
+            path="/services/smas-accreditation"
+            element={<SmasAccreditationPage />}
+          />
+          <Route
+            path="/services/acclaim-accreditation"
+            element={<AcclaimAccreditationPage />}
+          />
+          <Route
+            path="/services/constructionline-accreditation"
+            element={<ConstructionlineAccreditationPage />}
           />
 
           {/* About Us Routes */}
