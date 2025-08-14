@@ -1,18 +1,23 @@
 // components/common/AnimatedAssembly.tsx
-import { motion, useAnimation, Variants, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
 
-const logoElements = [
-  { id: 'c', text: 'C', color: 'bg-crimson-pink' },
-  { id: 'i', text: 'I', color: 'bg-warm-amber' },
-  { id: 't', text: 'T', color: 'bg-vivid-red' },
-  { id: 'r', text: 'R', color: 'bg-crimson-pink' },
-  { id: 'i2', text: 'I', color: 'bg-warm-amber' },
-  { id: 'x', text: 'X', color: 'bg-vivid-red' },
-];
+// Define colors for the animation
+const colors = {
+  crimson: '#ED2568',
+  red: '#EE343B',
+  amber: '#FFC857',
+  navy: '#1C1F2A',
+  teal: '#2DD4BF',
+  purple: '#8B5CF6',
+  blue: '#3B82F6'
+};
+
+// Define the letters for CITRIX CONSULTING
+const letters = ['C', 'I', 'T', 'R', 'I', 'X', ' ', ' ', 'C', 'O', 'N', 'S', 'U', 'L', 'T', 'I', 'N', 'G'];
 
 const phrases = [
   'Transforming Compliance',
@@ -21,165 +26,76 @@ const phrases = [
   'Building Trust',
 ];
 
+// 3D letter animation variants
+const letterVariants: Variants = {
+  hidden: { opacity: 0, y: 20, rotateX: -90 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 200,
+      damping: 15,
+      delay: 0.1 * i,
+    },
+  }),
+  hover: {
+    y: -10,
+    scale: 1.1,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 10,
+    },
+  }
+};
+
+// Container variants for the CITRIX text
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: 0.1,
       delayChildren: 0.3,
     },
   },
 };
 
-const elementVariants: Variants = {
-  hidden: (i: number) => ({
-    x: (i % 2 === 0 ? -1000 : 1000) * Math.random(),
-    y: (i % 3 === 0 ? -500 : 500) * Math.random(),
-    rotate: Math.random() * 360,
-    opacity: 0,
-    scale: 0,
-  }),
-  visible: {
-    x: 0,
-    y: 0,
-    rotate: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 120,
-      damping: 20,
-      mass: 1,
-    },
-  },
-  pulse: {
-    scale: [1, 1.05, 1],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      repeatType: 'reverse',
-    },
-  },
-};
-
-// Animation properties are applied directly to elements
-
 export default function AnimatedAssembly() {
   const navigate = useNavigate();
-  const controls = useAnimation();
   const [currentPhrase, setCurrentPhrase] = useState(0);
-  const [assembled, setAssembled] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleSolutionsClick = () => {
-    navigate('/services');
+    navigate('/solutions');
   };
 
+  // Rotate through phrases
   useEffect(() => {
-    // Start the animation sequence
-    const startAnimation = async () => {
-      await controls.start('visible');
-      setAssembled(true);
-    };
-
-    startAnimation();
-
-    // Rotate through phrases
     const phraseInterval = setInterval(() => {
-      setCurrentPhrase((prev) => (prev + 1) % phrases.length);
+      setCurrentPhrase(prev => (prev + 1) % phrases.length);
     }, 3000);
-
+    
     return () => clearInterval(phraseInterval);
-  }, [controls]);
+  }, []);
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-off-white to-soft-lavender-grey/30">
-      {/* Enhanced Background elements */}
-      <motion.div
-        className="absolute top-20 right-20 w-72 h-72 bg-crimson-pink/10 rounded-full blur-3xl z-0"
-        animate={{
-          y: [0, -30, 0],
-          opacity: [0.4, 0.6, 0.4],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 left-20 w-96 h-96 bg-warm-amber/10 rounded-full blur-3xl z-0"
-        animate={{
-          y: [0, 30, 0],
-          opacity: [0.3, 0.5, 0.3],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 1,
-        }}
-      />
-      <motion.div
-        className="absolute top-1/3 left-1/4 w-64 h-64 bg-vivid-red/10 rounded-full blur-3xl z-0"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 2,
-        }}
-      />
-
+    <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <motion.div 
-            className="flex justify-center mb-6"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.8 }}
-          >
-            <motion.div 
-              className="relative w-24 h-24 mb-4"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 10 }}
-            >
-              <img 
-                src="/citrix-logo_optimized.webp" 
-                alt="Citrix Logo" 
-                className="w-full h-full object-contain"
-              />
-              <motion.div 
-                className="absolute inset-0 bg-crimson-pink/10 rounded-full blur-lg -z-10"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              />
-            </motion.div>
-          </motion.div>
-          
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-charcoal-navy mb-4"
+            className="text-3xl md:text-4xl font-bold text-black mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Where <span className="text-gradient-crimson">Innovation</span> Meets <span className="text-gradient-crimson">Compliance</span>
+            Where <span style={{ background: `linear-gradient(to right, ${colors.crimson}, ${colors.red})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Innovation</span> Meets <span style={{ color: colors.red, fontWeight: 'bold' }}>Compliance</span>
           </motion.h2>
           <motion.p
-            className="text-lg text-charcoal-navy/70 max-w-2xl mx-auto"
+            className="text-lg text-gray-700 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -188,46 +104,106 @@ export default function AnimatedAssembly() {
           </motion.p>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
-          {/* Animated logo assembly */}
-          <motion.div
-            className="flex flex-wrap justify-center items-center mb-12 min-h-[160px] relative gap-3 md:gap-4"
-            variants={containerVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            {logoElements.map((element, i) => (
-              <motion.div
-                key={element.id}
-                className={`${element.color} w-16 h-16 md:w-20 md:h-20 rounded-lg flex items-center justify-center text-white font-bold text-3xl md:text-4xl shadow-lg relative overflow-hidden group`}
-                custom={i}
-                variants={elementVariants}
-                animate={assembled ? 'pulse' : 'visible'}
-                whileHover={{ scale: 1.2, rotate: 5, zIndex: 10 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 10 }}
-              >
-                {element.text}
-                <motion.div 
-                  className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                />
-                <motion.div 
-                  className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 10 }}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+        <div className="flex flex-col items-center justify-center" ref={containerRef}>
+          {/* 3D CITRIX CONSULTING text with animations */}
+          <div className="relative w-full h-[200px] mb-0 overflow-hidden flex items-center justify-center">
+            <motion.div
+              className="flex gap-1 md:gap-2"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+            >
+              {letters.map((letter, index) => (
+                <motion.div
+                  key={index}
+                  custom={index}
+                  variants={letterVariants}
+                  className="relative flex items-center justify-center"
+                  whileHover="hover"
+                  style={{
+                    perspective: '1000px',
+                    transformStyle: 'preserve-3d',
+                  }}
+                >
+                  <motion.span
+                    className="text-5xl md:text-6xl font-extrabold"
+                    style={{
+                      color: colors.red,
+                      textShadow: `
+                        0 1px 0 #ccc,
+                        0 2px 0 #c9c9c9,
+                        0 3px 0 #bbb,
+                        0 4px 0 #b9b9b9,
+                        0 5px 0 #aaa,
+                        0 6px 1px rgba(0,0,0,.1),
+                        0 0 5px rgba(0,0,0,.1),
+                        0 1px 3px rgba(0,0,0,.3),
+                        0 3px 5px rgba(0,0,0,.2),
+                        0 5px 10px rgba(0,0,0,.25),
+                        0 10px 10px rgba(0,0,0,.2),
+                        0 20px 20px rgba(0,0,0,.15)
+                      `,
+                      display: 'inline-block',
+                      transformStyle: 'preserve-3d',
+                    }}
+                    animate={{
+                      rotateY: [0, 5, 0, -5, 0],
+                      rotateX: [0, -5, 0, 5, 0],
+                      textShadow: [
+                        `
+                          0 1px 0 #ccc,
+                          0 2px 0 #c9c9c9,
+                          0 3px 0 #bbb,
+                          0 4px 0 #b9b9b9,
+                          0 5px 0 #aaa,
+                          0 6px 1px rgba(0,0,0,.1),
+                          0 0 5px rgba(0,0,0,.1),
+                          0 1px 3px rgba(0,0,0,.3),
+                          0 3px 5px rgba(0,0,0,.2),
+                          0 5px 10px rgba(0,0,0,.25),
+                          0 10px 10px rgba(0,0,0,.2),
+                          0 20px 20px rgba(0,0,0,.15)
+                        `,
+                        `
+                          0 1px 0 #ccc,
+                          0 2px 0 #c9c9c9,
+                          0 3px 0 #bbb,
+                          0 4px 0 #b9b9b9,
+                          0 5px 0 #aaa,
+                          0 6px 1px rgba(0,0,0,.1),
+                          0 0 8px rgba(237,37,104,.5),
+                          0 1px 3px rgba(0,0,0,.3),
+                          0 3px 5px rgba(0,0,0,.2),
+                          0 5px 10px rgba(0,0,0,.25),
+                          0 10px 10px rgba(0,0,0,.2),
+                          0 20px 20px rgba(0,0,0,.15)
+                        `
+                      ]
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                      ease: 'easeInOut',
+                      delay: index * 0.1
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Features section */}
 
           {/* Animated text with improved transitions */}
-          <div className="h-20 overflow-hidden mb-12 relative">
+          <div className="h-20 overflow-hidden mb-6 relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPhrase}
-                className="text-2xl md:text-3xl font-bold text-charcoal-navy absolute w-full"
+                className="text-2xl md:text-3xl font-bold text-gray-800 absolute w-full"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -242,8 +218,8 @@ export default function AnimatedAssembly() {
           <motion.div 
             className="flex flex-wrap justify-center gap-6 mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
-            animate={{ opacity: assembled ? 1 : 0 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
           >
             {['Expert Guidance', 'Tailored Solutions', 'Proven Results', 'Ongoing Support'].map((feature, i) => (
               <motion.div 
@@ -251,13 +227,19 @@ export default function AnimatedAssembly() {
                 className="flex items-center gap-2 group"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.5 + (i * 0.2), duration: 0.5 }}
+                transition={{ delay: 0.8 + (i * 0.2), duration: 0.5 }}
                 whileHover={{ x: 5 }}
               >
-                <div className={`flex items-center justify-center w-8 h-8 rounded-full ${i % 3 === 0 ? 'bg-crimson-pink/20' : i % 3 === 1 ? 'bg-warm-amber/20' : 'bg-vivid-red/20'} group-hover:scale-110 transition-transform duration-300`}>
-                  <CheckCircle className={`h-4 w-4 ${i % 3 === 0 ? 'text-crimson-pink' : i % 3 === 1 ? 'text-warm-amber' : 'text-vivid-red'}`} />
+                <div 
+                  className="flex items-center justify-center w-8 h-8 rounded-full group-hover:scale-110 transition-transform duration-300"
+                  style={{
+                    background: `linear-gradient(135deg, ${[colors.crimson, colors.amber, colors.purple, colors.teal][i]}40, ${[colors.red, colors.teal, colors.blue, colors.crimson][i]}20)`,
+                    boxShadow: `0 0 10px 2px ${[colors.crimson, colors.amber, colors.purple, colors.teal][i]}30`
+                  }}
+                >
+                  <CheckCircle className="h-4 w-4 text-gray-800" />
                 </div>
-                <span className="text-charcoal-navy/80 font-medium">{feature}</span>
+                <span className="text-gray-700 font-medium">{feature}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -265,15 +247,19 @@ export default function AnimatedAssembly() {
           {/* Enhanced Call to action */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: assembled ? 1 : 0, y: assembled ? 0 : 20 }}
-            transition={{ delay: 2, duration: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
             <Button
               size="lg"
-              className="bg-crimson-gradient hover:shadow-lg hover:shadow-crimson-pink/25 text-white px-8 py-4 min-h-[52px] text-base font-medium transition-all duration-300 group relative overflow-hidden"
+              className="text-white px-8 py-4 min-h-[52px] text-base font-medium transition-all duration-300 group relative overflow-hidden"
               onClick={handleSolutionsClick}
+              style={{
+                background: `linear-gradient(135deg, ${colors.crimson}, ${colors.red})`,
+                boxShadow: `0 10px 25px -5px ${colors.crimson}40`
+              }}
             >
               <span className="relative z-10 flex items-center">
                 Discover Our Solutions
