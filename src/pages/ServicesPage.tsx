@@ -63,17 +63,17 @@ export function ServicesPage() {
       {/* Hero Section */}
       <section className="relative min-h-[70vh] bg-[#1C1F2A] text-white overflow-hidden">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A] to-[#2A1C22] z-0"></div>
-        
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ed2568] to-[#2A1C22] z-0"></div>
+
         {/* Red-themed background pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.05] z-0" 
+        <div
+          className="absolute inset-0 opacity-[0.05] z-0"
           style={{
             backgroundImage: `linear-gradient(to right, #ed2568 1px, transparent 1px), linear-gradient(to bottom, #ed2568 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
+            backgroundSize: '40px 40px',
           }}
         ></div>
-        
+
         {/* Animated background circles */}
         <motion.div
           className="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-white/30 to-white/10 blur-3xl z-0"
@@ -84,7 +84,7 @@ export function ServicesPage() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         />
         <motion.div
@@ -96,71 +96,12 @@ export function ServicesPage() {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
             delay: 1,
           }}
         />
 
-        {/* White waves positioned above the end of Hero section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 overflow-visible z-30">
-          {/* White wave 1 */}
-          <motion.svg 
-            viewBox="0 0 1440 320" 
-            className="absolute bottom-0 w-full h-auto"
-            initial={{ y: 0, opacity: 1 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0 }}
-          >
-            <motion.path 
-              fill="#ffffff" 
-              fillOpacity="1"
-              d="M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,138.7C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              animate={{
-                d: [
-                  "M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,138.7C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
-                  "M0,160L48,170.7C96,181,192,203,288,213.3C384,224,480,224,576,213.3C672,203,768,181,864,186.7C960,192,1056,224,1152,218.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-                ],
-              }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: 8,
-                ease: "easeInOut",
-                delay: 0
-              }}
-            />
-          </motion.svg>
-          
-          {/* White wave 2 */}
-          <motion.svg 
-            viewBox="0 0 1440 320" 
-            className="absolute bottom-0 w-full h-auto"
-            initial={{ y: 0, opacity: 1 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0 }}
-          >
-            <motion.path 
-              fill="#ffffff" 
-              fillOpacity="0.8"
-              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              animate={{
-                d: [
-                  "M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
-                  "M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,154.7C672,160,768,192,864,202.7C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-                ],
-              }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: 10,
-                ease: "easeInOut",
-                delay: 0
-              }}
-            />
-          </motion.svg>
-        </div>
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg text-pure-white">

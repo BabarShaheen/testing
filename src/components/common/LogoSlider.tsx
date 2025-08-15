@@ -29,17 +29,20 @@ export default function LogoSlider() {
   }, []);
 
   return (
-    <div className="overflow-hidden py-8 bg-gradient-to-r from-gray-50 to-white relative">
+    <div className="overflow-hidden py-8 bg-gradient-to-r  to-white relative">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(to right, var(--color-crimson-pink) 1px, transparent 1px), 
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `linear-gradient(to right, var(--color-crimson-pink) 1px, transparent 1px), 
                            linear-gradient(to bottom, var(--color-crimson-pink) 1px, transparent 1px)`,
-          backgroundSize: '20px 20px'
-        }}></div>
+            backgroundSize: '20px 20px',
+          }}
+        ></div>
       </div>
-      
-      <motion.div 
+
+      <motion.div
         ref={sliderRef}
         className="flex items-center gap-12 px-4"
         animate={{
@@ -49,8 +52,8 @@ export default function LogoSlider() {
           x: {
             duration: 30,
             repeat: Infinity,
-            repeatType: "loop",
-            ease: "linear",
+            repeatType: 'loop',
+            ease: 'linear',
           },
         }}
       >
@@ -69,12 +72,10 @@ export default function LogoSlider() {
               initial={{ opacity: 0.9 }}
               whileHover={{ opacity: 1, scale: 1.05 }}
             />
-            <motion.div 
-              className="absolute -inset-2 rounded-lg bg-gradient-to-r from-crimson-pink/5 to-vivid-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-            />
+            <motion.div className="absolute -inset-2 rounded-lg bg-gradient-to-r from-crimson-pink/5 to-vivid-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
           </motion.div>
         ))}
-        
+
         {/* Duplicate logos for seamless loop */}
         {logos.map((src, idx) => (
           <motion.div
@@ -90,9 +91,7 @@ export default function LogoSlider() {
               initial={{ opacity: 0.9 }}
               whileHover={{ opacity: 1, scale: 1.05 }}
             />
-            <motion.div 
-              className="absolute -inset-2 rounded-lg bg-gradient-to-r from-crimson-pink/5 to-vivid-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-            />
+            <motion.div className="absolute -inset-2 rounded-lg bg-gradient-to-r from-crimson-pink/5 to-vivid-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
           </motion.div>
         ))}
       </motion.div>

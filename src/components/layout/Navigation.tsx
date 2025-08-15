@@ -77,6 +77,27 @@ const Navigation: React.FC = () => {
               icon: Award,
               description: 'CHAS accreditation support',
             },
+            {
+              id: 'smas-accreditation',
+              label: 'SMAS Accreditation',
+              path: '/services/smas-accreditation',
+              icon: Award,
+              description: 'SMAS accreditation support',
+            },
+            {
+              id: 'acclaim-accreditation',
+              label: 'Acclaim Accreditation',
+              path: '/services/acclaim-accreditation',
+              icon: Award,
+              description: 'Acclaim accreditation support',
+            },
+            {
+              id: 'constructionline-accreditation',
+              label: 'Constructionline Accreditation',
+              path: '/services/constructionline-accreditation',
+              icon: Award,
+              description: 'Constructionline accreditation support',
+            },
           ],
         },
         {
@@ -175,27 +196,6 @@ const Navigation: React.FC = () => {
           path: '/services/bafe-certification',
           icon: Award,
           description: 'Fire safety certification body',
-        },
-        {
-          id: 'smas-accreditation',
-          label: 'SMAS Accreditation',
-          path: '/services/smas-accreditation',
-          icon: Award,
-          description: 'SMAS accreditation support',
-        },
-        {
-          id: 'acclaim-accreditation',
-          label: 'Acclaim Accreditation',
-          path: '/services/acclaim-accreditation',
-          icon: Award,
-          description: 'Acclaim accreditation support',
-        },
-        {
-          id: 'constructionline-accreditation',
-          label: 'Constructionline Accreditation',
-          path: '/services/constructionline-accreditation',
-          icon: Award,
-          description: 'Constructionline accreditation support',
         },
       ],
     },
@@ -632,8 +632,13 @@ const Navigation: React.FC = () => {
                 </div>
                 <div className="transition-all duration-300">
                   <div className="text-charcoal-navy font-bold text-2xl tracking-tight group-hover:text-crimson-pink transition-all duration-300 relative overflow-hidden">
-                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">Citrix</span>
-                    <span className="inline-block transition-transform duration-300 delay-75 group-hover:translate-x-1"> Consulting</span>
+                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                      Citrix
+                    </span>
+                    <span className="inline-block transition-transform duration-300 delay-75 group-hover:translate-x-1">
+                      {' '}
+                      Consulting
+                    </span>
                   </div>
                   <div className="text-gray-500 text-base font-medium transition-all duration-300 group-hover:text-gray-700">
                     Services Limited
@@ -678,11 +683,12 @@ const Navigation: React.FC = () => {
                             onMouseLeave={() => handleMainItemHover(null)}
                           >
                             {item.children?.map((child, index) => (
-                              <div 
+                              <div
                                 key={child.id}
                                 style={{
                                   animationDelay: `${index * 0.05}s`,
-                                  animation: 'fadeIn 0.3s forwards, scaleIn 0.3s forwards'
+                                  animation:
+                                    'fadeIn 0.3s forwards, scaleIn 0.3s forwards',
                                 }}
                               >
                                 <DropdownItem

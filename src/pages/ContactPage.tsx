@@ -21,59 +21,11 @@ export function ContactPage() {
     consent: false,
   });
 
-  // Validation error state
-  const [errors, setErrors] = useState<{
-    name?: string;
-    email?: string;
-    phone?: string;
-    message?: string;
-  }>({});
-
-  const validateField = (name: string, value: string) => {
-    let error = '';
-    if (name === 'name') {
-      if (!value.trim()) error = 'Name is required';
-      else if (value.trim().length < 3)
-        error = 'Name must be at least 3 characters';
-      else if (!/^[A-Za-z\s]+$/.test(value.trim()))
-        error = 'Name can contain only letters and spaces';
-    }
-    if (name === 'email') {
-      if (!value.trim()) error = 'Email is required';
-      else if (
-        !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value.trim())
-      )
-        error = 'Enter a valid email';
-    }
-    if (
-      name === 'phone' &&
-      value.trim() &&
-      !/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(value.trim())
-    ) {
-      error = 'Enter a valid phone number';
-    }
-    if (name === 'message') {
-      if (!value.trim()) error = 'Message is required';
-      else if (value.trim().length < 10)
-        error = 'Message should be at least 10 characters';
-    }
-    return error;
-  };
-
-  const handleBlur = (
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    const error = validateField(name, value);
-    setErrors((prev) => ({ ...prev, [name]: error }));
-  };
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
   const [submitting, setSubmitting] = useState(false);
@@ -85,53 +37,11 @@ export function ContactPage() {
   const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-  // Validation helpers
-  const validate = () => {
-    const newErrors: typeof errors = {};
-    // Name: minLength 3, letters and spaces only
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    } else if (formData.name.trim().length < 3) {
-      newErrors.name = 'Name must be at least 3 characters';
-    } else if (!/^[A-Za-z\s]+$/.test(formData.name.trim())) {
-      newErrors.name = 'Name can contain only letters and spaces';
-    }
-    // Email: required, pattern
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (
-      !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(
-        formData.email.trim()
-      )
-    ) {
-      newErrors.email = 'Enter a valid email address';
-    }
-    // Phone: optional, but if present must match pattern
-    if (formData.phone.trim()) {
-      if (!/^(\+?\d{1,3}[- ]?)?\d{10,15}$/.test(formData.phone.trim())) {
-        newErrors.phone = 'Enter a valid phone number';
-      }
-    }
-    // Message: minLength 10
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message should be at least 10 characters';
-    }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitMessage(null);
-
-    if (!validate()) {
-      // Don't submit if validation fails
-      return;
-    }
-
     setSubmitting(true);
+
     try {
       if (!form.current) throw new Error('Form not found');
 
@@ -161,7 +71,6 @@ export function ContactPage() {
         message: '',
         consent: false,
       });
-      setErrors({});
     } catch (err: any) {
       console.error('EmailJS error:', err);
       setSubmitMessage(
@@ -174,114 +83,8 @@ export function ContactPage() {
     }
   };
 
-  const isFormValid =
-    Object.values(errors).every((e) => !e) &&
-    formData.name &&
-    formData.email &&
-    formData.message &&
-    formData.consent;
-
   return (
-    <div className="min-h-screen bg-off-white dark:bg-charcoal-navy text-charcoal-navy dark:text-off-white relative overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-red/20 to-brand-red/5 z-10" />
-        <div className="absolute inset-0 bg-[url('/images/pattern-bg.png')] bg-repeat opacity-5 z-0" />
-      </div>
-      
-      {/* Animated background circles */}
-      <div className="absolute inset-0 overflow-hidden z-10">
-        {/* Circle 1 */}
-        <motion.div
-          className="absolute w-96 h-96 rounded-full bg-white opacity-10 blur-3xl"
-          style={{ top: '-10%', left: '5%' }}
-          animate={{
-            x: [0, 30, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "reverse",
-            duration: 20,
-            ease: "easeInOut"
-          }}
-        />
-        
-        {/* Circle 2 */}
-        <motion.div
-          className="absolute w-96 h-96 rounded-full bg-white opacity-10 blur-3xl"
-          style={{ top: '30%', right: '-10%' }}
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "reverse",
-            duration: 25,
-            ease: "easeInOut"
-          }}
-        />
-      </div>
-      
-      {/* White waves positioned at the bottom of the hero section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 overflow-visible z-30">
-        {/* White wave 1 */}
-        <motion.svg 
-          viewBox="0 0 1440 320" 
-          className="absolute bottom-0 w-full h-auto"
-          initial={{ y: 0, opacity: 1 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0 }}
-        >
-          <motion.path 
-            fill="#ffffff" 
-            fillOpacity="1"
-            d="M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,138.7C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            animate={{
-              d: [
-                "M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,138.7C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
-                "M0,160L48,170.7C96,181,192,203,288,213.3C384,224,480,224,576,213.3C672,203,768,181,864,186.7C960,192,1056,224,1152,218.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              ],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 8,
-              ease: "easeInOut",
-              delay: 0
-            }}
-          />
-        </motion.svg>
-        
-        {/* White wave 2 */}
-        <motion.svg 
-          viewBox="0 0 1440 320" 
-          className="absolute bottom-0 w-full h-auto"
-          initial={{ y: 0, opacity: 1 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0 }}
-        >
-          <motion.path 
-            fill="#ffffff" 
-            fillOpacity="0.8"
-            d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            animate={{
-              d: [
-                "M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
-                "M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,154.7C672,160,768,192,864,202.7C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              ],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 10,
-              ease: "easeInOut",
-              delay: 0
-            }}
-          />
-        </motion.svg>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-off-white to-soft-lavender-grey/30">
       <AnimatePresence>
         {showModal && (
           <motion.div
@@ -448,24 +251,11 @@ export function ContactPage() {
                           id="name"
                           name="name"
                           required
-                          minLength={3}
-                          pattern="^[A-Za-z\s]+$"
                           value={formData.name}
                           onChange={handleInputChange}
-                          onBlur={handleBlur}
-                          className={`h-12 border-2 ${
-                            errors.name
-                              ? 'border-red-500'
-                              : 'border-soft-lavender-grey'
-                          } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl`}
+                          className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
                           placeholder="Enter your full name"
-                          autoComplete="name"
                         />
-                        {errors.name && (
-                          <p className="text-xs text-red-500 mt-1">
-                            {errors.name}
-                          </p>
-                        )}
                       </div>
                       <div className="space-y-2">
                         <Label
@@ -479,23 +269,11 @@ export function ContactPage() {
                           name="email"
                           type="email"
                           required
-                          pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
                           value={formData.email}
                           onChange={handleInputChange}
-                          onBlur={handleBlur}
-                          className={`h-12 border-2 ${
-                            errors.email
-                              ? 'border-red-500'
-                              : 'border-soft-lavender-grey'
-                          } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl`}
+                          className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
                           placeholder="your@email.com"
-                          autoComplete="email"
                         />
-                        {errors.email && (
-                          <p className="text-xs text-red-500 mt-1">
-                            {errors.email}
-                          </p>
-                        )}
                       </div>
                     </div>
 
@@ -512,10 +290,8 @@ export function ContactPage() {
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
-                          onBlur={handleBlur}
                           className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
                           placeholder="Your company name"
-                          autoComplete="organization"
                         />
                       </div>
                       <div className="space-y-2">
@@ -529,24 +305,11 @@ export function ContactPage() {
                           id="phone"
                           name="phone"
                           type="tel"
-                          pattern="^(\+?\d{1,3}[- ]?)?\d{10,15}$"
-                          title="Enter a valid phone number"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          onBlur={handleBlur}
-                          className={`h-12 border-2 ${
-                            errors.phone
-                              ? 'border-red-500'
-                              : 'border-soft-lavender-grey'
-                          } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl`}
+                          className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
                           placeholder="+44 (0) 123 456 7890"
-                          autoComplete="tel"
                         />
-                        {errors.phone && (
-                          <p className="text-xs text-red-500 mt-1">
-                            {errors.phone}
-                          </p>
-                        )}
                       </div>
                     </div>
 
@@ -562,10 +325,8 @@ export function ContactPage() {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        onBlur={handleBlur}
                         className="h-12 border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl"
                         placeholder="e.g., ISO Certification, Staff Vetting, PAT Testing"
-                        autoComplete="off"
                       />
                     </div>
 
@@ -580,24 +341,12 @@ export function ContactPage() {
                         id="message"
                         name="message"
                         required
-                        minLength={10}
-                        title="Message should be at least 10 characters"
                         value={formData.message}
                         onChange={handleInputChange}
-                        onBlur={handleBlur}
                         rows={5}
-                        className={`border-2 ${
-                          errors.message
-                            ? 'border-red-500'
-                            : 'border-soft-lavender-grey'
-                        } focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl resize-none`}
+                        className="border-2 border-soft-lavender-grey focus:border-crimson-pink focus:ring-2 focus:ring-crimson-pink/20 transition-all rounded-xl resize-none"
                         placeholder="Tell us about your requirements..."
                       />
-                      {errors.message && (
-                        <p className="text-xs text-red-500 mt-1">
-                          {errors.message}
-                        </p>
-                      )}
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-soft-lavender-grey/30 rounded-xl">
@@ -627,7 +376,7 @@ export function ContactPage() {
 
                     <Button
                       type="submit"
-                      disabled={submitting || !isFormValid}
+                      disabled={submitting || !formData.consent}
                       className="w-full h-14 bg-crimson-gradient text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       {submitting ? (
@@ -687,7 +436,7 @@ export function ContactPage() {
                             Email
                           </h3>
                           <p className="text-gray-600 text-base">
-                            info@citrix-consulting-limited.co.uk
+                            info@citrixconsulting.co.uk
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             We typically respond within 2 hours
@@ -704,9 +453,7 @@ export function ContactPage() {
                             Phone
                           </h3>
                           <p className="text-gray-600 text-base">
-                            Phone: +44 20 8575 5544
-                            <br />
-                            Mobile: +44 7446 131 794
+                            +44 (0) 123 456 7890
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             Mon-Fri: 9AM-6PM GMT
@@ -723,7 +470,7 @@ export function ContactPage() {
                             Address
                           </h3>
                           <p className="text-gray-600 text-base">
-                            272 Bath Street, Glasgow, Scotland, Middlesex G2 4JR
+                            London, United Kingdom
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             Serving clients nationwide

@@ -1,166 +1,59 @@
 // components/common/FeatureSlider.tsx
-import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 type FeatureCardProps = {
   title: string;
   description: string;
   index: number;
+  isVisible?: boolean;
 };
 
 const FeatureCard = ({ title, description, index }: FeatureCardProps) => {
-  // Determine color based on index - for text and subtle accents only
+  // Color scheme based on index
   const colors = [
-    { text: 'text-crimson-pink', hover: 'hover:text-crimson-pink', accent: 'from-crimson-pink to-vivid-red', gradient: 'from-crimson-pink to-vivid-red' },
-    { text: 'text-vivid-red', hover: 'hover:text-vivid-red', accent: 'from-vivid-red to-warm-amber', gradient: 'from-vivid-red to-warm-amber' },
-    { text: 'text-warm-amber', hover: 'hover:text-warm-amber', accent: 'from-warm-amber to-crimson-pink', gradient: 'from-warm-amber to-crimson-pink' },
+    {
+      text: 'text-crimson-pink',
+      gradient: 'from-crimson-pink to-vivid-red',
+    },
+    {
+      text: 'text-vivid-red',
+      gradient: 'from-vivid-red to-warm-amber',
+    },
+    {
+      text: 'text-warm-amber',
+      gradient: 'from-warm-amber to-crimson-pink',
+    },
   ];
   const color = colors[index % colors.length];
 
   return (
-    <motion.div
-      className="group relative w-full max-w-sm mx-auto h-[400px] flex-shrink-0"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        type: 'spring',
-        stiffness: 100,
-        damping: 15,
-        delay: index * 0.1,
-      }}
-      whileHover={{
-        y: -10,
-        transition: { duration: 0.3, ease: 'easeOut' },
-      }}
-    >
-      <motion.div
-        className="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden h-full flex flex-col border border-gray-100"
-        whileHover={{
-          boxShadow: '0 25px 50px -12px rgba(238, 52, 59, 0.15)',
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        {/* Modern diagonal accent line */}
-        <motion.div 
-          className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-crimson-pink/30 to-transparent"
-          initial={{ x: '-100%', opacity: 0 }}
-          animate={{ x: '100%', opacity: 1 }}
-          transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+    <div className="group relative w-full flex-shrink-0">
+      <div className="bg-white rounded-xl shadow-lg p-6 relative overflow-hidden h-full flex flex-col border border-gray-100 min-h-[320px] hover:shadow-xl transition-shadow duration-300">
+        {/* Title */}
+        <h3 className="text-xl font-bold mb-3 text-charcoal-navy leading-tight">
+          {title}
+        </h3>
+
+        {/* Accent line */}
+        <div
+          className={`h-1 w-16 bg-gradient-to-r ${color.gradient} rounded-full mb-4`}
         />
-        
-        {/* Subtle background pattern */}
-        <motion.div 
-          className="absolute inset-0 opacity-5 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.05 }}
-          transition={{ duration: 1 }}
+
+        {/* Description */}
+        <div className="mb-4 flex-grow">
+          <p className="text-charcoal-navy/70 leading-relaxed">{description}</p>
+        </div>
+
+        {/* Learn More Link */}
+        <div
+          className={`flex items-center ${color.text} font-semibold text-sm mt-auto cursor-pointer hover:underline`}
         >
-          <div className="w-full h-full" style={{
-            backgroundImage: `linear-gradient(to right, var(--color-crimson-pink) 1px, transparent 1px), 
-                             linear-gradient(to bottom, var(--color-crimson-pink) 1px, transparent 1px)`,
-            backgroundSize: '20px 20px'
-          }}></div>
-        </motion.div>
-        
-        {/* Title with modern design and letter animation */}
-
-        {/* Title with modern design and letter animation */}
-        <motion.h3
-          className="text-2xl font-bold mb-3 text-charcoal-navy group-hover:text-charcoal-navy/90 transition-colors duration-300 relative inline-block"
-          whileHover={{ x: 5 }}
-          transition={{ duration: 0.2 }}
-        >
-          {title.split('').map((char, charIndex) => (
-            <motion.span
-              key={charIndex}
-              className="relative inline-block"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.3, 
-                delay: index * 0.05 + charIndex * 0.03,
-                ease: "easeOut"
-              }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </motion.span>
-          ))}
-        </motion.h3>
-
-        {/* Modern animated accent line */}
-        <motion.div 
-          className="relative h-1 mb-4 overflow-hidden"
-          initial={{ width: 0 }}
-          whileInView={{ width: '6rem' }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <motion.div 
-            className={`absolute inset-0 bg-gradient-to-r ${color.gradient} rounded-full`}
-            initial={{ opacity: 0.7 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.div 
-            className="absolute inset-0 bg-white opacity-30 rounded-full"
-            initial={{ width: '30%', x: '-100%' }}
-            animate={{ x: '100%' }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-          />
-        </motion.div>
-
-        {/* Description with staggered animation - simplified for performance */}
-        <motion.div className="mb-4 flex-grow">
-          <motion.p
-            className="text-charcoal-navy/70 leading-relaxed text-base"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.5, 
-              delay: index * 0.1 + 0.3,
-              ease: "easeOut"
-            }}
-          >
-            {description}
-          </motion.p>
-        </motion.div>
-
-        {/* Learn More Link with modern style */}
-        <motion.div
-          className={`flex items-center ${color.text} font-semibold text-sm mt-2 cursor-pointer relative overflow-hidden group`}
-          whileHover={{ x: 5 }}
-          transition={{ duration: 0.2 }}
-        >
-          <motion.div 
-            className="flex items-center relative z-10"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
-          >
-            <span>Learn more</span>
-            <motion.div
-              className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-            >
-              <ArrowRight className="h-4 w-4" />
-            </motion.div>
-          </motion.div>
-          
-          {/* Animated highlight effect */}
-          <motion.div 
-            className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r ${color.gradient} rounded-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
-          />
-        </motion.div>
-
-        {/* Subtle gradient background effect */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-      </motion.div>
-    </motion.div>
+          <span>Learn more</span>
+          <ArrowRight className="h-4 w-4 ml-2" />
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -169,41 +62,81 @@ type FeatureSliderProps = {
     title: string;
     description: string;
   }>;
+  className?: string;
+  mobileConfig?: {
+    slidesToShow?: number;
+    slidesToScroll?: number;
+    arrows?: boolean;
+    dots?: boolean;
+    infinite?: boolean;
+    autoplay?: boolean;
+    autoplaySpeed?: number;
+  };
 };
 
-export default function FeatureSlider({ features }: FeatureSliderProps) {
+export default function FeatureSlider({
+  features,
+  className = '',
+  mobileConfig,
+}: FeatureSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // Direction state removed as it wasn't being used
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  // Using number type instead of NodeJS.Timeout for better compatibility
+  const [isAutoPlaying, setIsAutoPlaying] = useState(
+    mobileConfig?.autoplay ?? true
+  );
   const autoPlayRef = useRef<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState(0);
 
   // Calculate visible cards based on screen width
   const [visibleCards, setVisibleCards] = useState(3);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const updateVisibleCards = useCallback(() => {
+    const width = window.innerWidth;
+    if (width < 640) {
+      setVisibleCards(mobileConfig?.slidesToShow ?? 1);
+      setIsMobile(true);
+    } else if (width < 1024) {
+      setVisibleCards(2);
+      setIsMobile(false);
+    } else {
+      setVisibleCards(3);
+      setIsMobile(false);
+    }
+  }, [mobileConfig?.slidesToShow]);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setVisibleCards(1);
-      } else if (window.innerWidth < 1024) {
-        setVisibleCards(2);
-      } else {
-        setVisibleCards(3);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    updateVisibleCards();
+    window.addEventListener('resize', updateVisibleCards);
+    return () => window.removeEventListener('resize', updateVisibleCards);
+  }, [updateVisibleCards]);
 
   // Auto-play functionality
+  const handleNext = useCallback(() => {
+    if (mobileConfig?.infinite !== false) {
+      setCurrentIndex((prev) => (prev + 1) % features.length);
+    } else {
+      setCurrentIndex((prev) =>
+        prev >= features.length - visibleCards ? 0 : prev + 1
+      );
+    }
+  }, [features.length, visibleCards, mobileConfig?.infinite]);
+
+  const handlePrev = useCallback(() => {
+    if (mobileConfig?.infinite !== false) {
+      setCurrentIndex((prev) => (prev - 1 + features.length) % features.length);
+    } else {
+      setCurrentIndex((prev) =>
+        prev === 0 ? features.length - visibleCards : prev - 1
+      );
+    }
+  }, [features.length, visibleCards, mobileConfig?.infinite]);
+
   useEffect(() => {
-    if (isAutoPlaying) {
+    if (isAutoPlaying && !isDragging) {
       autoPlayRef.current = window.setInterval(() => {
         handleNext();
-      }, 5000);
+      }, mobileConfig?.autoplaySpeed ?? 5000);
     }
 
     return () => {
@@ -211,196 +144,171 @@ export default function FeatureSlider({ features }: FeatureSliderProps) {
         window.clearInterval(autoPlayRef.current);
       }
     };
-  }, [currentIndex, isAutoPlaying]);
+  }, [
+    currentIndex,
+    isAutoPlaying,
+    isDragging,
+    handleNext,
+    mobileConfig?.autoplaySpeed,
+  ]);
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? features.length - visibleCards : prev - 1));
-    resetAutoPlay();
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === features.length - visibleCards ? 0 : prev + 1));
-    resetAutoPlay();
-  };
-
-  const resetAutoPlay = () => {
+  const resetAutoPlay = useCallback(() => {
     if (autoPlayRef.current) {
       window.clearInterval(autoPlayRef.current);
       if (isAutoPlaying) {
         autoPlayRef.current = window.setInterval(() => {
           handleNext();
-        }, 5000);
+        }, mobileConfig?.autoplaySpeed ?? 5000);
       }
     }
-  };
+  }, [isAutoPlaying, handleNext, mobileConfig?.autoplaySpeed]);
 
   const pauseAutoPlay = () => setIsAutoPlaying(false);
   const resumeAutoPlay = () => setIsAutoPlaying(true);
 
-  // Calculate progress percentage
-  const progressPercentage = (currentIndex / (features.length - visibleCards)) * 100;
+  // Touch/drag handlers
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isMobile) return;
+    setIsDragging(true);
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    setDragStart(clientX);
+    pauseAutoPlay();
+  };
+
+  const handleDragEnd = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isDragging || !isMobile) return;
+
+    const clientX =
+      'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
+    const dragDistance = dragStart - clientX;
+    const threshold = 50;
+
+    if (Math.abs(dragDistance) > threshold) {
+      if (dragDistance > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+
+    setIsDragging(false);
+    resumeAutoPlay();
+    resetAutoPlay();
+  };
+
+  // Calculate transform
+  const getTransform = () => {
+    if (isMobile) {
+      return `translateX(-${currentIndex * 100}%)`;
+    }
+    const cardWidth = 100 / visibleCards;
+    const maxIndex = features.length - visibleCards;
+    const clampedIndex = Math.min(currentIndex, maxIndex);
+    return `translateX(-${clampedIndex * cardWidth}%)`;
+  };
+
+  const totalSlides = isMobile
+    ? features.length
+    : Math.max(1, features.length - visibleCards + 1);
+  const progressPercentage =
+    totalSlides > 1 ? (currentIndex / (totalSlides - 1)) * 100 : 100;
 
   return (
-    <div 
-      className="relative w-full py-8"
-      onMouseEnter={pauseAutoPlay}
-      onMouseLeave={resumeAutoPlay}
+    <div
+      className={`relative w-full py-8 ${className}`}
+      onMouseEnter={!isMobile ? pauseAutoPlay : undefined}
+      onMouseLeave={!isMobile ? resumeAutoPlay : undefined}
     >
       {/* Main slider container */}
       <div className="overflow-hidden relative">
-        <motion.div
-          ref={sliderRef}
-          className="flex gap-6 px-4"
-          initial={false}
-          animate={{
-            x: `calc(-${currentIndex * 100}% / ${features.length - visibleCards + 1})`,
+        <div
+          className={`flex ${
+            isMobile ? '' : 'gap-6'
+          } transition-transform duration-500 ease-in-out`}
+          style={{
+            transform: getTransform(),
           }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 30,
-            duration: 0.5,
-          }}
+          onTouchStart={handleDragStart}
+          onTouchEnd={handleDragEnd}
         >
           {features.map((feature, idx) => (
-            <FeatureCard
+            <div
               key={idx}
-              title={feature.title}
-              description={feature.description}
-              index={idx}
-            />
+              className={
+                isMobile
+                  ? 'w-full flex-shrink-0 px-2'
+                  : `w-full max-w-sm mx-auto flex-shrink-0`
+              }
+              style={
+                !isMobile
+                  ? {
+                      width: `calc(${100 / visibleCards}% - ${
+                        (visibleCards - 1) * 24
+                      }px / ${visibleCards})`,
+                    }
+                  : undefined
+              }
+            >
+              <FeatureCard
+                title={feature.title}
+                description={feature.description}
+                index={idx}
+                isVisible={!isMobile || Math.abs(idx - currentIndex) <= 1}
+              />
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Navigation controls with modern Citrix-style */}
-      <div className="flex justify-between items-center mt-8 px-4">
-        <div className="flex gap-2">
-          {/* Progress indicator with modern wave effect */}
-          <div className="w-64 h-3 bg-gray-200 rounded-sm overflow-hidden relative">
-            {/* Wave pattern background */}
-            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-              <defs>
-                <pattern id="wave-pattern" x="0" y="0" width="20" height="3" patternUnits="userSpaceOnUse">
-                  <path d="M0,1.5 C2.5,0 7.5,0 10,1.5 C12.5,3 17.5,3 20,1.5" fill="none" stroke="rgba(237, 37, 104, 0.1)" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect x="0" y="0" width="100%" height="100%" fill="url(#wave-pattern)" />
-            </svg>
-            
-            <motion.div
-              className="h-full bg-gradient-to-r from-crimson-pink to-vivid-red relative"
-              initial={{ width: 0 }}
-              animate={{ width: `${progressPercentage}%` }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Animated wave effect inside progress bar */}
-              <motion.div 
-                className="absolute inset-0 overflow-hidden"
-                initial={{ opacity: 0.7 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-              >
-                <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
-                  <path 
-                    d="M0,1.5 C5,0 15,3 20,1.5 C25,0 35,3 40,1.5 C45,0 55,3 60,1.5 C65,0 75,3 80,1.5" 
-                    fill="none" 
-                    stroke="rgba(255, 255, 255, 0.3)" 
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </motion.div>
-              
-              {/* Animated shine effect */}
-              <motion.div 
-                className="absolute inset-0 bg-white opacity-30"
-                initial={{ width: '30%', x: '-100%' }}
-                animate={{ x: '100%' }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-              />
-            </motion.div>
+      {/* Navigation controls */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-8 px-4 gap-4 sm:gap-0">
+        {/* Progress section */}
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex-1 sm:w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-crimson-pink to-vivid-red transition-all duration-300"
+              style={{ width: `${progressPercentage}%` }}
+            />
           </div>
-          
-          <p className="text-sm text-charcoal-navy/60 font-medium">
-            {currentIndex + 1} / {features.length - visibleCards + 1}
+          <p className="text-sm text-charcoal-navy/60 font-medium whitespace-nowrap">
+            {currentIndex + 1} / {totalSlides}
           </p>
         </div>
-        
-        {/* Slide indicators */}
-        <div className="hidden md:flex gap-1 absolute left-1/2 transform -translate-x-1/2">
-          {Array.from({ length: features.length - visibleCards + 1 }).map((_, idx) => (
-            <motion.button
+
+        {/* Dot indicators */}
+        <div className="flex gap-2 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
+          {Array.from({ length: totalSlides }).map((_, idx) => (
+            <button
               key={idx}
-              className={`w-2 h-2 rounded-full ${idx === currentIndex ? 'bg-crimson-pink' : 'bg-gray-300'}`}
+              className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                idx === currentIndex ? 'bg-crimson-pink' : 'bg-gray-300'
+              }`}
               onClick={() => {
                 setCurrentIndex(idx);
                 resetAutoPlay();
               }}
-              whileHover={{ scale: 1.5 }}
-              whileTap={{ scale: 0.9 }}
-              animate={{
-                scale: idx === currentIndex ? 1.2 : 1,
-                opacity: idx === currentIndex ? 1 : 0.6
-              }}
-              transition={{ duration: 0.2 }}
             />
           ))}
         </div>
-        
-        <div className="flex gap-2">
-          {/* Previous button with modern square shape and wave effect */}
-          <motion.button
-            className="w-10 h-10 relative bg-white shadow-md flex items-center justify-center text-charcoal-navy hover:text-white rounded-md transition-colors duration-300 overflow-hidden"
-            onClick={handlePrev}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {/* Wave background that appears on hover */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-crimson-pink to-vivid-red opacity-0 hover:opacity-100 transition-opacity duration-300"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
+
+        {/* Navigation buttons */}
+        {(mobileConfig?.arrows !== false || !isMobile) && (
+          <div className="flex gap-2">
+            <button
+              className="w-10 h-10 bg-white shadow-md flex items-center justify-center text-charcoal-navy hover:bg-gray-50 rounded-md transition-colors duration-200"
+              onClick={handlePrev}
             >
-              <svg className="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none">
-                <defs>
-                  <pattern id="button-wave-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M0,10 C3.5,7 6.5,13 10,10 C13.5,7 16.5,13 20,10" fill="none" stroke="white" strokeWidth="0.5" />
-                  </pattern>
-                </defs>
-                <rect x="0" y="0" width="100%" height="100%" fill="url(#button-wave-pattern)" />
-              </svg>
-            </motion.div>
-            
-            <ArrowLeft size={18} className="relative z-10" />
-          </motion.button>
-          
-          {/* Next button with modern square shape and wave effect */}
-          <motion.button
-            className="w-10 h-10 relative bg-white shadow-md flex items-center justify-center text-charcoal-navy hover:text-white rounded-md transition-colors duration-300 overflow-hidden"
-            onClick={handleNext}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {/* Wave background that appears on hover */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-crimson-pink to-vivid-red opacity-0 hover:opacity-100 transition-opacity duration-300"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
+              <ArrowLeft size={18} />
+            </button>
+
+            <button
+              className="w-10 h-10 bg-white shadow-md flex items-center justify-center text-charcoal-navy hover:bg-gray-50 rounded-md transition-colors duration-200"
+              onClick={handleNext}
             >
-              <svg className="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none">
-                <defs>
-                  <pattern id="button-wave-pattern-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M0,10 C3.5,7 6.5,13 10,10 C13.5,7 16.5,13 20,10" fill="none" stroke="white" strokeWidth="0.5" />
-                  </pattern>
-                </defs>
-                <rect x="0" y="0" width="100%" height="100%" fill="url(#button-wave-pattern-2)" />
-              </svg>
-            </motion.div>
-            
-            <ArrowRight size={18} className="relative z-10" />
-          </motion.button>
-        </div>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
