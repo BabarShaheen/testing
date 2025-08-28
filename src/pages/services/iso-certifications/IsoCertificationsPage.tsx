@@ -126,7 +126,9 @@ export function IsoCertificationsPage() {
                       {service.description}
                     </CardDescription>
                     <div className="mb-4 p-3 bg-white/60 rounded-lg border border-gray-200">
-                      <p className="text-sm text-gray-600 mb-1">Starting from:</p>
+                      <p className="text-sm text-gray-600 mb-1">
+                        Starting from:
+                      </p>
                       <p className="font-semibold text-crimson-pink">
                         {service.price}
                       </p>
@@ -168,9 +170,7 @@ export function IsoCertificationsPage() {
               const BenefitIcon = item.icon;
               return (
                 <div key={index} className="text-center">
-                 <div
-                  className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4"
-                    >
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#ED2568] to-[#EE343B] rounded-full flex items-center justify-center mx-auto mb-4">
                     <BenefitIcon className="w-8 h-8 text-white" aria-hidden />
                   </div>
                   <h3 className="text-xl font-semibold text-navy-blue mb-2">
@@ -287,9 +287,8 @@ export function IsoCertificationsPage() {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-          
             <h2 className="text-4xl font-bold text-slate-800 mb-4">
-              Joint OHSAS 18001, ISO 9001 and ISO 14001 Systems
+              Combined ISO & OHSAS Systems
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Integrated management systems for maximum efficiency and cost
@@ -373,7 +372,8 @@ export function IsoCertificationsPage() {
                 // robust split: prefix = everything except last token, number = last token
                 const parts = system.system.split(' ');
                 const number = parts[parts.length - 1] ?? '';
-                const prefix = parts.slice(0, parts.length - 1).join(' ') ?? parts[0];
+                const prefix =
+                  parts.slice(0, parts.length - 1).join(' ') ?? parts[0];
 
                 return (
                   <div
@@ -385,7 +385,6 @@ export function IsoCertificationsPage() {
                         ? 'iso-card-success'
                         : 'iso-card-warning'
                     } p-6 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
-                    
                   >
                     <div className="flex items-start gap-4">
                       <div className="system-badge flex-shrink-0">
@@ -396,35 +395,26 @@ export function IsoCertificationsPage() {
                       </div>
 
                       <div className="flex-1">
-                        <h4 className="text-xl font-bold mb-2">{system.system}</h4>
-                        <p className="text-white/90 mb-3 font-medium">{system.focus}</p>
+                        <h4 className="text-xl font-bold mb-2">
+                          {system.system}
+                        </h4>
+                        <p className="text-white/90 mb-3 font-medium">
+                          {system.focus}
+                        </p>
 
                         <div className="iso-integration">
-                          <p className="text-sm font-medium">Integration Points:</p>
-                          <p className="text-white/90 text-sm">{system.integration}</p>
+                          <p className="text-sm font-medium">
+                            Integration Points:
+                          </p>
+                          <p className="text-white/90 text-sm">
+                            {system.integration}
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 );
               })}
-
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <h4 className="font-semibold text-slate-800 text-lg mb-4">
-                  Audit Availability
-                </h4>
-                <p className="text-gray-700 leading-relaxed text-sm mb-4">
-                  Integrated systems not only help an organisation internally,
-                  by reducing duplication and providing a centralised document
-                  control system, but may also offer cost benefits for your
-                  third-party audit.
-                </p>
-                <p className="text-gray-700 leading-relaxed text-sm">
-                  Audit of joint systems is available and may be the best method
-                  for some companies seeking comprehensive management system
-                  certification.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -434,7 +424,8 @@ export function IsoCertificationsPage() {
       <section
         className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
+          backgroundImage:
+            "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -467,7 +458,9 @@ export function IsoCertificationsPage() {
           </div>
 
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto shadow-md">
-            <p className="text-xl font-semibold mb-2">Your ISO Journey Starts Here</p>
+            <p className="text-xl font-semibold mb-2">
+              Your ISO Journey Starts Here
+            </p>
             <p className="text-gray-100 text-base leading-relaxed">
               With years of experience and a 100% success rate, we’re here to
               guide you through every step of the ISO certification process —

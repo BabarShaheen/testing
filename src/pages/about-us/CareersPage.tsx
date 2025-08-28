@@ -1,5 +1,4 @@
 import {
-  
   CheckCircle,
   Heart,
   Gift,
@@ -54,9 +53,9 @@ export default function CareersPage() {
 
             {/* Description */}
             <p className="text-xl sm:text-2xl text-gray-200 max-w-2xl leading-relaxed">
-              Are you passionate about marketing and diversity? Join our thriving
-              health and safety consultancy and shape the future of workplace
-              safety.
+              Are you passionate about marketing and diversity? Join our
+              thriving health and safety consultancy and shape the future of
+              workplace safety.
             </p>
 
             {/* CTA Buttons */}
@@ -93,7 +92,9 @@ export default function CareersPage() {
               No Job Openings Currently Available
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed text-center max-w-2xl">
-              We appreciate your interest in joining our team! While there are no job vacancies at this time, we’re always excited to connect with talented individuals. Please check back soon or&nbsp;
+              We appreciate your interest in joining our team! While there are
+              no job vacancies at this time, we’re always excited to connect
+              with talented individuals. Please check back soon or&nbsp;
               <span
                 className="underline cursor-pointer text-[#ED2568] hover:text-[#EE343B] transition"
                 onClick={() => navigate('/contact')}
@@ -204,7 +205,8 @@ export default function CareersPage() {
         <section
           className="py-20 bg-gradient-to-r from-[#1C1F2A] to-[#ED2568] text-white relative overflow-hidden"
           style={{
-            backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
+            backgroundImage:
+              "url('/Images/landingpage/get-started_optimized.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -237,29 +239,6 @@ export default function CareersPage() {
                 Get in Touch
                 <Phone className="ml-2 h-5 w-5 inline" />
               </button>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
-                    Growing
-                  </div>
-                  <p className="text-gray-200">Company Culture</p>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#ED2568] mb-2">
-                    £7.80-£8.50
-                  </div>
-                  <p className="text-gray-200">Per Hour</p>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-white mb-2">
-                    London
-                  </div>
-                  <p className="text-gray-200">Central Location</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>

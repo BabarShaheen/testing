@@ -79,10 +79,6 @@ export function HealthSafetyPage() {
     navigate('/contact');
   };
 
-  const handleServiceClick = (serviceId: string) => {
-    navigate(`/services/${serviceId}`);
-  };
-
   return (
     <div className="min-h-screen">
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20">
@@ -90,7 +86,8 @@ export function HealthSafetyPage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
           style={{
-            backgroundImage: "url('/Images/services/healthandsafety_optimized.webp')",
+            backgroundImage:
+              "url('/Images/services/healthandsafety_optimized.webp')",
             filter: 'brightness(0.7)',
           }}
         />
@@ -173,12 +170,6 @@ export function HealthSafetyPage() {
                     </ul>
 
                     <div className="pt-4 flex gap-4">
-                      <button
-                        onClick={() => handleServiceClick(service as any)}
-                        className="text-sm font-medium text-[#ED2568] hover:underline"
-                      >
-                        Learn More
-                      </button>
                       <button
                         onClick={handleContactClick}
                         className="text-sm font-medium text-white bg-[#ED2568] hover:bg-[#EE343B] px-4 py-2 rounded-lg transition-all"
@@ -399,7 +390,8 @@ export function HealthSafetyPage() {
       <section
         className="py-20 bg-gradient-to-r from-teal-gradient-dark to-teal-gradient-light text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')", // Replace with your own image path
+          backgroundImage:
+            "url('/Images/landingpage/get-started_optimized.webp')", // Replace with your own image path
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

@@ -1,9 +1,7 @@
 import {
-
   CheckCircle,
   Users,
   Target,
-  FileText,
   TrendingUp,
   Star,
   ArrowRight,
@@ -11,7 +9,6 @@ import {
   Settings,
   BookOpen,
   Eye,
-  Download,
   ShieldCheck,
 } from 'lucide-react';
 
@@ -28,32 +25,34 @@ const OHSAS18001Page = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="min-h-screen relative flex justify-start items-center bg-[#1C1F2A] text-white px-6 sm:px-12 lg:px-20 overflow-hidden">
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center z-0"
-    style={{
-      backgroundImage: "url('/Images/services/ohsas18001_cover_optimized.webp')",
-      filter: 'brightness(0.5)',
-      transform: 'scaleX(-1)',
-    }}
-  />
-  
-  {/* Content */}
-  <div className="w-full flex items-center">
-    <div className="relative z-10 max-w-xl text-left space-y-8 flex flex-col items-start">
-      {/* Title */}
-      <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
-        OHSAS 18001
-        <br />
-        <span className="text-transparent bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text">
-          Safety Management
-        </span>
-      </h1>
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{
+            backgroundImage:
+              "url('/Images/services/ohsas18001_cover_optimized.webp')",
+            filter: 'brightness(0.5)',
+            transform: 'scaleX(-1)',
+          }}
+        />
+
+        {/* Content */}
+        <div className="w-full flex items-center">
+          <div className="relative z-10 max-w-xl text-left space-y-8 flex flex-col items-start">
+            {/* Title */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text">
+              OHSAS 18001
+              <br />
+              <span className="text-transparent bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text">
+                Safety Management
+              </span>
+            </h1>
 
             {/* Description */}
             <p className="text-xl sm:text-2xl text-gray-200 max-w-4xl leading-relaxed text-left">
               Low cost certification with guaranteed results. Our Health and
-              Safety Consultancy optimizes systems to ensure high quality output.
+              Safety Consultancy optimizes systems to ensure high quality
+              output.
             </p>
 
             {/* Feature Pills */}
@@ -366,9 +365,7 @@ const OHSAS18001Page = () => {
       </section>
 
       {/* Assessment Process Section */}
-      <section
-        className="py-20 bg-white text-slate-800 relative overflow-hidden"
-      >
+      <section className="py-20 bg-white text-slate-800 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <div className="flex justify-center mb-4">
@@ -401,7 +398,9 @@ const OHSAS18001Page = () => {
                         {index + 1}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold mb-2 text-slate-800">{phase.phase}</h3>
+                    <h3 className="text-lg font-bold mb-2 text-slate-800">
+                      {phase.phase}
+                    </h3>
                   </div>
 
                   <p className="text-slate-700 text-sm leading-relaxed mb-4">
@@ -524,39 +523,6 @@ const OHSAS18001Page = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Download Resources Card */}
-              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                <div className="flex items-center gap-3 mb-4">
-                  <Download className="w-6 h-6 text-red-600" />
-                  <h3 className="text-xl font-semibold text-slate-800">
-                    Free Resources
-                  </h3>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <FileText className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm">
-                      Self-Assessment Questionnaire
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <FileText className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm">
-                      Implementation Guide
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <FileText className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm">
-                      Compliance Checklist
-                    </span>
-                  </div>
-                </div>
-                <button className="w-full mt-4 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300">
-                  Download Resources
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -566,7 +532,8 @@ const OHSAS18001Page = () => {
       <section
         className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
+          backgroundImage:
+            "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -603,15 +570,11 @@ const OHSAS18001Page = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-red-400 mb-2">
-                  100%
-                </div>
+                <div className="text-3xl font-bold text-red-400 mb-2">100%</div>
                 <p className="text-gray-200">Success Rate</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-red-300 mb-2">
-                  500+
-                </div>
+                <div className="text-3xl font-bold text-red-300 mb-2">500+</div>
                 <p className="text-gray-200">Clients Certified</p>
               </div>
               <div>

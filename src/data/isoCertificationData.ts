@@ -35,7 +35,7 @@ export const isoCertifications: ISOCertificationService[] = [
     badge: 'International',
   },
   {
-    id: 'iso-9001',
+    id: 'iso-certifications/iso-9001',
     icon: Shield,
     title: 'ISO 9001',
     description:
@@ -44,7 +44,7 @@ export const isoCertifications: ISOCertificationService[] = [
     badge: 'Most Popular',
   },
   {
-    id: 'iso-14001',
+    id: 'iso-certifications/iso-14001',
     icon: Leaf,
     title: 'ISO 14001',
     description:
@@ -53,7 +53,25 @@ export const isoCertifications: ISOCertificationService[] = [
     badge: 'Sustainable',
   },
   {
-    id: 'ohsas-18001',
+    id: 'iso-certifications/iso-27001',
+    icon: Shield,
+    title: 'ISO 27001',
+    description:
+      'Information Security Management System certification for data protection.',
+    price: 'From £3,200',
+    badge: 'Security Focus',
+  },
+  {
+    id: 'iso-certifications/iso-45001',
+    icon: Shield,
+    title: 'ISO 45001',
+    description:
+      'Occupational Health & Safety Management System for workplace safety.',
+    price: 'From £2,800',
+    badge: 'Safety Critical',
+  },
+  {
+    id: 'iso-certifications/ohsas-18001',
     icon: Shield,
     title: 'OHSAS 18001',
     description:
@@ -135,6 +153,18 @@ export const jointSystemBenefits = [
     focus: 'Environmental Management',
     integration: 'Risk assessment, legal compliance, operational control',
     color: 'from-green-500 to-green-600',
+  },
+  {
+    system: 'ISO 27001',
+    focus: 'Information Security Management',
+    integration: 'Risk assessment, security controls, incident response',
+    color: 'from-blue-500 to-blue-600',
+  },
+  {
+    system: 'ISO 45001',
+    focus: 'Occupational Health & Safety Management',
+    integration: 'Hazard identification, risk control, worker consultation',
+    color: 'from-orange-500 to-orange-600',
   },
   {
     system: 'OHSAS 18001',

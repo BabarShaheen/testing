@@ -31,7 +31,10 @@ import CareersPage from './pages/about-us/CareersPage';
 import Iso9001Page from './pages/services/iso-certifications/Iso9001Page';
 import OHSAS18001Page from './pages/services/iso-certifications/OHSAS18001Page';
 import Iso14001Page from './pages/services/iso-certifications/Iso14001Page';
+import Iso27001Page from './pages/services/iso-certifications/Iso27001Page';
 import FireSafetyCertificationPage from './pages/services/FireSafetyCertificationPage';
+import Iso45001Page from './pages/services/iso-certifications/Iso45001Page';
+import AISauditPage from './pages/services/sia-contractor/AISauditPage';
 // Placeholder components for remaining pages
 
 export default function App() {
@@ -141,6 +144,15 @@ export default function App() {
               }
             />
 
+            <Route
+              path="/services/sia-contractor/ais-audit"
+              element={
+                <PageTransition>
+                  <AISauditPage />
+                </PageTransition>
+              }
+            />
+
             {/* ISO Certifications Routes */}
             <Route
               path="/services/iso-certifications"
@@ -163,6 +175,22 @@ export default function App() {
               element={
                 <PageTransition>
                   <Iso14001Page />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/services/iso-certifications/iso-27001"
+              element={
+                <PageTransition>
+                  <Iso27001Page />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/services/iso-certifications/iso-45001"
+              element={
+                <PageTransition>
+                  <Iso45001Page />
                 </PageTransition>
               }
             />

@@ -181,7 +181,7 @@ const Footer: React.FC = () => {
                 { icon: Phone, text: '+44 20 8575 5544' },
                 {
                   icon: MapPin,
-                  text: '272 Bath Street, Glasgow, Scotland, Middlesex G2 4JR',
+                  text: '412, Allied Sainif House, Greenford UB6 9AH',
                 },
                 { icon: Clock, text: 'Mon-Fri: 9AM-6PM' },
               ].map((contact, index) => (

@@ -153,7 +153,8 @@ export const servicesData: Service[] = [
       {
         step: 4,
         title: 'Application Support',
-        description: 'Complete support through the Acclaim application process.',
+        description:
+          'Complete support through the Acclaim application process.',
       },
       {
         step: 5,
@@ -213,8 +214,7 @@ export const servicesData: Service[] = [
       {
         step: 1,
         title: 'Pre-Assessment',
-        description:
-          'Review your current policies and procedures.',
+        description: 'Review your current policies and procedures.',
       },
       {
         step: 2,
@@ -230,7 +230,8 @@ export const servicesData: Service[] = [
       {
         step: 4,
         title: 'Application Support',
-        description: 'Complete support through the Constructionline application process.',
+        description:
+          'Complete support through the Constructionline application process.',
       },
       {
         step: 5,
@@ -700,6 +701,98 @@ export const servicesData: Service[] = [
       clientsServed: '200+',
     },
   },
+  {
+    id: 'ais-annual-internal-audits',
+    title: 'AIS Annual Internal System Audits',
+    subtitle: 'Annual Internal Security System Audits',
+    description:
+      'Comprehensive annual internal audits to ensure ongoing compliance with security standards and operational excellence.',
+    iconName: 'Shield',
+    badge: 'Annual',
+    timeline: '3-5 weeks',
+    pricing: 'Starting from £2,200',
+    features: [
+      'Comprehensive system review',
+      'Risk assessment analysis',
+      'Compliance verification',
+      'Process optimization',
+      'Annual certification',
+      'Management reporting',
+    ],
+    color: 'bg-green-50/50 border-green/30',
+    benefits: [
+      'Continuous compliance assurance',
+      'Risk mitigation',
+      'Operational improvements',
+      'Regulatory alignment',
+      'Cost optimization',
+      'Enhanced security posture',
+      'Stakeholder confidence',
+      'Insurance compliance',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Audit Planning',
+        description:
+          'Comprehensive planning and scope definition for the annual audit cycle.',
+      },
+      {
+        step: 2,
+        title: 'Documentation Review',
+        description:
+          'Thorough review of all security policies, procedures, and documentation.',
+      },
+      {
+        step: 3,
+        title: 'System Assessment',
+        description:
+          'Technical evaluation of security systems, controls, and infrastructure.',
+      },
+      {
+        step: 4,
+        title: 'Process Evaluation',
+        description:
+          'Assessment of operational processes and staff compliance procedures.',
+      },
+      {
+        step: 5,
+        title: 'Risk Analysis',
+        description:
+          'Identification and evaluation of security risks and vulnerabilities.',
+      },
+      {
+        step: 6,
+        title: 'Findings & Recommendations',
+        description:
+          'Comprehensive report with findings, recommendations, and action plans.',
+      },
+      {
+        step: 7,
+        title: 'Implementation Support',
+        description:
+          'Ongoing support for implementing recommended improvements.',
+      },
+      {
+        step: 8,
+        title: 'Follow-up Review',
+        description:
+          'Follow-up assessment to verify implementation of corrective actions.',
+      },
+    ],
+    relatedServices: [
+      { name: 'SIA Contractor (ACS)', price: '£3,500', id: 'sia-contractor' },
+      { name: 'ACS Audits', price: '£1,200', id: 'sia-contractor/acs-audit' },
+      { name: 'ISO Certifications', price: '£2,500', id: 'iso-certifications' },
+      { name: 'Risk Assessment', price: '£800', id: 'risk-assessment' },
+    ],
+    stats: {
+      successRate: '99%',
+      clientRating: '4.8/5',
+      avgProjectTime: '4 weeks',
+      clientsServed: '85+',
+    },
+  },
 
   // ISO Certifications
   {
@@ -915,6 +1008,159 @@ export const servicesData: Service[] = [
       clientRating: '4.8/5',
       avgProjectTime: '9 weeks',
       clientsServed: '120+',
+    },
+  },
+  {
+    id: 'iso-certifications/iso-27001',
+    title: 'ISO 27001',
+    subtitle: 'Information Security Management System Certification',
+    description:
+      'Implement ISO 27001 information security management systems to protect your data assets and ensure cybersecurity compliance.',
+    iconName: 'Shield',
+    badge: 'Secure',
+    timeline: '10-12 weeks',
+    pricing: 'Starting from £3,200',
+    features: [
+      'Data protection',
+      'Risk management',
+      'Incident response',
+      'Security compliance',
+    ],
+    color: 'bg-blue-50/50 border-blue-500/30',
+    benefits: [
+      'Enhanced data security',
+      'Reduced security risks',
+      'Regulatory compliance',
+      'Customer trust and confidence',
+      'Competitive advantage',
+      'Business continuity',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Security Assessment',
+        description:
+          'Comprehensive assessment of current information security posture.',
+      },
+      {
+        step: 2,
+        title: 'Risk Analysis',
+        description:
+          'Identification and analysis of information security risks.',
+      },
+      {
+        step: 3,
+        title: 'ISMS Development',
+        description:
+          'Development of Information Security Management System documentation.',
+      },
+      {
+        step: 4,
+        title: 'Controls Implementation',
+        description: 'Implementation of security controls and procedures.',
+      },
+      {
+        step: 5,
+        title: 'Training & Awareness',
+        description: 'Security awareness training for all personnel.',
+      },
+      {
+        step: 6,
+        title: 'Certification',
+        description: 'Support through ISO 27001 certification process.',
+      },
+    ],
+    relatedServices: [
+      { name: 'ISO 9001', price: '£2,500', id: 'iso-9001' },
+      { name: 'GDPR Compliance', price: '£2,800', id: 'gdpr-compliance' },
+      {
+        name: 'Cybersecurity Assessment',
+        price: '£3,000',
+        id: 'cybersecurity-assessment',
+      },
+    ],
+    stats: {
+      successRate: '92%',
+      clientRating: '4.9/5',
+      avgProjectTime: '11 weeks',
+      clientsServed: '85+',
+    },
+  },
+
+  {
+    id: 'iso-certifications/iso-45001',
+    title: 'ISO 45001',
+    subtitle: 'Occupational Health and Safety Management System Certification',
+    description:
+      'Implement ISO 45001 occupational health and safety management systems to protect your workforce and ensure workplace safety.',
+    iconName: 'HardHat',
+    badge: 'Safety First',
+    timeline: '8-10 weeks',
+    pricing: 'Starting from £2,900',
+    features: [
+      'Workplace safety',
+      'Hazard identification',
+      'Incident prevention',
+      'Legal compliance',
+    ],
+    color: 'bg-orange-50/50 border-orange-500/30',
+    benefits: [
+      'Reduced workplace accidents',
+      'Lower insurance costs',
+      'Enhanced employee morale',
+      'Legal compliance',
+      'Improved productivity',
+      'Better reputation',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Safety Review',
+        description:
+          'Comprehensive review of current health and safety practices.',
+      },
+      {
+        step: 2,
+        title: 'Hazard Assessment',
+        description:
+          'Identification and assessment of workplace hazards and risks.',
+      },
+      {
+        step: 3,
+        title: 'System Development',
+        description:
+          'Development of occupational health and safety management system.',
+      },
+      {
+        step: 4,
+        title: 'Implementation',
+        description: 'Implementation of safety procedures and controls.',
+      },
+      {
+        step: 5,
+        title: 'Training Programs',
+        description: 'Health and safety training for all employees.',
+      },
+      {
+        step: 6,
+        title: 'Certification',
+        description: 'Support through ISO 45001 certification process.',
+      },
+    ],
+    relatedServices: [
+      { name: 'ISO 9001', price: '£2,500', id: 'iso-9001' },
+      { name: 'ISO 14001', price: '£2,800', id: 'iso-14001' },
+      {
+        name: 'Safety Training',
+        price: '£1,500',
+        id: 'safety-training',
+      },
+    ],
+    stats: {
+      successRate: '94%',
+      clientRating: '4.7/5',
+      avgProjectTime: '9 weeks',
+      clientsServed: '95+',
     },
   },
   {
@@ -1203,6 +1449,102 @@ export const servicesData: Service[] = [
       clientRating: '4.9/5',
       avgProjectTime: '1.5 weeks',
       clientsServed: '800+',
+    },
+  },
+  {
+    id: 'fire-safety',
+    title: 'Fire Safety Certification',
+    subtitle: 'Workplace Fire Safety Training & Certification',
+    description:
+      'Comprehensive fire safety training and certification to meet legal requirements under The Regulatory Reform Fire Safety Order 2005.',
+    iconName: 'Flame',
+    badge: 'Legal Requirement',
+    timeline: '1-2 weeks',
+    pricing: 'Starting from £450',
+    features: [
+      'Fire safety awareness training',
+      'Emergency evacuation procedures',
+      'Fire risk assessment basics',
+      'Equipment usage training',
+      'Legal compliance certification',
+      'Workplace-specific guidance',
+    ],
+    color: 'bg-red-50/50 border-red/30',
+    benefits: [
+      'Legal compliance assurance',
+      'Employee safety enhancement',
+      'Risk reduction',
+      'Insurance compliance',
+      'Emergency preparedness',
+      'Liability protection',
+      'Workplace confidence',
+      'Regulatory alignment',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Needs Assessment',
+        description:
+          'Evaluation of workplace fire safety requirements and current provisions.',
+      },
+      {
+        step: 2,
+        title: 'Training Program Design',
+        description:
+          'Customized training program development based on workplace specifics.',
+      },
+      {
+        step: 3,
+        title: 'Fire Safety Training',
+        description:
+          'Comprehensive training covering fire prevention, detection, and response.',
+      },
+      {
+        step: 4,
+        title: 'Emergency Procedures',
+        description:
+          'Training on evacuation procedures and emergency response protocols.',
+      },
+      {
+        step: 5,
+        title: 'Equipment Training',
+        description:
+          'Hands-on training with fire safety equipment and extinguishers.',
+      },
+      {
+        step: 6,
+        title: 'Assessment & Certification',
+        description:
+          'Knowledge assessment and issuance of fire safety certificates.',
+      },
+      {
+        step: 7,
+        title: 'Documentation',
+        description:
+          'Provision of training records and compliance documentation.',
+      },
+      {
+        step: 8,
+        title: 'Refresher Planning',
+        description:
+          'Scheduling of future refresher training and ongoing support.',
+      },
+    ],
+    relatedServices: [
+      {
+        name: 'Health & Safety Training',
+        price: '£600',
+        id: 'health-safety-training',
+      },
+      { name: 'Risk Assessment', price: '£800', id: 'risk-assessment' },
+      { name: 'Emergency Planning', price: '£900', id: 'emergency-planning' },
+      { name: 'Compliance Audits', price: '£1,200', id: 'compliance-audits' },
+    ],
+    stats: {
+      successRate: '100%',
+      clientRating: '4.9/5',
+      avgProjectTime: '10 days',
+      clientsServed: '200+',
     },
   },
   {

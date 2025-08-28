@@ -7,7 +7,7 @@ import {
   ArrowRight,
   ExternalLink,
 } from 'lucide-react';
-
+import { useNavigate } from 'react-router-dom';
 import {
   eligibleServices,
   acsCertifications,
@@ -17,8 +17,9 @@ import {
 } from '../../../data/acsEligibilityData';
 
 const AcsEligibilityPage = () => {
+  const navigate = useNavigate();
   const handleContactClick = () => {
-    console.log('Navigate to contact');
+    navigate('/contact');
   };
 
   const handleServiceClick = (serviceId: any) => {
@@ -68,14 +69,20 @@ const AcsEligibilityPage = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 pt-4">
-                <button className="bg-crimson-gradient hover:bg-vivid-red text-pure-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl group relative overflow-hidden">
+                <button
+                  onClick={handleContactClick}
+                  className="bg-crimson-gradient hover:bg-vivid-red text-pure-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl group relative overflow-hidden"
+                >
                   <span className="relative z-10 flex items-center gap-3">
                     Check Your Eligibility
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                 </button>
 
-                <button className="border-2 border-pure-white/80 text-pure-white hover:bg-pure-white hover:text-charcoal-navy px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:backdrop-blur-none group">
+                <button
+                  onClick={handleContactClick}
+                  className="border-2 border-pure-white/80 text-pure-white hover:bg-pure-white hover:text-charcoal-navy px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:backdrop-blur-none group"
+                >
                   <span className="flex items-center gap-3">
                     Learn More
                     <ExternalLink className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
@@ -385,7 +392,8 @@ const AcsEligibilityPage = () => {
       <section
         className="py-20 bg-crimson-gradient text-white relative overflow-hidden animate-fade-in"
         style={{
-          backgroundImage: "url('/Images/landingpage/get-started_optimized.webp')",
+          backgroundImage:
+            "url('/Images/landingpage/get-started_optimized.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

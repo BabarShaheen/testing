@@ -1,12 +1,21 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { whyChooseUsData } from '../data/whyChooseUsData';
-import { ArrowRight } from 'lucide-react';
+import { whyChooseUsData } from '../data/whyChooseUsData.ts';
+import {
+  ArrowRight,
+  MessageSquare,
+  FileText,
+  Shield,
+  Award,
+  TrendingUp,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import LogoSlider from '../components/common/LogoSlider';
-import FeatureSlider from '../components/common/FeatureSlider';
+import FeatureSlider from '../components/common/FeatureSlider.tsx';
 import DynamicWords from '../components/common/DynamicWords.tsx';
-import { PageLoader } from '../components/common/LoadingSpinner';
+import { PageLoader } from '../components/common/LoadingSpinner.tsx';
+import LightRays from '../Backgrounds/LightRays/LightRays.tsx';
+import CardSwap, { Card } from '../components/CardSwap/CardSwap.tsx';
+import LogoLoop from '../Animations/LogoLoop/LogoLoop.tsx';
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -31,6 +40,70 @@ export function HomePage() {
     }
   }, []);
 
+  // Alternative with image sources
+  const imageLogos = [
+    {
+      src: '/Images/slider/2_optimized.webp',
+      alt: 'Company 1',
+      href: 'https://company1.com',
+    },
+    {
+      src: '/Images/slider/3_optimized.webp',
+      alt: 'Company 2',
+      href: 'https://company2.com',
+    },
+    {
+      src: '/Images/slider/4_optimized.webp',
+      alt: 'Company 3',
+      href: 'https://company3.com',
+    },
+    {
+      src: '/Images/slider/5_optimized.webp',
+      alt: 'Company 1',
+      href: 'https://company1.com',
+    },
+    {
+      src: '/Images/slider/6_optimized.webp',
+      alt: 'Company 2',
+      href: 'https://company2.com',
+    },
+    {
+      src: '/Images/slider/7_optimized.webp',
+      alt: 'Company 3',
+      href: 'https://company3.com',
+    },
+    {
+      src: '/Images/slider/8_optimized.webp',
+      alt: 'Company 1',
+      href: 'https://company1.com',
+    },
+    {
+      src: '/Images/slider/9_optimized.webp',
+      alt: 'Company 2',
+      href: 'https://company2.com',
+    },
+    {
+      src: '/Images/slider/10_optimized.webp',
+      alt: 'Company 3',
+      href: 'https://company3.com',
+    },
+    {
+      src: '/Images/slider/11_optimized.webp',
+      alt: 'Company 1',
+      href: 'https://company1.com',
+    },
+    {
+      src: '/Images/slider/12_optimized.webp',
+      alt: 'Company 2',
+      href: 'https://company2.com',
+    },
+    {
+      src: '/Images/slider/13_optimized.webp',
+      alt: 'Company 3',
+      href: 'https://company3.com',
+    },
+  ];
+
   const handleNavClick = (page: string) => {
     navigate(`/${page}`);
   };
@@ -54,46 +127,50 @@ export function HomePage() {
       </AnimatePresence>
 
       <section className="relative min-h-screen bg-[#1C1F2A] text-white overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1C1F2A] via-[#252B3A] to-[#ed2568] z-0"></div>
-
-        {/* Animated background pattern - reduced opacity on mobile */}
-        <div
-          className="absolute inset-0 opacity-[0.02] sm:opacity-[0.03] z-0"
-          style={{
-            backgroundImage: `linear-gradient(to right, #ed2568 1px, transparent 1px), linear-gradient(to bottom, #ed2568 1px, transparent 1px)`,
-            backgroundSize: '40px 40px sm:60px 60px',
-          }}
-        ></div>
-
-        {/* Floating orbs - adjusted for mobile */}
-        <motion.div
-          className="absolute top-20 sm:top-32 right-[5%] sm:right-[15%] w-48 h-48 sm:w-96 sm:h-96 rounded-full bg-gradient-to-br from-[#ed2568]/15 to-[#ffc857]/8 blur-2xl sm:blur-3xl z-0"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 sm:bottom-32 left-[5%] sm:left-[10%] w-40 h-40 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-[#ffc857]/15 to-[#ed2568]/8 blur-2xl sm:blur-3xl z-0"
-          animate={{
-            scale: [1, 0.8, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 2,
-          }}
-        />
+        {/* LightRays Background - Positioned absolutely to cover entire section */}
+        <div className="absolute inset-0 z-0">
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#00ffff"
+            raysSpeed={1.5}
+            lightSpread={0.8}
+            rayLength={1.2}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0.1}
+            distortion={0.05}
+            className="w-full h-full"
+          />
+        </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
+          {/* Floating orbs - adjusted for mobile */}
+          <motion.div
+            className="absolute top-20 sm:top-32 right-[5%] sm:right-[15%] w-48 h-48 sm:w-96 sm:h-96 rounded-full bg-gradient-to-br from-[#ed2568]/15 to-[#ffc857]/8 blur-2xl sm:blur-3xl z-0"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 sm:bottom-32 left-[5%] sm:left-[10%] w-40 h-40 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-[#ffc857]/15 to-[#ed2568]/8 blur-2xl sm:blur-3xl z-0"
+            animate={{
+              scale: [1, 0.8, 1],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 2,
+            }}
+          />
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 min-h-screen items-center py-8 lg:py-16">
             {/* Left Content */}
             <div className="flex flex-col justify-center order-2 lg:order-1 lg:pr-8 relative z-10 text-center lg:text-left">
@@ -126,7 +203,7 @@ export function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 relative z-20 py-6 lg:py-10 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 relative z-20 py-6 lg:py-10 justify-center lg:justify-start items-center sm:items-start"
               >
                 <button
                   onClick={() => {
@@ -139,172 +216,239 @@ export function HomePage() {
                       block: 'start',
                     });
                   }}
-                  className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#ed2568] to-[#ee343b] text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 group text-sm sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 bg-gradient-to-r from-[#ed2568] to-[#ee343b] text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 group text-xs sm:text-sm lg:text-base w-auto max-w-xs sm:max-w-none"
                 >
                   Learn more about us
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
                   onClick={() => (window.location.href = '/services')}
-                  className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[#4a90e2] text-white font-semibold rounded-full hover:bg-[#357abd] hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 bg-[#4a90e2] text-white font-semibold rounded-full hover:bg-[#357abd] hover:scale-105 transition-all duration-300 text-xs sm:text-sm lg:text-base w-auto max-w-xs sm:max-w-none"
                 >
                   Services & capabilities
                 </button>
               </motion.div>
             </div>
 
-            {/* RIGHT CONTENT - Mobile-First Layout */}
-            <div className="relative order-1 lg:order-2 h-[400px] sm:h-[500px] lg:h-full lg:max-h-[600px] mb-8 lg:mb-0">
-              {/* Mobile Layout - Stacked Cards */}
-              <div className="block lg:hidden w-full h-full">
-                {/* Main large image - Full width on mobile */}
-                <motion.div
-                  className="w-full h-[45%] rounded-xl overflow-hidden shadow-lg mb-3"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&crop=building"
-                    alt="Modern building"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-
-                {/* Two cards side by side on mobile */}
-                <div className="flex gap-3 h-[25%] mb-3">
-                  {/* Sectors card */}
-                  <motion.div
-                    className="flex-1 rounded-xl overflow-hidden shadow-lg relative"
-                    style={{
-                      backgroundImage:
-                        'url(/Images/services/iso14001_cover_optimized.webp)',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                  >
-                    <div className="absolute bottom-1 left-0 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded-r-md">
-                      12+ Sectors
+            {/* Right Side Cards - Hidden on mobile and tablet */}
+            <div className="hidden lg:block order-1 lg:order-2">
+              <CardSwap
+                width={480}
+                height={520}
+                cardDistance={60}
+                verticalDistance={70}
+                delay={3000}
+                pauseOnHover={false}
+                skewAmount={6}
+                easing="elastic"
+              >
+                <Card customClass="bg-transparent border-none shadow-none">
+                  <div className="w-[320px] h-[280px] bg-gradient-to-br from-white via-white to-pink-50/30 rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl hover:scale-105 transition-all duration-500 backdrop-blur-sm group">
+                    {/* Animated gradient top bar */}
+                    <div className="h-1 bg-gradient-to-r from-[#ed2568] via-[#ff4081] to-[#e91e63] relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
                     </div>
-                  </motion.div>
 
-                  {/* Services card */}
-                  <motion.div
-                    className="flex-1 rounded-xl shadow-lg relative"
-                    style={{
-                      backgroundImage: 'url(iso_cover_optimized.webp)',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/20"></div>
-                    <div className="absolute top-1 right-0 bg-white/90 text-[#1C1F2A] text-xs font-bold px-2 py-1 rounded-l-md shadow-md">
-                      15+ Services
+                    {/* Floating orbs background */}
+                    <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-[#ed2568]/10 to-[#ff4081]/10 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div className="absolute top-8 right-8 w-12 h-12 bg-gradient-to-br from-[#ff4081]/20 to-[#ed2568]/20 rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-700"></div>
+
+                    <div className="relative p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="relative">
+                          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#ed2568] to-[#ff4081] flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                            <FileText className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full flex items-center justify-center">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-lg text-gray-800 group-hover:text-gray-900 transition-colors">
+                            ISO Certification
+                          </h3>
+                          <p className="text-xs text-gray-500 font-medium">
+                            Professional Standards
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Streamlined certification process with expert guidance
+                        and guaranteed results
+                      </p>
+
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                          <span className="text-sm font-semibold text-[#ed2568] hover:underline cursor-pointer mr-2">
+                            Learn more
+                          </span>
+                          <ArrowRight className="w-4 h-4 text-[#ed2568] group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Award className="w-4 h-4 text-[#ed2568]" />
+                          <span className="text-sm font-bold bg-gradient-to-r from-[#ed2568] to-[#ff4081] bg-clip-text text-transparent px-3 py-1 rounded-full border border-[#ed2568]/20 shadow-sm">
+                            99% Success
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Progress indicator */}
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-[#ed2568] to-[#ff4081] rounded-full w-[99%] relative">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+                        </div>
+                      </div>
                     </div>
-                  </motion.div>
-                </div>
-
-                {/* Experience banner - Full width */}
-                <motion.div
-                  className="w-full h-[25%] rounded-xl overflow-hidden flex items-center justify-center bg-cover bg-center px-4 text-white shadow-lg"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=150&fit=crop&crop=nature')",
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                >
-                  <div className="text-center">
-                    <p className="font-bold text-sm sm:text-base mb-1">
-                      Client-first consulting
-                    </p>
-                    <p className="text-xs sm:text-sm opacity-90">Since 2012</p>
                   </div>
-                </motion.div>
-              </div>
+                </Card>
 
-              {/* Desktop Layout - Original Grid */}
-              <div className="hidden lg:block w-full h-full">
-                {/* Large building image - Top Left */}
-                <motion.div
-                  className="absolute top-0 left-0 w-[48%] h-[65%] rounded-xl overflow-hidden shadow-lg"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=600&fit=crop&crop=building"
-                    alt="Modern building"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
+                <Card customClass="bg-transparent border-none shadow-none">
+                  <div className="w-[320px] h-[280px] bg-gradient-to-br from-white via-white to-amber-50/30 rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl hover:scale-105 transition-all duration-500 backdrop-blur-sm group">
+                    {/* Animated gradient top bar */}
+                    <div className="h-1 bg-gradient-to-r from-[#ffc857] via-[#ffb74d] to-[#ff9800] relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+                    </div>
 
-                {/* Sectors card - Top Right */}
-                <motion.div
-                  className="absolute top-0 right-0 w-[48%] h-[30%] rounded-xl overflow-hidden shadow-lg"
-                  style={{
-                    backgroundImage:
-                      'url(/Images/services/iso14001_cover_optimized.webp)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  <div className="absolute bottom-2 left-0 bg-black/50 text-white text-sm font-semibold px-3 py-1 rounded-r-md">
-                    12+ Sectors
+                    {/* Floating orbs background */}
+                    <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-[#ffc857]/10 to-[#ffb74d]/10 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div className="absolute top-8 right-8 w-12 h-12 bg-gradient-to-br from-[#ffb74d]/20 to-[#ffc857]/20 rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-700"></div>
+
+                    <div className="relative p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="relative">
+                          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#ffc857] to-[#ffb74d] flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                            <Shield className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-400 rounded-full flex items-center justify-center">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-lg text-gray-800 group-hover:text-gray-900 transition-colors">
+                            Health & Safety
+                          </h3>
+                          <p className="text-xs text-gray-500 font-medium">
+                            Workplace Protection
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Comprehensive workplace safety solutions with full UK
+                        compliance guarantee
+                      </p>
+
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                          <span className="text-sm font-semibold text-[#ffc857] hover:underline cursor-pointer mr-2">
+                            Learn more
+                          </span>
+                          <ArrowRight className="w-4 h-4 text-[#ffc857] group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                            <span className="text-sm font-bold bg-gradient-to-r from-[#ffc857] to-[#ffb74d] bg-clip-text text-transparent px-3 py-1 rounded-full border border-[#ffc857]/20 shadow-sm">
+                              UK Compliant
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Compliance indicators */}
+                      <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-1">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <span className="text-xs text-gray-500">
+                            HSE Approved
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                          <span className="text-xs text-gray-500">
+                            ISO 45001
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </motion.div>
+                </Card>
 
-                {/* Services card - Middle Right */}
-                <motion.div
-                  className="absolute top-[35%] right-0 w-[48%] h-[30%] rounded-xl flex flex-col items-center justify-center text-center p-4 shadow-lg"
-                  style={{
-                    backgroundImage: 'url(iso_cover_optimized.webp)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/20"></div>
-                  <div className="absolute top-2 right-0 bg-white/80 text-[#1C1F2A] text-sm font-bold px-3 py-1 rounded-l-md shadow-md">
-                    15+ Services
-                  </div>
-                </motion.div>
+                <Card customClass="bg-transparent border-none shadow-none">
+                  <div className="w-[320px] h-[280px] bg-gradient-to-br from-white via-white to-blue-50/30 rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl hover:scale-105 transition-all duration-500 backdrop-blur-sm group">
+                    {/* Animated gradient top bar */}
+                    <div className="h-1 bg-gradient-to-r from-[#4a90e2] via-[#81c3fd] to-[#2196f3] relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+                    </div>
 
-                {/* Experience banner - Bottom */}
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-[30%] rounded-xl overflow-hidden flex items-center justify-center bg-cover bg-center p-6 text-white shadow-lg"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=200&fit=crop&crop=nature')",
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                >
-                  <div className="text-center">
-                    <p className="font-bold text-lg mb-1">
-                      Client-first consulting
-                    </p>
-                    <p className="text-sm opacity-90">Since 2012</p>
+                    {/* Floating orbs background */}
+                    <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-[#4a90e2]/10 to-[#81c3fd]/10 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div className="absolute top-8 right-8 w-12 h-12 bg-gradient-to-br from-[#81c3fd]/20 to-[#4a90e2]/20 rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-700"></div>
+
+                    <div className="relative p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4a90e2] to-[#81c3fd] flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                          <TrendingUp className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-lg text-gray-800 group-hover:text-gray-900 transition-colors">
+                            Compliance Stats
+                          </h3>
+                          <p className="text-xs text-gray-500 font-medium">
+                            Real-time Analytics
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3 mb-4">
+                        <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-2xl border border-gray-100 group-hover:shadow-lg transition-shadow duration-300">
+                          <div className="text-2xl font-bold bg-gradient-to-r from-[#ed2568] to-[#ff4081] bg-clip-text text-transparent">
+                            98%
+                          </div>
+                          <div className="text-xs text-gray-600 font-medium">
+                            Success Rate
+                          </div>
+                          <div className="mt-1 w-full bg-gray-200 rounded-full h-1">
+                            <div className="bg-gradient-to-r from-[#ed2568] to-[#ff4081] h-1 rounded-full w-[98%]"></div>
+                          </div>
+                        </div>
+                        <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-2xl border border-gray-100 group-hover:shadow-lg transition-shadow duration-300">
+                          <div className="text-2xl font-bold bg-gradient-to-r from-[#ffc857] to-[#ffb74d] bg-clip-text text-transparent">
+                            500+
+                          </div>
+                          <div className="text-xs text-gray-600 font-medium">
+                            Clients
+                          </div>
+                          <div className="flex items-center mt-1">
+                            <TrendingUp className="w-3 h-3 text-green-500 mr-1" />
+                            <span className="text-xs text-green-500 font-medium">
+                              +12% this month
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                          <span className="text-sm font-semibold text-[#4a90e2] hover:underline cursor-pointer mr-2">
+                            View all statistics
+                          </span>
+                          <ArrowRight className="w-4 h-4 text-[#4a90e2] group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
+                        <div className="w-8 h-8 bg-gradient-to-br from-[#4a90e2] to-[#81c3fd] rounded-full flex items-center justify-center">
+                          <MessageSquare className="w-4 h-4 text-white" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </motion.div>
-              </div>
+                </Card>
+              </CardSwap>
             </div>
           </div>
         </div>
       </section>
+
       {/* Services Preview - Framer Motion Version */}
       <section
         id="services-section"
@@ -1126,10 +1270,8 @@ export function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Our{' '}
-            <span className="text-gradient-crimson">
-              Accreditations & Certifications
-            </span>
+            <span className="text-gradient-crimson">Accreditations</span> &{' '}
+            <span className="text-gradient-crimson">Certifications</span>
           </motion.h2>
           <motion.p
             className="text-lg text-charcoal-navy/70 max-w-3xl mx-auto leading-relaxed"
@@ -1142,7 +1284,18 @@ export function HomePage() {
             excellence and compliance standards
           </motion.p>
         </div>
-        <LogoSlider />
+        <LogoLoop
+          logos={imageLogos}
+          speed={120}
+          direction="left"
+          logoHeight={48}
+          gap={40}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          fadeOutColor="#ffffff"
+          ariaLabel="Technology partners"
+        />
       </section>
 
       {/* Ready to Get Started Section - Enhanced with Cards */}

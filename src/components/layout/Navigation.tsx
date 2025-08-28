@@ -100,29 +100,7 @@ const Navigation: React.FC = () => {
             },
           ],
         },
-        {
-          id: 'sia-contractor',
-          label: 'SIA Contractor (ACS)',
-          icon: Award,
-          path: '/services/sia-contractor',
-          description: 'Security industry compliance',
-          children: [
-            {
-              id: 'acs-audit',
-              label: 'ACS Audit',
-              path: '/services/sia-contractor/acs-audit',
-              icon: FileText,
-              description: 'Approved Contractor Scheme audits',
-            },
-            {
-              id: 'acs-eligibility',
-              label: 'ACS Eligibility',
-              path: '/services/sia-contractor/acs-eligibility',
-              icon: Users,
-              description: 'Eligibility assessment and support',
-            },
-          ],
-        },
+
         {
           id: 'iso-certifications',
           label: 'ISO Certifications',
@@ -147,6 +125,20 @@ const Navigation: React.FC = () => {
               description: 'Environmental management systems',
             },
             {
+              id: 'iso-27001',
+              label: 'ISO 27001',
+              path: '/services/iso-certifications/iso-27001',
+              icon: Award,
+              description: 'Environmental management systems',
+            },
+            {
+              id: 'iso-45001',
+              label: 'ISO 45001',
+              path: '/services/iso-certifications/iso-45001',
+              icon: Award,
+              description: 'Environmental management systems',
+            },
+            {
               id: 'sia-acs-integration',
               label: 'SIA ACS Integration',
               path: '/services/iso-certifications/sia-acs-integration',
@@ -159,6 +151,36 @@ const Navigation: React.FC = () => {
               path: '/services/iso-certifications/ohsas-18001',
               icon: Shield,
               description: 'Occupational health & safety',
+            },
+          ],
+        },
+        {
+          id: 'sia-contractor',
+          label: 'SIA Contractor (ACS)',
+          icon: Award,
+          path: '/services/sia-contractor',
+          description: 'Security industry compliance',
+          children: [
+            {
+              id: 'acs-audit',
+              label: 'ACS Audit',
+              path: '/services/sia-contractor/acs-audit',
+              icon: FileText,
+              description: 'Approved Contractor Scheme audits',
+            },
+            {
+              id: 'acs-eligibility',
+              label: 'ACS Eligibility',
+              path: '/services/sia-contractor/acs-eligibility',
+              icon: Users,
+              description: 'Eligibility assessment and support',
+            },
+            {
+              id: 'ais-audit',
+              label: 'AIS Audit',
+              path: '/services/sia-contractor/ais-audit',
+              icon: FileText,
+              description: 'Annual Internal System audits',
             },
           ],
         },
@@ -623,7 +645,7 @@ const Navigation: React.FC = () => {
             {/* Logo - Left side */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center cursor-pointer group">
-                <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-110 ">
                   <img
                     src="/citrix-logo_optimized.webp"
                     alt="Citrix Logo"
@@ -632,10 +654,10 @@ const Navigation: React.FC = () => {
                 </div>
                 <div className="transition-all duration-300">
                   <div className="text-charcoal-navy font-bold text-2xl tracking-tight group-hover:text-crimson-pink transition-all duration-300 relative overflow-hidden">
-                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                      Citrix
+                    <span className="inline-block transition-transform duration-300 ">
+                      CITRIX
                     </span>
-                    <span className="inline-block transition-transform duration-300 delay-75 group-hover:translate-x-1">
+                    <span className="inline-block transition-transform duration-300 delay-75 ">
                       {' '}
                       Consulting
                     </span>
