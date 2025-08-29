@@ -436,7 +436,7 @@ export function ContactPage() {
                             Email
                           </h3>
                           <p className="text-gray-600 text-base">
-                            info@citrixconsulting.co.uk
+                            info@citrix-consulting-limited.co.uk
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             We typically respond within 2 hours
@@ -453,7 +453,7 @@ export function ContactPage() {
                             Phone
                           </h3>
                           <p className="text-gray-600 text-base">
-                            +44 (0) 123 456 7890
+                            +44 20 8575 5544
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             Mon-Fri: 9AM-6PM GMT
@@ -470,7 +470,7 @@ export function ContactPage() {
                             Address
                           </h3>
                           <p className="text-gray-600 text-base">
-                            London, United Kingdom
+                            412, Allied Sainif House, Greenford UB6 9AH
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
                             Serving clients nationwide

@@ -226,7 +226,7 @@ export function HealthSafetyPage() {
                 <p className="text-lg font-semibold text-crimson-pink">
                   Discounts available for multiple accreditations — Call us:
                   <span className="text-warm-amber font-bold ml-2">
-                    +44 (0) 123 456 7890
+                    +44 20 8575 5544
                   </span>
                 </p>
               </div>

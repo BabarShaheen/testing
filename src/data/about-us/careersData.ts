@@ -19,10 +19,8 @@ export const requirements = [
 ];
 
 export const benefits = [
-  'Competitive salary: £7.80 – £8.50 / hour',
   '23 days of annual holiday',
   'Flexible working arrangements',
-  'Pension contributions',
   'Fun team-building days and events',
   'A supportive and inclusive work culture',
 ];
