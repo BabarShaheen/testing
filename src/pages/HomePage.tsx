@@ -222,7 +222,7 @@ export function HomePage() {
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
-                  onClick={() => (window.location.href = '/services')}
+                  onClick={() => navigate('/services')}
                   className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 bg-[#4a90e2] text-white font-semibold rounded-full hover:bg-[#357abd] hover:scale-105 transition-all duration-300 text-xs sm:text-sm lg:text-base w-auto max-w-xs sm:max-w-none"
                 >
                   Services & capabilities
