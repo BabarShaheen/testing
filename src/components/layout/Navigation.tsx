@@ -644,27 +644,22 @@ const Navigation: React.FC = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo - Left side */}
             <div className="flex items-center">
-              <Link to="/" className="flex items-center cursor-pointer group">
-                <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-110 ">
+              <Link to="/" className="flex items-center gap-3 cursor-pointer group">
+                {/* Logo Icon */}
+                <div className="flex items-center justify-center scale-110">
                   <img
-                    src="/citrixconsultancy-logo.png"
+                    src="/logo1.png"
                     alt="Citrix Logo"
-                    className="w-11 h-11 object-cover drop-shadow-md transition-all duration-300 group-hover:drop-shadow-xl"
+                    className="h-15 w-12 object-contain drop-shadow-md "
                   />
                 </div>
-                <div className="transition-all duration-300">
-                  <div className="text-charcoal-navy font-bold text-2xl tracking-tight group-hover:text-crimson-pink transition-all duration-300 relative overflow-hidden">
-                    <span className="inline-block transition-transform duration-300 ">
-                      CITRIX
-                    </span>
-                    <span className="inline-block transition-transform duration-300 delay-75 ">
-                      {' '}
-                      Consulting
-                    </span>
-                  </div>
-                  <div className="text-gray-500 text-base font-medium transition-all duration-300 group-hover:text-gray-700">
-                    Services Limited
-                  </div>
+                {/* Logo Text */}
+                <div className="flex items-center scale-105">
+                  <img
+                    src="/logo-text.png"
+                    alt="Citrix Consulting Services"
+                    className="h-40 w-40 object-contain drop-shadow-sm "
+                  />
                 </div>
               </Link>
             </div>
