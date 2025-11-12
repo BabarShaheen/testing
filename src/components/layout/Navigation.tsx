@@ -640,14 +640,14 @@ const Navigation: React.FC = () => {
             : 'bg-white shadow-sm border-b border-gray-200/30'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo - Left side */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center cursor-pointer group">
                 <div className="w-16 h-14 flex items-center justify-center transition-all duration-300 group-hover:scale-110 ">
                   <img
-                    src="/citrix-logo_optimized.webp"
+                    src="/citrixconsultancy-logo.png"
                     alt="Citrix Logo"
                     className="w-11 h-11 object-cover drop-shadow-md transition-all duration-300 group-hover:drop-shadow-xl"
                   />
@@ -670,7 +670,7 @@ const Navigation: React.FC = () => {
             </div>
 
             {/* Desktop Navigation - Center */}
-            <div className="hidden lg:flex items-center justify-center flex-1 max-w-3xl mx-12">
+            <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
               <div className="flex items-center space-x-8">
                 {navigationStructure.map((item) => (
                   <div
